@@ -13,21 +13,59 @@ const createElemnet = () =>{
 }
 
 const delel = ()=>{
-    if(prevSelection.length !== 0){
+    while (prevSelection.length>0) {
         prevSelection.pop().remove();
-        document.getElementById("delbutt").disabled = true;
     }
+    document.getElementById("delbutt").disabled = true;
+
 }
 
 addEventListener("click",(event)=>{
+    // console.log(event.target.classList);
+    // console.log("control key is presses",event.ctrlKey);
+    // console.log(event);
     const target = event.target;
     
     if(target.classList.contains("selectable")){
-        if(prevSelection[0] != undefined){
-            prevSelection.pop().classList.remove("highlight");
+        if(prevSelection[0] != undefined && !event.ctrlKey && !event.shiftKey){
+            while(prevSelection.length>0){
+                prevSelection.pop().classList.remove("highlight");
+            }
+            prevSelection.push(target);
+            target.classList.add("highlight");
         }
-        prevSelection.push(target);
-        target.classList.add("highlight");
+        else if(prevSelection[0] != undefined && event.ctrlKey){
+            console.log("control is presses",event.ctrlKey);
+            prevSelection.push(target);
+            target.classList.add("highlight");
+        }
+        else if(event.shiftKey && prevSelection[0] != undefined){
+            console.log("shift is presses",event.shiftKey);
+
+            let lastselectedelem = prevSelection.pop();
+            while(prevSelection.length>0){
+                prevSelection.pop().classList.remove("highlight");
+            }
+            const siblnglst = Array.from(document.getElementsByClassName("selectable"));
+            let starttemp = siblnglst.indexOf(lastselectedelem);
+            let endtemp = siblnglst.indexOf(target);
+            let start = Math.min(starttemp,endtemp);
+            let end = Math.max(starttemp,endtemp);
+            
+            for(let i=start;i<=end;i++){
+                prevSelection.push(siblnglst[i]);
+                siblnglst[i].classList.add("highlight");
+            }
+
+        }
+        else{
+            prevSelection.push(target);
+            target.classList.add("highlight");
+        }
+
         document.getElementById("delbutt").disabled = false;
-    };
+    }
+    console.log(prevSelection);
+    
 });
+
