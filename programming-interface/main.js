@@ -1,6 +1,7 @@
 const programming_interface = document.getElementById("program-interface");
 const prevSelection = [];
 let count = 0;
+let ifshiftpressed=false;
 const addel = ()=>{
     programming_interface.appendChild(createElemnet());
 }
@@ -20,6 +21,12 @@ const delel = ()=>{
 
 }
 
+function deselect(){
+    while(prevSelection.length>0){
+        prevSelection.pop().classList.remove("highlight");
+    }
+}
+
 addEventListener("click",(event)=>{
     // console.log(event.target.classList);
     // console.log("control key is presses",event.ctrlKey);
@@ -28,9 +35,7 @@ addEventListener("click",(event)=>{
     
     if(target.classList.contains("selectable")){
         if(prevSelection[0] != undefined && !event.ctrlKey && !event.shiftKey){
-            while(prevSelection.length>0){
-                prevSelection.pop().classList.remove("highlight");
-            }
+            deselect();
             prevSelection.push(target);
             target.classList.add("highlight");
         }
@@ -41,11 +46,16 @@ addEventListener("click",(event)=>{
         }
         else if(event.shiftKey && prevSelection[0] != undefined){
             console.log("shift is presses",event.shiftKey);
-
+            
             let lastselectedelem = prevSelection.pop();
-            while(prevSelection.length>0){
-                prevSelection.pop().classList.remove("highlight");
+            console.log(ifshiftpressed);
+            if(!ifshiftpressed)
+            {
+                ifshiftpressed = true;
+                deselect();
             }
+            console.log(ifshiftpressed);
+            
             const siblnglst = Array.from(document.getElementsByClassName("selectable"));
             let starttemp = siblnglst.indexOf(lastselectedelem);
             let endtemp = siblnglst.indexOf(target);
@@ -68,4 +78,12 @@ addEventListener("click",(event)=>{
     console.log(prevSelection);
     
 });
+
+addEventListener("keyup",(ev)=>{
+
+    if(ev.key == "Shift"){
+        ifshiftpressed = false;
+    }
+
+})
 
