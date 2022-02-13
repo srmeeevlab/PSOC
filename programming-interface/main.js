@@ -7,6 +7,7 @@ const addel = ()=>{
 
 const createElemnet = () =>{
     const new_el = document.createElement("h1");
+    new_el.classList.add("noselect");
     new_el.classList.add("selectable");
     new_el.innerHTML = "HELLO"+count++;
     return new_el;
