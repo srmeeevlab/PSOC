@@ -15,15 +15,138 @@
 </nav>
 <div class="container-fluid">
     <div class="row">
+<!--        <div id="pallete" class="col-2" style="background-color: red;min-height: 100vh">-->
+<!--            <div class="panel-group">-->
+<!--                <div class="panel panel-default">-->
+<!--                    <div class="panel-heading">-->
+<!--                        <h4 class="panel-title">-->
+<!--                            <a data-bs-toggle="collapse" href="#var" role="button" aria-expanded="false" aria-controls="var" class="noselect">Variables</a>-->
+<!--                        </h4>-->
+<!--                    </div>-->
+<!--                    <div id="var" class="panel-collapse collapse">-->
+<!--                        <ul class="list-group">-->
+<!--                            <li id="var-boolean" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                Boolean-->
+<!--                            </li>-->
+<!--                            <li id="var-cst" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                Constant-->
+<!--                            </li>-->
+<!--                            <li id="var-matrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                Matrix-->
+<!--                            </li>-->
+<!--                            <li id="var-imatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                Identity Matrix-->
+<!--                            </li>-->
+<!--                            <li id="var-umatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                Unit Matrix-->
+<!--                            </li>-->
+<!--                        </ul>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="panel-group">-->
+<!--                    <div class="panel panel-default">-->
+<!--                        <div class="panel-heading">-->
+<!--                            <h4 class="panel-title">-->
+<!--                                <a data-bs-toggle="collapse" href="#con-loop" class="noselect" role="button" aria-expanded="false" aria-controls="con-loop">Conditionals and Loops</a>-->
+<!--                            </h4>-->
+<!--                        </div>-->
+<!--                        <div id="con-loop" class="panel-collapse collapse">-->
+<!--                            <ul class="list-group">-->
+<!--                                <li id="con-if-" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    If-->
+<!--                                </li>-->
+<!--                                <li id="con-elif" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    Else If-->
+<!--                                </li>-->
+<!--                                <li id="con-else" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    Else-->
+<!--                                </li>-->
+<!--                                <li id="lop-for" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    FOR-->
+<!--                                </li>-->
+<!--                                <li id="lop-while" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    While-->
+<!--                                </li>-->
+<!--                                <li id="con-break" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    Break-->
+<!--                                </li>-->
+<!--                                <li id="con-continue" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    Continue-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="panel-group">-->
+<!--                    <div class="panel panel-default">-->
+<!--                        <div class="panel-heading">-->
+<!--                            <h4 class="panel-title">-->
+<!--                                <a data-bs-toggle="collapse" href="#math" role="button" class="noselect" aria-expanded="false" aria-controls="math">Math</a>-->
+<!--                            </h4>-->
+<!--                        </div>-->
+<!--                        <div id="math" class="panel-collapse collapse">-->
+<!--                            <ul class="list-group">-->
+<!--                                <li id="mat-sum" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    Sum-->
+<!--                                </li>-->
+<!--                                <li id="mat-subtract" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    Subtract-->
+<!--                                </li>-->
+<!--                                <li id="mat-divide" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    Divide-->
+<!--                                </li>-->
+<!--                                <li id="mat-multiply" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    Multiply-->
+<!--                                </li>-->
+<!--                                <li id="mat-transpose" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    Transpose-->
+<!--                                </li>-->
+<!--                                <li id="mat-abs" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    ABS-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--                <div class="panel-group">-->
+<!--                    <div class="panel panel-default">-->
+<!--                        <div class="panel-heading">-->
+<!--                            <h4 class="panel-title">-->
+<!--                                <a data-bs-toggle="collapse" href="#io" role="button" class="noselect" aria-expanded="false" aria-controls="io">Input/Output</a>-->
+<!--                            </h4>-->
+<!--                        </div>-->
+<!--                        <div id="io" class="panel-collapse collapse">-->
+<!--                            <ul class="list-group">-->
+<!--                                <li id="io-tib" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    Test Input Block-->
+<!--                                </li>-->
+<!--                                <li id="io-opb" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    Output Block-->
+<!--                                </li>-->
+<!--                                <li id="io-dob" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">-->
+<!--                                    Debug Output Block-->
+<!--                                </li>-->
+<!--                            </ul>-->
+<!--                        </div>-->
+<!--                    </div>-->
+<!--                </div>-->
+<!--            </div>-->
+<!--        </div>-->
+
+
+<!-- start of accordian       -->
+
         <div id="pallete" class="col-2" style="background-color: red;min-height: 100vh">
-            <div class="panel-group">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h4 class="panel-title">
-                            <a data-bs-toggle="collapse" href="#var" role="button" aria-expanded="false" aria-controls="var">Variables</a>
-                        </h4>
-                    </div>
-                    <div id="var" class="panel-collapse collapse">
+
+        <div class="accordion" id="accordionExample">
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingOne">
+                    <button class="accordion-button collapsed noselect" href="#var" type="button" aria-controls="var" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false" >
+                        Variables
+                    </button>
+                </h2>
+                <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                    <div class="accordion-body" id="var" >
                         <ul class="list-group">
                             <li id="var-boolean" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                 Boolean
@@ -43,95 +166,155 @@
                         </ul>
                     </div>
                 </div>
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-bs-toggle="collapse" href="#con-loop"  role="button" aria-expanded="false" aria-controls="con-loop">Conditionals and Loops</a>
-                            </h4>
-                        </div>
-                        <div id="con-loop" class="panel-collapse collapse">
-                            <ul class="list-group">
-                                <li id="con-if-" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    If
-                                </li>
-                                <li id="con-elif" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    Else If
-                                </li>
-                                <li id="con-else" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    Else
-                                </li>
-                                <li id="lop-for" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    FOR
-                                </li>
-                                <li id="lop-while" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    While
-                                </li>
-                                <li id="con-break" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    Break
-                                </li>
-                                <li id="con-continue" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    Continue
-                                </li>
-                            </ul>
-                        </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingTwo">
+                    <button class="accordion-button collapsed noselect" aria-controls="con-loop" href="#con-loop" type="button"  data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" >
+                        Conditionals and Loops
+                    </button>
+                </h2>
+                <div id="collapseTwo"  class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                    <div class="accordion-body" id="con-loop">
+                        <ul class="list-group">
+                            <li id="con-if-" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                If
+                            </li>
+                            <li id="con-elif" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                Else If
+                            </li>
+                            <li id="con-else" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                Else
+                            </li>
+                            <li id="lop-for" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                FOR
+                            </li>
+                            <li id="lop-while" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                While
+                            </li>
+                            <li id="con-break" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                Break
+                            </li>
+                            <li id="con-continue" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                Continue
+                            </li>
+                        </ul>
+
                     </div>
                 </div>
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-bs-toggle="collapse" href="#math" role="button" aria-expanded="false" aria-controls="math">Math</a>
-                            </h4>
-                        </div>
-                        <div id="math" class="panel-collapse collapse">
-                            <ul class="list-group">
-                                <li id="mat-sum" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    Sum
-                                </li>
-                                <li id="mat-subtract" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    Subtract
-                                </li>
-                                <li id="mat-divide" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    Divide
-                                </li>
-                                <li id="mat-multiply" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    Multiply
-                                </li>
-                                <li id="mat-transpose" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    Transpose
-                                </li>
-                                <li id="mat-abs" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    ABS
-                                </li>
-                            </ul>
-                        </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingThree">
+                    <button class="accordion-button collapsed noselect" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                        Math
+                    </button>
+                </h2>
+                <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                    <div class="accordion-body">
+                        <ul class="list-group">
+                            <li id="mat-sum" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                Sum
+                            </li>
+                            <li id="mat-subtract" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                Subtract
+                            </li>
+                            <li id="mat-divide" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                Divide
+                            </li>
+                            <li id="mat-multiply" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                Multiply
+                            </li>
+                            <li id="mat-transpose" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                Transpose
+                            </li>
+                            <li id="mat-abs" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                ABS
+                            </li>
+                        </ul>
                     </div>
                 </div>
-                <div class="panel-group">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h4 class="panel-title">
-                                <a data-bs-toggle="collapse" href="#io" role="button" aria-expanded="false" aria-controls="io">Input/Output</a>
-                            </h4>
-                        </div>
-                        <div id="io" class="panel-collapse collapse">
-                            <ul class="list-group">
-                                <li id="io-tib" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    Test Input Block
-                                </li>
-                                <li id="io-opb" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    Output Block
-                                </li>
-                                <li id="io-dob" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                    Debug Output Block
-                                </li>
-                            </ul>
-                        </div>
+            </div>
+            <div class="accordion-item">
+                <h2 class="accordion-header" id="headingFour">
+                    <button class="accordion-button collapsed noselect" href="#io" aria-controls="con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="io">
+                        input/output
+                    </button>
+                </h2>
+                <div id="collapseFour"   class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                    <div class="accordion-body" id="io" >
+                        <ul class="list-group">
+                            <li id="io-tib" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                Test Input Block
+                            </li>
+                            <li id="io-opb" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                Output Block
+                            </li>
+                            <li id="io-dob" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                Debug Output Block
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
+        </div>
+<!--      sep  -->
+
+<!--
+
+                <div id="pallete" class="col-2" style="background-color: red;min-height: 100vh">
+                    <div class="panel-group">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h4 class="panel-title">
+                                    <a data-bs-toggle="collapse" href="#var" role="button" aria-expanded="false" aria-controls="var" class="noselect">Variables</a>
+                                </h4>
+                            </div>
+                            <div id="var" class="panel-collapse collapse">
+
+                            </div>
+                        </div>
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-bs-toggle="collapse" href="#con-loop" class="noselect" role="button" aria-expanded="false" aria-controls ="con-loop">Conditionals and Loops</a>
+                                    </h4>
+                                </div>
+                                <div id="con-loop" class="panel-collapse collapse">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-bs-toggle="collapse" href="#math" role="button" class="noselect" aria-expanded="false" aria-controls="math">Math</a>
+                                    </h4>
+                                </div>
+                                <div id="math" class="panel-collapse collapse">
+
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-group">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">
+                                    <h4 class="panel-title">
+                                        <a data-bs-toggle="collapse" href="#io" role="button" class="noselect" aria-expanded="false" aria-controls="io">Input/Output</a>
+                                    </h4>
+                                </div>
+                                <div id="io" class="panel-collapse collapse">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+-->
+
+        <!-- end of accordcian-->
         <div id="interface" class="col-7" style="background-color: yellow;min-height:100vh" ondragenter="dragEnter_handler(event);" ondragover="dragOver_handler(event);" ondrop="drop_handler(event)">
 
         </div>
