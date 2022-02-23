@@ -1,4 +1,4 @@
-const programming_interface = document.getElementById("program-interface");
+const programming_interface = document.getElementById("interface");
 const prevSelection = [];
 let count = 0;
 let ifshiftpressed=false;

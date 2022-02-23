@@ -1,0 +1,10 @@
+.list-group-item{
+    border: black solid;
+}
+.panel-title>a{
+    color: white;
+    text-decoration: none;
+}
+.panel-title>a:hover{
+    color:#b6b6b6;
+}
