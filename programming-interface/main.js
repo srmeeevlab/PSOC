@@ -30,14 +30,16 @@ function deselect(){
 }
 
 addEventListener("click",(event)=>{
-
+    
     const target = event.target;    
     if(target.classList.contains("selectable")){
         // single click
         // [target]
         if(prevSelection.length==1 && !event.ctrlKey && !event.shiftKey){
-            if(target.classList.contains("highlight"))
+            if(target.classList.contains("highlight")){
                 prevSelection.pop().classList.remove("highlight");
+                
+            }
             else
                 {
                 prevSelection.pop().classList.remove("highlight");
@@ -104,6 +106,8 @@ addEventListener("click",(event)=>{
         }
 
         document.getElementById("delbutt").disabled = false;
+        if(prevSelection.length==0)
+        document.getElementById("delbutt").disabled = true;
     }
     console.log(prevSelection);
     
