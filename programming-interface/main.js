@@ -116,59 +116,6 @@ addEventListener("click",(event)=>{
 
 
 
-// addEventListener("click",(event)=>{
-
-//     const target = event.target;    
-//     if(target.classList.contains("selectable")){
-
-       
-
-//         if(prevSelection[0] != undefined && !event.ctrlKey && !event.shiftKey){
-            
-            
-//             deselect();
-//             prevSelection.push(target);
-//             target.classList.add("highlight");
-//         }
-//         else if(prevSelection[0] != undefined && event.ctrlKey){
-//             console.log("control is presses",event.ctrlKey);
-//             prevSelection.push(target);
-//             target.classList.add("highlight");
-//         }
-//         else if(event.shiftKey && prevSelection[0] != undefined){
-//             console.log("shift is presses",event.shiftKey);
-            
-//             let lastselectedelem = prevSelection.pop();
-//             console.log(ifshiftpressed);
-//             if(!ifshiftpressed)
-//             {
-//                 ifshiftpressed = true;
-//                 deselect();
-//             }
-//             console.log(ifshiftpressed);
-            
-//             const siblnglst = Array.from(document.getElementsByClassName("selectable"));
-//             let starttemp = siblnglst.indexOf(lastselectedelem);
-//             let endtemp = siblnglst.indexOf(target);
-//             let start = Math.min(starttemp,endtemp);
-//             let end = Math.max(starttemp,endtemp);
-            
-//             for(let i=start;i<=end;i++){
-//                 prevSelection.push(siblnglst[i]);
-//                 siblnglst[i].classList.add("highlight");
-//             }
-
-//         }
-//         else{
-//             prevSelection.push(target);
-//             target.classList.add("highlight");
-//         }
-
-//         document.getElementById("delbutt").disabled = false;
-//     }
-//     console.log(prevSelection);
-    
-// });
 
 addEventListener("keyup",(ev)=>{
 
