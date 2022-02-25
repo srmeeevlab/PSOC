@@ -29,6 +29,8 @@ function deselect(){
     }
 }
 
+// addEventListener("")
+
 addEventListener("click",(event)=>{
     
     const target = event.target;    
