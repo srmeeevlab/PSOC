@@ -3,6 +3,8 @@ const node = document.createElement("div");
 node.style.height = "20px";
 // node.style.border = "5px solid green";
 node.style.backgroundColor = "green";
+node.style.margin = "1.1em";
+let count1 = 0;
 function dragEnter_handler(ev) {
     ev.preventDefault();
     if(ev.target != document.getElementById("interface")){
@@ -15,7 +17,7 @@ function dragOver_handler(ev) {
 }
 
 function dragLeave_handler(ev){
-    ev.target.style.borderColor = "black";
+    ev.target.style.borderColor = "transparent";
     
     if(ev.target != document.getElementById("interface")){
         ev.target.removeChild(node);
@@ -32,7 +34,7 @@ function drop_handler(ev){
     if(ev.target != document.getElementById("interface")){
         ev.target.removeChild(node);
     }
-    ev.target.style.borderColor = "black";
+    ev.target.style.borderColor = "transparent";
     let id = ev.dataTransfer.getData("text/plain");
     let i=0;
     console.log(id);
@@ -42,6 +44,8 @@ function drop_handler(ev){
     console.log(id);
     const temp = document.getElementById(id);
     const clone = temp.content.cloneNode(true);
+    clone.id = id+ count1++;
+    console.log(clone.id);
     ev.target.appendChild(clone);
 }
 

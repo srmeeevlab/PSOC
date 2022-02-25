@@ -8,3 +8,7 @@
 .panel-title>button:hover{
     color:#b6b6b6;
 }
+.bordered-box{
+    border-left: 0.5em solid transparent;
+    padding-left: 1em;
+}
