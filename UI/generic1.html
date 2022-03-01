@@ -184,8 +184,8 @@
             <!-- end of accordcian-->
 
             <div id="interface" class="col-7" style="background-color: yellow;min-height:100vh"
-                ondragenter="dragEnter_handler(event);" ondragover="dragOver_handler(event);"
-                ondrop="drop_handler(event);" ondragleave="dragLeave_handler(event);">
+                ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)"
+                ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
                 <!-- <div class="alert alert-dark" role="role" ondragover="false" ondragenter="false" ondragleave="false">
 
 
@@ -195,8 +195,11 @@
                 <div class="btn-group" role="group">
                     <button type="button" id="upbut" disabled class="btn btn-danger" onclick="up()">Up</button>
                     <button type="button" id="downbut" disabled class="btn btn-danger" onclick="down()">Down</button>
+                    <button type="button" id="setbut" disabled class="btn btn-danger" onclick="showprops()">Settings</button>
                     <button type="button" id="delbut" disabled class="btn btn-danger" onclick="delel()">Delete</button>
-                    <button type="button" id="setbut" disabled class="btn btn-danger" onclick="">settings</button>
+                    <button type="button" id="dragbut" disabled class="btn btn-danger" onclick="dragbu()">Drag</button>
+                    <button type="button" id="stepo" disabled class="btn btn-danger" onclick="stepout()">StepOut</button>
+                    <button type="button" id="stepi" disabled class="btn btn-danger" onclick="stepin()">StepIn</button>
                 </div>
             </div>
         </div>

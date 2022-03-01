@@ -16,16 +16,9 @@
     margin-top: 20px;
     justify-content: center;
 }
-.btn{
 
-    border-radius: 20px;
-    margin-top: 40px;
-    margin-left: 85px;
-}
 .btn:active{
-
     background-color: rgba(255,255,0,0.3);
-    
 }
 .selectable{
     /* border:none; */
@@ -42,6 +35,29 @@
     -khtml-user-select: none; /* Konqueror HTML */
     -moz-user-select: none; /* Old versions of Firefox */
     -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Non-prefixed version, currently
-                                  supported by Chrome, Edge, Opera and Firefox */
+    user-select: none; /* Non-prefixed version, currently  supported by Chrome, Edge, Opera and Firefox */
 }
+
+
+.btn-group{
+
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    max-width: 50%;
+    position: relative;
+    left: 50%;
+    /* left: 90px; */
+    transform: translateX(-50%);
+    /* background-color: rgba(221,160,221, 0.7);  */
+    /* flex-wrap: wrap; */
+}
+.btn-group button{
+    margin: 1rem 0;
+}
+
+#upbtn{
+    border-radius: 0%;
+}
+
+
