@@ -110,7 +110,6 @@ function up() {
     if (target.previousElementSibling) {
       target.parentNode.insertBefore(target, target.previousElementSibling);
     }
-
   }
 }
 function down() {
@@ -210,8 +209,6 @@ function checkButtonStatus() {
 
 
 }
-
-
 
 addEventListener("click", (event) => {
 
