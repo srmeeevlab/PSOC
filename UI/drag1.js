@@ -24,8 +24,15 @@ function drag_start_handler(ev) {
 
 function dragOver_handler(ev) {
   ev.preventDefault();
+  console.log(ev.target.id == "green-blk");
+  console.log(ev.target.id);
   if(ev.target.id === "green-blk"){
     return ;
+  }
+  if(ev.target.id == "drop-box"){
+    document.getElementById("interface").appendChild(node);
+  }else{
+    ev.target.appendChild(node);
   }
   // ev.target.style.borderColor = "red";
 }
@@ -41,26 +48,15 @@ function dragEnter_handler(ev) {
   // ev.target.parentNode!=prevSelection[0]
   if(ev.target.classList.contains("highlight")){
     return;
-  }
+  } 
   
-  
-  if(ev.target.id == "drop-box"){
-    document.getElementById("interface").appendChild(node);
-  }else if(ev.target){
-    ev.target.appendChild(node);
-  }
 }
 
 
 function dragLeave_handler(ev) {
-  // console.log("drag leave",ev);
-  // ev.target.style.borderColor = "transparent";
-  if(ev.target.id === "green-blk"){
-    return ;
-  }
   // if (ev.target != node) {
-    // ev.target.removeChild(node);
-    // node.remove();
+  ev.target.removeChild(node);
+  // node.remove();
   // }
 }
 
@@ -85,8 +81,7 @@ function drop_handler(ev) {
     document.getElementById("dragbut").innerHTML = "drag";
   }
   else {
-
-    if (ev.path.length - 8 > 10) {
+    if (ev.path.length - 8 > max_level) {
       alert("max indentation reached");
       return;
     }
@@ -133,7 +128,7 @@ function dragbu() {
 function up() {
   if (prevSelection.length == 1) {
     let target = prevSelection[0];
-    if (target.previousElementSibling) {
+    if ( !target.previousElementSibling  || target.previousElementSibling.id != "drop-box") {
       target.parentNode.insertBefore(target, target.previousElementSibling);
     }
   }
@@ -155,8 +150,8 @@ function stepout() {
 }
 function stepin() {
   let target = prevSelection[0];
-  if (target.previousElementSibling)
-    target.previousElementSibling.appendChild(target);
+  if (target.nextElementSibling)
+    target.nextElementSibling.appendChild(target);
 }
 
 function deselect() {
@@ -207,7 +202,7 @@ function checkButtonStatus() {
   }
   let target = prevSelection[0];
 
-  if (!target.previousElementSibling) {
+  if (!target.previousElementSibling || target.previousElementSibling.id=="drop-box") {
     upbut.disabled = true;
   } else {
     upbut.disabled = false;
@@ -221,6 +216,7 @@ function checkButtonStatus() {
     stepi.disabled = true;
   else
     stepi.disabled = false;
+
   if (target.parentNode == document.getElementById("interface"))
     stepo.disabled = true;
   else
