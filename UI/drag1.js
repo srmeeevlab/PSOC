@@ -1,58 +1,77 @@
 const node = document.createElement("div");
 node.style.height = "20px";
+node.id = "green-blk"
 node.style.backgroundColor = "green";
 max_level = 30;
 node.style.margin = "1.5em";
 let count1 = 0;
 let sub_arr;
+const prevSelection = [];
+let count = 0;
+let ifshiftpressed = false;
 
 
 function drag_handler(ev) {
   ev.preventDefault();
-  // console.log("drag start - ");
 }
 function drag_start_handler(ev) {
-  // console.log(ev.target.id);
-  deselect();
+
+  if(ev.target.id.includes("-")){
+    deselect();
+  }
   ev.dataTransfer.setData("text/plain", ev.target.id);
 }
 
 function dragOver_handler(ev) {
   ev.preventDefault();
-  ev.target.style.borderColor = "red";
+  if(ev.target.id === "green-blk"){
+    return ;
+  }
+  // ev.target.style.borderColor = "red";
 }
 
 function dragEnter_handler(ev) {
   ev.preventDefault();
-  ev.target.style.borderColor = "red";
-  if (document.getElementById("interface").firstElementChild == null) {
-    node.style.marginTop = "4rem";
-  } else {
-    node.style.marginTop = "1.1em";
+  // console.log("drag enter",ev.target.id);
+  if(ev.target.id === "green-blk"){
+    return ;
   }
+  // ev.target.style.borderColor = "red";
+  
   // ev.target.parentNode!=prevSelection[0]
   if(ev.target.classList.contains("highlight")){
     return;
   }
-  if (ev.target != node  ) {
+  
+  
+  if(ev.target.id == "drop-box"){
+    document.getElementById("interface").appendChild(node);
+  }else if(ev.target){
     ev.target.appendChild(node);
   }
 }
 
 
 function dragLeave_handler(ev) {
-  ev.target.style.borderColor = "transparent";
-  if (ev.target != node) {
-    ev.target.removeChild(node);
-    // node.remove();
+  // console.log("drag leave",ev);
+  // ev.target.style.borderColor = "transparent";
+  if(ev.target.id === "green-blk"){
+    return ;
   }
+  // if (ev.target != node) {
+    // ev.target.removeChild(node);
+    // node.remove();
+  // }
 }
 
 function drop_handler(ev) {
   ev.preventDefault();
+  // console.log("drop",ev);
   if (ev.target != node) {
     node.remove();
   }
+
+  
 
   if (prevSelection.length > 0 && prevSelection[0].classList.contains("highlight")) {
     if(ev.target.classList.contains("highlight")){
@@ -71,20 +90,27 @@ function drop_handler(ev) {
       alert("max indentation reached");
       return;
     }
-    ev.target.style.borderColor = "transparent";
+    // ev.target.style.borderColor = "transparent";
     let id = ev.dataTransfer.getData("text/plain");
     let i = 0;
-    console.log(id);
+    // console.log(id);
     for (i; i < id.length; i++) if (id[i] === "-") id = id.slice(i + 1, i + 4);
-    console.log(id);
+    // console.log(id);
 
     const temp = document.getElementById(id);
     const clone = temp.content.cloneNode(true);
     clone.id = id + count1++;
 
-    console.log("clone id- ", clone.id);
-    ev.target.appendChild(clone);
-    ev.target.lastElementChild.id = clone.id;
+    // console.log("clone id- ", clone.id);
+    if(ev .target.id!= "drop-box"){
+      ev.target.appendChild(clone);
+      ev.target.lastElementChild.id = clone.id;
+    }
+    else{
+      document.getElementById("interface").appendChild(clone);
+      document.getElementById("interface").lastElementChild.id = clone.id;
+
+    }
   }
 
 }
@@ -125,12 +151,12 @@ function down() {
 function stepout() {
   let target = prevSelection[0];
   if (target.parentNode != document.getElementById("interface"))
-    target.parentNode.parentNode.insertBefore(target, target.parentNode);
+    target.parentNode.parentNode.insertBefore(target, target.parentNode.nextElementSibling);
 }
 function stepin() {
   let target = prevSelection[0];
-  if (target.nextElementSibling)
-    target.nextElementSibling.appendChild(target);
+  if (target.previousElementSibling)
+    target.previousElementSibling.appendChild(target);
 }
 
 function deselect() {
@@ -145,9 +171,6 @@ function deselect() {
   document.getElementById("stepi").disabled = true;
 }
 
-const prevSelection = [];
-let count = 0;
-let ifshiftpressed = false;
 
 
 const delel = () => {
@@ -186,7 +209,6 @@ function checkButtonStatus() {
 
   if (!target.previousElementSibling) {
     upbut.disabled = true;
-    // console.log("upbut disabed")
   } else {
     upbut.disabled = false;
   }
@@ -219,7 +241,7 @@ addEventListener("click", (event) => {
     // console.log("path lne", event.path);
 
     let level = (event.path.length) - 8;
-    console.log("path lne", level);
+    // console.log("path lne", level);
 
     if (prevSelection.length == 1 && !event.ctrlKey && !event.shiftKey) {
       if (target.classList.contains("highlight")) {
@@ -266,7 +288,7 @@ addEventListener("click", (event) => {
         ifshiftpressed = true;
       }
       deselect();
-      console.log(ifshiftpressed);
+      // console.log(ifshiftpressed);
 
       const siblnglst = Array.from(document.getElementsByClassName("selectable"));
       let starttemp = siblnglst.indexOf(lastselectedelem);
@@ -290,32 +312,10 @@ addEventListener("click", (event) => {
     else {
       prevSelection.push(target);
       target.classList.add("highlight");
-    }
-
-
-
-    // document.getElementById("delbut").disabled = false;
-    // document.getElementById("upbut").disabled = false;
-    // document.getElementById("downbut").disabled = false;
-    // document.getElementById("dragbut").disabled = false;
-    // document.getElementById("stepo").disabled = false;
-    // document.getElementById("stepi").disabled = false;
-
-
-    // if (!target.previousElementSibling) {
-    //   document.getElementById("upbut").disabled = true;
-    // }
-    // if (!target.nextElementSibling) {
-    //   document.getElementById("downbut").disabled = true;
-    //   document.getElementById("stepi").disabled = true;
-    // }
-    // if (target.parentNode == document.getElementById("interface")) {
-    //   document.getElementById("stepo").disabled = true;
-    // }
+    } 
 
   }
   checkButtonStatus();
-  console.log(prevSelection);
 
 });
 
@@ -324,10 +324,8 @@ addEventListener("click", (event) => {
 
 
 addEventListener("keyup", (ev) => {
-
   if (ev.key == "Shift") {
     ifshiftpressed = false;
   }
-
 })
 

@@ -9,7 +9,7 @@
     color:#b6b6b6;
 }
 .bordered-box{
-    border-left: 0.5em solid transparent;
+    border-left: 0.5em solid red;
     padding-left: 1em;
 }
 .alert{
@@ -60,4 +60,10 @@
     border-radius: 0%;
 }
 
+
+#drop-box{
+    background-color: white;
+    height: 5rem;
+    margin-top: 20px;
+}
 
