@@ -66,3 +66,7 @@
     height: 5rem;
     /* margin-top: 20px; */
 }
+
+.details{
+    display: none;
+}

@@ -11,6 +11,8 @@ let count = 0;
 let ifshiftpressed = false;
 
 
+var maincode = "";
+
 function drag_handler(ev) {
   ev.preventDefault();
 }
@@ -198,6 +200,7 @@ function checkButtonStatus() {
     document.getElementById("delbut").disabled = true;
     document.getElementById("stepo").disabled = true;
     document.getElementById("stepi").disabled = true;
+    document.getElementById("setbut").disabled = true;
     return;
   }
   let target = prevSelection[0];
@@ -223,10 +226,20 @@ function checkButtonStatus() {
     stepo.disabled = false;
 
   delbut.disabled = false;
+  setbut.disabled = false;
   dragbut.disabled = false;
 
 
 }
+
+
+function showprops(params) {
+  prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
+  
+}
+
+
+
 
 addEventListener("click", (event) => {
 
@@ -325,3 +338,77 @@ addEventListener("keyup", (ev) => {
   }
 })
 
+var constantBlock = (block)=>{
+  let varname,valname;
+  console.log("inside constant");
+  // console.log(block.children[0].children);
+  varname = block.children[0].children[0].value;
+  valname = block.children[0].children[1].value;
+  // varname = "a";
+  // valname = "3";
+  maincode+= ` let ${varname} = ${valname} ;`;
+  // block.innerHTML += " : " + varname;
+  //  " let a = 3"
+}
+
+var booleanBlock=(block)=>{
+  let varname,valname;
+  varname = "bo";
+  valname = "true";
+  block.innerHTML += " : " + varname;
+  maincode+= ` let ${varname} = ${valname} ;`;
+}
+
+var sumBlock=(block)=>{
+  let i,sum=0;
+  let noofchildren = block.childElementCount;
+  let arr = Array.from(block.children);
+  maincode+= `   
+    let sum=0;
+    for(let i=0;i<${noofchildren};i++){
+     sum+= ${arr[i].value}; 
+    }
+
+  `
+}
+
+
+
+function compl() {
+  // window.maincode.concat("2");
+  
+  let blocksofcode = document.getElementById("interface").children;
+  // return blocksofcode;
+  for (let index = 0; index < blocksofcode.length; index++) {
+    const element = blocksofcode[index];
+    // let block = element.firstChild;
+    // console.log("element is", block.textContent.includes("Constant"));
+    
+    // console.log(block.trim().split());
+    // if(block.trim() == "Constant"){
+    //   constantBlock(element);
+    // }
+    let blockname;
+
+    if(element.textContent.includes("Constant")){
+      blockname=  "Constant";
+    }else if(element.textContent.includes("Boolean")){
+      blockname=  "Boolean";
+    }
+
+    switch(blockname){
+      case "Constant":
+        console.log("running Constant");
+        constantBlock(element);
+        break;
+      case "Boolean":
+        booleanBlock(element);
+        break;
+      default:
+        break;
+    }
+      // maincode+="console.log(2);";
+    console.log(maincode);
+
+  }
+}
