@@ -375,27 +375,37 @@ var sumBlock = (block) => {
 var outputBlock = (block) => {
     let output;
     output = block.children[0].children[0].value;
-    maincode += `the output is ${output}`;
+    maincode += `console.log(${output}) `;
 }
 
 var matrixBlock = (block) => {
+
     let rows, columns, i, j;
     rows = block.children[0].children[0].value;
     columns = block.children[0].children[1].value;
-    // let pro=rows*columns;
-    let array = [];
-    // for (i = 0; i < rows * columns; i++) {
-    //     array[i] = prompt("Enter element" + (i + 1));
-    //     // console.log(array[i]);
-    // }
-    for (i = 0; i < rows; i++) {
-        let arr = new Array;
-        for (j = 0; j < columns; j++) {
-            arr[j] = prompt("Enter element of " + ((j) + 1));
-            maincode += `the element is ${arr[j]};`;
-        }
-    }
 
+
+    let array = [];
+
+
+    for (let index = 0; index < rows * columns; index++) {
+        array.push(prompt("enter element" + (index + 1)));
+
+
+    }
+    // console.log(array);
+    // maincode += `m=${array}`;
+    maincode += `const arr =[${array}];
+    
+    const m = [];
+    while(arr.length) m.push(arr.splice(0,${columns}));
+        
+    console.log(m);`
+
+
+}
+
+var breakBlock = (block) => {
 
 }
 
@@ -423,6 +433,8 @@ function compl() {
             blockname = "Output Block";
         } else if (element.textContent.includes("Matrix")) {
             blockname = "Matrix";
+        } else if (element.textContent.includes("Break")) {
+            blockname = "Break";
         }
 
         switch (blockname) {
@@ -440,6 +452,8 @@ function compl() {
             case "Matrix":
                 console.log("running matrix");
                 matrixBlock(element);
+            case "Break":
+                console.log("running break");
             default:
                 break;
         }
