@@ -195,11 +195,13 @@ function checkButtonStatus() {
     let delbut = document.getElementById("delbut");
 
     console.log("inside chck status")
-    if (prevSelection.length == 0) {
+    if (prevSelection.length !=1) {
         document.getElementById("upbut").disabled = true;
         document.getElementById("downbut").disabled = true;
         document.getElementById("dragbut").disabled = true;
         document.getElementById("delbut").disabled = true;
+        if(prevSelection.length>0)
+            document.getElementById("delbut").disabled = false;
         document.getElementById("stepo").disabled = true;
         document.getElementById("stepi").disabled = true;
         document.getElementById("setbut").disabled = true;
@@ -225,11 +227,11 @@ function checkButtonStatus() {
     if (target.parentNode == document.getElementById("interface"))
         stepo.disabled = true;
     else
-        stepo.disabled = false;
+    {stepo.disabled = false;}
 
-    delbut.disabled = false;
     setbut.disabled = false;
     dragbut.disabled = false;
+    delbut.disabled = false;
 
 
 }
@@ -453,20 +455,24 @@ var transposeBlock = (block) => {
     `
 }
 
+var subRoutine = (block) => {
+    let childElements = block.children;
+    // another compile function
+}
+
 var forBlock = (block) => {
     let initVal, endVal, op, subroutine;
     initVal = block.children[0].children[0].value;
     endVal = block.children[0].children[1].value;
     op = block.children[0].children[2].value;
 
-    subRoutine = (block) => {
-        let childElements = block.children;
+    
+    subroutine = subRoutine(block);
+    
+    maincode += `for(let i=${initVal};i<${endVal};i${op}){
+    ${subroutine}
 
     }
-    subroutine = subRoutine;
-    maincode += `for(let i=${initVal};i<${endVal};i${op}){
-    ${subroutine}}
-    
     console.log("sum is ",${sum});
     `
 
