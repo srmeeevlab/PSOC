@@ -52,7 +52,10 @@
                                         Identity Matrix
                                     </li>
                                     <li id="var-umatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Unit Matrix
+                                        Unity Matrix
+                                    </li>
+                                    <li id="var-umatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Zero Matrix
                                     </li>
                                 </ul>
                             </div>
@@ -217,11 +220,17 @@
 <template id="ima">
     <div class="noselect selectable bordered-box">
         Identity Matrix
+        <div class="details">
+            <input type="text" name="" id="" placeholder="enter no. of rows">
+            <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
+        </div>
+
+
     </div>
 </template>
 <template id="uma">
     <div class="noselect selectable bordered-box">
-        Unit Matrix
+        Unity Matrix
     </div>
 </template>
 <template id="if-">
@@ -282,6 +291,11 @@
 <template id="tra">
     <div class="noselect selectable bordered-box">
         Transpose
+        <div class="details">
+            <input type="text" name="" id="" placeholder="enter variable name">
+            <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
+        </div>
+        
     </div>
 </template>
 <template id="abs">

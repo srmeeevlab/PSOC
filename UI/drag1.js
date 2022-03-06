@@ -363,10 +363,14 @@ var sumBlock = (block) => {
     let i, sum = 0;
     let noofchildren = block.childElementCount;
     let arr = Array.from(block.children);
+    for (let index = 0; index < arr.length; index++) {
+        arr[i] = arr[i].value;
+    }
     maincode += `   
     let sum=0;
-    for(let i=0;i<${noofchildren};i++){
-     sum+= ${arr[i].value}; 
+    let arr = [${arr}];
+    for(let i=0;i<arr.length;i++){
+     sum+= arr[i]; 
     }
 
   `
@@ -380,33 +384,63 @@ var outputBlock = (block) => {
 
 var matrixBlock = (block) => {
 
-    let rows, columns, i, j;
+    let rows, columns;
     rows = block.children[0].children[0].value;
     columns = block.children[0].children[1].value;
-
-
     let array = [];
-
-
     for (let index = 0; index < rows * columns; index++) {
         array.push(prompt("enter element" + (index + 1)));
-
-
     }
-    // console.log(array);
-    // maincode += `m=${array}`;
-    maincode += `const arr =[${array}];
+    maincode += `
+    const arr_M =[${array}];
     
     const m = [];
-    while(arr.length) m.push(arr.splice(0,${columns}));
+    while(arr_M.length) m.push(arr_M.splice(0,${columns}));
         
-    console.log(m);`
-
-
+    console.log("matrix is ",m);
+    `
 }
 
-var breakBlock = (block) => {
+var breakBlock = (block) => maincode+= "break;";
+var continueBlock = (block)=> maincode+= "continue;";
 
+var identityBlock = (block)=>{
+    let rows = block.children[0].children[0].value;
+    let array = [];
+    for (let i = 0; i < rows; i++) {
+        // const element = array[index];
+        for (let j = 0; j < rows; j++) {
+            i==j?array.push(1):array.push(0);
+        }
+    }
+    maincode+= `
+    const arr_I = [${array}];
+    const I1 = [];
+    while(arr_I.length) I1.push(arr_I.splice(0,${rows}));
+    console.log("Identity is",I1)
+    `;
+}
+
+var transposeBlock = (block)=>{
+
+    let varname = block.children[0].children[0].value;
+    console.log("transpose variable name is",varname);
+
+    maincode+= `
+    
+    const T1 = new Array(${varname}[0].length);
+    for(let i=0;i<T1.length;i++){
+        T1[i] = new Array(${varname.length}).fill("#");
+    }
+
+    for(let i=0;i<T1.length;i++){
+        for(let j=0;j<T1[0].length;j++){
+            T1[i][j] = ${varname}[j][i];
+        }
+    }
+    console.log("Transpose is",T1);
+    
+    `
 }
 
 function compl() {
@@ -435,6 +469,12 @@ function compl() {
             blockname = "Matrix";
         } else if (element.textContent.includes("Break")) {
             blockname = "Break";
+        }else if (element.textContent.includes("Continue")) {
+            blockname = "Continue";
+        }else if(element.textContent.includes("Transpose")){
+            blockname = "Transpose";
+        }else if(element.textContent.includes("Identity")){
+            blockname = "Identity Matrix";
         }
 
         switch (blockname) {
@@ -448,12 +488,20 @@ function compl() {
                 break;
             case "Output Block":
                 console.log("running output block");
-                outputBlock(element);
+                outputBlock(element);break;
             case "Matrix":
                 console.log("running matrix");
                 matrixBlock(element);
+                break;
             case "Break":
                 console.log("running break");
+                break;
+            case "Identity Matrix":
+                identityBlock(element);
+                break;
+            case "Transpose":
+                transposeBlock(element);
+                break;
             default:
                 break;
         }
