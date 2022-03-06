@@ -105,17 +105,8 @@
                         <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <ul class="list-group">
-                                    <li id="mat-sum" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Sum
-                                    </li>
-                                    <li id="mat-subtract" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Subtract
-                                    </li>
-                                    <li id="mat-divide" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Divide
-                                    </li>
-                                    <li id="mat-multiply" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Multiply
+                                    <li id="mat-eva" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Evaluate
                                     </li>
                                     <li id="mat-transpose" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Transpose
@@ -201,7 +192,7 @@
         <div class="details">
 
             <input type="text" name="" id="" placeholder="Variable Name">
-            <input type="text" name="" id="" placeholder="Value">
+            <input type="number" name="" id="" placeholder="Value">
             <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
         </div>
     </div>
@@ -251,6 +242,17 @@
 <template id="for">
     <div class="noselect selectable bordered-box">
         For
+        <div class="details">
+            <input type="text" name="" id="" placeholder="enter start value of loop">
+            <input type="text" name="" id="" placeholder="enter end value of loop">
+            <select name="" id="">
+                <option value="++">Increment</option>
+                <option value="--">Decrement</option>
+            </select>
+
+
+            <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
+        </div>
     </div>
 </template>
 <template id="whi">
@@ -268,24 +270,14 @@
         Continue
     </div>
 </template>
-<template id="sum">
+<template id="eva">
     <div class="noselect selectable bordered-box">
-        Sum
-    </div>
-</template>
-<template id="sub">
-    <div class="noselect selectable bordered-box">
-        Subtract
-    </div>
-</template>
-<template id="div">
-    <div class="noselect selectable bordered-box">
-        Divide
-    </div>
-</template>
-<template id="mul">
-    <div class="noselect selectable bordered-box">
-        Multiply
+        Evaluate
+        <div class="details">
+
+            <input type="text" name="" id="" placeholder="Evaluate math operations">
+            <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
+        </div>
     </div>
 </template>
 <template id="tra">
@@ -295,7 +287,7 @@
             <input type="text" name="" id="" placeholder="enter variable name">
             <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
         </div>
-        
+
     </div>
 </template>
 <template id="abs">

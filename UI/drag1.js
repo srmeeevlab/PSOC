@@ -359,6 +359,16 @@ var booleanBlock = (block) => {
     maincode += ` let ${varname} = ${valname} ;`;
 }
 
+var evalBlock = (block) => {
+    let evalValue;
+    evalValue = block.children[0].children[0].value;
+    // result = eval(evalValue)
+    // result = (evalValue) => {
+    //     return Function(`'use strict'; return (${eval(evalValue)}`)()
+    // }
+    maincode += `console.log(${eval(evalValue)})`;
+}
+
 var sumBlock = (block) => {
     let i, sum = 0;
     let noofchildren = block.childElementCount;
@@ -401,19 +411,19 @@ var matrixBlock = (block) => {
     `
 }
 
-var breakBlock = (block) => maincode+= "break;";
-var continueBlock = (block)=> maincode+= "continue;";
+var breakBlock = (block) => maincode += "break;";
+var continueBlock = (block) => maincode += "continue;";
 
-var identityBlock = (block)=>{
+var identityBlock = (block) => {
     let rows = block.children[0].children[0].value;
     let array = [];
     for (let i = 0; i < rows; i++) {
         // const element = array[index];
         for (let j = 0; j < rows; j++) {
-            i==j?array.push(1):array.push(0);
+            i == j ? array.push(1) : array.push(0);
         }
     }
-    maincode+= `
+    maincode += `
     const arr_I = [${array}];
     const I1 = [];
     while(arr_I.length) I1.push(arr_I.splice(0,${rows}));
@@ -421,12 +431,12 @@ var identityBlock = (block)=>{
     `;
 }
 
-var transposeBlock = (block)=>{
+var transposeBlock = (block) => {
 
     let varname = block.children[0].children[0].value;
-    console.log("transpose variable name is",varname);
+    console.log("transpose variable name is", varname);
 
-    maincode+= `
+    maincode += `
     
     const T1 = new Array(${varname}[0].length);
     for(let i=0;i<T1.length;i++){
@@ -441,6 +451,25 @@ var transposeBlock = (block)=>{
     console.log("Transpose is",T1);
     
     `
+}
+
+var forBlock = (block) => {
+    let initVal, endVal, op, subroutine;
+    initVal = block.children[0].children[0].value;
+    endVal = block.children[0].children[1].value;
+    op = block.children[0].children[2].value;
+
+    subRoutine = (block) => {
+        let childElements = block.children;
+
+    }
+    subroutine = subRoutine;
+    maincode += `for(let i=${initVal};i<${endVal};i${op}){
+    ${subroutine}}
+    
+    console.log("sum is ",${sum});
+    `
+
 }
 
 function compl() {
@@ -469,12 +498,16 @@ function compl() {
             blockname = "Matrix";
         } else if (element.textContent.includes("Break")) {
             blockname = "Break";
-        }else if (element.textContent.includes("Continue")) {
+        } else if (element.textContent.includes("Continue")) {
             blockname = "Continue";
-        }else if(element.textContent.includes("Transpose")){
+        } else if (element.textContent.includes("Transpose")) {
             blockname = "Transpose";
-        }else if(element.textContent.includes("Identity")){
+        } else if (element.textContent.includes("Identity")) {
             blockname = "Identity Matrix";
+        } else if (element.textContent.includes("Evaluate")) {
+            blockname = "Evaluate";
+        } else if (element.textContent.includes("For")) {
+            blockname = "For";
         }
 
         switch (blockname) {
@@ -488,7 +521,8 @@ function compl() {
                 break;
             case "Output Block":
                 console.log("running output block");
-                outputBlock(element);break;
+                outputBlock(element);
+                break;
             case "Matrix":
                 console.log("running matrix");
                 matrixBlock(element);
@@ -502,6 +536,10 @@ function compl() {
             case "Transpose":
                 transposeBlock(element);
                 break;
+            case "Evaluate":
+                evalBlock(element);
+            case "For":
+                forBlock(element);
             default:
                 break;
         }
