@@ -93,7 +93,7 @@ function drop_handler(ev) {
         // console.log(id);
         for (i; i < id.length; i++)
             if (id[i] === "-") id = id.slice(i + 1, i + 4);
-            // console.log(id);
+        // console.log(id);
 
         const temp = document.getElementById(id);
         const clone = temp.content.cloneNode(true);
@@ -339,6 +339,8 @@ addEventListener("keyup", (ev) => {
 })
 
 function matinput(block) {
+
+    
     let rows, columns;
     rows = block.children[0].children[1].value;
     columns = block.children[0].children[2].value;
@@ -394,13 +396,150 @@ var booleanBlock = (block) => {
 var evalBlock = (block) => {
     let evalValue;
     evalValue = block.children[0].children[0].value;
+    evalValue = evalValue.split(" ").join("");
+    console.log(evalValue);
     // result = eval(evalValue)
     // result = (evalValue) => {
     //     return Function(`'use strict'; return (${eval(evalValue)}`)()
     // }
-    return `console.log(${eval(evalValue)})`;
+    return `console.log(${evalValue})`;
 }
 
+var matevalBlock = (block) => {
+    let evalValue;
+    evalValue = block.children[0].children[0].value;
+    evalValue = evalValue.split(" ").join("");
+    let evallist = evalValue.split("");
+    let op1 = '', op2 = '';
+    for (let index = 0; index < evallist.length; index++) {
+        const element = evallist[index];
+        // [+,-,*,/,%]
+        // (-3)*(-3)
+        if (element == "+") {
+            if (evallist[index - 1] != ")")
+                op1 = evallist[index - 1];
+            else {
+                // op1 = ;
+                let ind = index - 2;
+                while (evallist[ind] != "(" && ind>0) {
+                    op1 += evallist[ind];
+                    ind--;
+                }
+                op1 = op1.split("").reverse().join("")
+            }
+
+            if (evallist[index + 1] != "(")
+                op2 = evallist[index + 1];
+            else {
+                let ind = index + 2;
+                while (evallist[ind] != ")" && ind<evallist.length) {
+                    op2 += evallist[ind];
+                    ind++;
+                }
+
+            }
+            math.add(op1, op2);
+        } else if (element == "-") {
+            if (evallist[index - 1] != ")")
+                op1 = evallist[index - 1];
+            else {
+                // op1 = ;
+                let ind = index - 2;
+                while (evallist[ind] != "(" && ind>0) {
+                    op1 += evallist[ind];
+                    ind--;
+                }
+                op1 = op1.split("").reverse().join("")
+            }
+
+            if (evallist[index + 1] != "(")
+                op2 = evallist[index + 1];
+            else {
+                let ind = index + 2;
+                while (evallist[ind] != ")" && ind<evallist.length) {
+                    op2 += evallist[ind];
+                    ind++;
+                }
+
+            }
+            math.subtract(op1, op2);
+        } else if (element == "*") {
+            if (evallist[index - 1] != ")")
+                op1 = evallist[index - 1];
+            else {
+                // op1 = ;
+                let ind = index - 2;
+                while (evallist[ind] != "(" && ind>0) {
+                    op1 += evallist[ind];
+                    ind--;
+                }
+                op1 = op1.split("").reverse().join("")
+            }
+
+            if (evallist[index + 1] != "(")
+                op2 = evallist[index + 1];
+            else {
+                let ind = index + 2;
+                while (evallist[ind] != ")" && ind<evallist.length) {
+                    op2 += evallist[ind];
+                    ind++;
+                }
+
+            }
+            math.multiply(op1, op2);
+        } else if (element == "/") {
+            if (evallist[index - 1] != ")")
+                op1 = evallist[index - 1];
+            else {
+                // op1 = ;
+                let ind = index - 2;
+                while (evallist[ind] != "(" && ind>0) {
+                    op1 += evallist[ind];
+                    ind--;
+                }
+                op1 = op1.split("").reverse().join("")
+            }
+
+            if (evallist[index + 1] != "(")
+                op2 = evallist[index + 1];
+            else {
+                let ind = index + 2;
+                while (evallist[ind] != ")" && ind<evallist.length) {
+                    op2 += evallist[ind];
+                    ind++;
+                }
+
+            }
+            math.divide(op1, op2);
+        } else if (element == "%") {
+            if (evallist[index - 1] != ")")
+                op1 = evallist[index - 1];
+            else {
+                // op1 = ;
+                let ind = index - 2;
+                while (evallist[ind] != "(" && ind>0) {
+                    op1 += evallist[ind];
+                    ind--;
+                }
+                op1 = op1.split("").reverse().join("")
+            }
+
+            if (evallist[index + 1] != "(")
+                op2 = evallist[index + 1];
+            else {
+                let ind = index + 2;
+                while (evallist[ind] != ")" && ind<evallist.length) {
+                    op2 += evallist[ind];
+                    ind++;
+                }
+
+            }
+            math.mod(op1, op2);
+        }
+
+
+    }
+}
 
 
 var outputBlock = (block) => {
@@ -419,6 +558,7 @@ var matrixBlock = (block) => {
     for (let index = 0; index < matrix_inputs.length; index++) {
         array.push(matrix_inputs[index].value);
     }
+
 
     return `
     const arr_M =[${array}];
@@ -486,7 +626,7 @@ var forBlock = (block) => {
     if (!(step == "1" || step == 1) || !step) {
         op = op[0] + `=${step}`;
     }
-    subroutine = compile(block);
+    subroutine = subRoutine(block);
 
     return `for(let i=${initVal};i<${endVal};i${op}){
         ${subroutine}
@@ -495,10 +635,9 @@ var forBlock = (block) => {
 }
 
 var elseBlock = (block) => {
-    let subroutine = compile(block);
-    return `    
-        else{
-            ${subroutine};
+    let subroutine = subRoutine(block);
+    return `else{
+            ${subroutine}
         }
     
     `
@@ -506,7 +645,7 @@ var elseBlock = (block) => {
 
 var ifBlock = (block) => {
 
-    let subroutine = compile(block);
+    let subroutine = subRoutine(block);
 
     let op1, op2, op;
     op1 = block.children[0].children[0].value;
@@ -525,7 +664,7 @@ var ifBlock = (block) => {
 
 var elseifBlock = (block) => {
 
-    let subroutine = compile(block);
+    let subroutine = subRoutine(block);
     let op1, op2, op;
     op1 = block.children[0].children[0].value;
     op = block.children[0].children[1].value;
@@ -543,7 +682,7 @@ var elseifBlock = (block) => {
 }
 
 var whileBlock = (block) => {
-    let subroutine = compile(block);
+    let subroutine = subRoutine(block);
     let op1, op2, op;
     op1 = block.children[0].children[0].value;
     op = block.children[0].children[1].value;
@@ -578,6 +717,86 @@ var unityMatrix = (block) => {
     `
 }
 
+function subRoutine(mainblock) {
+    console.log("running sub")
+    let maincode = "";
+    let blocksofcode = mainblock.children;
+    // blocksofcode.splice(0,1);
+    // return blocksofcode;
+    for (let index = 1; index < blocksofcode.length; index++) {
+
+        const element = blocksofcode[index];
+        if (element.id == "drop-box") {
+            console.log("drop-box rejected")
+            continue;
+        }
+
+        let code;
+
+
+        switch (element.firstChild.textContent.trim()) {
+            case "Constant":
+                console.log("running Constant");
+                code = constantBlock(element);
+                break;
+            case "Boolean":
+                console.log("running boolean");
+                code = booleanBlock(element);
+                break;
+            case "Output Block":
+                console.log("running output block");
+                code = outputBlock(element);
+                break;
+            case "Matrix":
+                console.log("running matrix");
+                code = matrixBlock(element);
+                break;
+            case "Break":
+                console.log("running break");
+                code = breakBlock(element);
+                break;
+            case "Identity Matrix":
+                code = identityBlock(element);
+                break;
+            case "Transpose":
+                code = transposeBlock(element);
+                break;
+            case "Evaluate":
+                code = evalBlock(element);
+                break;
+            case "For":
+                code = forBlock(element);
+                break;
+            case "While":
+                code = whileBlock(element);
+                break;
+            case "Unity":
+                code = unityMatrix(element);
+                break;
+            case "Zero":
+                code = zeroMatrix(element);
+                break;
+            case "If":
+                code = ifBlock(element);
+                break;
+            case "Else":
+                code = elseBlock(element);
+                break;
+            case "Else If":
+                code = elseifBlock(element);
+                break;
+            case "ABS":
+                code = absoluteBlock(element);
+            default:
+                break;
+        }
+        // maincode+="console.log(2);";
+        maincode += code;
+
+    }
+    // console.log(maincode);
+    return maincode;
+}
 
 var zeroMatrix = (block) => {
     let varname = block.children[0].children[0].value;
@@ -611,7 +830,10 @@ var absoluteBlock = (block) => {
 
 
 function RUN(mainblock) {
-    console.log(compile(mainblock));
+    let maincode = compile(mainblock)
+    // console.log(compile(mainblock));
+    console.log(maincode);
+
 }
 
 function compile(mainblock) {
@@ -620,52 +842,14 @@ function compile(mainblock) {
     let blocksofcode = mainblock.children;
     // return blocksofcode;
     for (let index = 1; index < blocksofcode.length; index++) {
-        const element = blocksofcode[index];
-        // let block = element.firstChild;
-        // console.log("element is", block.textContent.includes("Constant"));
 
-        // console.log(block.trim().split());
-        // if(block.trim() == "Constant"){
-        //   constantBlock(element);
-        // }
-        let blockname;
+        const element = blocksofcode[index];
+
         let code;
 
-        if (element.textContent.includes("Constant")) {
-            blockname = "Constant";
-        } else if (element.textContent.includes("Boolean")) {
-            blockname = "Boolean";
-        } else if (element.textContent.includes("Output Block")) {
-            blockname = "Output Block";
-        } else if (element.textContent.includes("Break")) {
-            blockname = "Break";
-        } else if (element.textContent.includes("Continue")) {
-            blockname = "Continue";
-        } else if (element.textContent.includes("Transpose")) {
-            blockname = "Transpose";
-        } else if (element.textContent.includes("Identity")) {
-            blockname = "Identity Matrix";
-        } else if (element.textContent.includes("Evaluate")) {
-            blockname = "Evaluate";
-        } else if (element.textContent.includes("For")) {
-            blockname = "For";
-        } else if (element.textContent.includes("Unity Matrix")) {
-            blockname = "Unity";
-        } else if (element.textContent.includes("Zeros Matrix")) {
-            blockname = "Zero";
-        } else if (element.textContent.includes("Matrix")) {
-            blockname = "Matrix";
-        } else if (element.textContent.inlcudes("Else If")) {
-            blockname = "Elseif";
-        } else if (element.textContent.includes("If")) {
-            blockname = "If";
-        } else if (element.textContent.inlcudes("Else")) {
-            blockname = "Else";
-        } else if (element.textContent.inlcudes("ABS")) {
-            blockname = "absolute";
-        }
 
-        switch (blockname) {
+
+        switch (element.firstChild.textContent.trim()) {
             case "Constant":
                 console.log("running Constant");
                 code = constantBlock(element);
@@ -698,6 +882,9 @@ function compile(mainblock) {
             case "For":
                 code = forBlock(element);
                 break;
+            case "While":
+                code = whileBlock(element);
+                break;
             case "Unity":
                 code = unityMatrix(element);
                 break;
@@ -710,10 +897,10 @@ function compile(mainblock) {
             case "Else":
                 code = elseBlock(element);
                 break;
-            case "Elseif":
+            case "Else If":
                 code = elseifBlock(element);
                 break;
-            case "absolute":
+            case "ABS":
                 code = absoluteBlock(element);
             default:
                 break;
