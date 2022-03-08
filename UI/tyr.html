@@ -162,7 +162,7 @@
                     <button type="button" id="dragbut" disabled class="btn btn-danger" onclick="dragbu()">Drag</button>
                     <button type="button" id="stepo" disabled class="btn btn-danger" onclick="stepout()">StepOut</button>
                     <button type="button" id="stepi" disabled class="btn btn-danger" onclick="stepin()">StepIn</button>
-                    <button type="button" id="run" class="btn btn-danger" onclick="compl()">RUN</button>
+                    <button type="button" id="run" class="btn btn-danger" onclick="RUN(document.getElementById('interface'))">RUN</button>
                 </div>
             </div>
         </div>
@@ -171,6 +171,7 @@
     <script src="drag1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js" integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>s
 </body>
 <template id="boo">
     <div class="noselect selectable bordered-box">
@@ -201,11 +202,11 @@
         Matrix
         <div class="details">
             <input type="text" name="" id="" placeholder="Variable Name">
-            <input type="text"  name=""  id="" placeholder="enter no. of rows">
+            <input type="text" name="" id="" placeholder="enter no. of rows">
             <input type="text" name="" id="" placeholder="enter no. of columns">
             <button onclick="matinput(prevSelection[0])">Enter Values</button>
             <div class="matinps"></div>
-            <button onclick="event.target.parentNode.style.display = 'none';" > OK </button>
+            <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
         </div>
     </div>
 </template>
@@ -251,10 +252,12 @@
 
             <select name="" id="">
                 <option value=">">></option>
-                <option value="<"><</option>
+                <option value="<">
+                    < /option>
                 <option value="=">=</option>
                 <option value=">=">>=</option>
-                <option value="<="><=</option>
+                <option value="<=">
+                    <= </option>
                 <option value="!=">!= (not equal to)</option>
             </select>
 
@@ -271,10 +274,12 @@
 
             <select name="" id="">
                 <option value=">">></option>
-                <option value="<"><</option>
+                <option value="<">
+                    << /option>
                 <option value="=">=</option>
                 <option value=">=">>=</option>
-                <option value="<="><=</option>
+                <option value="<=">
+                    <=< /option>
                 <option value="!=">!= (not equal to)</option>
             </select>
 
@@ -313,10 +318,12 @@
 
             <select name="" id="">
                 <option value=">">></option>
-                <option value="<"><</option>
+                <option value="<">
+                    << /option>
                 <option value="=">=</option>
                 <option value=">=">>=</option>
-                <option value="<="><=</option>
+                <option value="<=">
+                    <=< /option>
                 <option value="!=">!= (not equal to)</option>
             </select>
 

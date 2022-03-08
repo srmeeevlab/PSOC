@@ -11,7 +11,7 @@ let count = 0;
 let ifshiftpressed = false;
 
 
-var maincode = "";
+// var maincode = "";
 
 function drag_handler(ev) {
     ev.preventDefault();
@@ -237,7 +237,8 @@ function checkButtonStatus() {
 
 
 function showprops(params) {
-    prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
+    if (prevSelection[0].getElementsByClassName("details").length > 0)
+        prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
 
 }
 
@@ -348,7 +349,7 @@ function matinput(block) {
         alert("rows or columns empty")
         return;
     }
-    
+
     let inpcount = 1;
     for (let i = 0; i < rows; i++) {
         // const element = array[i];
@@ -375,7 +376,7 @@ var constantBlock = (block) => {
     valname = block.children[0].children[1].value;
     // varname = "a";
     // valname = "3";
-    maincode += ` let ${varname} = ${valname} ;`;
+    return ` let ${varname} = ${valname} ;`;
     // block.innerHTML += " : " + varname;
     //  " let a = 3"
 }
@@ -387,7 +388,7 @@ var booleanBlock = (block) => {
     varname = block.children[0].children[0].value;
     valname = block.children[0].children[1].value;
     // block.innerHTML += " : " + varname;
-    maincode += ` let ${varname} = ${valname} ;`;
+    return ` let ${varname} = ${valname} ;`;
 }
 
 var evalBlock = (block) => {
@@ -397,35 +398,20 @@ var evalBlock = (block) => {
     // result = (evalValue) => {
     //     return Function(`'use strict'; return (${eval(evalValue)}`)()
     // }
-    maincode += `console.log(${eval(evalValue)})`;
+    return `console.log(${eval(evalValue)})`;
 }
 
-var sumBlock = (block) => {
-    let i, sum = 0;
-    let noofchildren = block.childElementCount;
-    let arr = Array.from(block.children);
-    for (let index = 0; index < arr.length; index++) {
-        arr[i] = arr[i].value;
-    }
-    maincode += `   
-    let sum=0;
-    let arr = [${arr}];
-    for(let i=0;i<arr.length;i++){
-     sum+= arr[i]; 
-    }
 
-  `
-}
 
 var outputBlock = (block) => {
     let output;
     output = block.children[0].children[0].value;
-    maincode += `console.log(${output}) `;
+    return `console.log(${output}) `;
 }
 
 var matrixBlock = (block) => {
     let varname = block.children[0].children[0].value;
-    let rows , columns;
+    let rows, columns;
     rows = block.children[0].children[1].value;
     columns = block.children[0].children[2].value;
     let array = [];
@@ -434,7 +420,7 @@ var matrixBlock = (block) => {
         array.push(matrix_inputs[index].value);
     }
 
-    maincode += `
+    return `
     const arr_M =[${array}];
     
     const ${varname} = [];
@@ -444,8 +430,8 @@ var matrixBlock = (block) => {
     `
 }
 
-var breakBlock = (block) => maincode += "break;";
-var continueBlock = (block) => maincode += "continue;";
+var breakBlock = (block) => { return "break;"; }
+var continueBlock = (block) => { return "continue;"; }
 
 var identityBlock = (block) => {
     let varname = block.children[0].children[0].value;
@@ -457,7 +443,7 @@ var identityBlock = (block) => {
             i == j ? array.push(1) : array.push(0);
         }
     }
-    maincode += `
+    return `
     const arr_I = [${array}];
     const ${varname} = [];
     while(arr_I.length) ${varname}.push(arr_I.splice(0,${rows}));
@@ -471,7 +457,7 @@ var transposeBlock = (block) => {
     let varname = block.children[0].children[1].value;
     console.log("transpose variable name is", varname);
 
-    maincode += `
+    return `
     
     const ${newvarname} = new Array(${varname}[0].length);
     for(let i=0;i<${newvarname}.length;i++){
@@ -488,32 +474,29 @@ var transposeBlock = (block) => {
     `
 }
 
-var subRoutine = (block) => {
-    let childElements = block.children;
-    // another compile function
-}
+
 
 var forBlock = (block) => {
-    let initVal, endVal, op, subroutine,step;
+    let initVal, endVal, op, subroutine, step;
     initVal = block.children[0].children[0].value;
     endVal = block.children[0].children[1].value;
     op = block.children[0].children[2].value;
     step = block.children[0].children[3].value
 
-    if(!(step=="1" || step==1) || !step){
+    if (!(step == "1" || step == 1) || !step) {
         op = op[0] + `=${step}`;
     }
-    subroutine = subRoutine(block);
+    subroutine = compile(block);
 
-    maincode += `for(let i=${initVal};i<${endVal};i${op}){
+    return `for(let i=${initVal};i<${endVal};i${op}){
         ${subroutine}
     }
     `
 }
 
-var elseBlock = (block)=>{
-    let subroutine = subRoutine(block);
-    maincode+= `    
+var elseBlock = (block) => {
+    let subroutine = compile(block);
+    return `    
         else{
             ${subroutine};
         }
@@ -521,17 +504,17 @@ var elseBlock = (block)=>{
     `
 }
 
-var ifBlock = (block) =>{
+var ifBlock = (block) => {
 
-    let subroutine = subRoutine(block);
-    
-    let op1,op2,op;
+    let subroutine = compile(block);
+
+    let op1, op2, op;
     op1 = block.children[0].children[0].value;
     op = block.children[0].children[1].value;
     op2 = block.children[0].children[2].value;
-    
+
     let condition = ` ${op1} ${op} ${op2} `;
-    maincode+= `
+    return `
     
     if(${condition}){
         ${subroutine}
@@ -540,17 +523,17 @@ var ifBlock = (block) =>{
     `
 }
 
-var elseifBlock = (block) =>{
+var elseifBlock = (block) => {
 
-    let subroutine = subRoutine(block);
-    let op1,op2,op;
+    let subroutine = compile(block);
+    let op1, op2, op;
     op1 = block.children[0].children[0].value;
     op = block.children[0].children[1].value;
     op2 = block.children[0].children[2].value;
-    
+
     let condition = ` ${op1} ${op} ${op2} `;
 
-    maincode+= `
+    return `
     
     else if(${condition}){
         ${subroutine}
@@ -559,16 +542,16 @@ var elseifBlock = (block) =>{
     `
 }
 
-var whileBlock = (block)=>{
-    let subroutine = subRoutine(block);
-    let op1,op2,op;
+var whileBlock = (block) => {
+    let subroutine = compile(block);
+    let op1, op2, op;
     op1 = block.children[0].children[0].value;
     op = block.children[0].children[1].value;
     op2 = block.children[0].children[2].value;
-    
+
     let condition = ` ${op1} ${op} ${op2} `;
 
-    maincode+= `
+    return `
     
     while(${condition}){
         ${subroutine}
@@ -585,7 +568,7 @@ var unityMatrix = (block) => {
     for (let index = 0; index < rows * columns; index++) {
         unitmat.push(1);
     }
-    maincode += `
+    return `
     const arr_1 = [${unitmat}];
     const ${varname} = [];
     while(arr_1.length) ${varname}.push(arr_1.splice(0,${columns}));
@@ -605,7 +588,7 @@ var zeroMatrix = (block) => {
         // const element = array[index];
         zeroarr.push(0);
     }
-    maincode += `
+    return `
     const arr_z = [${zeroarr}];
     const ${varname} = [];
     while(arr_z.length) ${varname}.push(arr_z.splice(0,${columns}));
@@ -615,12 +598,28 @@ var zeroMatrix = (block) => {
     `
 }
 
-function compl() {
+var absoluteBlock = (block) => {
+    let absValue;
+    absValue = block.children[0].children[0].value;
+    // result = eval(evalValue)
+    // result = (evalValue) => {
+    //     return Function(`'use strict'; return (${eval(evalValue)}`)()
+    // }
+    return `console.log(${(Math.abs(absValue))})`;
+}
+
+
+
+function RUN(mainblock) {
+    console.log(compile(mainblock));
+}
+
+function compile(mainblock) {
     // window.maincode.concat("2");
-    maincode = "";
-    let blocksofcode = document.getElementById("interface").children;
+    let maincode = "";
+    let blocksofcode = mainblock.children;
     // return blocksofcode;
-    for (let index = 0; index < blocksofcode.length; index++) {
+    for (let index = 1; index < blocksofcode.length; index++) {
         const element = blocksofcode[index];
         // let block = element.firstChild;
         // console.log("element is", block.textContent.includes("Constant"));
@@ -630,6 +629,7 @@ function compl() {
         //   constantBlock(element);
         // }
         let blockname;
+        let code;
 
         if (element.textContent.includes("Constant")) {
             blockname = "Constant";
@@ -655,51 +655,73 @@ function compl() {
             blockname = "Zero";
         } else if (element.textContent.includes("Matrix")) {
             blockname = "Matrix";
+        } else if (element.textContent.inlcudes("Else If")) {
+            blockname = "Elseif";
+        } else if (element.textContent.includes("If")) {
+            blockname = "If";
+        } else if (element.textContent.inlcudes("Else")) {
+            blockname = "Else";
+        } else if (element.textContent.inlcudes("ABS")) {
+            blockname = "absolute";
         }
 
         switch (blockname) {
             case "Constant":
                 console.log("running Constant");
-                constantBlock(element);
+                code = constantBlock(element);
                 break;
             case "Boolean":
                 console.log("running boolean");
-                booleanBlock(element);
+                code = booleanBlock(element);
                 break;
             case "Output Block":
                 console.log("running output block");
-                outputBlock(element);
+                code = outputBlock(element);
                 break;
             case "Matrix":
                 console.log("running matrix");
-                matrixBlock(element);
+                code = matrixBlock(element);
                 break;
             case "Break":
                 console.log("running break");
+                code = breakBlock(element);
                 break;
             case "Identity Matrix":
-                identityBlock(element);
+                code = identityBlock(element);
                 break;
             case "Transpose":
-                transposeBlock(element);
+                code = transposeBlock(element);
                 break;
             case "Evaluate":
-                evalBlock(element);
+                code = evalBlock(element);
                 break;
             case "For":
-                forBlock(element);
+                code = forBlock(element);
                 break;
             case "Unity":
-                unityMatrix(element);
+                code = unityMatrix(element);
                 break;
             case "Zero":
-                zeroMatrix(element);
+                code = zeroMatrix(element);
                 break;
+            case "If":
+                code = ifBlock(element);
+                break;
+            case "Else":
+                code = elseBlock(element);
+                break;
+            case "Elseif":
+                code = elseifBlock(element);
+                break;
+            case "absolute":
+                code = absoluteBlock(element);
             default:
                 break;
         }
         // maincode+="console.log(2);";
-        console.log(maincode);
+        maincode += code;
 
     }
+    // console.log(maincode);
+    return maincode;
 }
