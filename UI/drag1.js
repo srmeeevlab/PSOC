@@ -160,9 +160,10 @@ function stepin() {
 
 function deselect() {
     while (prevSelection.length > 0) {
-        prevSelection.pop().classList.remove("highlight");
+        prevSelection.pop().classList.remove("highlight");;
     }
     document.getElementById("delbut").disabled = true;
+    document.getElementById("setbut").disabled = true;
     document.getElementById("upbut").disabled = true;
     document.getElementById("downbut").disabled = true;
     document.getElementById("dragbut").disabled = true;
@@ -340,15 +341,15 @@ addEventListener("keyup", (ev) => {
 
 function matinput(block) {
 
-    
+
     let rows, columns;
     rows = block.children[0].children[1].value;
     columns = block.children[0].children[2].value;
     let divblock = block.children[0];
     divblock = divblock.getElementsByClassName("matinps")[0];
     divblock.innerHTML = "";
-    if (!rows || !columns) {
-        alert("rows or columns empty")
+    if (!rows || !columns || rows<0 || columns<0) {
+        alert("Invalid input")
         return;
     }
 
@@ -375,7 +376,12 @@ var constantBlock = (block) => {
     console.log("inside constant");
     // console.log(block.children[0].children);
     varname = block.children[0].children[0].value;
+    
     valname = block.children[0].children[1].value;
+    if (!valname || !varname || !isNaN(varname) ) {
+        alert("Invalid input")
+        throw 0;
+    }
     // varname = "a";
     // valname = "3";
     return ` let ${varname} = ${valname} ;`;
@@ -389,6 +395,10 @@ var booleanBlock = (block) => {
     // valname = "true";
     varname = block.children[0].children[0].value;
     valname = block.children[0].children[1].value;
+    if (!valname || !varname || !isNaN(varname) ) {
+        alert("Invalid input")
+        throw 0;
+    }
     // block.innerHTML += " : " + varname;
     return ` let ${varname} = ${valname} ;`;
 }
@@ -396,6 +406,10 @@ var booleanBlock = (block) => {
 var evalBlock = (block) => {
     let evalValue;
     evalValue = block.children[0].children[0].value;
+    if (!evalValue) {
+        alert("Invalid input")
+        throw 0;
+    }
     evalValue = evalValue.split(" ").join("");
     console.log(evalValue);
     // result = eval(evalValue)
@@ -408,6 +422,10 @@ var evalBlock = (block) => {
 var matevalBlock = (block) => {
     let evalValue;
     evalValue = block.children[0].children[0].value;
+    if(!evalValue){
+        alert("Empty eval block");
+        throw 0;
+    }
     evalValue = evalValue.split(" ").join("");
     let evallist = evalValue.split("");
     let op1 = '', op2 = '';
@@ -421,7 +439,7 @@ var matevalBlock = (block) => {
             else {
                 // op1 = ;
                 let ind = index - 2;
-                while (evallist[ind] != "(" && ind>0) {
+                while (evallist[ind] != "(" && ind > 0) {
                     op1 += evallist[ind];
                     ind--;
                 }
@@ -432,7 +450,7 @@ var matevalBlock = (block) => {
                 op2 = evallist[index + 1];
             else {
                 let ind = index + 2;
-                while (evallist[ind] != ")" && ind<evallist.length) {
+                while (evallist[ind] != ")" && ind < evallist.length) {
                     op2 += evallist[ind];
                     ind++;
                 }
@@ -445,7 +463,7 @@ var matevalBlock = (block) => {
             else {
                 // op1 = ;
                 let ind = index - 2;
-                while (evallist[ind] != "(" && ind>0) {
+                while (evallist[ind] != "(" && ind > 0) {
                     op1 += evallist[ind];
                     ind--;
                 }
@@ -456,7 +474,7 @@ var matevalBlock = (block) => {
                 op2 = evallist[index + 1];
             else {
                 let ind = index + 2;
-                while (evallist[ind] != ")" && ind<evallist.length) {
+                while (evallist[ind] != ")" && ind < evallist.length) {
                     op2 += evallist[ind];
                     ind++;
                 }
@@ -469,7 +487,7 @@ var matevalBlock = (block) => {
             else {
                 // op1 = ;
                 let ind = index - 2;
-                while (evallist[ind] != "(" && ind>0) {
+                while (evallist[ind] != "(" && ind > 0) {
                     op1 += evallist[ind];
                     ind--;
                 }
@@ -480,7 +498,7 @@ var matevalBlock = (block) => {
                 op2 = evallist[index + 1];
             else {
                 let ind = index + 2;
-                while (evallist[ind] != ")" && ind<evallist.length) {
+                while (evallist[ind] != ")" && ind < evallist.length) {
                     op2 += evallist[ind];
                     ind++;
                 }
@@ -493,7 +511,7 @@ var matevalBlock = (block) => {
             else {
                 // op1 = ;
                 let ind = index - 2;
-                while (evallist[ind] != "(" && ind>0) {
+                while (evallist[ind] != "(" && ind > 0) {
                     op1 += evallist[ind];
                     ind--;
                 }
@@ -504,7 +522,7 @@ var matevalBlock = (block) => {
                 op2 = evallist[index + 1];
             else {
                 let ind = index + 2;
-                while (evallist[ind] != ")" && ind<evallist.length) {
+                while (evallist[ind] != ")" && ind < evallist.length) {
                     op2 += evallist[ind];
                     ind++;
                 }
@@ -517,7 +535,7 @@ var matevalBlock = (block) => {
             else {
                 // op1 = ;
                 let ind = index - 2;
-                while (evallist[ind] != "(" && ind>0) {
+                while (evallist[ind] != "(" && ind > 0) {
                     op1 += evallist[ind];
                     ind--;
                 }
@@ -528,7 +546,7 @@ var matevalBlock = (block) => {
                 op2 = evallist[index + 1];
             else {
                 let ind = index + 2;
-                while (evallist[ind] != ")" && ind<evallist.length) {
+                while (evallist[ind] != ")" && ind < evallist.length) {
                     op2 += evallist[ind];
                     ind++;
                 }
@@ -545,6 +563,8 @@ var matevalBlock = (block) => {
 var outputBlock = (block) => {
     let output;
     output = block.children[0].children[0].value;
+    if(!output)
+        output = "\n";
     return `console.log(${output}) `;
 }
 
@@ -553,6 +573,10 @@ var matrixBlock = (block) => {
     let rows, columns;
     rows = block.children[0].children[1].value;
     columns = block.children[0].children[2].value;
+    if (rows < 0 || columns < 0 || !rows || !columns || !isNaN(varname) || !varname) {
+        alert("Invalid input");
+        throw 0;
+    }
     let array = [];
     let matrix_inputs = block.children[0].getElementsByClassName("matinps")[0].getElementsByTagName("input");
     for (let index = 0; index < matrix_inputs.length; index++) {
@@ -576,6 +600,10 @@ var continueBlock = (block) => { return "continue;"; }
 var identityBlock = (block) => {
     let varname = block.children[0].children[0].value;
     let rows = block.children[0].children[1].value;
+    if( !varname|| !isNaN(varname) || rows<0 || !rows){
+        alert("invalid input in identity block");
+     throw 0;
+    }
     let array = [];
     for (let i = 0; i < rows; i++) {
         // const element = array[index];
@@ -595,6 +623,10 @@ var transposeBlock = (block) => {
 
     let newvarname = block.children[0].children[0].value;
     let varname = block.children[0].children[1].value;
+    if(!varname || !newvarname || !isNaN(varname) || !isNaN(newvarname)){
+        alert("Invalid ");
+        throw 0;
+    }
     console.log("transpose variable name is", varname);
 
     return `
@@ -618,20 +650,44 @@ var transposeBlock = (block) => {
 
 var forBlock = (block) => {
     let initVal, endVal, op, subroutine, step;
+    subroutine = subRoutine(block);
     initVal = block.children[0].children[0].value;
     endVal = block.children[0].children[1].value;
-    op = block.children[0].children[2].value;
-    step = block.children[0].children[3].value
+    step = block.children[0].children[2].value;
+    console.log("step is ",step);
+    // op = block.children[0].children[3].value;
 
-    if (!(step == "1" || step == 1) || !step) {
-        op = op[0] + `=${step}`;
+    if(!initVal || !endVal){
+        alert("start or end value not given");
+        throw 0;
     }
-    subroutine = subRoutine(block);
 
-    return `for(let i=${initVal};i<${endVal};i${op}){
-        ${subroutine}
+
+    if(Number(initVal)>Number(endVal)){
+        op = "--"
+    }else{
+        op="++";
     }
-    `
+    if(!step)
+        step = "1";
+    if ( !(step === "1" || step === 1)) {
+        op = op[0]+ `= ${step}`;
+    }
+    if(Number(initVal)>Number(endVal)){
+        return `for(let i=${initVal};i>${endVal};i${op}){
+            ${subroutine}
+        }`
+    }else{
+        return `for(let i=${initVal};i<${endVal};i${op}){
+            ${subroutine}
+        }`
+    }
+
+    // if(!initVal)
+    
+    
+
+    
 }
 
 var elseBlock = (block) => {
@@ -651,6 +707,10 @@ var ifBlock = (block) => {
     op1 = block.children[0].children[0].value;
     op = block.children[0].children[1].value;
     op2 = block.children[0].children[2].value;
+    if(!op1 || !op2){
+        alert("No input in if");
+        throw 0;
+    }
 
     let condition = ` ${op1} ${op} ${op2} `;
     return `
@@ -663,13 +723,17 @@ var ifBlock = (block) => {
 }
 
 var elseifBlock = (block) => {
+    
 
     let subroutine = subRoutine(block);
     let op1, op2, op;
     op1 = block.children[0].children[0].value;
     op = block.children[0].children[1].value;
     op2 = block.children[0].children[2].value;
-
+    if(!op1 || !op2){
+        alert("Invalid input");
+        throw 0;
+    }
     let condition = ` ${op1} ${op} ${op2} `;
 
     return `
@@ -687,7 +751,10 @@ var whileBlock = (block) => {
     op1 = block.children[0].children[0].value;
     op = block.children[0].children[1].value;
     op2 = block.children[0].children[2].value;
-
+    if(!op1 || !op2){
+        alert("No input in while");
+        throw 0;
+    }
     let condition = ` ${op1} ${op} ${op2} `;
 
     return `
@@ -703,6 +770,10 @@ var unityMatrix = (block) => {
     let varname = block.children[0].children[0].value;
     let rows = block.children[0].children[1].value;
     let columns = block.children[0].children[2].value;
+    if(!rows ||!columns ||rows<0  || columns <0 || !varname || !isNaN(varname)){
+        alert("Invalid input");
+        throw 0;
+    }
     let unitmat = [];
     for (let index = 0; index < rows * columns; index++) {
         unitmat.push(1);
@@ -803,6 +874,10 @@ var zeroMatrix = (block) => {
     let rows = block.children[0].children[1].value;
     let columns = block.children[0].children[2].value;
     let zeroarr = [];
+    if(!varname || !isNaN(varname) || !rows || rows<0 || columns<0|| !columns){
+        alert("invalid input in zeromatrix block");
+        throw 0;
+    }
     for (let index = 0; index < rows * columns; index++) {
         // const element = array[index];
         zeroarr.push(0);
@@ -820,6 +895,10 @@ var zeroMatrix = (block) => {
 var absoluteBlock = (block) => {
     let absValue;
     absValue = block.children[0].children[0].value;
+    if(!absValue){
+        alert("No input given");
+        throw 0;
+    }
     // result = eval(evalValue)
     // result = (evalValue) => {
     //     return Function(`'use strict'; return (${eval(evalValue)}`)()
@@ -830,21 +909,42 @@ var absoluteBlock = (block) => {
 
 
 function RUN(mainblock) {
-    let maincode = compile(mainblock)
-    // console.log(compile(mainblock));
-    console.log(maincode);
+
+
+
+    try {
+        let maincode = compile(mainblock)
+        // console.log(compile(mainblock));
+        if (maincode === "") {
+            alert("No input");
+            return;
+        }
+        console.log(maincode);
+        eval(maincode);
+    } catch (error) {
+        // console.log("error is ",error);
+    }
+
 
 }
 
 function compile(mainblock) {
     // window.maincode.concat("2");
+
     let maincode = "";
     let blocksofcode = mainblock.children;
+
     // return blocksofcode;
     for (let index = 1; index < blocksofcode.length; index++) {
 
         const element = blocksofcode[index];
-
+        if(element.firstChild.textContent.trim()=="Else If" || element.firstChild.textContent.trim()=="Else"){
+            let prevblock = blocksofcode[index-1];
+            if(prevblock.firstChild.textContent.trim()!="If" && prevblock.firstChild.textContent.trim()!="Else If"){
+                alert("no if found");
+                throw 0;
+            }
+        }
         let code;
 
 
@@ -902,6 +1002,7 @@ function compile(mainblock) {
                 break;
             case "ABS":
                 code = absoluteBlock(element);
+                break;
             default:
                 break;
         }
@@ -912,3 +1013,4 @@ function compile(mainblock) {
     // console.log(maincode);
     return maincode;
 }
+
