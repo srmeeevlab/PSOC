@@ -195,12 +195,12 @@ function checkButtonStatus() {
     let delbut = document.getElementById("delbut");
 
     console.log("inside chck status")
-    if (prevSelection.length !=1) {
+    if (prevSelection.length != 1) {
         document.getElementById("upbut").disabled = true;
         document.getElementById("downbut").disabled = true;
         document.getElementById("dragbut").disabled = true;
         document.getElementById("delbut").disabled = true;
-        if(prevSelection.length>0)
+        if (prevSelection.length > 0)
             document.getElementById("delbut").disabled = false;
         document.getElementById("stepo").disabled = true;
         document.getElementById("stepi").disabled = true;
@@ -226,8 +226,7 @@ function checkButtonStatus() {
 
     if (target.parentNode == document.getElementById("interface"))
         stepo.disabled = true;
-    else
-    {stepo.disabled = false;}
+    else { stepo.disabled = false; }
 
     setbut.disabled = false;
     dragbut.disabled = false;
@@ -338,6 +337,36 @@ addEventListener("keyup", (ev) => {
     }
 })
 
+function matinput(block) {
+    let rows, columns;
+    rows = block.children[0].children[1].value;
+    columns = block.children[0].children[2].value;
+    let divblock = block.children[0];
+    divblock = divblock.getElementsByClassName("matinps")[0];
+    divblock.innerHTML = "";
+    if (!rows || !columns) {
+        alert("rows or columns empty")
+        return;
+    }
+    
+    let inpcount = 1;
+    for (let i = 0; i < rows; i++) {
+        // const element = array[i];
+
+        for (let index = 0; index < columns; index++) {
+            // const element = array[index];
+            divblock.appendChild(document.createElement("input"));
+            divblock.lastElementChild.type = "text";
+            divblock.lastElementChild.id = inpcount;
+            inpcount++;
+
+        }
+        divblock.appendChild(document.createElement("br"))
+        divblock.appendChild(document.createElement("br"))
+    }
+
+}
+
 var constantBlock = (block) => {
     let varname, valname;
     console.log("inside constant");
@@ -395,21 +424,23 @@ var outputBlock = (block) => {
 }
 
 var matrixBlock = (block) => {
-
-    let rows, columns;
-    rows = block.children[0].children[0].value;
-    columns = block.children[0].children[1].value;
+    let varname = block.children[0].children[0].value;
+    let rows , columns;
+    rows = block.children[0].children[1].value;
+    columns = block.children[0].children[2].value;
     let array = [];
-    for (let index = 0; index < rows * columns; index++) {
-        array.push(prompt("enter element" + (index + 1)));
+    let matrix_inputs = block.children[0].getElementsByClassName("matinps")[0].getElementsByTagName("input");
+    for (let index = 0; index < matrix_inputs.length; index++) {
+        array.push(matrix_inputs[index].value);
     }
+
     maincode += `
     const arr_M =[${array}];
     
-    const m = [];
-    while(arr_M.length) m.push(arr_M.splice(0,${columns}));
+    const ${varname} = [];
+    while(arr_M.length) ${varname}.push(arr_M.splice(0,${columns}));
         
-    console.log("matrix is ",m);
+    console.log("matrix is ",${varname});
     `
 }
 
@@ -417,7 +448,8 @@ var breakBlock = (block) => maincode += "break;";
 var continueBlock = (block) => maincode += "continue;";
 
 var identityBlock = (block) => {
-    let rows = block.children[0].children[0].value;
+    let varname = block.children[0].children[0].value;
+    let rows = block.children[0].children[1].value;
     let array = [];
     for (let i = 0; i < rows; i++) {
         // const element = array[index];
@@ -427,30 +459,31 @@ var identityBlock = (block) => {
     }
     maincode += `
     const arr_I = [${array}];
-    const I1 = [];
-    while(arr_I.length) I1.push(arr_I.splice(0,${rows}));
-    console.log("Identity is",I1)
+    const ${varname} = [];
+    while(arr_I.length) ${varname}.push(arr_I.splice(0,${rows}));
+    console.log("Identity is",${varname});
     `;
 }
 
 var transposeBlock = (block) => {
 
-    let varname = block.children[0].children[0].value;
+    let newvarname = block.children[0].children[0].value;
+    let varname = block.children[0].children[1].value;
     console.log("transpose variable name is", varname);
 
     maincode += `
     
-    const T1 = new Array(${varname}[0].length);
-    for(let i=0;i<T1.length;i++){
-        T1[i] = new Array(${varname.length}).fill("#");
+    const ${newvarname} = new Array(${varname}[0].length);
+    for(let i=0;i<${newvarname}.length;i++){
+        ${newvarname}[i] = new Array(${varname.length}).fill("#");
     }
 
-    for(let i=0;i<T1.length;i++){
-        for(let j=0;j<T1[0].length;j++){
-            T1[i][j] = ${varname}[j][i];
+    for(let i=0;i<${newvarname}.length;i++){
+        for(let j=0;j<${newvarname}[0].length;j++){
+            ${newvarname}[i][j] = ${varname}[j][i];
         }
     }
-    console.log("Transpose is",T1);
+    console.log("Transpose is",${newvarname});
     
     `
 }
@@ -461,21 +494,125 @@ var subRoutine = (block) => {
 }
 
 var forBlock = (block) => {
-    let initVal, endVal, op, subroutine;
+    let initVal, endVal, op, subroutine,step;
     initVal = block.children[0].children[0].value;
     endVal = block.children[0].children[1].value;
     op = block.children[0].children[2].value;
+    step = block.children[0].children[3].value
 
-    
-    subroutine = subRoutine(block);
-    
-    maincode += `for(let i=${initVal};i<${endVal};i${op}){
-    ${subroutine}
-
+    if(!(step=="1" || step==1) || !step){
+        op = op[0] + `=${step}`;
     }
-    console.log("sum is ",${sum});
-    `
+    subroutine = subRoutine(block);
 
+    maincode += `for(let i=${initVal};i<${endVal};i${op}){
+        ${subroutine}
+    }
+    `
+}
+
+var elseBlock = (block)=>{
+    let subroutine = subRoutine(block);
+    maincode+= `    
+        else{
+            ${subroutine};
+        }
+    
+    `
+}
+
+var ifBlock = (block) =>{
+
+    let subroutine = subRoutine(block);
+    
+    let op1,op2,op;
+    op1 = block.children[0].children[0].value;
+    op = block.children[0].children[1].value;
+    op2 = block.children[0].children[2].value;
+    
+    let condition = ` ${op1} ${op} ${op2} `;
+    maincode+= `
+    
+    if(${condition}){
+        ${subroutine}
+    }
+
+    `
+}
+
+var elseifBlock = (block) =>{
+
+    let subroutine = subRoutine(block);
+    let op1,op2,op;
+    op1 = block.children[0].children[0].value;
+    op = block.children[0].children[1].value;
+    op2 = block.children[0].children[2].value;
+    
+    let condition = ` ${op1} ${op} ${op2} `;
+
+    maincode+= `
+    
+    else if(${condition}){
+        ${subroutine}
+    }
+
+    `
+}
+
+var whileBlock = (block)=>{
+    let subroutine = subRoutine(block);
+    let op1,op2,op;
+    op1 = block.children[0].children[0].value;
+    op = block.children[0].children[1].value;
+    op2 = block.children[0].children[2].value;
+    
+    let condition = ` ${op1} ${op} ${op2} `;
+
+    maincode+= `
+    
+    while(${condition}){
+        ${subroutine}
+    }
+
+    `
+}
+
+var unityMatrix = (block) => {
+    let varname = block.children[0].children[0].value;
+    let rows = block.children[0].children[1].value;
+    let columns = block.children[0].children[2].value;
+    let unitmat = [];
+    for (let index = 0; index < rows * columns; index++) {
+        unitmat.push(1);
+    }
+    maincode += `
+    const arr_1 = [${unitmat}];
+    const ${varname} = [];
+    while(arr_1.length) ${varname}.push(arr_1.splice(0,${columns}));
+    
+    console.log("unity matrix is ",${varname});
+    
+    `
+}
+
+
+var zeroMatrix = (block) => {
+    let varname = block.children[0].children[0].value;
+    let rows = block.children[0].children[1].value;
+    let columns = block.children[0].children[2].value;
+    let zeroarr = [];
+    for (let index = 0; index < rows * columns; index++) {
+        // const element = array[index];
+        zeroarr.push(0);
+    }
+    maincode += `
+    const arr_z = [${zeroarr}];
+    const ${varname} = [];
+    while(arr_z.length) ${varname}.push(arr_z.splice(0,${columns}));
+        
+    console.log("zero matrix is ",${varname});
+    
+    `
 }
 
 function compl() {
@@ -500,8 +637,6 @@ function compl() {
             blockname = "Boolean";
         } else if (element.textContent.includes("Output Block")) {
             blockname = "Output Block";
-        } else if (element.textContent.includes("Matrix")) {
-            blockname = "Matrix";
         } else if (element.textContent.includes("Break")) {
             blockname = "Break";
         } else if (element.textContent.includes("Continue")) {
@@ -514,6 +649,12 @@ function compl() {
             blockname = "Evaluate";
         } else if (element.textContent.includes("For")) {
             blockname = "For";
+        } else if (element.textContent.includes("Unity Matrix")) {
+            blockname = "Unity";
+        } else if (element.textContent.includes("Zeros Matrix")) {
+            blockname = "Zero";
+        } else if (element.textContent.includes("Matrix")) {
+            blockname = "Matrix";
         }
 
         switch (blockname) {
@@ -544,8 +685,16 @@ function compl() {
                 break;
             case "Evaluate":
                 evalBlock(element);
+                break;
             case "For":
                 forBlock(element);
+                break;
+            case "Unity":
+                unityMatrix(element);
+                break;
+            case "Zero":
+                zeroMatrix(element);
+                break;
             default:
                 break;
         }

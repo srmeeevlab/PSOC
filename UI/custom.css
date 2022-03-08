@@ -70,3 +70,10 @@
 .details{
     display: none;
 }
+
+.matinps input{
+    /* width: 100%; */
+    /* max-width: 100%; */
+    max-width: 100px;
+    /* background-color: aquamarine; */
+}
