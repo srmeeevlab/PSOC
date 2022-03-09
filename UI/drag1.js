@@ -651,9 +651,9 @@ var transposeBlock = (block) => {
 var forBlock = (block) => {
     let initVal, endVal, op, subroutine, step;
     subroutine = subRoutine(block);
-    initVal = block.children[0].children[0].value;
-    endVal = block.children[0].children[1].value;
-    step = block.children[0].children[2].value;
+    initVal = block.children[0].children[1].value;
+    endVal = block.children[0].children[2].value;
+    step = block.children[0].children[3].value;
     console.log("step is ",step);
     // op = block.children[0].children[3].value;
 
@@ -720,6 +720,25 @@ var ifBlock = (block) => {
     }
 
     `
+}
+
+var getpath = (block) => {
+    let path = [];
+    let ele = block;
+    while (ele.id != "interface") {
+        path.push(ele.firstChild.textContent.trim());
+        ele = ele.parentNode;
+    }
+    // console.log(path);
+    return path;
+}
+
+var updateBlock = (block) =>{
+    let expr = block.children[0].children[0].value;
+    if(!expr){
+        return;
+    }
+    return `${expr}`;
 }
 
 var elseifBlock = (block) => {
@@ -801,7 +820,25 @@ function subRoutine(mainblock) {
             console.log("drop-box rejected")
             continue;
         }
+        const path = getpath(element);
+        const blockname=element.firstChild.textContent.trim();
+        if(blockname=="Break" || blockname=="Continue"){
+            if(path.includes("For") || path.includes("While")){
+                console.log("yes valid")
+            }else{
+                alert("no loop found to use break or continue");
+                throw 0;
+            }
+        }
 
+        if(element.firstChild.textContent.trim()=="Else If" || element.firstChild.textContent.trim()=="Else"){
+            let prevblock = blocksofcode[index-1];
+            if(prevblock.firstChild.textContent.trim()!="If" && prevblock.firstChild.textContent.trim()!="Else If"){
+                alert("no if found");
+                throw 0;
+            }
+        }
+        
         let code;
 
 
@@ -853,11 +890,17 @@ function subRoutine(mainblock) {
             case "Else":
                 code = elseBlock(element);
                 break;
+            case "Update":
+                code = updateBlock(element);
+                break;
             case "Else If":
                 code = elseifBlock(element);
                 break;
             case "ABS":
                 code = absoluteBlock(element);
+            case "Continue":
+                code=continueBlock(element);
+                break;
             default:
                 break;
         }
@@ -938,6 +981,20 @@ function compile(mainblock) {
     for (let index = 1; index < blocksofcode.length; index++) {
 
         const element = blocksofcode[index];
+
+        const path = getpath(element);
+
+        let blockname = element.firstChild.textContent.trim()
+
+        if(blockname=="Break" || blockname=="Continue"){
+            if(path.includes("For") || path.includes("While")){
+                console.log("yes valid")
+            }else{
+                alert("no loop found to use break or continue");
+                throw 0;
+            }
+        }
+        
         if(element.firstChild.textContent.trim()=="Else If" || element.firstChild.textContent.trim()=="Else"){
             let prevblock = blocksofcode[index-1];
             if(prevblock.firstChild.textContent.trim()!="If" && prevblock.firstChild.textContent.trim()!="Else If"){
@@ -957,6 +1014,9 @@ function compile(mainblock) {
             case "Boolean":
                 console.log("running boolean");
                 code = booleanBlock(element);
+                break;
+            case "Update":
+                code = updateBlock(element);
                 break;
             case "Output Block":
                 console.log("running output block");
@@ -1002,6 +1062,9 @@ function compile(mainblock) {
                 break;
             case "ABS":
                 code = absoluteBlock(element);
+                break;
+            case "Continue":
+                code=continueBlock(element);
                 break;
             default:
                 break;

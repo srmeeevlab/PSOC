@@ -51,6 +51,10 @@
                                         ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Constant
                                     </li>
+                                    <li id="var-udt" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Update
+                                    </li>
                                     <li id="var-matrix" class="list-group-item noselect" draggable="true"
                                         ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Matrix
@@ -239,6 +243,16 @@
         </div>
     </div>
 </template>
+<template id="udt">
+    <div class="noselect selectable bordered-box">
+        Update
+        <div class="details">
+            <input type="text" name="" id="" placeholder="Use this block to update values">
+            <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
+        </div>
+    </div>
+</template>
+
 <template id="mat">
     <div class="noselect selectable bordered-box">
         Matrix
@@ -337,13 +351,14 @@
 </template>
 <template id="for">
     <div class="noselect selectable bordered-box">
-        For  (counter variable is i)
+        For
         <div class="details">
+            <p class="">The iterator variable is i</p>
             <input type="text" name="" id="" placeholder="enter start value of loop">
             <input type="text" name="" id="" placeholder="enter end value of loop">
             <input type="text" name="" value="" id="" placeholder="Step counter (default is 1)">
-
-
+            
+            
             <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
         </div>
     </div>
