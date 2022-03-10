@@ -13,9 +13,7 @@ let ifshiftpressed = false;
 
 // var maincode = "";
 
-function drag_handler(ev) {
-    ev.preventDefault();
-}
+function drag_handler(ev) { ev.preventDefault(); }
 
 function drag_start_handler(ev) {
 
@@ -29,36 +27,35 @@ function dragOver_handler(ev) {
     ev.preventDefault();
     console.log(ev.target.id == "green-blk");
     console.log(ev.target.id);
-    if (ev.target.id === "green-blk") {
-        return;
-    }
-    if (ev.target.id == "drop-box") {
+    
+    if(["For","While","If","Else","Else If"].includes(ev.target.firstChild.textContent.trim())){
+        if(!ev.target.classList.contains("highlight")){
+            ev.target.appendChild(node);
+        }
+    }else{
         document.getElementById("interface").appendChild(node);
-    } else {
-        ev.target.appendChild(node);
     }
-    // ev.target.style.borderColor = "red";
 }
 
 function dragEnter_handler(ev) {
     ev.preventDefault();
     // console.log("drag enter",ev.target.id);
-    if (ev.target.id === "green-blk") {
-        return;
-    }
-    // ev.target.style.borderColor = "red";
-
-    // ev.target.parentNode!=prevSelection[0]
-    if (ev.target.classList.contains("highlight")) {
-        return;
-    }
+    
 
 }
 
 
 function dragLeave_handler(ev) {
     // if (ev.target != node) {
-    ev.target.removeChild(node);
+    // if(ev.target.children.contains(node)){
+    //     console.log("contains")
+    // }
+    let parent = ev.target.children;
+    parent = Array.from(parent);
+    if(parent.includes(node)){
+        console.log("yes nde is ther")
+        ev.target.removeChild(node); 
+    }
     // node.remove();
     // }
 }
@@ -66,22 +63,26 @@ function dragLeave_handler(ev) {
 function drop_handler(ev) {
     ev.preventDefault();
     // console.log("drop",ev);
-    if (ev.target != node) {
-        node.remove();
-    }
+    
+    node.remove();
 
 
 
-    if (prevSelection.length > 0 && prevSelection[0].classList.contains("highlight")) {
-        if (ev.target.classList.contains("highlight")) {
-            prevSelection[0].draggable = false;
-            document.getElementById("dragbut").innerHTML = "drag";
-            return;
-        }
-
-        ev.target.appendChild(prevSelection[0]);
+    if (prevSelection.length > 0 ) {
         prevSelection[0].draggable = false;
         document.getElementById("dragbut").innerHTML = "drag";
+        if (ev.target.classList.contains("highlight")) {
+            return;
+        }
+        if(["For","While","If","Else","Else If"].includes(ev.target.firstChild.textContent.trim())){
+            if(!ev.target.classList.contains("highlight")){
+                ev.target.appendChild(prevSelection[0]);
+            }
+        }else{
+            document.getElementById("interface").appendChild(prevSelection[0]);
+        }
+
+        
     } else {
         if (ev.path.length - 8 > max_level) {
             alert("max indentation reached");
@@ -100,14 +101,16 @@ function drop_handler(ev) {
         clone.id = id + count1++;
 
         // console.log("clone id- ", clone.id);
-        if (ev.target.id != "drop-box") {
-            ev.target.appendChild(clone);
-            ev.target.lastElementChild.id = clone.id;
-        } else {
+        if(["For","While","If","Else","Else If"].includes(ev.target.firstChild.textContent.trim())){
+            if(!ev.target.classList.contains("highlight")){
+                ev.target.appendChild(clone);
+                ev.target.lastElementChild.id = clone.id;
+            }
+        }else{
             document.getElementById("interface").appendChild(clone);
             document.getElementById("interface").lastElementChild.id = clone.id;
-
         }
+        
     }
 
 }
@@ -259,6 +262,8 @@ addEventListener("click", (event) => {
 
         if (prevSelection.length == 1 && !event.ctrlKey && !event.shiftKey) {
             if (target.classList.contains("highlight")) {
+                prevSelection[0].draggable = false;
+                document.getElementById("dragbut").innerHTML = "drag";
                 prevSelection.pop().classList.remove("highlight");
 
             } else {
