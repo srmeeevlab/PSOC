@@ -10,6 +10,7 @@ const prevSelection = [];
 let count = 0;
 let ifshiftpressed = false;
 
+let supremecode;
 
 // var maincode = "";
 
@@ -27,12 +28,12 @@ function dragOver_handler(ev) {
     ev.preventDefault();
     console.log(ev.target.id == "green-blk");
     console.log(ev.target.id);
-    
-    if(["For","While","If","Else","Else If"].includes(ev.target.firstChild.textContent.trim())){
-        if(!ev.target.classList.contains("highlight")){
+
+    if (["For", "While", "If", "Else", "Else If"].includes(ev.target.firstChild.textContent.trim())) {
+        if (!ev.target.classList.contains("highlight")) {
             ev.target.appendChild(node);
         }
-    }else{
+    } else {
         document.getElementById("interface").appendChild(node);
     }
 }
@@ -40,7 +41,7 @@ function dragOver_handler(ev) {
 function dragEnter_handler(ev) {
     ev.preventDefault();
     // console.log("drag enter",ev.target.id);
-    
+
 
 }
 
@@ -52,9 +53,9 @@ function dragLeave_handler(ev) {
     // }
     let parent = ev.target.children;
     parent = Array.from(parent);
-    if(parent.includes(node)){
+    if (parent.includes(node)) {
         console.log("yes nde is ther")
-        ev.target.removeChild(node); 
+        ev.target.removeChild(node);
     }
     // node.remove();
     // }
@@ -63,26 +64,26 @@ function dragLeave_handler(ev) {
 function drop_handler(ev) {
     ev.preventDefault();
     // console.log("drop",ev);
-    
+
     node.remove();
 
 
 
-    if (prevSelection.length > 0 ) {
+    if (prevSelection.length > 0) {
         prevSelection[0].draggable = false;
         document.getElementById("dragbut").innerHTML = "drag";
         if (ev.target.classList.contains("highlight")) {
             return;
         }
-        if(["For","While","If","Else","Else If"].includes(ev.target.firstChild.textContent.trim())){
-            if(!ev.target.classList.contains("highlight")){
+        if (["For", "While", "If", "Else", "Else If"].includes(ev.target.firstChild.textContent.trim())) {
+            if (!ev.target.classList.contains("highlight")) {
                 ev.target.appendChild(prevSelection[0]);
             }
-        }else{
+        } else {
             document.getElementById("interface").appendChild(prevSelection[0]);
         }
 
-        
+
     } else {
         if (ev.path.length - 8 > max_level) {
             alert("max indentation reached");
@@ -94,23 +95,23 @@ function drop_handler(ev) {
         // console.log(id);
         for (i; i < id.length; i++)
             if (id[i] === "-") id = id.slice(i + 1, i + 4);
-        // console.log(id);
+            // console.log(id);
 
         const temp = document.getElementById(id);
         const clone = temp.content.cloneNode(true);
         clone.id = id + count1++;
 
         // console.log("clone id- ", clone.id);
-        if(["For","While","If","Else","Else If"].includes(ev.target.firstChild.textContent.trim())){
-            if(!ev.target.classList.contains("highlight")){
+        if (["For", "While", "If", "Else", "Else If"].includes(ev.target.firstChild.textContent.trim())) {
+            if (!ev.target.classList.contains("highlight")) {
                 ev.target.appendChild(clone);
                 ev.target.lastElementChild.id = clone.id;
             }
-        }else{
+        } else {
             document.getElementById("interface").appendChild(clone);
             document.getElementById("interface").lastElementChild.id = clone.id;
         }
-        
+
     }
 
 }
@@ -353,7 +354,7 @@ function matinput(block) {
     let divblock = block.children[0];
     divblock = divblock.getElementsByClassName("matinps")[0];
     divblock.innerHTML = "";
-    if (!rows || !columns || rows<0 || columns<0) {
+    if (!rows || !columns || rows < 0 || columns < 0) {
         alert("Invalid input")
         return;
     }
@@ -381,9 +382,9 @@ var constantBlock = (block) => {
     console.log("inside constant");
     // console.log(block.children[0].children);
     varname = block.children[0].children[0].value;
-    
+
     valname = block.children[0].children[1].value;
-    if (!valname || !varname || !isNaN(varname) ) {
+    if (!valname || !varname || !isNaN(varname)) {
         alert("Invalid input")
         throw 0;
     }
@@ -400,7 +401,7 @@ var booleanBlock = (block) => {
     // valname = "true";
     varname = block.children[0].children[0].value;
     valname = block.children[0].children[1].value;
-    if (!valname || !varname || !isNaN(varname) ) {
+    if (!valname || !varname || !isNaN(varname)) {
         alert("Invalid input")
         throw 0;
     }
@@ -427,20 +428,34 @@ var evalBlock = (block) => {
 var matevalBlock = (block) => {
     let evalValue;
     evalValue = block.children[0].children[0].value;
-    if(!evalValue){
+    if (!evalValue) {
         alert("Empty eval block");
         throw 0;
     }
     evalValue = evalValue.split(" ").join("");
     let evallist = evalValue.split("");
-    let op1 = '', op2 = '';
+    let op1 = '',
+        op2 = '',
+        code = ``;
+
     for (let index = 0; index < evallist.length; index++) {
         const element = evallist[index];
         // [+,-,*,/,%]
         // (-3)*(-3)
+        if (["+", '-', '*', '/', '%'].includes(element) && (["+", '-', '*', '/', '%'].includes(evallist[index - 1]) || ["+", '-', '*', '/', '%'].includes(evallist[index + 1]))) {
+            alert("Invalid Mathmatical operations ");
+            throw 0;
+        }
+
         if (element == "+") {
+            if (evallist[index - 1] == "(") {
+                alert("wrong brackets");
+                throw 0;
+            }
+
             if (evallist[index - 1] != ")")
                 op1 = evallist[index - 1];
+
             else {
                 // op1 = ;
                 let ind = index - 2;
@@ -461,11 +476,18 @@ var matevalBlock = (block) => {
                 }
 
             }
-            math.add(op1, op2);
+            code += `
+            math.add(${op1}, ${op2});
+            console.log("added matrix is",math.add(${op1}, ${op2}));
+            `;
         } else if (element == "-") {
+
             if (evallist[index - 1] != ")")
                 op1 = evallist[index - 1];
-            else {
+            else if (evallist[index - 1] == "(") {
+                code += `math.multiply(${evallist[index+1]},-1);`
+
+            } else {
                 // op1 = ;
                 let ind = index - 2;
                 while (evallist[ind] != "(" && ind > 0) {
@@ -485,8 +507,16 @@ var matevalBlock = (block) => {
                 }
 
             }
-            math.subtract(op1, op2);
+
+            code += `
+            math.subtract(${op1}, ${op2});
+            console.log("subtract matrix is",math.subtract(${op1}, ${op2}));
+            `
         } else if (element == "*") {
+            if (evallist[index - 1] == "(") {
+                alert("wrong brackets");
+                throw 0;
+            }
             if (evallist[index - 1] != ")")
                 op1 = evallist[index - 1];
             else {
@@ -509,8 +539,15 @@ var matevalBlock = (block) => {
                 }
 
             }
-            math.multiply(op1, op2);
+            code += `
+            math.multiply(${op1}, ${op2});
+            console.log("multiply matrix is",math.multiply(${op1}, ${op2}));
+            `
         } else if (element == "/") {
+            if (evallist[index - 1] == "(") {
+                alert("wrong brackets");
+                throw 0;
+            }
             if (evallist[index - 1] != ")")
                 op1 = evallist[index - 1];
             else {
@@ -533,8 +570,15 @@ var matevalBlock = (block) => {
                 }
 
             }
-            math.divide(op1, op2);
+            code += `
+            math.divide(${op1}, ${op2});
+            console.log("divide matrix is",math.divide(${op1}, ${op2}));
+            `
         } else if (element == "%") {
+            if (evallist[index - 1] == "(") {
+                alert("wrong brackets");
+                throw 0;
+            }
             if (evallist[index - 1] != ")")
                 op1 = evallist[index - 1];
             else {
@@ -557,18 +601,22 @@ var matevalBlock = (block) => {
                 }
 
             }
-            math.mod(op1, op2);
+            code += `
+            math.mod(${op1}, ${op2});
+            console.log("mod matrix is",math.mod(${op1}, ${op2}));
+            `
         }
 
 
     }
+    return code;
 }
 
 
 var outputBlock = (block) => {
     let output;
     output = block.children[0].children[0].value;
-    if(!output)
+    if (!output)
         output = "\n";
     return `console.log(${output}) `;
 }
@@ -590,10 +638,10 @@ var matrixBlock = (block) => {
 
 
     return `
-    const arr_M =[${array}];
+    const ${varname}1 =[${array}];
     
     const ${varname} = [];
-    while(arr_M.length) ${varname}.push(arr_M.splice(0,${columns}));
+    while(${varname}1.length) ${varname}.push(${varname}1.splice(0,${columns}));
         
     console.log("matrix is ",${varname});
     `
@@ -605,9 +653,9 @@ var continueBlock = (block) => { return "continue;"; }
 var identityBlock = (block) => {
     let varname = block.children[0].children[0].value;
     let rows = block.children[0].children[1].value;
-    if( !varname|| !isNaN(varname) || rows<0 || !rows){
+    if (!varname || !isNaN(varname) || rows < 0 || !rows) {
         alert("invalid input in identity block");
-     throw 0;
+        throw 0;
     }
     let array = [];
     for (let i = 0; i < rows; i++) {
@@ -628,7 +676,7 @@ var transposeBlock = (block) => {
 
     let newvarname = block.children[0].children[0].value;
     let varname = block.children[0].children[1].value;
-    if(!varname || !newvarname || !isNaN(varname) || !isNaN(newvarname)){
+    if (!varname || !newvarname || !isNaN(varname) || !isNaN(newvarname)) {
         alert("Invalid ");
         throw 0;
     }
@@ -659,40 +707,40 @@ var forBlock = (block) => {
     initVal = block.children[0].children[1].value;
     endVal = block.children[0].children[2].value;
     step = block.children[0].children[3].value;
-    console.log("step is ",step);
+    console.log("step is ", step);
     // op = block.children[0].children[3].value;
 
-    if(!initVal || !endVal){
+    if (!initVal || !endVal) {
         alert("start or end value not given");
         throw 0;
     }
 
 
-    if(Number(initVal)>Number(endVal)){
+    if (Number(initVal) > Number(endVal)) {
         op = "--"
-    }else{
-        op="++";
+    } else {
+        op = "++";
     }
-    if(!step)
+    if (!step)
         step = "1";
-    if ( !(step === "1" || step === 1)) {
-        op = op[0]+ `= ${step}`;
+    if (!(step === "1" || step === 1)) {
+        op = op[0] + `= ${step}`;
     }
-    if(Number(initVal)>Number(endVal)){
+    if (Number(initVal) > Number(endVal)) {
         return `for(let i=${initVal};i>${endVal};i${op}){
             ${subroutine}
         }`
-    }else{
+    } else {
         return `for(let i=${initVal};i<${endVal};i${op}){
             ${subroutine}
         }`
     }
 
     // if(!initVal)
-    
-    
 
-    
+
+
+
 }
 
 var elseBlock = (block) => {
@@ -712,7 +760,7 @@ var ifBlock = (block) => {
     op1 = block.children[0].children[0].value;
     op = block.children[0].children[1].value;
     op2 = block.children[0].children[2].value;
-    if(!op1 || !op2){
+    if (!op1 || !op2) {
         alert("No input in if");
         throw 0;
     }
@@ -738,23 +786,23 @@ var getpath = (block) => {
     return path;
 }
 
-var updateBlock = (block) =>{
+var updateBlock = (block) => {
     let expr = block.children[0].children[0].value;
-    if(!expr){
+    if (!expr) {
         return;
     }
     return `${expr}`;
 }
 
 var elseifBlock = (block) => {
-    
+
 
     let subroutine = subRoutine(block);
     let op1, op2, op;
     op1 = block.children[0].children[0].value;
     op = block.children[0].children[1].value;
     op2 = block.children[0].children[2].value;
-    if(!op1 || !op2){
+    if (!op1 || !op2) {
         alert("Invalid input");
         throw 0;
     }
@@ -775,7 +823,7 @@ var whileBlock = (block) => {
     op1 = block.children[0].children[0].value;
     op = block.children[0].children[1].value;
     op2 = block.children[0].children[2].value;
-    if(!op1 || !op2){
+    if (!op1 || !op2) {
         alert("No input in while");
         throw 0;
     }
@@ -794,7 +842,7 @@ var unityMatrix = (block) => {
     let varname = block.children[0].children[0].value;
     let rows = block.children[0].children[1].value;
     let columns = block.children[0].children[2].value;
-    if(!rows ||!columns ||rows<0  || columns <0 || !varname || !isNaN(varname)){
+    if (!rows || !columns || rows < 0 || columns < 0 || !varname || !isNaN(varname)) {
         alert("Invalid input");
         throw 0;
     }
@@ -826,24 +874,24 @@ function subRoutine(mainblock) {
             continue;
         }
         const path = getpath(element);
-        const blockname=element.firstChild.textContent.trim();
-        if(blockname=="Break" || blockname=="Continue"){
-            if(path.includes("For") || path.includes("While")){
+        const blockname = element.firstChild.textContent.trim();
+        if (blockname == "Break" || blockname == "Continue") {
+            if (path.includes("For") || path.includes("While")) {
                 console.log("yes valid")
-            }else{
+            } else {
                 alert("no loop found to use break or continue");
                 throw 0;
             }
         }
 
-        if(element.firstChild.textContent.trim()=="Else If" || element.firstChild.textContent.trim()=="Else"){
-            let prevblock = blocksofcode[index-1];
-            if(prevblock.firstChild.textContent.trim()!="If" && prevblock.firstChild.textContent.trim()!="Else If"){
+        if (element.firstChild.textContent.trim() == "Else If" || element.firstChild.textContent.trim() == "Else") {
+            let prevblock = blocksofcode[index - 1];
+            if (prevblock.firstChild.textContent.trim() != "If" && prevblock.firstChild.textContent.trim() != "Else If") {
                 alert("no if found");
                 throw 0;
             }
         }
-        
+
         let code;
 
 
@@ -904,7 +952,10 @@ function subRoutine(mainblock) {
             case "ABS":
                 code = absoluteBlock(element);
             case "Continue":
-                code=continueBlock(element);
+                code = continueBlock(element);
+                break;
+            case "Matrix Evaluate":
+                code = matevalBlock(element);
                 break;
             default:
                 break;
@@ -922,7 +973,7 @@ var zeroMatrix = (block) => {
     let rows = block.children[0].children[1].value;
     let columns = block.children[0].children[2].value;
     let zeroarr = [];
-    if(!varname || !isNaN(varname) || !rows || rows<0 || columns<0|| !columns){
+    if (!varname || !isNaN(varname) || !rows || rows < 0 || columns < 0 || !columns) {
         alert("invalid input in zeromatrix block");
         throw 0;
     }
@@ -943,7 +994,7 @@ var zeroMatrix = (block) => {
 var absoluteBlock = (block) => {
     let absValue;
     absValue = block.children[0].children[0].value;
-    if(!absValue){
+    if (!absValue) {
         alert("No input given");
         throw 0;
     }
@@ -962,15 +1013,16 @@ function RUN(mainblock) {
 
     try {
         let maincode = compile(mainblock)
-        // console.log(compile(mainblock));
+            // console.log(compile(mainblock));
         if (maincode === "") {
             alert("No input");
             return;
         }
         console.log(maincode);
         eval(maincode);
+        // return maincode;
     } catch (error) {
-        // console.log("error is ",error);
+        console.log("error is ", error);
     }
 
 
@@ -991,18 +1043,18 @@ function compile(mainblock) {
 
         let blockname = element.firstChild.textContent.trim()
 
-        if(blockname=="Break" || blockname=="Continue"){
-            if(path.includes("For") || path.includes("While")){
+        if (blockname == "Break" || blockname == "Continue") {
+            if (path.includes("For") || path.includes("While")) {
                 console.log("yes valid")
-            }else{
+            } else {
                 alert("no loop found to use break or continue");
                 throw 0;
             }
         }
-        
-        if(element.firstChild.textContent.trim()=="Else If" || element.firstChild.textContent.trim()=="Else"){
-            let prevblock = blocksofcode[index-1];
-            if(prevblock.firstChild.textContent.trim()!="If" && prevblock.firstChild.textContent.trim()!="Else If"){
+
+        if (element.firstChild.textContent.trim() == "Else If" || element.firstChild.textContent.trim() == "Else") {
+            let prevblock = blocksofcode[index - 1];
+            if (prevblock.firstChild.textContent.trim() != "If" && prevblock.firstChild.textContent.trim() != "Else If") {
                 alert("no if found");
                 throw 0;
             }
@@ -1022,6 +1074,9 @@ function compile(mainblock) {
                 break;
             case "Update":
                 code = updateBlock(element);
+                break;
+            case "Matrix Evaluate":
+                code = matevalBlock(element);
                 break;
             case "Output Block":
                 console.log("running output block");
@@ -1069,7 +1124,7 @@ function compile(mainblock) {
                 code = absoluteBlock(element);
                 break;
             case "Continue":
-                code=continueBlock(element);
+                code = continueBlock(element);
                 break;
             default:
                 break;
@@ -1081,4 +1136,3 @@ function compile(mainblock) {
     // console.log(maincode);
     return maincode;
 }
-
