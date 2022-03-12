@@ -184,6 +184,7 @@ const delel = () => {
     document.getElementById("delbut").disabled = true;
     document.getElementById("upbut").disabled = true;
     document.getElementById("downbut").disabled = true;
+    document.getElementById("dragbut").innerHTML = "drag";
     document.getElementById("dragbut").disabled = true;
     document.getElementById("stepo").disabled = true;
     document.getElementById("stepi").disabled = true;
@@ -260,6 +261,10 @@ addEventListener("click", (event) => {
 
         let level = (event.path.length) - 8;
         // console.log("path lne", level);
+        let props = Array.from(document.getElementsByClassName("details"));
+        props.forEach(element => {
+            element.style.display = "none";
+        });
 
         if (prevSelection.length == 1 && !event.ctrlKey && !event.shiftKey) {
             if (target.classList.contains("highlight")) {
@@ -410,19 +415,17 @@ var booleanBlock = (block) => {
 }
 
 var evalBlock = (block) => {
-    let evalValue;
-    evalValue = block.children[0].children[0].value;
-    if (!evalValue) {
+    let evalValue,varname;
+    varname = block.children[0].children[0].value;
+    evalValue = block.children[0].children[1].value;
+    if (!evalValue || !varname) {
         alert("Invalid input")
         throw 0;
     }
     evalValue = evalValue.split(" ").join("");
     console.log(evalValue);
-    // result = eval(evalValue)
-    // result = (evalValue) => {
-    //     return Function(`'use strict'; return (${eval(evalValue)}`)()
-    // }
-    return `console.log(${evalValue})`;
+    return `let ${varname} =  eval("${evalValue}");`
+    // return `console.log(${evalValue})`;
 }
 
 var matevalBlock = (block) => {
@@ -618,9 +621,9 @@ var matmath = (block)=>{
     op1 = block.children[0].children[1].value;
     op = block.children[0].children[2].value;
     op2 = block.children[0].children[3].value;
-    console.log("op1",op1);
-    console.log("op2",op2);
-    console.log("op is",op);
+    // console.log("op1",op1);
+    // console.log("op2",op2);
+    // console.log("op is",op);
     let code1=``;
     if(!varname || !op1 || !op2){
         alert("Invalid Input");
@@ -629,8 +632,6 @@ var matmath = (block)=>{
     if(isNaN(op1) && op1[0]=='-'){
         op1 = Array.from(op1);
         op1.shift()
-        console.log("op1 arr",op1);
-        // op1=op1.join("");
         code1+= ` ${op1} =math.multiply(${op1},-1);`
     }
     if(isNaN(op2) && op2[0]=='-'){
@@ -640,22 +641,21 @@ var matmath = (block)=>{
         code1+= `${op2}=math.multiply(${op2},-1);`
     }
     if(op=="+"){
-        code1+=` let ${varname}= math.add(${op1},${op2})`
+        code1+=` let ${varname}= math.add(${op1},${op2});`
     }
     else if(op=="-"){
-        code1+=`let ${varname}=math.subtract(${op1},${op2})`
+        code1+=`let ${varname}=math.subtract(${op1},${op2});`
     }
     else if(op=="*"){
-        code1+=`let ${varname}=math.multiply(${op1},${op2})`
+        code1+=`let ${varname}=math.multiply(${op1},${op2});`
     }
     else if(op=="/"){
-        code1+=`let ${varname}=math.divide(${op1},${op2})`
+        code1+=`let ${varname}=math.divide(${op1},${op2});`
     }
     else if(op=="%"){
-        code1+=`let ${varname}=math.mod(${op1},${op2})`
+        code1+=`let ${varname}=math.mod(${op1},${op2});`
     }
-    console.log("code1 is",code1);
-    return 1;
+    return code1;
     
 }
 
@@ -720,27 +720,27 @@ var identityBlock = (block) => {
 
 var transposeBlock = (block) => {
 
-    let newvarname = block.children[0].children[0].value;
-    let varname = block.children[0].children[1].value;
-    if (!varname || !newvarname || !isNaN(varname) || !isNaN(newvarname)) {
+    let varname = block.children[0].children[0].value;
+    let matrix = block.children[0].children[1].value;
+    if (!matrix || !varname || !isNaN(matrix) || !isNaN(varname)) {
         alert("Invalid ");
         throw 0;
     }
-    console.log("transpose variable name is", varname);
+    console.log("transpose variable name is", matrix);
 
     return `
     
-    const ${newvarname} = new Array(${varname}[0].length);
-    for(let i=0;i<${newvarname}.length;i++){
-        ${newvarname}[i] = new Array(${varname.length}).fill("#");
+    const ${varname} = new Array(${varname}[0].length);
+    for(let i=0;i<${varname}.length;i++){
+        ${varname}[i] = new Array(${matrix.length}).fill("#");
     }
 
-    for(let i=0;i<${newvarname}.length;i++){
-        for(let j=0;j<${newvarname}[0].length;j++){
-            ${newvarname}[i][j] = ${varname}[j][i];
+    for(let i=0;i<${varname}.length;i++){
+        for(let j=0;j<${varname}[0].length;j++){
+            ${varname}[i][j] = ${matrix}[j][i];
         }
     }
-    console.log("Transpose is",${newvarname});
+    console.log("Transpose is",${varname});
     
     `
 }
@@ -989,9 +989,7 @@ function subRoutine(mainblock) {
             case "Else":
                 code = elseBlock(element);
                 break;
-            case "Update":
-                code = updateBlock(element);
-                break;
+            
             case "Else If":
                 code = elseifBlock(element);
                 break;
@@ -1125,9 +1123,7 @@ function compile(mainblock) {
                 console.log("running boolean");
                 code = booleanBlock(element);
                 break;
-            case "Update":
-                code = updateBlock(element);
-                break;
+            
             case "Matrix Evaluate":
                 // code = matevalBlock(element);
                 code = matmath(element);

@@ -45,9 +45,7 @@
                                     <li id="var-cst" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Constant
                                     </li>
-                                    <li id="var-udt" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Update
-                                    </li>
+                                    
                                     <li id="var-matrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Matrix
                                     </li>
@@ -203,16 +201,6 @@
         </div>
     </div>
 </template>
-<template id="udt">
-    <div class="noselect selectable bordered-box">
-        Update
-        <div class="details">
-            <input type="text" name="" id="" placeholder="Use this block to update values">
-            <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
-        </div>
-    </div>
-</template>
-
 <template id="mat">
     <div class="noselect selectable bordered-box">
         Matrix
@@ -360,6 +348,7 @@
         Evaluate
         <div class="details">
 
+            <input type="text" name="" id="" placeholder="Variable name">
             <input type="text" name="" id="" placeholder="Evaluate math operations">
             <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
         </div>
@@ -372,11 +361,11 @@
             <input type="text" name="" id="" placeholder=" Variable name">
             <input type="text" name="" id="" placeholder="Operand 1">
             <select name="" id="">
-                <option value="">+</option>
-                <option value="">-</option>
-                <option value="">*</option>
-                <option value="">/</option>
-                <option value="">%</option>
+                <option value="+">+</option>
+                <option value="-">-</option>
+                <option value="*">*</option>
+                <option value="/">/</option>
+                <option value="%">%</option>
             </select>
             <input type="text" name="" id="" placeholder="Operand 2">
             <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
@@ -387,8 +376,8 @@
     <div class="noselect selectable bordered-box">
         Transpose
         <div class="details">
-            <input type="text" name="" id="" placeholder="enter variable name to store the result">
-            <input type="text" name="" id="" placeholder="enter variable name you want to find Transpose of">
+            <input type="text" name="" id="" placeholder="enter variable name ">
+            <input type="text" name="" id="" placeholder="enter matrix ">
             <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
         </div>
 
