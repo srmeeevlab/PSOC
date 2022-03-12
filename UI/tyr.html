@@ -369,8 +369,16 @@
     <div class="noselect selectable bordered-box">
         Matrix Evaluate
         <div class="details">
-
-            <input type="text" name="" id="" placeholder="Evaluate matrix math operations">
+            <input type="text" name="" id="" placeholder=" Variable name">
+            <input type="text" name="" id="" placeholder="Operand 1">
+            <select name="" id="">
+                <option value="">+</option>
+                <option value="">-</option>
+                <option value="">*</option>
+                <option value="">/</option>
+                <option value="">%</option>
+            </select>
+            <input type="text" name="" id="" placeholder="Operand 2">
             <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
         </div>
     </div>
@@ -391,6 +399,7 @@
         Absolute
         <div class="details">
 
+            <input type="text" name="" id="" placeholder="Enter the variable name">
             <input type="text" name="" id="" placeholder="Evaluate for absolute operations">
             <button onclick="event.target.parentNode.style.display = 'none';"> OK </button>
         </div>

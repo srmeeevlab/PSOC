@@ -429,7 +429,7 @@ var matevalBlock = (block) => {
     let evalValue;
     evalValue = block.children[0].children[0].value;
     if (!evalValue) {
-        alert("Empty eval block");
+        alert("Empty 'outputVal' block");
         throw 0;
     }
     evalValue = evalValue.split(" ").join("");
@@ -612,13 +612,59 @@ var matevalBlock = (block) => {
     return code;
 }
 
+var matmath = (block)=>{
+    let op1,op2,op,varname;
+    varname = block.children[0].children[0].value;
+    op1 = block.children[0].children[1].value;
+    op = block.children[0].children[2].value;
+    op2 = block.children[0].children[3].value;
+    console.log("op1",op1);
+    console.log("op2",op2);
+    console.log("op is",op);
+    let code1=``;
+    if(!varname || !op1 || !op2){
+        alert("Invalid Input");
+        throw 0;
+    }
+    if(isNaN(op1) && op1[0]=='-'){
+        op1 = Array.from(op1);
+        op1.shift()
+        console.log("op1 arr",op1);
+        // op1=op1.join("");
+        code1+= ` ${op1} =math.multiply(${op1},-1);`
+    }
+    if(isNaN(op2) && op2[0]=='-'){
+        op2 = Array.from(op1);
+        op2.shift()
+        
+        code1+= `${op2}=math.multiply(${op2},-1);`
+    }
+    if(op=="+"){
+        code1+=` let ${varname}= math.add(${op1},${op2})`
+    }
+    else if(op=="-"){
+        code1+=`let ${varname}=math.subtract(${op1},${op2})`
+    }
+    else if(op=="*"){
+        code1+=`let ${varname}=math.multiply(${op1},${op2})`
+    }
+    else if(op=="/"){
+        code1+=`let ${varname}=math.divide(${op1},${op2})`
+    }
+    else if(op=="%"){
+        code1+=`let ${varname}=math.mod(${op1},${op2})`
+    }
+    console.log("code1 is",code1);
+    return 1;
+    
+}
 
 var outputBlock = (block) => {
     let output;
     output = block.children[0].children[0].value;
     if (!output)
         output = "\n";
-    return `console.log(${output}) `;
+    return `console.log("output is",${output}); `;
 }
 
 var matrixBlock = (block) => {
@@ -665,9 +711,9 @@ var identityBlock = (block) => {
         }
     }
     return `
-    const arr_I = [${array}];
+    const ${varname}1 = [${array}];
     const ${varname} = [];
-    while(arr_I.length) ${varname}.push(arr_I.splice(0,${rows}));
+    while(${varname}1.length) ${varname}.push(${varname}1.splice(0,${rows}));
     console.log("Identity is",${varname});
     `;
 }
@@ -791,7 +837,7 @@ var updateBlock = (block) => {
     if (!expr) {
         return;
     }
-    return `${expr}`;
+    return `${expr};`;
 }
 
 var elseifBlock = (block) => {
@@ -851,9 +897,9 @@ var unityMatrix = (block) => {
         unitmat.push(1);
     }
     return `
-    const arr_1 = [${unitmat}];
+    const ${varname}1 = [${unitmat}];
     const ${varname} = [];
-    while(arr_1.length) ${varname}.push(arr_1.splice(0,${columns}));
+    while(${varname}1.length) ${varname}.push(${varname}1.splice(0,${columns}));
     
     console.log("unity matrix is ",${varname});
     
@@ -955,7 +1001,8 @@ function subRoutine(mainblock) {
                 code = continueBlock(element);
                 break;
             case "Matrix Evaluate":
-                code = matevalBlock(element);
+                // console.log
+                code = matmath(element);
                 break;
             default:
                 break;
@@ -982,9 +1029,9 @@ var zeroMatrix = (block) => {
         zeroarr.push(0);
     }
     return `
-    const arr_z = [${zeroarr}];
+    const ${varname}1 = [${zeroarr}];
     const ${varname} = [];
-    while(arr_z.length) ${varname}.push(arr_z.splice(0,${columns}));
+    while(${varname}1.length) ${varname}.push(${varname}1.splice(0,${columns}));
         
     console.log("zero matrix is ",${varname});
     
@@ -992,8 +1039,9 @@ var zeroMatrix = (block) => {
 }
 
 var absoluteBlock = (block) => {
-    let absValue;
-    absValue = block.children[0].children[0].value;
+    let absValue,varname;
+    varname = block.children[0].children[0].value;
+    absValue = block.children[0].children[1].value;
     if (!absValue) {
         alert("No input given");
         throw 0;
@@ -1002,14 +1050,18 @@ var absoluteBlock = (block) => {
     // result = (evalValue) => {
     //     return Function(`'use strict'; return (${eval(evalValue)}`)()
     // }
-    return `console.log(${(Math.abs(absValue))})`;
+    // return `console.log(${(Math.abs(absValue))})`;
+    return ` let ${varname} = Math.abs(${absValue}) ;`;
+}
+
+
+function looseJsonParse(obj) {
+    return Function('return (' + obj + ')');
 }
 
 
 
 function RUN(mainblock) {
-
-
 
     try {
         let maincode = compile(mainblock)
@@ -1020,7 +1072,8 @@ function RUN(mainblock) {
         }
         console.log(maincode);
         eval(maincode);
-        // return maincode;
+
+
     } catch (error) {
         console.log("error is ", error);
     }
@@ -1076,7 +1129,8 @@ function compile(mainblock) {
                 code = updateBlock(element);
                 break;
             case "Matrix Evaluate":
-                code = matevalBlock(element);
+                // code = matevalBlock(element);
+                code = matmath(element);
                 break;
             case "Output Block":
                 console.log("running output block");
@@ -1105,7 +1159,7 @@ function compile(mainblock) {
             case "While":
                 code = whileBlock(element);
                 break;
-            case "Unity":
+            case "Unity Matrix":
                 code = unityMatrix(element);
                 break;
             case "Zero":
