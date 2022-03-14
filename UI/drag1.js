@@ -134,17 +134,17 @@ function dragbu() {
 function up() {
     if (prevSelection.length == 1) {
         let target = prevSelection[0];
-        if (!target.previousElementSibling || target.previousElementSibling.id != "drop-box") {
-            target.parentNode.insertBefore(target, target.previousElementSibling);
-        }
+        // if (!target.previousElementSibling || target.previousElementSibling.id != "drop-box") {
+        target.parentNode.insertBefore(target, target.previousElementSibling);
+        // }
     }
 }
 
 function down() {
     if (prevSelection.length == 1) {
         let target = prevSelection[0];
-        if (target.nextElementSibling)
-            target.parentNode.insertBefore(target, target.nextElementSibling.nextElementSibling);
+        // if (target.nextElementSibling)
+        target.parentNode.insertBefore(target, target.nextElementSibling.nextElementSibling);
     }
 }
 
@@ -215,7 +215,7 @@ function checkButtonStatus() {
     }
     let target = prevSelection[0];
 
-    if (!target.previousElementSibling || target.previousElementSibling.id == "drop-box") {
+    if (!target.previousElementSibling || target.previousElementSibling.id == "drop-box" || target.previousElementSibling.classList.contains("details")) {
         upbut.disabled = true;
     } else {
         upbut.disabled = false;
@@ -748,11 +748,15 @@ var transposeBlock = (block) => {
 
 
 var forBlock = (block) => {
+    let forarr = getpath(block).filter(x=> x=="For");
+    const cnt = forarr.length - 1;
+    let iterator_var  = String.fromCharCode(cnt+ 105);
+    
     let initVal, endVal, op, subroutine, step;
     subroutine = subRoutine(block);
-    initVal = block.children[0].children[1].value;
-    endVal = block.children[0].children[2].value;
-    step = block.children[0].children[3].value;
+    initVal = block.children[0].children[0].value;
+    endVal = block.children[0].children[1].value;
+    step = block.children[0].children[2].value;
     console.log("step is ", step);
     // op = block.children[0].children[3].value;
 
@@ -773,11 +777,11 @@ var forBlock = (block) => {
         op = op[0] + `= ${step}`;
     }
     if (Number(initVal) > Number(endVal)) {
-        return `for(let i=${initVal};i>${endVal};i${op}){
+        return `for(let ${iterator_var}=${initVal};${iterator_var}>${endVal};${iterator_var}${op}){
             ${subroutine}
         }`
     } else {
-        return `for(let i=${initVal};i<${endVal};i${op}){
+        return `for(let ${iterator_var}=${initVal};${iterator_var}<${endVal};${iterator_var}${op}){
             ${subroutine}
         }`
     }
