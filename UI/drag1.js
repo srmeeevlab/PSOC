@@ -1,9 +1,11 @@
+// from Math import sin
+
 const node = document.createElement("div");
 node.style.height = "20px";
 node.id = "green-blk"
 node.style.backgroundColor = "green";
-max_level = 30;
 node.style.margin = "1.5em";
+max_level = 30;
 let count1 = 0;
 let sub_arr;
 const prevSelection = [];
@@ -350,6 +352,21 @@ addEventListener("keyup", (ev) => {
     }
 })
 
+
+function ok(event) {
+    let varname='';
+    event.target.parentNode.style.display = 'none';
+    let block = event.target.parentNode; // details
+    if(block.children[0].name == "Variable"){
+        varname = block.children[0].value;
+    }
+    let parentblock = event.target.parentNode.parentNode;
+    if(varname){
+        parentblock.innerHTML = `${varname}@`+parentblock.innerHTML;
+    }
+}
+
+
 function matinput(block) {
 
 
@@ -360,7 +377,7 @@ function matinput(block) {
     divblock = divblock.getElementsByClassName("matinps")[0];
     divblock.innerHTML = "";
     if (!rows || !columns || rows < 0 || columns < 0) {
-        alert("Invalid input")
+        alert("Invalid input");
         return;
     }
 
@@ -390,7 +407,7 @@ var constantBlock = (block) => {
 
     valname = block.children[0].children[1].value;
     if (!valname || !varname || !isNaN(varname)) {
-        alert("Invalid input")
+        alert("Invalid input const")
         throw 0;
     }
     // varname = "a";
@@ -1072,6 +1089,7 @@ function RUN(mainblock) {
             alert("No input");
             return;
         }
+        // maincode = maincode.replace(/^/g,"**")
         console.log(maincode);
         eval(maincode);
 
@@ -1095,8 +1113,9 @@ function compile(mainblock) {
         const element = blocksofcode[index];
 
         const path = getpath(element);
-
-        let blockname = element.firstChild.textContent.trim()
+        let blockname = element.firstChild.textContent.trim();
+        // let blockname = element.firstChild.textContent.split("@").reverse()[0].trim();
+        // console.log("blk name",blockname);
 
         if (blockname == "Break" || blockname == "Continue") {
             if (path.includes("For") || path.includes("While")) {
@@ -1116,8 +1135,7 @@ function compile(mainblock) {
         }
         let code;
 
-
-
+        // console.log("blockname",blockname)
         switch (element.firstChild.textContent.trim()) {
             case "Constant":
                 console.log("running Constant");
@@ -1190,3 +1208,12 @@ function compile(mainblock) {
     // console.log(maincode);
     return maincode;
 }
+
+
+var Sin = (num)=>{return Math.sin(num);}
+var Cos = (num)=>{    return Math.cos(num);}
+var Tan = (num)=>{    return Math.tan(num);}
+var Sinh = (num)=>{    return Math.sinh(num);}
+var Cosh = (num)=>{    return Math.cosh(num);}
+var Tanh = (num)=>{    return Math.tanh(num);}
+var sqrt = (num)=>{    return Math.sqrt(num);}
