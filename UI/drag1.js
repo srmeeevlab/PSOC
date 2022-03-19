@@ -87,17 +87,19 @@ function drop_handler(ev) {
 
 
     } else {
-        if (ev.path.length - 8 > max_level) {
+        // console.log("block path length is",getpath(ev.target).length);
+        if (getpath(ev.target).length > max_level) {
             alert("max indentation reached");
             return;
         }
+
         // ev.target.style.borderColor = "transparent";
         let id = ev.dataTransfer.getData("text/plain");
         let i = 0;
         // console.log(id);
         for (i; i < id.length; i++)
             if (id[i] === "-") id = id.slice(i + 1, i + 4);
-            // console.log(id);
+        // console.log(id);
 
         const temp = document.getElementById(id);
         const clone = temp.content.cloneNode(true);
@@ -244,98 +246,104 @@ function checkButtonStatus() {
 }
 
 
-function showprops(params) {
+function showprops() {
     if (prevSelection[0].getElementsByClassName("details").length > 0)
         prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
 
 }
 
+addEventListener("dblclick",(event)=>{
 
+    if(prevSelection.length>0){
+        if (prevSelection[0].getElementsByClassName("details").length > 0)
+        prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
+    }
+
+})
 
 
 addEventListener("click", (event) => {
-
+    // console.log("details",event.detail)
     const target = event.target;
     if (target.classList.contains("selectable")) {
         // single click
-        // [target]
-        // console.log("path lne", event.path);
 
-        let level = (event.path.length) - 8;
-        // console.log("path lne", level);
-        let props = Array.from(document.getElementsByClassName("details"));
-        props.forEach(element => {
-            element.style.display = "none";
-        });
+        if (event.detail == 1) {
+            let props = Array.from(document.getElementsByClassName("details"));
+            props.forEach(element => {
+                element.style.display = "none";
+            });
 
-        if (prevSelection.length == 1 && !event.ctrlKey && !event.shiftKey) {
-            if (target.classList.contains("highlight")) {
-                prevSelection[0].draggable = false;
-                document.getElementById("dragbut").innerHTML = "drag";
-                prevSelection.pop().classList.remove("highlight");
+            if (prevSelection.length == 1 && !event.ctrlKey && !event.shiftKey) {
+                if (target.classList.contains("highlight")) {
+                    prevSelection[0].draggable = false;
+                    document.getElementById("dragbut").innerHTML = "drag";
+                    prevSelection.pop().classList.remove("highlight");
+
+                } else {
+                    prevSelection.pop().classList.remove("highlight");
+                    prevSelection.push(target);
+                    target.classList.add("highlight");
+                }
+            }
+            // single select
+            else if (prevSelection.length > 1 && !event.ctrlKey && !event.shiftKey) {
+                deselect();
+                prevSelection.push(target);
+                target.classList.add("highlight");
+            } else if (prevSelection.length > 0 && event.ctrlKey) {
+                if (prevSelection.includes(target)) {
+                    target.classList.remove("highlight");
+                    let idx = prevSelection.indexOf(target);
+                    prevSelection.splice(idx, 1);
+
+                } else {
+                    prevSelection.push(target);
+                    target.classList.add("highlight");
+                }
+
+                // console.log("control is presses",event.ctrlKey);
+            }
+            // shift slect
+            else if (event.shiftKey && prevSelection[0] != undefined) {
+
+
+                // console.log("shift is presses",event.shiftKey);
+                let lastselectedelem = prevSelection.pop();
+
+                // console.log(ifshiftpressed);
+                // console.log("start",lastselectedelem);
+                // console.log("end",target);
+                if (!ifshiftpressed) {
+                    ifshiftpressed = true;
+                }
+                deselect();
+                // console.log(ifshiftpressed);
+
+                const siblnglst = Array.from(document.getElementsByClassName("selectable"));
+                let starttemp = siblnglst.indexOf(lastselectedelem);
+                let endtemp = siblnglst.indexOf(target);
+
+                if (endtemp > starttemp) {
+                    // console.log("end is greater");
+                    for (let i = endtemp; i >= starttemp; i--) {
+                        prevSelection.push(siblnglst[i]);
+                        siblnglst[i].classList.add("highlight");
+                    }
+                } else {
+                    // console.log("start is greater");
+                    for (let i = endtemp; i <= starttemp; i++) {
+                        prevSelection.push(siblnglst[i]);
+                        siblnglst[i].classList.add("highlight");
+                    }
+                }
 
             } else {
-                prevSelection.pop().classList.remove("highlight");
                 prevSelection.push(target);
                 target.classList.add("highlight");
             }
         }
-        // single select
-        else if (prevSelection.length > 1 && !event.ctrlKey && !event.shiftKey) {
-            deselect();
-            prevSelection.push(target);
-            target.classList.add("highlight");
-        } else if (prevSelection.length > 0 && event.ctrlKey) {
-            if (prevSelection.includes(target)) {
-                target.classList.remove("highlight");
-                let idx = prevSelection.indexOf(target);
-                prevSelection.splice(idx, 1);
 
-            } else {
-                prevSelection.push(target);
-                target.classList.add("highlight");
-            }
-
-            // console.log("control is presses",event.ctrlKey);
-        }
-        // shift slect
-        else if (event.shiftKey && prevSelection[0] != undefined) {
-
-
-            // console.log("shift is presses",event.shiftKey);
-            let lastselectedelem = prevSelection.pop();
-
-            // console.log(ifshiftpressed);
-            // console.log("start",lastselectedelem);
-            // console.log("end",target);
-            if (!ifshiftpressed) {
-                ifshiftpressed = true;
-            }
-            deselect();
-            // console.log(ifshiftpressed);
-
-            const siblnglst = Array.from(document.getElementsByClassName("selectable"));
-            let starttemp = siblnglst.indexOf(lastselectedelem);
-            let endtemp = siblnglst.indexOf(target);
-
-            if (endtemp > starttemp) {
-                // console.log("end is greater");
-                for (let i = endtemp; i >= starttemp; i--) {
-                    prevSelection.push(siblnglst[i]);
-                    siblnglst[i].classList.add("highlight");
-                }
-            } else {
-                // console.log("start is greater");
-                for (let i = endtemp; i <= starttemp; i++) {
-                    prevSelection.push(siblnglst[i]);
-                    siblnglst[i].classList.add("highlight");
-                }
-            }
-
-        } else {
-            prevSelection.push(target);
-            target.classList.add("highlight");
-        }
 
     }
     checkButtonStatus();
@@ -355,18 +363,18 @@ addEventListener("keyup", (ev) => {
 
 function ok(event) {
     event.target.parentNode.style.display = 'none';
-    let varname="";
+    let varname = "";
     let block = event.target.parentNode; //details
     let parentblock = block.parentNode;
-    if(block.children[0].name=="Variable"){
+    if (block.children[0].name == "Variable") {
         varname = block.children[0].value;
         parentblock.firstElementChild.innerHTML = ` @${varname}`;
     }
     // if(varname){
-        // console.log(parentblock.firstElementChild);
-        // parentblock.firstElementChild.innerHTML = ` @${varname}`;
+    // console.log(parentblock.firstElementChild);
+    // parentblock.firstElementChild.innerHTML = ` @${varname}`;
     // }
-    
+
 }
 
 
@@ -435,7 +443,7 @@ var booleanBlock = (block) => {
 }
 
 var evalBlock = (block) => {
-    let evalValue,varname;
+    let evalValue, varname;
     varname = block.children[1].children[0].value;
     evalValue = block.children[1].children[1].value;
     if (!evalValue || !varname) {
@@ -508,7 +516,7 @@ var matevalBlock = (block) => {
             if (evallist[index - 1] != ")")
                 op1 = evallist[index - 1];
             else if (evallist[index - 1] == "(") {
-                code += `math.multiply(${evallist[index+1]},-1);`
+                code += `math.multiply(${evallist[index + 1]},-1);`
 
             } else {
                 // op1 = ;
@@ -635,8 +643,8 @@ var matevalBlock = (block) => {
     return code;
 }
 
-var matmath = (block)=>{
-    let op1,op2,op,varname;
+var matmath = (block) => {
+    let op1, op2, op, varname;
     varname = block.children[1].children[0].value;
     op1 = block.children[1].children[1].value;
     op = block.children[1].children[2].value;
@@ -644,29 +652,29 @@ var matmath = (block)=>{
     // console.log("op1",op1);
     // console.log("op2",op2);
     // console.log("op is",op);
-    let code1=``;
-    if(!varname || !op1 || !op2){
+    let code1 = ``;
+    if (!varname || !op1 || !op2) {
         alert("Invalid Input");
         throw 0;
     }
-    if(isNaN(op1) && op1[0]=='-'){
+    if (isNaN(op1) && op1[0] == '-') {
         op1 = Array.from(op1);
         op1.shift()
-        code1+= ` ${op1} =math.multiply(${op1},-1);`
+        code1 += ` ${op1} =math.multiply(${op1},-1);`
     }
-    if(isNaN(op2) && op2[0]=='-'){
+    if (isNaN(op2) && op2[0] == '-') {
         op2 = Array.from(op1);
         op2.shift()
-        
-        code1+= `${op2}=math.multiply(${op2},-1);`
+
+        code1 += `${op2}=math.multiply(${op2},-1);`
     }
-    if(op=="+"){      code1+=` let ${varname}= math.add(${op1},${op2});` }
-    else if(op=="-"){ code1+=`let ${varname}=math.subtract(${op1},${op2});` }
-    else if(op=="*"){ code1+=`let ${varname}=math.multiply(${op1},${op2});` }
-    else if(op=="/"){ code1+=`let ${varname}=math.divide(${op1},${op2});`}
-    else if(op=="%"){ code1+=`let ${varname}=math.mod(${op1},${op2});`}
+    if (op == "+") { code1 += ` let ${varname}= math.add(${op1},${op2});` }
+    else if (op == "-") { code1 += `let ${varname}=math.subtract(${op1},${op2});` }
+    else if (op == "*") { code1 += `let ${varname}=math.multiply(${op1},${op2});` }
+    else if (op == "/") { code1 += `let ${varname}=math.divide(${op1},${op2});` }
+    else if (op == "%") { code1 += `let ${varname}=math.mod(${op1},${op2});` }
     return code1;
-    
+
 }
 
 var outputBlock = (block) => {
@@ -758,10 +766,10 @@ var transposeBlock = (block) => {
 
 
 var forBlock = (block) => {
-    let forarr = getpath(block).filter(x=> x=="For");
+    let forarr = getpath(block).filter(x => x == "For");
     const cnt = forarr.length - 1;
-    let iterator_var  = String.fromCharCode(cnt+ 105);
-    
+    let iterator_var = String.fromCharCode(cnt + 105);
+
     let initVal, endVal, op, subroutine, step;
     subroutine = subRoutine(block);
     initVal = block.children[1].children[0].value;
@@ -1003,7 +1011,7 @@ function subRoutine(mainblock) {
             case "Else":
                 code = elseBlock(element);
                 break;
-            
+
             case "Else If":
                 code = elseifBlock(element);
                 break;
@@ -1051,7 +1059,7 @@ var zeroMatrix = (block) => {
 }
 
 var absoluteBlock = (block) => {
-    let absValue,varname;
+    let absValue, varname;
     varname = block.children[1].children[0].value;
     absValue = block.children[1].children[1].value;
     if (!absValue) {
@@ -1077,7 +1085,7 @@ function RUN(mainblock) {
 
     try {
         let maincode = compile(mainblock)
-            // console.log(compile(mainblock));
+        // console.log(compile(mainblock));
         if (maincode === "") {
             alert("No input");
             return;
@@ -1138,7 +1146,7 @@ function compile(mainblock) {
                 console.log("running boolean");
                 code = booleanBlock(element);
                 break;
-            
+
             case "Matrix Evaluate":
                 // code = matevalBlock(element);
                 code = matmath(element);
@@ -1203,10 +1211,10 @@ function compile(mainblock) {
 }
 
 
-var Sin = (num)=>{return Math.sin(num);}
-var Cos = (num)=>{    return Math.cos(num);}
-var Tan = (num)=>{    return Math.tan(num);}
-var Sinh = (num)=>{    return Math.sinh(num);}
-var Cosh = (num)=>{    return Math.cosh(num);}
-var Tanh = (num)=>{    return Math.tanh(num);}
-var sqrt = (num)=>{    return Math.sqrt(num);}
+var Sin = (num) => { return Math.sin(num); }
+var Cos = (num) => { return Math.cos(num); }
+var Tan = (num) => { return Math.tan(num); }
+var Sinh = (num) => { return Math.sinh(num); }
+var Cosh = (num) => { return Math.cosh(num); }
+var Tanh = (num) => { return Math.tanh(num); }
+var sqrt = (num) => { return Math.sqrt(num); }
