@@ -354,16 +354,19 @@ addEventListener("keyup", (ev) => {
 
 
 function ok(event) {
-    let varname='';
     event.target.parentNode.style.display = 'none';
-    let block = event.target.parentNode; // details
-    if(block.children[0].name == "Variable"){
+    let varname="";
+    let block = event.target.parentNode; //details
+    let parentblock = block.parentNode;
+    if(block.children[0].name=="Variable"){
         varname = block.children[0].value;
+        parentblock.firstElementChild.innerHTML = ` @${varname}`;
     }
-    let parentblock = event.target.parentNode.parentNode;
-    if(varname){
-        parentblock.innerHTML = `${varname}@`+parentblock.innerHTML;
-    }
+    // if(varname){
+        // console.log(parentblock.firstElementChild);
+        // parentblock.firstElementChild.innerHTML = ` @${varname}`;
+    // }
+    
 }
 
 
@@ -371,9 +374,9 @@ function matinput(block) {
 
 
     let rows, columns;
-    rows = block.children[0].children[1].value;
-    columns = block.children[0].children[2].value;
-    let divblock = block.children[0];
+    rows = block.children[1].children[1].value;
+    columns = block.children[1].children[2].value;
+    let divblock = block.children[1];
     divblock = divblock.getElementsByClassName("matinps")[0];
     divblock.innerHTML = "";
     if (!rows || !columns || rows < 0 || columns < 0) {
@@ -402,10 +405,10 @@ function matinput(block) {
 var constantBlock = (block) => {
     let varname, valname;
     console.log("inside constant");
-    // console.log(block.children[0].children);
-    varname = block.children[0].children[0].value;
+    // console.log(block.children[1].children);
+    varname = block.children[1].children[0].value;
 
-    valname = block.children[0].children[1].value;
+    valname = block.children[1].children[1].value;
     if (!valname || !varname || !isNaN(varname)) {
         alert("Invalid input const")
         throw 0;
@@ -421,8 +424,8 @@ var booleanBlock = (block) => {
     let varname, valname;
     // varname = "bo";
     // valname = "true";
-    varname = block.children[0].children[0].value;
-    valname = block.children[0].children[1].value;
+    varname = block.children[1].children[0].value;
+    valname = block.children[1].children[1].value;
     if (!valname || !varname || !isNaN(varname)) {
         alert("Invalid input")
         throw 0;
@@ -433,8 +436,8 @@ var booleanBlock = (block) => {
 
 var evalBlock = (block) => {
     let evalValue,varname;
-    varname = block.children[0].children[0].value;
-    evalValue = block.children[0].children[1].value;
+    varname = block.children[1].children[0].value;
+    evalValue = block.children[1].children[1].value;
     if (!evalValue || !varname) {
         alert("Invalid input")
         throw 0;
@@ -447,7 +450,7 @@ var evalBlock = (block) => {
 
 var matevalBlock = (block) => {
     let evalValue;
-    evalValue = block.children[0].children[0].value;
+    evalValue = block.children[1].children[0].value;
     if (!evalValue) {
         alert("Empty 'outputVal' block");
         throw 0;
@@ -634,10 +637,10 @@ var matevalBlock = (block) => {
 
 var matmath = (block)=>{
     let op1,op2,op,varname;
-    varname = block.children[0].children[0].value;
-    op1 = block.children[0].children[1].value;
-    op = block.children[0].children[2].value;
-    op2 = block.children[0].children[3].value;
+    varname = block.children[1].children[0].value;
+    op1 = block.children[1].children[1].value;
+    op = block.children[1].children[2].value;
+    op2 = block.children[1].children[3].value;
     // console.log("op1",op1);
     // console.log("op2",op2);
     // console.log("op is",op);
@@ -657,44 +660,34 @@ var matmath = (block)=>{
         
         code1+= `${op2}=math.multiply(${op2},-1);`
     }
-    if(op=="+"){
-        code1+=` let ${varname}= math.add(${op1},${op2});`
-    }
-    else if(op=="-"){
-        code1+=`let ${varname}=math.subtract(${op1},${op2});`
-    }
-    else if(op=="*"){
-        code1+=`let ${varname}=math.multiply(${op1},${op2});`
-    }
-    else if(op=="/"){
-        code1+=`let ${varname}=math.divide(${op1},${op2});`
-    }
-    else if(op=="%"){
-        code1+=`let ${varname}=math.mod(${op1},${op2});`
-    }
+    if(op=="+"){      code1+=` let ${varname}= math.add(${op1},${op2});` }
+    else if(op=="-"){ code1+=`let ${varname}=math.subtract(${op1},${op2});` }
+    else if(op=="*"){ code1+=`let ${varname}=math.multiply(${op1},${op2});` }
+    else if(op=="/"){ code1+=`let ${varname}=math.divide(${op1},${op2});`}
+    else if(op=="%"){ code1+=`let ${varname}=math.mod(${op1},${op2});`}
     return code1;
     
 }
 
 var outputBlock = (block) => {
     let output;
-    output = block.children[0].children[0].value;
+    output = block.children[1].children[0].value;
     if (!output)
         output = "\n";
     return `console.log("output is",${output}); `;
 }
 
 var matrixBlock = (block) => {
-    let varname = block.children[0].children[0].value;
+    let varname = block.children[1].children[0].value;
     let rows, columns;
-    rows = block.children[0].children[1].value;
-    columns = block.children[0].children[2].value;
+    rows = block.children[1].children[1].value;
+    columns = block.children[1].children[2].value;
     if (rows < 0 || columns < 0 || !rows || !columns || !isNaN(varname) || !varname) {
         alert("Invalid input");
         throw 0;
     }
     let array = [];
-    let matrix_inputs = block.children[0].getElementsByClassName("matinps")[0].getElementsByTagName("input");
+    let matrix_inputs = block.children[1].getElementsByClassName("matinps")[0].getElementsByTagName("input");
     for (let index = 0; index < matrix_inputs.length; index++) {
         array.push(matrix_inputs[index].value);
     }
@@ -714,8 +707,8 @@ var breakBlock = (block) => { return "break;"; }
 var continueBlock = (block) => { return "continue;"; }
 
 var identityBlock = (block) => {
-    let varname = block.children[0].children[0].value;
-    let rows = block.children[0].children[1].value;
+    let varname = block.children[1].children[0].value;
+    let rows = block.children[1].children[1].value;
     if (!varname || !isNaN(varname) || rows < 0 || !rows) {
         alert("invalid input in identity block");
         throw 0;
@@ -737,8 +730,8 @@ var identityBlock = (block) => {
 
 var transposeBlock = (block) => {
 
-    let varname = block.children[0].children[0].value;
-    let matrix = block.children[0].children[1].value;
+    let varname = block.children[1].children[0].value;
+    let matrix = block.children[1].children[1].value;
     if (!matrix || !varname || !isNaN(matrix) || !isNaN(varname)) {
         alert("Invalid ");
         throw 0;
@@ -771,11 +764,11 @@ var forBlock = (block) => {
     
     let initVal, endVal, op, subroutine, step;
     subroutine = subRoutine(block);
-    initVal = block.children[0].children[0].value;
-    endVal = block.children[0].children[1].value;
-    step = block.children[0].children[2].value;
+    initVal = block.children[1].children[0].value;
+    endVal = block.children[1].children[1].value;
+    step = block.children[1].children[2].value;
     console.log("step is ", step);
-    // op = block.children[0].children[3].value;
+    // op = block.children[1].children[3].value;
 
     if (!initVal || !endVal) {
         alert("start or end value not given");
@@ -824,9 +817,9 @@ var ifBlock = (block) => {
     let subroutine = subRoutine(block);
 
     let op1, op2, op;
-    op1 = block.children[0].children[0].value;
-    op = block.children[0].children[1].value;
-    op2 = block.children[0].children[2].value;
+    op1 = block.children[1].children[0].value;
+    op = block.children[1].children[1].value;
+    op2 = block.children[1].children[2].value;
     if (!op1 || !op2) {
         alert("No input in if");
         throw 0;
@@ -854,7 +847,7 @@ var getpath = (block) => {
 }
 
 var updateBlock = (block) => {
-    let expr = block.children[0].children[0].value;
+    let expr = block.children[1].children[0].value;
     if (!expr) {
         return;
     }
@@ -866,9 +859,9 @@ var elseifBlock = (block) => {
 
     let subroutine = subRoutine(block);
     let op1, op2, op;
-    op1 = block.children[0].children[0].value;
-    op = block.children[0].children[1].value;
-    op2 = block.children[0].children[2].value;
+    op1 = block.children[1].children[0].value;
+    op = block.children[1].children[1].value;
+    op2 = block.children[1].children[2].value;
     if (!op1 || !op2) {
         alert("Invalid input");
         throw 0;
@@ -887,9 +880,9 @@ var elseifBlock = (block) => {
 var whileBlock = (block) => {
     let subroutine = subRoutine(block);
     let op1, op2, op;
-    op1 = block.children[0].children[0].value;
-    op = block.children[0].children[1].value;
-    op2 = block.children[0].children[2].value;
+    op1 = block.children[1].children[0].value;
+    op = block.children[1].children[1].value;
+    op2 = block.children[1].children[2].value;
     if (!op1 || !op2) {
         alert("No input in while");
         throw 0;
@@ -906,9 +899,9 @@ var whileBlock = (block) => {
 }
 
 var unityMatrix = (block) => {
-    let varname = block.children[0].children[0].value;
-    let rows = block.children[0].children[1].value;
-    let columns = block.children[0].children[2].value;
+    let varname = block.children[1].children[0].value;
+    let rows = block.children[1].children[1].value;
+    let columns = block.children[1].children[2].value;
     if (!rows || !columns || rows < 0 || columns < 0 || !varname || !isNaN(varname)) {
         alert("Invalid input");
         throw 0;
@@ -1035,9 +1028,9 @@ function subRoutine(mainblock) {
 }
 
 var zeroMatrix = (block) => {
-    let varname = block.children[0].children[0].value;
-    let rows = block.children[0].children[1].value;
-    let columns = block.children[0].children[2].value;
+    let varname = block.children[1].children[0].value;
+    let rows = block.children[1].children[1].value;
+    let columns = block.children[1].children[2].value;
     let zeroarr = [];
     if (!varname || !isNaN(varname) || !rows || rows < 0 || columns < 0 || !columns) {
         alert("invalid input in zeromatrix block");
@@ -1059,8 +1052,8 @@ var zeroMatrix = (block) => {
 
 var absoluteBlock = (block) => {
     let absValue,varname;
-    varname = block.children[0].children[0].value;
-    absValue = block.children[0].children[1].value;
+    varname = block.children[1].children[0].value;
+    absValue = block.children[1].children[1].value;
     if (!absValue) {
         alert("No input given");
         throw 0;
