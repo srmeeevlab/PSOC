@@ -3,8 +3,8 @@
 const node = document.createElement("div");
 node.style.height = "20px";
 node.id = "green-blk"
-node.style.backgroundColor = "green";
-node.style.margin = "1.5em";
+node.style.backgroundColor = "#AD8B73";
+node.classList.add("pl-3","py-3");
 max_level = 30;
 let count1 = 0;
 let sub_arr;
@@ -15,6 +15,9 @@ let ifshiftpressed = false;
 let supremecode;
 
 // var maincode = "";
+if(screen.width < 1250){
+    alert("The simulator will not be displayed properly on your device, please use a wider screen.")
+}
 
 function drag_handler(ev) { ev.preventDefault(); }
 

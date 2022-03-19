@@ -6,8 +6,11 @@
     <meta charset="UTF-8">
     <title>Experiment</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- <link rel="stylesheet" href="../programming-interface/style.css"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 </head>
 
@@ -18,18 +21,22 @@
 
      -->
 
-    <nav class="navbar navbar-dark bg-dark ">
+    <nav class="navbar navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#">VLAB</a>
+            <a class="navbar-brand" href="#"><img src="srm-logo-white.png" alt="SRM Logo" ></a>
+            <span id="exp-title">Experiment Title</span>
+            <span id="navbar-settings">
+                <span id="score-word">SCORE: </span><span id="score">100</span>
+                <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span>
+            </span>
         </div>
     </nav>
-    <div class="container-fluid">
+    <div class="container-fluid h-100">
         <div class="row">
             <!-- start of accordian       -->
 
-            <div id="pallete" class="col-2" style="background-color: red;min-height: 100vh;">
-
-                <div class="accordion mt-4 sticky-top" id="accordionExample" style="min-height:100vh;">
+            <div id="pallete" class="col-4 col-md-2">
+                <div class="accordion pt-4 sticky-top" id="accordionExample" style="min-height:100vh;">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
                             <button class="accordion-button collapsed noselect" href="#var" type="button" aria-controls="var" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false">
@@ -149,7 +156,7 @@
 
             <!-- end of accordcian-->
 
-            <div id="interface" class="col-7" style="background-color: yellow;min-height:100vh" ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
+            <div id="interface" class="col-8 col-md-8" ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
                 <!-- <div class="alert alert-dark" role="role" ondragover="false" ondragenter="false" ondragleave="false">                </div> -->
 
                 <div id="drop-box">
@@ -157,20 +164,28 @@
                 </div>
 
             </div>
-            <div id="properties" class="col-3" style="background-color: blue; min-height: 100vh">
-                <div class="btn-group" role="group">
-                    <button type="button" id="upbut" disabled class="btn btn-danger" onclick="up()">Up</button>
-                    <button type="button" id="downbut" disabled class="btn btn-danger" onclick="down()">Down</button>
-                    <button type="button" id="setbut" disabled class="btn btn-danger" onclick="showprops()">Settings</button>
-                    <button type="button" id="delbut" disabled class="btn btn-danger" onclick="delel()">Delete</button>
-                    <button type="button" id="dragbut" disabled class="btn btn-danger" onclick="dragbu()">Drag</button>
-                    <button type="button" id="stepo" disabled class="btn btn-danger" onclick="stepout()">StepOut</button>
-                    <button type="button" id="stepi" disabled class="btn btn-danger" onclick="stepin()">StepIn</button>
-                    <button type="button" id="run" class="btn btn-danger" onclick="RUN(document.getElementById('interface'))">RUN</button>
+            <div id="properties" class="col-2">
+                <div class="pt-4 fixed-bottom sticky-md-top d-flex flex-md-column">
+                    <button type="button" id="view-question" class="btn btn-custom-outline-brown" onclick="">View Question Statement</button>
+                    <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" onclick="up()"><i class="bi bi-caret-up-fill"></i>   Up</button>
+                    <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" onclick="down()"><i class="bi bi-caret-down-fill"></i> Down</button>
+                    <button type="button" id="setbut" disabled class="btn btn-custom-outline-brown" onclick="showprops()"><i class="bi bi-pencil-fill"></i> Edit</button>
+                    <button type="button" id="delbut" disabled class="btn btn-custom-outline-brown" onclick="delel()"><i class="bi bi-trash-fill"></i>  Delete</button>
+                    <button type="button" id="dragbut" disabled class="btn btn-custom-outline-brown" onclick="dragbu()">Drag</button>
+                    <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown" onclick="stepout()"><i class="bi bi-arrow-90deg-down"></i>    StepOut</button>
+                    <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" onclick="stepin()"><i class="bi bi-arrow-return-right"></i>  StepIn</button>
+                    <button type="button" id="run" class="btn btn-custom-outline-brown" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> Run</button>
                 </div>
             </div>
         </div>
     </div>
+    <footer class="p-3">
+        Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br>
+        PALS-VLAB initiative, in collaboration with NITK as Technology Partner
+        <script>
+            document.getElementById("year").innerText = new Date().getFullYear();
+        </script>
+    </footer>
     <!-- <script src="../programming-interface/main.js"></script> -->
     <script src="drag1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
@@ -178,253 +193,243 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js" integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 <template id="boo">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Boolean
         <span class="showvarname"></span>
-        <div class="details">
-
+        <div class="details pb-2">
             <input type="text" name="Variable" id="" placeholder="Variable Name">
             <select name="" id="">
                 <option value="true">True</option>
                 <option value="false">False</option>
             </select>
-            <button onclick="ok(event)"> OK </button>
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="cst">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Constant
-        
         <span class="showvarname"></span>
-        <div class="details">
+        <div class="details pb-2">
             <input type="text" name="Variable" id="" placeholder="Variable Name">
             <input type="text" name="" id="" placeholder="Value">
-            <button onclick="ok(event)"> OK </button>
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="mat">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Matrix 
         <span class="showvarname"></span>
-        <div class="details">
+        <div class="details pb-2">
             <input type="text" name="Variable" id="" placeholder="Variable Name">
-            <input type="text" name="" id="" placeholder="enter no. of rows">
-            <input type="text" name="" id="" placeholder="enter no. of columns">
-            <button onclick="matinput(prevSelection[0])">Enter Values</button>
+            <input type="text" name="" id="" placeholder="Number of Rows">
+            <input type="text" name="" id="" placeholder="Number of Columns">
+            <button class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate Table</button>
             <div class="matinps"></div>
-            <button onclick="ok(event)"> OK </button>
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="ima">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Identity Matrix
         <span class="showvarname"></span>
-        <div class="details">
+        <div class="details pb-2">
             <input type="text" name="Variable" id="" placeholder="Variable Name">
-            <input type="text" name="" id="" placeholder="enter no. of rows">
-            <button onclick="ok(event)"> OK </button>
+            <input type="text" name="" id="" placeholder="Number of Rows">
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
 
 
     </div>
 </template>
 <template id="uma">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Unity Matrix
         <span class="showvarname"></span>
-        <div class="details">
+        <div class="details pb-2">
             <input type="text" name="Variable" id="" placeholder="Variable Name">
-            <input type="text" name="" id="" placeholder="enter no. of rows">
-            <input type="text" name="" id="" placeholder="enter no. of columns">
-            <button onclick="ok(event)"> OK </button>
+            <input type="text" name="" id="" placeholder="Number of Rows">
+            <input type="text" name="" id="" placeholder="Number of Columns">
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="zma">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Zeros Matrix
         <span class="showvarname"></span>
-        <div class="details">
+        <div class="details pb-2">
             <input type="text" name="Variable" id="" placeholder="Variable Name">
-            <input type="text" name="" id="" placeholder="enter no. of rows">
-            <input type="text" name="" id="" placeholder="enter no. of columns">
-            <button onclick="ok(event)"> OK </button>
+            <input type="text" name="" id="" placeholder="Number of Rows">
+            <input type="text" name="" id="" placeholder="Number of Columns">
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="if">
-    <div class="noselect   selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         If
         <span class="showvarname"></span>
-        <div class="details">
-            <input type="text" name="" id="" placeholder="Operand 1">
+        <div class="details pb-2">
+            <input type="text" name="" id="" placeholder="Operand One">
 
             <select name="" id="">
-                <option value=">">></option>
-                <option value="<">
-                    < </option>
-                <option value="=">=</option>
-                <option value=">=">>=</option>
-                <option value="<=">
-                    <= </option>
-                <option value="!=">!= (not equal to)</option>
+                <option title="Greater Than" value=">">></option>
+                <option title="Lesser Than" value="<">< </option>
+                <option title="Equals" value="=">=</option>
+                <option title="Greater Than or Equal to" value=">=">≥</option>
+                <option title="Lesser Than or Equal to" value="<=">≤</option>
+                <option title="Not Equals" value="!=">≠</option>
             </select>
 
-            <input type="text" name="" id="" placeholder="Operand 2">
-            <button onclick="ok(event)"> OK </button>
+            <input type="text" name="" id="" placeholder="Operand Two">
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="eli">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Else If
         <span class="showvarname"></span>
-        <div class="details">
-            <input type="text" name="" id="" placeholder="Operand 1">
+        <div class="details pb-2">
+            <input type="text" name="" id="" placeholder="Operand One">
 
             <select name="" id="">
-                <option value=">">></option>
-                <option value="<">
-                    < </option>
-                <option value="=">=</option>
-                <option value=">=">>=</option>
-                <option value="<=">
-                    <= </option>
-                <option value="!=">!= (not equal to)</option>
+                <option title="Greater Than" value=">">></option>
+                <option title="Lesser Than" value="<">< </option>
+                <option title="Equals" value="=">=</option>
+                <option title="Greater Than or Equal to" value=">=">≥</option>
+                <option title="Lesser Than or Equal to" value="<=">≤</option>
+                <option title="Not Equals" value="!=">≠</option>
             </select>
 
-            <input type="text" name="" id="" placeholder="Operand 2">
-            <button onclick="ok(event)"> OK </button>
+            <input type="text" name="" id="" placeholder="Operand Two">
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="els">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Else
     </div>
 </template>
 <template id="for">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         For
         <span class="showvarname"></span>
-        <div class="details">
-            <input type="text" name="" id="" placeholder="enter start value of loop">
-            <input type="text" name="" id="" placeholder="enter end value of loop">
-            <input type="text" name="" value="" id="" placeholder="Step counter (default is 1)">
+        <div class="details pb-2">
+            <input type="text" name="" id="" placeholder="Start">
+            <input type="text" name="" id="" placeholder="End">
+            <input type="text" name="" value="" id="" placeholder="Step (Default 1)">
 
 
-            <button onclick="ok(event)"> OK </button>
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="whi">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         While
         <span class="showvarname"></span>
-        <div class="details">
-            <input type="text" name="" id="" placeholder="Operand 1">
+        <div class="details pb-2">
+            <input type="text" name="" id="" placeholder="Operand One">
 
             <select name="" id="">
-                <option value=">">></option>
-                <option value="<">
-                    < </option>
-                <option value="=">=</option>
-                <option value=">=">>=</option>
-                <option value="<=">
-                    <= </option>
-                <option value="!=">!= (not equal to)</option>
+                <option title="Greater Than" value=">">></option>
+                <option title="Lesser Than" value="<">< </option>
+                <option title="Equals" value="=">=</option>
+                <option title="Greater Than or Equal to" value=">=">≥</option>
+                <option title="Lesser Than or Equal to" value="<=">≤</option>
+                <option title="Not Equals" value="!=">≠</option>
             </select>
 
-            <input type="text" name="" id="" placeholder="Operand 2">
-            <button onclick="ok(event)"> OK </button>
+            <input type="text" name="" id="" placeholder="Operand Two">
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="bre">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Break
     </div>
 </template>
 <template id="con">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Continue
     </div>
 </template>
 <template id="eva">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Evaluate
         <span class="showvarname"></span>
-        <div class="details">
+        <div class="details pb-2">
 
-            <input type="text" name="Variable" id="" placeholder="Variable name">
-            <input type="text" name="" id="" placeholder="Evaluate math operations">
-            <button onclick="ok(event)"> OK </button>
+            <input type="text" name="Variable" id="" placeholder="Variable Name">
+            <input type="text" name="" id="" placeholder="Evaluate/Math Operations">
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="mev">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Matrix Evaluate
         <span class="showvarname"></span>
-        <div class="details">
-            <input type="text" name="Variable" id="" placeholder=" Variable name">
-            <input type="text" name="" id="" placeholder="Operand 1">
+        <div class="details pb-2">
+            <input type="text" name="Variable" id="" placeholder=" Variable Name">
+            <input type="text" name="" id="" placeholder="Operand One">
             <select name="" id="">
-                <option value="+">+</option>
-                <option value="-">-</option>
-                <option value="*">*</option>
-                <option value="/">/</option>
-                <option value="%">%</option>
+                <option title="Sum" value="+">+</option>
+                <option title="Subtract" value="-">-</option>
+                <option title="Multiply" value="*">*</option>
+                <option title="Divide" value="/">/</option>
+                <option title="Modulus (Remainder)" value="%">%</option>
             </select>
-            <input type="text" name="Variable" id="" placeholder="Operand 2">
-            <button onclick="ok(event)"> OK </button>
+            <input type="text" name="Variable" id="" placeholder="Operand Two">
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="tra">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Transpose
         <span class="showvarname"></span>
-        <div class="details">
-            <input type="text" name="Variable" id="" placeholder="enter variable name ">
-            <input type="text" name="" id="" placeholder="enter matrix ">
-            <button onclick="ok(event)"> OK </button>
+        <div class="details pb-2">
+            <input type="text" name="Variable" id="" placeholder="Output Variable Name">
+            <input type="text" name="" id="" placeholder="Matrix Variable Name">
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
-
     </div>
 </template>
 <template id="abs">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Absolute
         <span class="showvarname"></span>
-        <div class="details">
-
-            <input type="text" name="Variable" id="" placeholder="Enter the variable name">
-            <input type="text" name="" id="" placeholder="Evaluate for absolute operations">
-            <button onclick="ok(event)"> OK </button>
+        <div class="details pb-2">
+            <input type="text" name="Variable" id="" placeholder="Output Variable Name">
+            <input type="text" name="" id="" placeholder="Evaluate for Absolute Operations">
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="tib">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Test Input Block
     </div>
 </template>
 <template id="opb">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Output Block
         <span class="showvarname"></span>
-        <div class="details">
+        <div class="details pb-2">
             <input type="text" name="" id="" placeholder="Value">
-            <button onclick="ok(event)"> OK </button>
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="dob">
-    <div class="noselect selectable bordered-box">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
         Debug Output Block
     </div>
 </template>
