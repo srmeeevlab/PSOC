@@ -4,7 +4,7 @@ const node = document.createElement("div");
 node.style.height = "20px";
 node.id = "green-blk"
 node.style.backgroundColor = "#AD8B73";
-node.classList.add("pl-3","py-3");
+node.classList.add("pl-3", "py-3");
 max_level = 30;
 let count1 = 0;
 let sub_arr;
@@ -15,7 +15,7 @@ let ifshiftpressed = false;
 let supremecode;
 
 // var maincode = "";
-if(screen.width < 1250){
+if (screen.width < 1250) {
     alert("The simulator will not be displayed properly on your device, please use a wider screen.")
 }
 
@@ -25,6 +25,10 @@ function drag_start_handler(ev) {
 
     if (ev.target.id.includes("-")) {
         deselect();
+        let props = Array.from(document.getElementsByClassName("details"));
+        props.forEach(element => {
+                element.style.display = "none";
+        });
     }
     ev.dataTransfer.setData("text/plain", ev.target.id);
 }
@@ -170,8 +174,13 @@ function stepin() {
 }
 
 function deselect() {
+    let element;
     while (prevSelection.length > 0) {
-        prevSelection.pop().classList.remove("highlight");;
+        element = prevSelection.pop()
+        element.classList.remove("highlight");
+        // if(element.getElementsByClassName("details").length>0){
+        //     element.getElementsByClassName("details")[0].style.display = "none";
+        // }
     }
     document.getElementById("delbut").disabled = true;
     document.getElementById("setbut").disabled = true;
@@ -255,19 +264,31 @@ function showprops() {
 
 }
 
-addEventListener("dblclick",(event)=>{
+addEventListener("dblclick", (event) => {
 
-    if(prevSelection.length>0){
+    // if (prevSelection.length > 0) {
+    //     if (prevSelection[0].getElementsByClassName("details").length > 0)
+    //         // prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
+    
+    // }
+    if(event.target.classList.contains("selectable")){
+        // prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
         if (prevSelection[0].getElementsByClassName("details").length > 0)
-        prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
+            prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
     }
-
 })
 
 
 addEventListener("click", (event) => {
     // console.log("details",event.detail)
     const target = event.target;
+    if(target.id=="interface"){
+        deselect();
+        let props = Array.from(document.getElementsByClassName("details"));
+            props.forEach(element => {
+                element.style.display = "none";
+            });
+    }
     if (target.classList.contains("selectable")) {
         // single click
 
@@ -349,6 +370,10 @@ addEventListener("click", (event) => {
 
 
     }
+    // else{
+        
+    //     deselect();
+    // }
     checkButtonStatus();
 
 });
