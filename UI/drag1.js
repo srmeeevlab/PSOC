@@ -25,11 +25,11 @@ function drag_start_handler(ev) {
 
     if (ev.target.id.includes("-")) {
         deselect();
-        let props = Array.from(document.getElementsByClassName("details"));
-        props.forEach(element => {
-                element.style.display = "none";
-        });
     }
+    let props = Array.from(document.getElementsByClassName("details"));
+    props.forEach(element => {
+            element.style.display = "none";
+    });
     ev.dataTransfer.setData("text/plain", ev.target.id);
 }
 
@@ -133,7 +133,7 @@ function drop_handler(ev) {
 // select highkight
 
 
-function dragbu() {
+function dragbu(event) {
     document.getElementById("dragbut").innerHTML = "dragstarted";
     let target = prevSelection[0];
     target.draggable = true;
@@ -266,15 +266,12 @@ function showprops() {
 
 addEventListener("dblclick", (event) => {
 
-    // if (prevSelection.length > 0) {
-    //     if (prevSelection[0].getElementsByClassName("details").length > 0)
-    //         // prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
-    
-    // }
     if(event.target.classList.contains("selectable")){
-        // prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
-        if (prevSelection[0].getElementsByClassName("details").length > 0)
-            prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
+        if(prevSelection.length>0){
+            if (prevSelection[0].getElementsByClassName("details").length > 0)
+                prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
+
+        }
     }
 })
 
@@ -480,7 +477,7 @@ var evalBlock = (block) => {
     }
     evalValue = evalValue.split(" ").join("");
     console.log(evalValue);
-    return `let ${varname} =  eval("${evalValue}");`
+    return ` ${varname} =  ${evalValue} ;`
     // return `console.log(${evalValue})`;
 }
 
@@ -841,11 +838,10 @@ var forBlock = (block) => {
 
 var elseBlock = (block) => {
     let subroutine = subRoutine(block);
+    console.log("subroutine is",subroutine);
     return `else{
-            ${subroutine}
-        }
-    
-    `
+        ${subroutine}
+    }`
 }
 
 var ifBlock = (block) => {
@@ -960,11 +956,15 @@ function subRoutine(mainblock) {
     console.log("running sub")
     let maincode = "";
     let blocksofcode = mainblock.children;
+    console.log(blocksofcode);
     // blocksofcode.splice(0,1);
     // return blocksofcode;
-    for (let index = 1; index < blocksofcode.length; index++) {
+    for (let index = 0; index < blocksofcode.length; index++) {
 
         const element = blocksofcode[index];
+        if(!element.id){
+            continue;
+        }
         if (element.id == "drop-box") {
             console.log("drop-box rejected")
             continue;
@@ -1137,10 +1137,16 @@ function compile(mainblock) {
     let blocksofcode = mainblock.children;
 
     // return blocksofcode;
-    for (let index = 1; index < blocksofcode.length; index++) {
+    for (let index = 0; index < blocksofcode.length; index++) {
 
         const element = blocksofcode[index];
-
+        if(!element.id){
+            continue;
+        }
+        if (element.id == "drop-box") {
+            console.log("drop-box rejected")
+            continue;
+        }
         const path = getpath(element);
         let blockname = element.firstChild.textContent.trim();
         // let blockname = element.firstChild.textContent.split("@").reverse()[0].trim();
@@ -1209,7 +1215,7 @@ function compile(mainblock) {
             case "Unity Matrix":
                 code = unityMatrix(element);
                 break;
-            case "Zero":
+            case "Zeros Matrix":
                 code = zeroMatrix(element);
                 break;
             case "If":
