@@ -28,7 +28,7 @@ function drag_start_handler(ev) {
     }
     let props = Array.from(document.getElementsByClassName("details"));
     props.forEach(element => {
-            element.style.display = "none";
+        element.style.display = "none";
     });
     ev.dataTransfer.setData("text/plain", ev.target.id);
 }
@@ -266,8 +266,8 @@ function showprops() {
 
 addEventListener("dblclick", (event) => {
 
-    if(event.target.classList.contains("selectable")){
-        if(prevSelection.length>0){
+    if (event.target.classList.contains("selectable")) {
+        if (prevSelection.length > 0) {
             if (prevSelection[0].getElementsByClassName("details").length > 0)
                 prevSelection[0].getElementsByClassName("details")[0].style.display = "block";
 
@@ -279,12 +279,12 @@ addEventListener("dblclick", (event) => {
 addEventListener("click", (event) => {
     // console.log("details",event.detail)
     const target = event.target;
-    if(target.id=="interface"){
+    if (target.id == "interface") {
         deselect();
         let props = Array.from(document.getElementsByClassName("details"));
-            props.forEach(element => {
-                element.style.display = "none";
-            });
+        props.forEach(element => {
+            element.style.display = "none";
+        });
     }
     if (target.classList.contains("selectable")) {
         // single click
@@ -368,7 +368,7 @@ addEventListener("click", (event) => {
 
     }
     // else{
-        
+
     //     deselect();
     // }
     checkButtonStatus();
@@ -402,10 +402,26 @@ function ok(event) {
 
 }
 
+function vecinput(block) {
+    let columns = block.children[1].children[1].value;
+    let divblock = block.children[1];
+    divblock = divblock.getElementsByClassName("vecinps")[0];
+    divblock.innerHTML = "";
+    if (!columns || columns < 0) {
+        alert("Invalid input");
+        return;
+    }
+    let inpcount = 1;
+    for (let index = 0; index < columns; index++) {
+        divblock.appendChild(document.createElement("input"));
+        divblock.lastElementChild.type = "text";
+        divblock.lastElementChild.id = inpcount;
+        inpcount++;
+    }
+
+}
 
 function matinput(block) {
-
-
     let rows, columns;
     rows = block.children[1].children[1].value;
     columns = block.children[1].children[2].value;
@@ -838,7 +854,7 @@ var forBlock = (block) => {
 
 var elseBlock = (block) => {
     let subroutine = subRoutine(block);
-    console.log("subroutine is",subroutine);
+    console.log("subroutine is", subroutine);
     return `else{
         ${subroutine}
     }`
@@ -930,6 +946,28 @@ var whileBlock = (block) => {
     `
 }
 
+
+var vectorBlock = (block) => {
+    let varname = block.children[1].children[0].value;
+    let columns = block.children[1].children[1].value;
+    if (columns < 0 || !columns || !isNaN(varname) || !varname) {
+        alert("Invalid input");
+        throw 0;
+    }
+    let array = [];
+    let vector_inputs = block.children[1].getElementsByClassName("vecinps")[0].getElementsByTagName("input")
+    for (let index = 0; index < vector_inputs.length; index++) {
+        array.push(vector_inputs[index].value);
+    }
+    return `
+    const ${varname} =[${array}];
+          
+    console.log("vector is ",${varname});
+    `
+
+}
+
+
 var unityMatrix = (block) => {
     let varname = block.children[1].children[0].value;
     let rows = block.children[1].children[1].value;
@@ -962,7 +1000,7 @@ function subRoutine(mainblock) {
     for (let index = 0; index < blocksofcode.length; index++) {
 
         const element = blocksofcode[index];
-        if(!element.id){
+        if (!element.id) {
             continue;
         }
         if (element.id == "drop-box") {
@@ -1007,6 +1045,9 @@ function subRoutine(mainblock) {
             case "Matrix":
                 console.log("running matrix");
                 code = matrixBlock(element);
+                break;
+            case "Vector":
+                code = vectorBlock(element);
                 break;
             case "Break":
                 console.log("running break");
@@ -1140,7 +1181,7 @@ function compile(mainblock) {
     for (let index = 0; index < blocksofcode.length; index++) {
 
         const element = blocksofcode[index];
-        if(!element.id){
+        if (!element.id) {
             continue;
         }
         if (element.id == "drop-box") {
@@ -1232,6 +1273,9 @@ function compile(mainblock) {
                 break;
             case "Continue":
                 code = continueBlock(element);
+                break;
+            case "Vector":
+                code = vectorBlock(element);
                 break;
             default:
                 break;

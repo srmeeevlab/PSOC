@@ -65,6 +65,9 @@
                                     <li id="var-zmatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Zero Matrix
                                     </li>
+                                    <li id="var-vector" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Vector
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -264,6 +267,19 @@
             <input type="text" name="Variable" id="" placeholder="Variable Name">
             <input type="text" name="" id="" placeholder="Number of Rows">
             <input type="text" name="" id="" placeholder="Number of Columns">
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="vec">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <input type="text" name="Variable" id="" placeholder="Variable Name">
+            <input type="text" name="" id="" placeholder="Number of elements">
+            <button class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate row</button>
+            <div class="vecinps"></div>
             <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
