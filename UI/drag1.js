@@ -12,7 +12,7 @@ const prevSelection = [];
 let count = 0;
 let ifshiftpressed = false;
 let jsonexp = {
-    1:`
+    1: `
     <div id="drop-box">
     
     </div>
@@ -147,21 +147,37 @@ function drop_handler(ev) {
         // console.log(id);
         for (i; i < id.length; i++)
             if (id[i] === "-") id = id.slice(i + 1, i + 4);
-        // console.log(id);
+            // console.log(id);
 
         const temp = document.getElementById(id);
         const clone = temp.content.cloneNode(true);
         clone.id = id + count1++;
+
 
         // console.log("clone id- ", clone.id);
         if (["For", "While", "If", "Else", "Else If"].includes(ev.target.firstChild.textContent.trim())) {
             if (!ev.target.classList.contains("highlight")) {
                 ev.target.appendChild(clone);
                 ev.target.lastElementChild.id = clone.id;
+                let childs = ev.target.lastElementChild.children[1].children;
+                for (let index = 0; index < childs.length; index++) {
+                    // const element = array[index];
+                    if (childs[index].id) {
+                        childs[index].id = clone.id + "$" + childs[index].id;
+                    }
+                }
             }
         } else {
             document.getElementById("interface").appendChild(clone);
             document.getElementById("interface").lastElementChild.id = clone.id;
+            // console.log(document.getElementById("interface").lastElementChild);
+            let childs = document.getElementById("interface").lastElementChild.children[1].children;
+            for (let index = 0; index < childs.length; index++) {
+                // const element = array[index];
+                if (childs[index].id) {
+                    childs[index].id = clone.id + "$" + childs[index].id;
+                }
+            }
         }
 
     }
@@ -426,25 +442,35 @@ addEventListener("keyup", (ev) => {
     }
 })
 
-
+// BLOCKS 
 function ok(event) {
-    event.target.parentNode.style.display = 'none';
-    let varname = "";
-    let block = event.target.parentNode; //details
-    let parentblock = block.parentNode;
-    if (block.children[0].name == "Variable") {
-        varname = block.children[0].value;
-        parentblock.firstElementChild.innerHTML = ` @${varname}`;
-    }
+    // event.target.parentNode.style.display = 'none';
+    // let varname = "";
+    // let block = event.target.parentNode; //details
+    // let parentblock = block.parentNode;
+    // if (block.children[0].name == "Variable") {
+    //     varname = block.children[0].value;
+    //     parentblock.firstElementChild.innerHTML = ` @${varname}`;
+    // }
+
     // if(varname){
     // console.log(parentblock.firstElementChild);
     // parentblock.firstElementChild.innerHTML = ` @${varname}`;
     // }
 
-}
+    let ID = event.target.id;
+    ID = ID.split("$")[0];
+    document.getElementById(ID).getElementsByClassName("details")[0].style.display = "none";
+    let varname = "";
+    varname = document.getElementById(ID + "$" + "VAR").value;
+    if (varname) {
+        document.getElementById(ID).firstElementChild.innerHTML = `${varname}`;
+    }
+
+} //done
 
 function vecinput(block) {
-    let columns = block.children[1].children[1].value;
+    let columns = document.getElementById(block.id + "$" + "VAL").value;
     let divblock = block.children[1];
     divblock = divblock.getElementsByClassName("vecinps")[0];
     divblock.innerHTML = "";
@@ -460,12 +486,12 @@ function vecinput(block) {
         inpcount++;
     }
 
-}
+} //DONR
 
 function matinput(block) {
     let rows, columns;
-    rows = block.children[1].children[1].value;
-    columns = block.children[1].children[2].value;
+    rows = document.getElementById(block.id + "$" + "ROW").value;
+    columns = document.getElementById(block.id + "$" + "COL").value;
     let divblock = block.children[1];
     divblock = divblock.getElementsByClassName("matinps")[0];
     divblock.innerHTML = "";
@@ -490,57 +516,58 @@ function matinput(block) {
         divblock.appendChild(document.createElement("br"))
     }
 
-}
+} //DONE
 
 var constantBlock = (block) => {
-    let varname, valname;
-    console.log("inside constant");
-    // console.log(block.children[1].children);
-    varname = block.children[1].children[0].value;
+        let varname, valname;
+        console.log("inside constant");
+        // console.log(block.children[1].children);
+        varname = document.getElementById(block.id + "$" + "VAR").value;
 
-    valname = block.children[1].children[1].value;
-    if (!valname || !varname || !isNaN(varname)) {
-        alert("Invalid input const")
-        throw 0;
-    }
-    // varname = "a";
-    // valname = "3";
-    return ` let ${varname} = ${valname} ;\n`;
-    // block.innerHTML += " : " + varname;
-    //  " let a = 3"
-}
+        valname = document.getElementById(block.id + "$" + "VAL").value;;
+        if (!valname || !varname || !isNaN(varname)) {
+            alert("Invalid input const")
+            throw 0;
+        }
+        // varname = "a";
+        // valname = "3";
+        return ` let ${varname} = ${valname} ;\n`;
+        // block.innerHTML += " : " + varname;
+        //  " let a = 3"
+    } //DONE
 
 var booleanBlock = (block) => {
-    let varname, valname;
-    // varname = "bo";
-    // valname = "true";
-    varname = block.children[1].children[0].value;
-    valname = block.children[1].children[1].value;
-    if (!valname || !varname || !isNaN(varname)) {
-        alert("Invalid input")
-        throw 0;
-    }
-    // block.innerHTML += " : " + varname;
-    return ` let ${varname} = ${valname} ;\n`;
-}
+        let varname, valname;
+        // varname = "bo";
+        // valname = "true";
+        varname = document.getElementById(block.id + "$" + "VAR").value;
+        // varname = block.children[1].children[0].value;
+        valname = document.getElementById(block.id + "$" + "VAL").value;
+        if (!valname || !varname || !isNaN(varname)) {
+            alert("Invalid input")
+            throw 0;
+        }
+        // block.innerHTML += " : " + varname;
+        return ` let ${varname} = ${valname} ;\n`;
+    } //DONE
 
 var evalBlock = (block) => {
-    let evalValue, varname;
-    varname = block.children[1].children[0].value;
-    evalValue = block.children[1].children[1].value;
-    if (!evalValue || !varname) {
-        alert("Invalid input")
-        throw 0;
-    }
-    evalValue = evalValue.split(" ").join("");
-    console.log(evalValue);
-    return ` ${varname} =  ${evalValue} ;\n`
-    // return `console.log(${evalValue})`;
-}
+        let evalValue, varname;
+        varname = document.getElementById(block.id + "$" + "VAR").value;
+        evalValue = document.getElementById(block.id + "$" + "EVALUATE").value;
+        if (!evalValue || !varname) {
+            alert("Invalid input")
+            throw 0;
+        }
+        evalValue = evalValue.split(" ").join("");
+        console.log(evalValue);
+        return ` ${varname} =  ${evalValue} ;\n`
+            // return `console.log(${evalValue})`;
+    } //done
 
 var matevalBlock = (block) => {
     let evalValue;
-    evalValue = block.children[1].children[0].value;
+    evalValue = document.getElementById(block.id + "$" + "").value;
     if (!evalValue) {
         alert("Empty 'outputVal' block");
         throw 0;
@@ -728,9 +755,9 @@ var matevalBlock = (block) => {
 var matmath = (block) => {
     let op1, op2, op, varname;
     varname = block.children[1].children[0].value;
-    op1 = block.children[1].children[1].value;
-    op = block.children[1].children[2].value;
-    op2 = block.children[1].children[3].value;
+    op1 = document.getElementById(block.id + "$" + "").value;
+    op = document.getElementById(block.id + "$" + "").value;
+    op2 = document.getElementById(block.id + "$" + "").value;
     // console.log("op1",op1);
     // console.log("op2",op2);
     // console.log("op is",op);
@@ -750,40 +777,36 @@ var matmath = (block) => {
 
         code1 += `${op2}=math.multiply(${op2},-1);`
     }
-    if (op == "+") { code1 += ` let ${varname}= math.add(${op1},${op2});` }
-    else if (op == "-") { code1 += `let ${varname}=math.subtract(${op1},${op2});` }
-    else if (op == "*") { code1 += `let ${varname}=math.multiply(${op1},${op2});` }
-    else if (op == "/") { code1 += `let ${varname}=math.divide(${op1},${op2});` }
-    else if (op == "%") { code1 += `let ${varname}=math.mod(${op1},${op2});` }
+    if (op == "+") { code1 += ` let ${varname}= math.add(${op1},${op2});` } else if (op == "-") { code1 += `let ${varname}=math.subtract(${op1},${op2});` } else if (op == "*") { code1 += `let ${varname}=math.multiply(${op1},${op2});` } else if (op == "/") { code1 += `let ${varname}=math.divide(${op1},${op2});` } else if (op == "%") { code1 += `let ${varname}=math.mod(${op1},${op2});` }
     return code1;
 
 }
 
 var outputBlock = (block) => {
-    let output;
-    output = block.children[1].children[0].value;
-    if (!output)
-        output = "\n";
-    return `console.log("output is",${output}); \n`;
-}
+        let output;
+        output = document.getElementById(block.id + "$" + "VAL").value;
+        if (!output)
+            output = "\n";
+        return `console.log("output is",${output}); \n`;
+    } //donr
 
 var matrixBlock = (block) => {
-    let varname = block.children[1].children[0].value;
-    let rows, columns;
-    rows = block.children[1].children[1].value;
-    columns = block.children[1].children[2].value;
-    if (rows < 0 || columns < 0 || !rows || !columns || !isNaN(varname) || !varname) {
-        alert("Invalid input");
-        throw 0;
-    }
-    let array = [];
-    let matrix_inputs = block.children[1].getElementsByClassName("matinps")[0].getElementsByTagName("input");
-    for (let index = 0; index < matrix_inputs.length; index++) {
-        array.push(matrix_inputs[index].value);
-    }
+        let varname = document.getElementById(block.id + "$" + "VAR").value;
+        let rows, columns;
+        rows = document.getElementById(block.id + "$" + "ROW").value;
+        columns = document.getElementById(block.id + "$" + "COL").value;
+        if (rows < 0 || columns < 0 || !rows || !columns || !isNaN(varname) || !varname) {
+            alert("Invalid input");
+            throw 0;
+        }
+        let array = [];
+        let matrix_inputs = block.children[1].getElementsByClassName("matinps")[0].getElementsByTagName("input");
+        for (let index = 0; index < matrix_inputs.length; index++) {
+            array.push(matrix_inputs[index].value);
+        }
 
 
-    return `
+        return `
     const ${varname}1 =[${array}];
     
     const ${varname} = [];
@@ -791,44 +814,44 @@ var matrixBlock = (block) => {
         
     console.log("matrix is ",${varname});\n
     `
-}
+    } //done
 
-var breakBlock = (block) => { return "break;"; }
-var continueBlock = (block) => { return "continue;"; }
+var breakBlock = (block) => { return "break;"; } // NOT
+var continueBlock = (block) => { return "continue;"; } // NOT
 
 var identityBlock = (block) => {
-    let varname = block.children[1].children[0].value;
-    let rows = block.children[1].children[1].value;
-    if (!varname || !isNaN(varname) || rows < 0 || !rows) {
-        alert("invalid input in identity block");
-        throw 0;
-    }
-    let array = [];
-    for (let i = 0; i < rows; i++) {
-        // const element = array[index];
-        for (let j = 0; j < rows; j++) {
-            i == j ? array.push(1) : array.push(0);
+        let varname = document.getElementById(block.id + "$" + "VAR").value;
+        let rows = document.getElementById(block.id + "$" + "ROW").value;
+        if (!varname || !isNaN(varname) || rows < 0 || !rows) {
+            alert("invalid input in identity block");
+            throw 0;
         }
-    }
-    return `
+        let array = [];
+        for (let i = 0; i < rows; i++) {
+            // const element = array[index];
+            for (let j = 0; j < rows; j++) {
+                i == j ? array.push(1) : array.push(0);
+            }
+        }
+        return `
     const ${varname}1 = [${array}];
     const ${varname} = [];
     while(${varname}1.length) ${varname}.push(${varname}1.splice(0,${rows}));
     console.log("Identity is",${varname});\n
     `;
-}
+    } //done
 
 var transposeBlock = (block) => {
 
-    let varname = block.children[1].children[0].value;
-    let matrix = block.children[1].children[1].value;
-    if (!matrix || !varname || !isNaN(matrix) || !isNaN(varname)) {
-        alert("Invalid ");
-        throw 0;
-    }
-    console.log("transpose variable name is", matrix);
+        let varname = document.getElementById(block.id + "$" + "VAR").value;
+        let matrix = document.getElementById(block.id + "$" + "MAT").value;
+        if (!matrix || !varname || !isNaN(matrix) || !isNaN(varname)) {
+            alert("Invalid ");
+            throw 0;
+        }
+        console.log("transpose variable name is", matrix);
 
-    return `
+        return `
     
     const ${varname} = new Array(${varname}[0].length);
     for(let i=0;i<${varname}.length;i++){
@@ -843,160 +866,160 @@ var transposeBlock = (block) => {
     console.log("Transpose is",${varname});
     
     `
-}
+    } //DONR
 
 
 
 var forBlock = (block) => {
-    let forarr = getpath(block).filter(x => x == "For");
-    const cnt = forarr.length - 1;
-    let iterator_var = String.fromCharCode(cnt + 105);
+        let forarr = getpath(block).filter(x => x == "For");
+        const cnt = forarr.length - 1;
+        let iterator_var = String.fromCharCode(cnt + 105);
 
-    let initVal, endVal, op, subroutine, step;
-    subroutine = subRoutine(block);
-    initVal = block.children[1].children[0].value;
-    endVal = block.children[1].children[1].value;
-    step = block.children[1].children[2].value;
-    console.log("step is ", step);
-    // op = block.children[1].children[3].value;
+        let initVal, endVal, op, subroutine, step;
+        subroutine = subRoutine(block);
+        initVal = document.getElementById(block.id + "$" + "START").value;
+        endVal = document.getElementById(block.id + "$" + "END").value;
+        step = document.getElementById(block.id + "$" + "STEP").value;
+        console.log("step is ", step);
+        // op = document.getElementById(block.id+"$" + "").value;
 
-    if (!initVal || !endVal) {
-        alert("start or end value not given");
-        throw 0;
-    }
+        if (!initVal || !endVal) {
+            alert("start or end value not given");
+            throw 0;
+        }
 
 
-    if (Number(initVal) > Number(endVal)) {
-        op = "--"
-    } else {
-        op = "++";
-    }
-    if (!step)
-        step = "1";
-    if (!(step === "1" || step === 1)) {
-        op = op[0] + `= ${step}`;
-    }
-    if (Number(initVal) > Number(endVal)) {
-        return `for(let ${iterator_var}=${initVal};${iterator_var}>${endVal};${iterator_var}${op}){
+        if (Number(initVal) > Number(endVal)) {
+            op = "--"
+        } else {
+            op = "++";
+        }
+        if (!step)
+            step = "1";
+        if (!(step === "1" || step === 1)) {
+            op = op[0] + `= ${step}`;
+        }
+        if (Number(initVal) > Number(endVal)) {
+            return `for(let ${iterator_var}=${initVal};${iterator_var}>${endVal};${iterator_var}${op}){
             ${subroutine}
         }\n`
-    } else {
-        return `for(let ${iterator_var}=${initVal};${iterator_var}<${endVal};${iterator_var}${op}){
+        } else {
+            return `for(let ${iterator_var}=${initVal};${iterator_var}<${endVal};${iterator_var}${op}){
             ${subroutine}
         }\n`
-    }
+        }
 
-    // if(!initVal)
-
-
+        // if(!initVal)
 
 
-}
+
+
+    } //DONE
 
 var elseBlock = (block) => {
-    let subroutine = subRoutine(block);
-    console.log("subroutine is", subroutine);
-    return `else{
+        let subroutine = subRoutine(block);
+        console.log("subroutine is", subroutine);
+        return `else{
         ${subroutine}
     }\n`
-}
+    } //NOT REQ
 
 var ifBlock = (block) => {
 
-    let subroutine = subRoutine(block);
+        let subroutine = subRoutine(block);
 
-    let op1, op2, op;
-    op1 = block.children[1].children[0].value;
-    op = block.children[1].children[1].value;
-    op2 = block.children[1].children[2].value;
-    if (!op1 || !op2) {
-        alert("No input in if");
-        throw 0;
-    }
+        let op1, op2, op;
+        op1 = document.getElementById(block.id + "$" + "OP1").value;
+        op = document.getElementById(block.id + "$" + "OP").value;
+        op2 = document.getElementById(block.id + "$" + "OP2").value;
+        if (!op1 || !op2) {
+            alert("No input in if");
+            throw 0;
+        }
 
-    let condition = ` ${op1} ${op} ${op2} `;
-    return `
+        let condition = ` ${op1} ${op} ${op2} `;
+        return `
     
     if(${condition}){
         ${subroutine}
     }
 
     `
-}
+    } //DONE
 
 var getpath = (block) => {
-    let path = [];
-    let ele = block;
-    while (ele.id != "interface") {
-        path.push(ele.firstChild.textContent.trim());
-        ele = ele.parentNode;
-    }
-    // console.log(path);
-    return path;
-}
+        let path = [];
+        let ele = block;
+        while (ele.id != "interface") {
+            path.push(ele.firstChild.textContent.trim());
+            ele = ele.parentNode;
+        }
+        // console.log(path);
+        return path;
+    } // NOT REQD
 
-var updateBlock = (block) => {
-    let expr = block.children[1].children[0].value;
-    if (!expr) {
-        return;
-    }
-    return `${expr};\n`;
-}
+// var updateBlock = (block) => {
+//     let expr = document.getElementById(block.id+"$" + "").value;
+//     if (!expr) {
+//         return;
+//     }
+//     return `${expr};\n`;
+// }
 
 var elseifBlock = (block) => {
 
 
-    let subroutine = subRoutine(block);
-    let op1, op2, op;
-    op1 = block.children[1].children[0].value;
-    op = block.children[1].children[1].value;
-    op2 = block.children[1].children[2].value;
-    if (!op1 || !op2) {
-        alert("Invalid input");
-        throw 0;
-    }
-    let condition = ` ${op1} ${op} ${op2} `;
+        let subroutine = subRoutine(block);
+        let op1, op2, op;
+        op1 = document.getElementById(block.id + "$" + "OP1").value;
+        op = document.getElementById(block.id + "$" + "OP").value;
+        op2 = document.getElementById(block.id + "$" + "OP2").value;
+        if (!op1 || !op2) {
+            alert("Invalid input");
+            throw 0;
+        }
+        let condition = ` ${op1} ${op} ${op2} `;
 
-    return `
+        return `
     
     else if(${condition}){
         ${subroutine}
     }
 
     `
-}
+    } //DONE
 
 var whileBlock = (block) => {
-    let subroutine = subRoutine(block);
-    let op1, op2, op;
-    op1 = block.children[1].children[0].value;
-    op = block.children[1].children[1].value;
-    op2 = block.children[1].children[2].value;
-    if (!op1 || !op2) {
-        alert("No input in while");
-        throw 0;
-    }
-    let condition = ` ${op1} ${op} ${op2} `;
+        let subroutine = subRoutine(block);
+        let op1, op2, op;
+        op1 = document.getElementById(block.id + "$" + "OP1").value;
+        op = document.getElementById(block.id + "$" + "OP").value;
+        op2 = document.getElementById(block.id + "$" + "OP2").value;
+        if (!op1 || !op2) {
+            alert("No input in while");
+            throw 0;
+        }
+        let condition = ` ${op1} ${op} ${op2} `;
 
-    return `
+        return `
     
     while(${condition}){
         ${subroutine}
     }
 
     `
-}
+    } //DONE
 
 
 var vectorBlock = (block) => {
-    let varname = block.children[1].children[0].value;
-    let columns = block.children[1].children[1].value;
+    let varname = document.getElementById(block.id + "$" + "VAR").value;
+    let columns = document.getElementById(block.id + "$" + "VAL").value;
     if (columns < 0 || !columns || !isNaN(varname) || !varname) {
         alert("Invalid input");
         throw 0;
     }
     let array = [];
-    let vector_inputs = block.children[1].getElementsByClassName("vecinps")[0].getElementsByTagName("input")
+    let vector_inputs = document.getElementById(block.id + "$" + "").valuesName("vecinps")[0].getElementsByTagName("input")
     for (let index = 0; index < vector_inputs.length; index++) {
         array.push(vector_inputs[index].value);
     }
@@ -1010,18 +1033,18 @@ var vectorBlock = (block) => {
 
 
 var unityMatrix = (block) => {
-    let varname = block.children[1].children[0].value;
-    let rows = block.children[1].children[1].value;
-    let columns = block.children[1].children[2].value;
-    if (!rows || !columns || rows < 0 || columns < 0 || !varname || !isNaN(varname)) {
-        alert("Invalid input");
-        throw 0;
-    }
-    let unitmat = [];
-    for (let index = 0; index < rows * columns; index++) {
-        unitmat.push(1);
-    }
-    return `
+        let varname = document.getElementById(block.id + "$" + "VAR").value;
+        let rows = document.getElementById(block.id + "$" + "ROW").value;
+        let columns = document.getElementById(block.id + "$" + "COL").value;
+        if (!rows || !columns || rows < 0 || columns < 0 || !varname || !isNaN(varname)) {
+            alert("Invalid input");
+            throw 0;
+        }
+        let unitmat = [];
+        for (let index = 0; index < rows * columns; index++) {
+            unitmat.push(1);
+        }
+        return `
     const ${varname}1 = [${unitmat}];
     const ${varname} = [];
     while(${varname}1.length) ${varname}.push(${varname}1.splice(0,${columns}));
@@ -1029,7 +1052,7 @@ var unityMatrix = (block) => {
     console.log("unity matrix is ",${varname});
     
     `
-}
+    } //DONR
 
 function subRoutine(mainblock) {
     console.log("running sub")
@@ -1146,19 +1169,19 @@ function subRoutine(mainblock) {
 }
 
 var zeroMatrix = (block) => {
-    let varname = block.children[1].children[0].value;
-    let rows = block.children[1].children[1].value;
-    let columns = block.children[1].children[2].value;
-    let zeroarr = [];
-    if (!varname || !isNaN(varname) || !rows || rows < 0 || columns < 0 || !columns) {
-        alert("invalid input in zeromatrix block");
-        throw 0;
-    }
-    for (let index = 0; index < rows * columns; index++) {
-        // const element = array[index];
-        zeroarr.push(0);
-    }
-    return `
+        let varname = document.getElementById(block.id + "$" + "VAR").value;
+        let rows = document.getElementById(block.id + "$" + "ROW").value;
+        let columns = document.getElementById(block.id + "$" + "COL").value;
+        let zeroarr = [];
+        if (!varname || !isNaN(varname) || !rows || rows < 0 || columns < 0 || !columns) {
+            alert("invalid input in zeromatrix block");
+            throw 0;
+        }
+        for (let index = 0; index < rows * columns; index++) {
+            // const element = array[index];
+            zeroarr.push(0);
+        }
+        return `
     const ${varname}1 = [${zeroarr}];
     const ${varname} = [];
     while(${varname}1.length) ${varname}.push(${varname}1.splice(0,${columns}));
@@ -1166,28 +1189,23 @@ var zeroMatrix = (block) => {
     console.log("zero matrix is ",${varname});
     
     `
-}
+    } //DONRE
 
 var absoluteBlock = (block) => {
-    let absValue, varname;
-    varname = block.children[1].children[0].value;
-    absValue = block.children[1].children[1].value;
-    if (!absValue) {
-        alert("No input given");
-        throw 0;
-    }
-    // result = eval(evalValue)
-    // result = (evalValue) => {
-    //     return Function(`'use strict'; return (${eval(evalValue)}`)()
-    // }
-    // return `console.log(${(Math.abs(absValue))})`;
-    return ` let ${varname} = Math.abs(${absValue}) ;\n`;
-}
-
-
-function looseJsonParse(obj) {
-    return Function('return (' + obj + ')');
-}
+        let absValue, varname;
+        varname = document.getElementById(block.id + "$" + "VAR").value;
+        absValue = document.getElementById(block.id + "$" + "VAL").value;
+        if (!absValue) {
+            alert("No input given");
+            throw 0;
+        }
+        // result = eval(evalValue)
+        // result = (evalValue) => {
+        //     return Function(`'use strict'; return (${eval(evalValue)}`)()
+        // }
+        // return `console.log(${(Math.abs(absValue))})`;
+        return ` let ${varname} = Math.abs(${absValue}) ;\n`;
+    } //DONR
 
 
 
@@ -1195,14 +1213,14 @@ function RUN(mainblock) {
 
     try {
         let maincode = compile(mainblock)
-        // console.log(compile(mainblock));
+            // console.log(compile(mainblock));
         if (maincode === "") {
             alert("No input");
             return;
         }
         // maincode = maincode.replace(/^/g,"**")
         console.log(maincode);
-        
+
         eval(maincode);
         console.log("logged")
 
@@ -1352,11 +1370,11 @@ function prebuilt() {
 }
 
 
-var row_com = (block)=>{
-    let matrix1,matrix2,varname;
-    varname = block.children[1].children[0].value
-    matrix1 = block.children[1].children[1].value;
-    matrix2 = block.children[1].children[2].value;
+var row_com = (block) => {
+    let matrix1, matrix2, varname;
+    varname = document.getElementById(block.id + "$" + "").value
+    matrix1 = document.getElementById(block.id + "$" + "").value;
+    matrix2 = document.getElementById(block.id + "$" + "").value;
     return `
     let ${varname} = math.concat(${matrix1},${matrix2},dim=0);
     

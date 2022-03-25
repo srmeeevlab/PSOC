@@ -23,11 +23,11 @@
 
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="srm-logo-white.png" alt="SRM Logo" ></a>
+            <a class="navbar-brand" href="#"><img src="srm-logo-white.png" alt="SRM Logo"></a>
             <span id="exp-title">Experiment Title</span>
             <span id="navbar-settings">
                 <span id="score-word">SCORE: </span><span id="score">100</span>
-                <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span>
+            <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span>
             </span>
         </div>
     </nav>
@@ -52,7 +52,7 @@
                                     <li id="var-cst" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Constant
                                     </li>
-                                    
+
                                     <li id="var-matrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Matrix
                                     </li>
@@ -178,23 +178,27 @@
             </div>
             <div id="properties" class="col-2">
                 <div class="pt-4 fixed-bottom sticky-md-top d-flex flex-md-column">
-                    <button type="button" id="view-question" class="btn btn-custom-outline-brown" onclick="">View Question Statement</button>
-                    <button type="button" id="prebuilt"  class="btn btn-custom-outline-brown" onclick="prebuilt()">PreBuilt</button>
-                    <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" onclick="up()"><i class="bi bi-caret-up-fill"></i>   Up</button>
-                    <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" onclick="down()"><i class="bi bi-caret-down-fill"></i> Down</button>
+                    <button type="button" id="view-question" class="btn btn-custom-outline-brown" onclick="">View
+                        Question Statement</button>
+                    <button type="button" id="prebuilt" class="btn btn-custom-outline-brown" onclick="prebuilt()">PreBuilt</button>
+                    <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" onclick="up()"><i
+                            class="bi bi-caret-up-fill"></i> Up</button>
+                    <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" onclick="down()"><i
+                            class="bi bi-caret-down-fill"></i> Down</button>
                     <button type="button" id="setbut" disabled class="btn btn-custom-outline-brown" onclick="showprops()"><i class="bi bi-pencil-fill"></i> Edit</button>
-                    <button type="button" id="delbut" disabled class="btn btn-custom-outline-brown" onclick="delel()"><i class="bi bi-trash-fill"></i>  Delete</button>
+                    <button type="button" id="delbut" disabled class="btn btn-custom-outline-brown" onclick="delel()"><i
+                            class="bi bi-trash-fill"></i> Delete</button>
                     <button type="button" id="dragbut" disabled class="btn btn-custom-outline-brown" onclick="dragbu()">Drag</button>
-                    <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown" onclick="stepout()"><i class="bi bi-arrow-90deg-down"></i>    StepOut</button>
-                    <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" onclick="stepin()"><i class="bi bi-arrow-return-right"></i>  StepIn</button>
+                    <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown" onclick="stepout()"><i class="bi bi-arrow-90deg-down"></i> StepOut</button>
+                    <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" onclick="stepin()"><i
+                            class="bi bi-arrow-return-right"></i> StepIn</button>
                     <button type="button" id="run" class="btn btn-custom-outline-brown" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> Run</button>
                 </div>
             </div>
         </div>
     </div>
     <footer class="p-3">
-        Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br>
-        PALS-VLAB initiative, in collaboration with NITK as Technology Partner
+        Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
         <script>
             document.getElementById("year").innerText = new Date().getFullYear();
         </script>
@@ -210,12 +214,12 @@
         Boolean
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="Variable" id="" placeholder="Variable Name">
-            <select name="" id="">
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <select name="" id="VAL">
                 <option value="true">True</option>
                 <option value="false">False</option>
             </select>
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
@@ -224,23 +228,24 @@
         Constant
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="Variable" id="" placeholder="Variable Name">
-            <input type="text" name="" id="" placeholder="Value">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <input type="text" name="" id="VAL" placeholder="Value">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
 <template id="mat">
     <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Matrix 
+        Matrix
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="Variable" id="" placeholder="Variable Name">
-            <input type="text" name="" id="" placeholder="Number of Rows">
-            <input type="text" name="" id="" placeholder="Number of Columns">
-            <button class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate Table</button>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <input type="text" name="" id="ROW" placeholder="Number of Rows">
+            <input type="text" name="" id="COL" placeholder="Number of Columns">
+            <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate
+                Table</button>
             <div class="matinps"></div>
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
@@ -249,9 +254,9 @@
         Identity Matrix
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="Variable" id="" placeholder="Variable Name">
-            <input type="text" name="" id="" placeholder="Number of Rows">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <input type="text" name="" id="ROW" placeholder="Number of Rows">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
 
 
@@ -262,10 +267,10 @@
         Unity Matrix
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="Variable" id="" placeholder="Variable Name">
-            <input type="text" name="" id="" placeholder="Number of Rows">
-            <input type="text" name="" id="" placeholder="Number of Columns">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <input type="text" name="" id="ROW" placeholder="Number of Rows">
+            <input type="text" name="" id="COL" placeholder="Number of Columns">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
@@ -274,10 +279,10 @@
         Zeros Matrix
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="Variable" id="" placeholder="Variable Name">
-            <input type="text" name="" id="" placeholder="Number of Rows">
-            <input type="text" name="" id="" placeholder="Number of Columns">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <input type="text" name="" id="ROW" placeholder="Number of Rows">
+            <input type="text" name="" id="COL" placeholder="Number of Columns">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
@@ -286,11 +291,12 @@
         Vector
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="Variable" id="" placeholder="Variable Name">
-            <input type="text" name="" id="" placeholder="Number of elements">
-            <button class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate row</button>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <input type="text" name="" id="VAL" placeholder="Number of elements">
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
             <div class="vecinps"></div>
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
@@ -299,19 +305,20 @@
         If
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="" id="" placeholder="Operand One">
+            <input type="text" name="" id="OP1" placeholder="Operand One">
 
-            <select name="" id="">
+            <select name="" id="OP">
                 <option title="Greater Than" value=">">></option>
-                <option title="Lesser Than" value="<">< </option>
+                <option title="Lesser Than" value="<">
+                    < </option>
                 <option title="Equals" value="==">=</option>
                 <option title="Greater Than or Equal to" value=">=">≥</option>
                 <option title="Lesser Than or Equal to" value="<=">≤</option>
                 <option title="Not Equals" value="!=">≠</option>
             </select>
 
-            <input type="text" name="" id="" placeholder="Operand Two">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="" id="OP2" placeholder="Operand Two">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
@@ -320,19 +327,20 @@
         Else If
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="" id="" placeholder="Operand One">
+            <input type="text" name="" id="OP1" placeholder="Operand One">
 
-            <select name="" id="">
+            <select name="" id="OP">
                 <option title="Greater Than" value=">">></option>
-                <option title="Lesser Than" value="<">< </option>
+                <option title="Lesser Than" value="<">
+                    < </option>
                 <option title="Equals" value="=">=</option>
                 <option title="Greater Than or Equal to" value=">=">≥</option>
                 <option title="Lesser Than or Equal to" value="<=">≤</option>
                 <option title="Not Equals" value="!=">≠</option>
             </select>
 
-            <input type="text" name="" id="" placeholder="Operand Two">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="" id="OP2" placeholder="Operand Two">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
@@ -346,12 +354,12 @@
         For
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="" id="" placeholder="Start">
-            <input type="text" name="" id="" placeholder="End">
-            <input type="text" name="" value="" id="" placeholder="Step (Default 1)">
+            <input type="text" name="" id="START" placeholder="Start">
+            <input type="text" name="" id="END" placeholder="End">
+            <input type="text" name="" value="" id="STEP" placeholder="Step (Default 1)">
 
 
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
@@ -360,19 +368,20 @@
         While
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="" id="" placeholder="Operand One">
+            <input type="text" name="" id="OP1" placeholder="Operand One">
 
-            <select name="" id="">
+            <select name="" id="OP">
                 <option title="Greater Than" value=">">></option>
-                <option title="Lesser Than" value="<">< </option>
+                <option title="Lesser Than" value="<">
+                    < </option>
                 <option title="Equals" value="=">=</option>
                 <option title="Greater Than or Equal to" value=">=">≥</option>
                 <option title="Lesser Than or Equal to" value="<=">≤</option>
                 <option title="Not Equals" value="!=">≠</option>
             </select>
 
-            <input type="text" name="" id="" placeholder="Operand Two">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="" id="OP2" placeholder="Operand Two">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
@@ -392,9 +401,9 @@
         <span class="showvarname"></span>
         <div class="details pb-2">
 
-            <input type="text" name="Variable" id="" placeholder="Variable Name">
-            <input type="text" name="" id="" placeholder="Evaluate/Math Operations">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <input type="text" name="" id="EVALUATE" placeholder="Evaluate/Math Operations">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
@@ -403,17 +412,17 @@
         Matrix Evaluate
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="Variable" id="" placeholder=" Variable Name">
-            <input type="text" name="" id="" placeholder="Operand One">
-            <select name="" id="">
+            <input type="text" name="Variable" id="VAR" placeholder=" Variable Name">
+            <input type="text" name="" id="OP1" placeholder="Operand One">
+            <select name="" id="OP">
                 <option title="Sum" value="+">+</option>
                 <option title="Subtract" value="-">-</option>
                 <option title="Multiply" value="*">*</option>
                 <option title="Divide" value="/">/</option>
                 <option title="Modulus (Remainder)" value="%">%</option>
             </select>
-            <input type="text" name="Variable" id="" placeholder="Operand Two">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="Variable" id="OP2" placeholder="Operand Two">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
@@ -422,9 +431,9 @@
         Transpose
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="Variable" id="" placeholder="Output Variable Name">
-            <input type="text" name="" id="" placeholder="Matrix Variable Name">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <input type="text" name="" id="MAT" placeholder="Matrix Variable Name">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
@@ -433,9 +442,9 @@
         Absolute
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="Variable" id="" placeholder="Output Variable Name">
-            <input type="text" name="" id="" placeholder="Evaluate for Absolute Operations">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <input type="text" name="" id="VAL" placeholder="Evaluate for Absolute Operations">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
@@ -444,10 +453,10 @@
         Row Combine
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="Variable" id="" placeholder="Output Variable Name">
-            <input type="text" name="" id="" placeholder="m1">
-            <input type="text" name="" id="" placeholder="m2">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <input type="text" name="" id="M1" placeholder="m1">
+            <input type="text" name="" id="M2" placeholder="m2">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 
@@ -457,9 +466,10 @@
         Column Combine
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="Variable" id="" placeholder="Output Variable Name">
-            <input type="text" name="" id="" placeholder="Evaluate for Absolute Operations">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <input type="text" name="" id="M1" placeholder="m1">
+            <input type="text" name="" id="M2" placeholder="m2">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 
@@ -475,8 +485,8 @@
         Output Block
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <input type="text" name="" id="" placeholder="Value">
-            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <input type="text" name="" id="VAL" placeholder="Value">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </template>
