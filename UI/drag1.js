@@ -11,7 +11,48 @@ let sub_arr;
 const prevSelection = [];
 let count = 0;
 let ifshiftpressed = false;
-
+let jsonexp = {
+    1:`
+    <div id="drop-box">
+    
+    </div>
+    
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="boo0" draggable="false">
+    Boolean
+    <span class="showvarname"> </span>
+    <div class="details pb-2" style="display: none;">
+    <input type="text" name="Variable" id="" placeholder="Variable Name">
+    <select name="" id="">
+    <option value="true">True</option>
+    <option value="false">False</option>
+    </select>
+    <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+    </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst1">
+    Constant
+    <span class="showvarname"> </span>
+    <div class="details pb-2" style="display: none;">
+    <input type="text" name="Variable" id="" placeholder="Variable Name">
+    <input type="text" name="" id="" placeholder="Value">
+    <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+    </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box " id="cst2">
+    Constant
+    <span class="showvarname"> </span>
+    <div class="details pb-2" style="display: none;">
+    <input type="text" name="Variable" id="" placeholder="Variable Name">
+    <input type="text" name="" id="" placeholder="Value">
+    <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+    </div>
+    </div>
+        `
+}
+const prebuilt_code = jsonexp[1];
 let supremecode;
 
 // var maincode = "";
@@ -464,7 +505,7 @@ var constantBlock = (block) => {
     }
     // varname = "a";
     // valname = "3";
-    return ` let ${varname} = ${valname} ;`;
+    return ` let ${varname} = ${valname} ;\n`;
     // block.innerHTML += " : " + varname;
     //  " let a = 3"
 }
@@ -480,7 +521,7 @@ var booleanBlock = (block) => {
         throw 0;
     }
     // block.innerHTML += " : " + varname;
-    return ` let ${varname} = ${valname} ;`;
+    return ` let ${varname} = ${valname} ;\n`;
 }
 
 var evalBlock = (block) => {
@@ -493,7 +534,7 @@ var evalBlock = (block) => {
     }
     evalValue = evalValue.split(" ").join("");
     console.log(evalValue);
-    return ` ${varname} =  ${evalValue} ;`
+    return ` ${varname} =  ${evalValue} ;\n`
     // return `console.log(${evalValue})`;
 }
 
@@ -681,7 +722,7 @@ var matevalBlock = (block) => {
 
 
     }
-    return code;
+    return code + "\n";
 }
 
 var matmath = (block) => {
@@ -723,7 +764,7 @@ var outputBlock = (block) => {
     output = block.children[1].children[0].value;
     if (!output)
         output = "\n";
-    return `console.log("output is",${output}); `;
+    return `console.log("output is",${output}); \n`;
 }
 
 var matrixBlock = (block) => {
@@ -748,7 +789,7 @@ var matrixBlock = (block) => {
     const ${varname} = [];
     while(${varname}1.length) ${varname}.push(${varname}1.splice(0,${columns}));
         
-    console.log("matrix is ",${varname});
+    console.log("matrix is ",${varname});\n
     `
 }
 
@@ -773,7 +814,7 @@ var identityBlock = (block) => {
     const ${varname}1 = [${array}];
     const ${varname} = [];
     while(${varname}1.length) ${varname}.push(${varname}1.splice(0,${rows}));
-    console.log("Identity is",${varname});
+    console.log("Identity is",${varname});\n
     `;
 }
 
@@ -838,11 +879,11 @@ var forBlock = (block) => {
     if (Number(initVal) > Number(endVal)) {
         return `for(let ${iterator_var}=${initVal};${iterator_var}>${endVal};${iterator_var}${op}){
             ${subroutine}
-        }`
+        }\n`
     } else {
         return `for(let ${iterator_var}=${initVal};${iterator_var}<${endVal};${iterator_var}${op}){
             ${subroutine}
-        }`
+        }\n`
     }
 
     // if(!initVal)
@@ -857,7 +898,7 @@ var elseBlock = (block) => {
     console.log("subroutine is", subroutine);
     return `else{
         ${subroutine}
-    }`
+    }\n`
 }
 
 var ifBlock = (block) => {
@@ -899,7 +940,7 @@ var updateBlock = (block) => {
     if (!expr) {
         return;
     }
-    return `${expr};`;
+    return `${expr};\n`;
 }
 
 var elseifBlock = (block) => {
@@ -962,7 +1003,7 @@ var vectorBlock = (block) => {
     return `
     const ${varname} =[${array}];
           
-    console.log("vector is ",${varname});
+    console.log("vector is ",${varname});\n
     `
 
 }
@@ -1140,7 +1181,7 @@ var absoluteBlock = (block) => {
     //     return Function(`'use strict'; return (${eval(evalValue)}`)()
     // }
     // return `console.log(${(Math.abs(absValue))})`;
-    return ` let ${varname} = Math.abs(${absValue}) ;`;
+    return ` let ${varname} = Math.abs(${absValue}) ;\n`;
 }
 
 
@@ -1161,8 +1202,9 @@ function RUN(mainblock) {
         }
         // maincode = maincode.replace(/^/g,"**")
         console.log(maincode);
+        
         eval(maincode);
-
+        console.log("logged")
 
     } catch (error) {
         console.log("error is ", error);
@@ -1216,6 +1258,9 @@ function compile(mainblock) {
             case "Constant":
                 console.log("running Constant");
                 code = constantBlock(element);
+                break;
+            case "Row Combine":
+                code = row_com(element);
                 break;
             case "Boolean":
                 console.log("running boolean");
@@ -1296,3 +1341,24 @@ var Sinh = (num) => { return Math.sinh(num); }
 var Cosh = (num) => { return Math.cosh(num); }
 var Tanh = (num) => { return Math.tanh(num); }
 var sqrt = (num) => { return Math.sqrt(num); }
+var Abs = (num) => { return Math.abs(num) };
+
+function prebuilt() {
+    console.log("prebuilt");
+    let interface = document.getElementById("interface");
+    interface.innerHTML = "";
+
+    interface.innerHTML = prebuilt_code;
+}
+
+
+var row_com = (block)=>{
+    let matrix1,matrix2,varname;
+    varname = block.children[1].children[0].value
+    matrix1 = block.children[1].children[1].value;
+    matrix2 = block.children[1].children[2].value;
+    return `
+    let ${varname} = math.concat(${matrix1},${matrix2},dim=0);
+    
+    `
+}

@@ -128,6 +128,15 @@
                                     <li id="mat-abs" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         ABS
                                     </li>
+                                    <li id="mat-rcm" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Row Combine
+                                    </li>
+                                    <li id="mat-ccm" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Column Combine
+                                    </li>
+                                    <li id="mat-dot" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Dot product
+                                    </li>
                                 </ul>
                             </div>
                         </div>
@@ -170,6 +179,7 @@
             <div id="properties" class="col-2">
                 <div class="pt-4 fixed-bottom sticky-md-top d-flex flex-md-column">
                     <button type="button" id="view-question" class="btn btn-custom-outline-brown" onclick="">View Question Statement</button>
+                    <button type="button" id="prebuilt"  class="btn btn-custom-outline-brown" onclick="prebuilt()">PreBuilt</button>
                     <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" onclick="up()"><i class="bi bi-caret-up-fill"></i>   Up</button>
                     <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" onclick="down()"><i class="bi bi-caret-down-fill"></i> Down</button>
                     <button type="button" id="setbut" disabled class="btn btn-custom-outline-brown" onclick="showprops()"><i class="bi bi-pencil-fill"></i> Edit</button>
@@ -429,6 +439,32 @@
         </div>
     </div>
 </template>
+<template id="rcm">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Row Combine
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <input type="text" name="Variable" id="" placeholder="Output Variable Name">
+            <input type="text" name="" id="" placeholder="m1">
+            <input type="text" name="" id="" placeholder="m2">
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+
+</template>
+<template id="ccm">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Column Combine
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <input type="text" name="Variable" id="" placeholder="Output Variable Name">
+            <input type="text" name="" id="" placeholder="Evaluate for Absolute Operations">
+            <button class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+
+</template>
+
 <template id="tib">
     <div class="pl-3 pt-2 noselect selectable bordered-box">
         Test Input Block
