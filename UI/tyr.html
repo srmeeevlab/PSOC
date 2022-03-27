@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width" />
     <meta charset="UTF-8">
     <title>Experiment</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -27,7 +28,7 @@
             <span id="exp-title">Experiment Title</span>
             <span id="navbar-settings">
                 <span id="score-word">SCORE: </span><span id="score">100</span>
-            <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span>
+                <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span>
             </span>
         </div>
     </nav>
@@ -39,33 +40,43 @@
                 <div class="accordion pt-4 sticky-top" id="accordionExample" style="min-height:100vh;">
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button collapsed noselect" href="#var" type="button" aria-controls="var" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false">
+                            <button class="accordion-button collapsed noselect" href="#var" type="button"
+                                aria-controls="var" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                aria-expanded="false">
                                 Variables
                             </button>
                         </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne"
+                            data-bs-parent="#accordionExample">
                             <div class="accordion-body" id="var">
                                 <ul class="list-group">
-                                    <li id="var-boolean" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="var-boolean" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Boolean
                                     </li>
-                                    <li id="var-cst" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="var-cst" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Constant
                                     </li>
 
-                                    <li id="var-matrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="var-matrix" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Matrix
                                     </li>
-                                    <li id="var-imatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="var-imatrix" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Identity Matrix
                                     </li>
-                                    <li id="var-umatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="var-umatrix" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Unity Matrix
                                     </li>
-                                    <li id="var-zmatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="var-zmatrix" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Zero Matrix
                                     </li>
-                                    <li id="var-vector" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="var-vector" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Vector
                                     </li>
                                 </ul>
@@ -74,32 +85,42 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed noselect" aria-controls="con-loop" href="#con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">
+                            <button class="accordion-button collapsed noselect" aria-controls="con-loop"
+                                href="#con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
+                                aria-expanded="false">
                                 Conditionals and Loops
                             </button>
                         </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo"
+                            data-bs-parent="#accordionExample">
                             <div class="accordion-body" id="con-loop">
                                 <ul class="list-group">
-                                    <li id="con-if" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="con-if" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         If
                                     </li>
-                                    <li id="con-elif" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="con-elif" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Else If
                                     </li>
-                                    <li id="con-else" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="con-else" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Else
                                     </li>
-                                    <li id="lop-for" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="lop-for" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         For
                                     </li>
-                                    <li id="lop-while" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="lop-while" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         While
                                     </li>
-                                    <li id="con-break" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="con-break" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Break
                                     </li>
-                                    <li id="con-continue" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="con-continue" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Continue
                                     </li>
                                 </ul>
@@ -109,33 +130,46 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed noselect" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                            <button class="accordion-button collapsed noselect" type="button" data-bs-toggle="collapse"
+                                data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
                                 Math
                             </button>
                         </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree"
+                            data-bs-parent="#accordionExample">
                             <div class="accordion-body">
                                 <ul class="list-group">
-                                    <li id="mat-eva" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="mat-eva" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Evaluate
                                     </li>
-                                    <li id="mat-mev" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="mat-mev" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Matrix Evaluate
                                     </li>
-                                    <li id="mat-transpose" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="mat-transpose" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Transpose
                                     </li>
-                                    <li id="mat-abs" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="mat-abs" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         ABS
                                     </li>
-                                    <li id="mat-rcm" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="mat-rcm" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Row Combine
                                     </li>
-                                    <li id="mat-ccm" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="mat-ccm" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Column Combine
                                     </li>
-                                    <li id="mat-dot" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="mat-dot" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Dot product
+                                    </li>
+                                    <li id="mat-crs" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Cross product
                                     </li>
                                 </ul>
                             </div>
@@ -143,20 +177,26 @@
                     </div>
                     <div class="accordion-item">
                         <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed noselect" href="#io" aria-controls="con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="io">
+                            <button class="accordion-button collapsed noselect" href="#io" aria-controls="con-loop"
+                                type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
+                                aria-expanded="false" aria-controls="io">
                                 input/output
                             </button>
                         </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour"
+                            data-bs-parent="#accordionExample">
                             <div class="accordion-body" id="io">
                                 <ul class="list-group">
-                                    <li id="io-tib" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="io-tib" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Test Input Block
                                     </li>
-                                    <li id="io-opb" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="io-opb" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Output Block
                                     </li>
-                                    <li id="io-dob" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                    <li id="io-dob" class="list-group-item noselect" draggable="true"
+                                        ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Debug Output Block
                                     </li>
                                 </ul>
@@ -168,7 +208,9 @@
 
             <!-- end of accordcian-->
 
-            <div id="interface" class="col-8 col-md-8" ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
+            <div id="interface" class="col-8 col-md-8" ondragenter="dragEnter_handler(event)"
+                ondragover="dragOver_handler(event)" ondrop="drop_handler(event)"
+                ondragleave="dragLeave_handler(event)">
                 <!-- <div class="alert alert-dark" role="role" ondragover="false" ondragenter="false" ondragleave="false">                </div> -->
 
                 <div id="drop-box">
@@ -180,41 +222,56 @@
                 <div class="pt-4 fixed-bottom sticky-md-top d-flex flex-md-column">
                     <button type="button" id="view-question" class="btn btn-custom-outline-brown" onclick="">View
                         Question Statement</button>
-                    <button type="button" id="prebuilt" class="btn btn-custom-outline-brown" onclick="prebuilt()">PreBuilt</button>
+                    <button type="button" id="prebuilt" class="btn btn-custom-outline-brown"
+                        onclick="prebuilt()">PreBuilt</button>
                     <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" onclick="up()"><i
                             class="bi bi-caret-up-fill"></i> Up</button>
                     <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" onclick="down()"><i
                             class="bi bi-caret-down-fill"></i> Down</button>
-                    <button type="button" id="setbut" disabled class="btn btn-custom-outline-brown" onclick="showprops()"><i class="bi bi-pencil-fill"></i> Edit</button>
+                    <button type="button" id="setbut" disabled class="btn btn-custom-outline-brown"
+                        onclick="showprops()"><i class="bi bi-pencil-fill"></i> Edit</button>
                     <button type="button" id="delbut" disabled class="btn btn-custom-outline-brown" onclick="delel()"><i
                             class="bi bi-trash-fill"></i> Delete</button>
-                    <button type="button" id="dragbut" disabled class="btn btn-custom-outline-brown" onclick="dragbu()">Drag</button>
-                    <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown" onclick="stepout()"><i class="bi bi-arrow-90deg-down"></i> StepOut</button>
+                    <button type="button" id="dragbut" disabled class="btn btn-custom-outline-brown"
+                        onclick="dragbu()">Drag</button>
+                    <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown"
+                        onclick="stepout()"><i class="bi bi-arrow-90deg-down"></i> StepOut</button>
                     <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" onclick="stepin()"><i
                             class="bi bi-arrow-return-right"></i> StepIn</button>
-                    <button type="button" id="run" class="btn btn-custom-outline-brown" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> Run</button>
+                    <button type="button" id="run" class="btn btn-custom-outline-brown"
+                        onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> Run</button>
                 </div>
             </div>
         </div>
     </div>
     <footer class="p-3">
-        Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
+        Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute
+        of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology
+        Partner
         <script>
             document.getElementById("year").innerText = new Date().getFullYear();
         </script>
     </footer>
     <!-- <script src="../programming-interface/main.js"></script> -->
     <script src="drag1.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js" integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js"
+        integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 <template id="boo">
     <div class="pl-3 pt-2 noselect selectable bordered-box">
         Boolean
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <label for="VAL">Enter the value</label>
             <select name="" id="VAL">
                 <option value="true">True</option>
                 <option value="false">False</option>
@@ -228,7 +285,9 @@
         Constant
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <label for="VAL">Enter the value</label>
             <input type="text" name="" id="VAL" placeholder="Value">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
@@ -239,8 +298,11 @@
         Matrix
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <label for="ROW">Enter the number of rows of the matrix</label>
             <input type="text" name="" id="ROW" placeholder="Number of Rows">
+            <label for="COL">Enter the number of rows of the matrix</label>
             <input type="text" name="" id="COL" placeholder="Number of Columns">
             <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate
                 Table</button>
@@ -254,7 +316,9 @@
         Identity Matrix
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <label for="ROW">Enter the number of rows</label>
             <input type="text" name="" id="ROW" placeholder="Number of Rows">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
@@ -267,8 +331,11 @@
         Unity Matrix
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <label for="ROW"> Enter the number of rows </label>
             <input type="text" name="" id="ROW" placeholder="Number of Rows">
+            <label for="COL"> enter the number of Columns </label>
             <input type="text" name="" id="COL" placeholder="Number of Columns">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
@@ -279,8 +346,11 @@
         Zeros Matrix
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <label for="ROW">Enter the number of rows</label>
             <input type="text" name="" id="ROW" placeholder="Number of Rows">
+            <label for="COL">enter the number of Columns</label>
             <input type="text" name="" id="COL" placeholder="Number of Columns">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
@@ -291,7 +361,9 @@
         Vector
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <label for="VAL">Enter the Number of elements</label>
             <input type="text" name="" id="VAL" placeholder="Number of elements">
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
@@ -305,8 +377,10 @@
         If
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="OP1">Enter the Operand 1</label>
             <input type="text" name="" id="OP1" placeholder="Operand One">
 
+            <label for="OP">Enter the operator</label>
             <select name="" id="OP">
                 <option title="Greater Than" value=">">></option>
                 <option title="Lesser Than" value="<">
@@ -317,6 +391,7 @@
                 <option title="Not Equals" value="!=">≠</option>
             </select>
 
+            <label for="OP2">Enter the Operand 2</label>
             <input type="text" name="" id="OP2" placeholder="Operand Two">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
@@ -327,8 +402,10 @@
         Else If
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="OP1"> Enter the Operand 1 </label>
             <input type="text" name="" id="OP1" placeholder="Operand One">
 
+            <label for="OP"> enter the operator</label>
             <select name="" id="OP">
                 <option title="Greater Than" value=">">></option>
                 <option title="Lesser Than" value="<">
@@ -339,6 +416,7 @@
                 <option title="Not Equals" value="!=">≠</option>
             </select>
 
+            <label for="OP2"> enter the Operand 2</label>
             <input type="text" name="" id="OP2" placeholder="Operand Two">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
@@ -354,8 +432,11 @@
         For
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="START"> Enter the start value of Counter </label>
             <input type="text" name="" id="START" placeholder="Start">
+            <label for="END"> Enter the end value of counter </label>
             <input type="text" name="" id="END" placeholder="End">
+            <label for="STEP"> Enter the step value of counter</label>
             <input type="text" name="" value="" id="STEP" placeholder="Step (Default 1)">
 
 
@@ -368,18 +449,21 @@
         While
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="OP1"> Enter the Operand 1</label>
             <input type="text" name="" id="OP1" placeholder="Operand One">
 
+            <label for="OP"> enter the operator </label>
             <select name="" id="OP">
                 <option title="Greater Than" value=">">></option>
                 <option title="Lesser Than" value="<">
                     < </option>
-                <option title="Equals" value="=">=</option>
+                <option title="Equals" value="==">=</option>
                 <option title="Greater Than or Equal to" value=">=">≥</option>
                 <option title="Lesser Than or Equal to" value="<=">≤</option>
                 <option title="Not Equals" value="!=">≠</option>
             </select>
 
+            <label for="OP2"> enter the Operand 2 </label>
             <input type="text" name="" id="OP2" placeholder="Operand Two">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
@@ -401,7 +485,9 @@
         <span class="showvarname"></span>
         <div class="details pb-2">
 
+            <label for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <label for="EVALUATE"> enter the expression to evaluate </label>
             <input type="text" name="" id="EVALUATE" placeholder="Evaluate/Math Operations">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
@@ -412,8 +498,11 @@
         Matrix Evaluate
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder=" Variable Name">
+            <label for="OP1"></label>
             <input type="text" name="" id="OP1" placeholder="Operand One">
+            <label for=""></label>
             <select name="" id="OP">
                 <option title="Sum" value="+">+</option>
                 <option title="Subtract" value="-">-</option>
@@ -421,6 +510,7 @@
                 <option title="Divide" value="/">/</option>
                 <option title="Modulus (Remainder)" value="%">%</option>
             </select>
+            <label for="OP2"></label>
             <input type="text" name="Variable" id="OP2" placeholder="Operand Two">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
@@ -431,7 +521,9 @@
         Transpose
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <label for="MAT">Enter the matrix name</label>
             <input type="text" name="" id="MAT" placeholder="Matrix Variable Name">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
@@ -442,7 +534,9 @@
         Absolute
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <label for="VAL"> enter the value </label>
             <input type="text" name="" id="VAL" placeholder="Evaluate for Absolute Operations">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
@@ -453,8 +547,11 @@
         Row Combine
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <label for="M1">Enter the matrix/vector 1</label>
             <input type="text" name="" id="M1" placeholder="m1">
+            <label for="M2"> enter the matrix/vector 2</label>
             <input type="text" name="" id="M2" placeholder="m2">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
@@ -466,8 +563,43 @@
         Column Combine
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <label for="M1">Enter the matrix/vector 1</label>
             <input type="text" name="" id="M1" placeholder="m1">
+            <label for="M2">enter the matrix/vector 2</label>
+            <input type="text" name="" id="M2" placeholder="m2">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+
+</template>
+<template id="dot">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Dot Product
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <label for="M1">enter the vector 1</label>
+            <input type="text" name="" id="M1" placeholder="m1">
+            <label for="M2">enter the vector 2</label>
+            <input type="text" name="" id="M2" placeholder="m2">
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+
+</template>
+<template id="crs">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Cross Product
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <label for="M1"></label>
+            <input type="text" name="" id="M1" placeholder="m1">
+            <label for="M2"></label>
             <input type="text" name="" id="M2" placeholder="m2">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
@@ -485,6 +617,7 @@
         Output Block
         <span class="showvarname"></span>
         <div class="details pb-2">
+            <label for="VAL"></label>
             <input type="text" name="" id="VAL" placeholder="Value">
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>

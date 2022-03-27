@@ -74,7 +74,9 @@ nav{
 .highlight{
     background-color: #E3CAA5;
 }
-
+.error_block{
+    background-color: red;
+}
 .btn-custom-outline-brown{
     border: 0.1rem solid black;
 }
