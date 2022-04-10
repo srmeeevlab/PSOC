@@ -272,10 +272,12 @@
         Boolean
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
-            <br>
-            <label for="VAL">Enter the value</label>
+            <div>
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+                <br>
+            </div>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
             <select name="" id="VAL">
                 <option value="true">True</option>
                 <option value="false">False</option>
@@ -290,10 +292,10 @@
         Constant
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
             <br>
-            <label for="VAL">Enter the value</label>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
             <input type="text" name="" id="VAL" placeholder="Value">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -305,13 +307,13 @@
         Matrix
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
             <br>
-            <label for="ROW">Enter the number of rows of the matrix</label>
+            <label class="visually-hidden" for="ROW">Enter the number of rows of the matrix</label>
             <input type="text" name="" id="ROW" placeholder="Number of Rows">
             <br>
-            <label for="COL">Enter the number of rows of the matrix</label>
+            <label class="visually-hidden" for="COL">Enter the number of Column of the matrix</label>
             <input type="text" name="" id="COL" placeholder="Number of Columns">
             <br>
             <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate
@@ -327,10 +329,10 @@
         Identity Matrix
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
             <br>
-            <label for="ROW">Enter the number of rows</label>
+            <label class="visually-hidden" for="ROW">Enter the number of rows</label>
             <input type="text" name="" id="ROW" placeholder="Number of Rows">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -344,13 +346,13 @@
         Unity Matrix
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
             <br>
-            <label for="ROW"> Enter the number of rows </label>
+            <label class="visually-hidden" for="ROW"> Enter the number of rows </label>
             <input type="text" name="" id="ROW" placeholder="Number of Rows">
             <br>
-            <label for="COL"> enter the number of Columns </label>
+            <label class="visually-hidden" for="COL"> enter the number of Columns </label>
             <input type="text" name="" id="COL" placeholder="Number of Columns">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -362,13 +364,13 @@
         Zeros Matrix
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
             <br>
-            <label for="ROW">Enter the number of rows</label>
+            <label class="visually-hidden" for="ROW">Enter the number of rows</label>
             <input type="text" name="" id="ROW" placeholder="Number of Rows">
             <br>
-            <label for="COL">enter the number of Columns</label>
+            <label class="visually-hidden" for="COL">enter the number of Columns</label>
             <input type="text" name="" id="COL" placeholder="Number of Columns">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -380,10 +382,10 @@
         Vector
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
             <br>
-            <label for="VAL">Enter the Number of elements</label>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
             <input type="text" name="" id="VAL" placeholder="Number of elements">
             <br>
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
@@ -399,10 +401,10 @@
         If
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="OP1">Enter the Operand 1</label>
+            <label class="visually-hidden" for="OP1">Enter the Operand 1</label>
             <input type="text" name="" id="OP1" placeholder="Operand One">
             <br>
-            <label for="OP">Enter the operator</label>
+            <label class="visually-hidden" for="OP">Enter the operator</label>
             <select name="" id="OP">
                 <option title="Greater Than" value=">">></option>
                 <option title="Lesser Than" value="<">
@@ -414,7 +416,7 @@
             </select>
             <br>
 
-            <label for="OP2">Enter the Operand 2</label>
+            <label class="visually-hidden" for="OP2">Enter the Operand 2</label>
             <input type="text" name="" id="OP2" placeholder="Operand Two">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -426,10 +428,10 @@
         Else If
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="OP1"> Enter the Operand 1 </label>
+            <label class="visually-hidden" for="OP1"> Enter the Operand 1 </label>
             <input type="text" name="" id="OP1" placeholder="Operand One">
             <br>
-            <label for="OP"> enter the operator</label>
+            <label class="visually-hidden" for="OP"> enter the operator</label>
             <select name="" id="OP">
                 <option title="Greater Than" value=">">></option>
                 <option title="Lesser Than" value="<">
@@ -440,7 +442,7 @@
                 <option title="Not Equals" value="!=">≠</option>
             </select>
             <br>
-            <label for="OP2"> enter the Operand 2</label>
+            <label class="visually-hidden" for="OP2"> enter the Operand 2</label>
             <input type="text" name="" id="OP2" placeholder="Operand Two">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -457,13 +459,13 @@
         For
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="START"> Enter the start value of Counter </label>
+            <label class="visually-hidden" for="START"> Enter the start value of Counter </label>
             <input type="text" name="" id="START" placeholder="Start">
             <br>
-            <label for="END"> Enter the end value of counter </label>
+            <label class="visually-hidden" for="END"> Enter the end value of counter </label>
             <input type="text" name="" id="END" placeholder="End">
             <br>
-            <label for="STEP"> Enter the step value of counter</label>
+            <label class="visually-hidden" for="STEP"> Enter the step value of counter</label>
             <input type="text" name="" value="" id="STEP" placeholder="Step (Default 1)">
             <br>
 
@@ -477,11 +479,11 @@
         While
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="OP1"> Enter the Operand 1</label>
+            <label class="visually-hidden" for="OP1"> Enter the Operand 1</label>
             <input type="text" name="" id="OP1" placeholder="Operand One">
             <br>
 
-            <label for="OP"> enter the operator </label>
+            <label class="visually-hidden" for="OP"> enter the operator </label>
             <select name="" id="OP">
                 <option title="Greater Than" value=">">></option>
                 <option title="Lesser Than" value="<">
@@ -493,7 +495,7 @@
             </select>
             <br>
 
-            <label for="OP2"> enter the Operand 2 </label>
+            <label class="visually-hidden" for="OP2"> enter the Operand 2 </label>
             <input type="text" name="" id="OP2" placeholder="Operand Two">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -516,10 +518,10 @@
         <span class="showvarname"></span>
         <div class="details pb-2">
 
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
             <br>
-            <label for="EVALUATE"> enter the expression to evaluate </label>
+            <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
             <input type="text" name="" id="EVALUATE" placeholder="Evaluate/Math Operations">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -531,12 +533,12 @@
         Matrix Evaluate
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder=" Variable Name">
             <br>
-            <label for="OP1"></label>
+            <label class="visually-hidden" for="OP1"></label>
             <input type="text" name="" id="OP1" placeholder="Operand One">
-            <label for=""></label>
+            <label class="visually-hidden" for=""></label>
             <select name="" id="OP">
                 <option title="Sum" value="+">+</option>
                 <option title="Subtract" value="-">-</option>
@@ -544,7 +546,7 @@
                 <option title="Divide" value="/">/</option>
                 <option title="Modulus (Remainder)" value="%">%</option>
             </select>
-            <label for="OP2"></label>
+            <label class="visually-hidden" for="OP2"></label>
             <input type="text" name="Variable" id="OP2" placeholder="Operand Two">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -556,10 +558,10 @@
         Transpose
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
             <br>
-            <label for="MAT">Enter the matrix name</label>
+            <label class="visually-hidden" for="MAT">Enter the matrix name</label>
             <input type="text" name="" id="MAT" placeholder="Matrix Variable Name">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -571,10 +573,10 @@
         Absolute
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
             <br>
-            <label for="VAL"> enter the value </label>
+            <label class="visually-hidden" for="VAL"> enter the value </label>
             <input type="text" name="" id="VAL" placeholder="Evaluate for Absolute Operations">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -586,13 +588,13 @@
         Row Combine
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
             <br>
-            <label for="M1">Enter the matrix/vector 1</label>
+            <label class="visually-hidden" for="M1">Enter the matrix/vector 1</label>
             <input type="text" name="" id="M1" placeholder="m1">
             <br>
-            <label for="M2"> enter the matrix/vector 2</label>
+            <label class="visually-hidden" for="M2"> enter the matrix/vector 2</label>
             <input type="text" name="" id="M2" placeholder="m2">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -605,13 +607,13 @@
         Column Combine
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
             <br>
-            <label for="M1">Enter the matrix/vector 1</label>
+            <label class="visually-hidden" for="M1">Enter the matrix/vector 1</label>
             <input type="text" name="" id="M1" placeholder="m1">
             <br>
-            <label for="M2">enter the matrix/vector 2</label>
+            <label class="visually-hidden" for="M2">enter the matrix/vector 2</label>
             <input type="text" name="" id="M2" placeholder="m2">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -624,12 +626,12 @@
         Element Wise Multiply
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
             <br>
-            <label for="M1">Enter the matrix 1</label>
+            <label class="visually-hidden" for="M1">Enter the matrix 1</label>
             <input type="text" name="" id="M1" placeholder="m1">
-            <label for="M2">Enter the matrix 2</label>
+            <label class="visually-hidden" for="M2">Enter the matrix 2</label>
             <input type="text" name="" id="M2" placeholder="m2">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -642,12 +644,12 @@
         Element Wise Divide
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAR">Enter the variable name</label>
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
             <br>
-            <label for="M1">Enter the matrix 1</label>
+            <label class="visually-hidden" for="M1">Enter the matrix 1</label>
             <input type="text" name="" id="M1" placeholder="m1">
-            <label for="M2">Enter the matrix 2</label>
+            <label class="visually-hidden" for="M2">Enter the matrix 2</label>
             <input type="text" name="" id="M2" placeholder="m2">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -666,7 +668,7 @@
         Output Block
         <span class="showvarname"></span>
         <div class="details pb-2">
-            <label for="VAL">Enter the value to output</label>
+            <label class="visually-hidden" for="VAL">Enter the value to output</label>
             <input type="text" name="" id="VAL" placeholder="Value">
             <br>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
