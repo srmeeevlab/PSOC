@@ -24,7 +24,8 @@ let jsonexp = {
         <input type="text" name="" id="cst0$VAL" placeholder="Value">
         <br>
         <button id="cst0$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-    </div>
+
+     
 </div>
 
 <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva1">
@@ -476,8 +477,7 @@ let jsonexp = {
         <button id="opb31$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
-    `
-    ,
+    `,
     4: `
     <div id="drop-box"></div>
 
@@ -1868,6 +1868,7 @@ let jsonexp = {
     `
 }
 const prebuilt_code = jsonexp[2];
+
 let supremecode;
 
 // var maincode = "";
@@ -1959,12 +1960,12 @@ function drop_handler(ev) {
         // console.log(id);
         for (i; i < id.length; i++)
             if (id[i] === "-") id = id.slice(i + 1, i + 4);
-        // console.log(id);
+            // console.log(id);
 
         const temp = document.getElementById(id);
         const clone = temp.content.cloneNode(true);
         clone.id = id + count1++;
-
+        ////
 
         // console.log("clone id- ", clone.id);
         if (["For", "While", "If", "Else", "Else If"].includes(ev.target.firstChild.textContent.trim())) {
@@ -1972,7 +1973,8 @@ function drop_handler(ev) {
                 ev.target.appendChild(clone);
                 ev.target.lastElementChild.id = clone.id;
                 ////
-                let childs = ev.target.lastElementChild.children[1].children;
+                let childs = ev.target.lastElementChild.getElementsByClassName("details")[0].children;
+
                 ////
                 for (let index = 0; index < childs.length; index++) {
                     // const element = array[index];
@@ -1987,7 +1989,8 @@ function drop_handler(ev) {
             // console.log(document.getElementById("interface").lastElementChild);
             let childs = document.getElementById("interface").lastElementChild;
             if (!["Break", "Continue"].includes(childs.textContent.trim()))
-                childs = childs.children[1].children;
+                childs = childs.getElementsByClassName("details")[0].children;
+
             for (let index = 0; index < childs.length; index++) {
                 // const element = array[index];
                 if (childs[index].id) {
@@ -1995,7 +1998,7 @@ function drop_handler(ev) {
                 }
             }
         }
-
+        ////
     }
 
 }
@@ -2082,9 +2085,14 @@ const delel = () => {
 
 const delallel = () => {
     // document.getElementById("interface").innerHTML = "";
-    while (document.getElementById("interface").lastElementChild.id != "drop-box") {
-        document.getElementById("interface").lastElementChild.remove();
+    if (confirm('Are you sure you want to delete all the blocks?')) {
+        while (document.getElementById("interface").lastElementChild.id != "drop-box") {
+            document.getElementById("interface").lastElementChild.remove();
+        }
+    } else {
+        console.log('cancelled delete all action');
     }
+
 
     // document.getElementById("delbut").disabled = true;
     // document.getElementById("upbut").disabled = true;
@@ -2311,7 +2319,7 @@ function ok(event) {
 
 function vecinput(block) {
     let columns = document.getElementById(block.id + "$" + "VAL").value;
-    let divblock = block.children[1];
+    let divblock = block.getElementsByClassName("details")[0];
     divblock = divblock.getElementsByClassName("vecinps")[0];
     divblock.innerHTML = "";
     if (!columns || columns < 0) {
@@ -2335,7 +2343,7 @@ function matinput(block) {
     let rows, columns;
     rows = document.getElementById(block.id + "$" + "ROW").value;
     columns = document.getElementById(block.id + "$" + "COL").value;
-    let divblock = block.children[1];
+    let divblock = block.getElementsByClassName("details")[0];
     divblock = divblock.getElementsByClassName("matinps")[0];
     divblock.innerHTML = "";
     if (!rows || !columns || rows < 0 || columns < 0) {
@@ -2416,7 +2424,7 @@ var evalBlock = (block) => {
     evalValue = evalValue.split(" ").join("");
     console.log(evalValue);
     return ` ${varname} =  ${evalValue} ;\n`
-    // return `console.log(${evalValue})`;
+        // return `console.log(${evalValue})`;
 }
 
 var matevalBlock = (block) => {
@@ -2652,11 +2660,7 @@ var matmath = (block) => {
 
         code1 += `${op2}=math.multiply(${op2},-1);`
     }
-    if (op == "+") { code1 += ` let ${varname}= math.add(${op1},${op2});` }
-    else if (op == "-") { code1 += `let ${varname}=math.subtract(${op1},${op2});` }
-    else if (op == "*") { code1 += `let ${varname}=math.multiply(${op1},${op2});` }
-    else if (op == "/") { code1 += `let ${varname}=math.divide(${op1},${op2});` }
-    else if (op == "%") { code1 += `let ${varname}=math.mod(${op1},${op2});` }
+    if (op == "+") { code1 += ` let ${varname}= math.add(${op1},${op2});` } else if (op == "-") { code1 += `let ${varname}=math.subtract(${op1},${op2});` } else if (op == "*") { code1 += `let ${varname}=math.multiply(${op1},${op2});` } else if (op == "/") { code1 += `let ${varname}=math.divide(${op1},${op2});` } else if (op == "%") { code1 += `let ${varname}=math.mod(${op1},${op2});` }
 
     // eval(code1);
     // console.log()
@@ -2685,7 +2689,7 @@ var matrixBlock = (block) => {
         throw 0;
     }
     let array = [];
-    let matrix_inputs = block.children[1].getElementsByClassName("matinps")[0].getElementsByTagName("input");
+    let matrix_inputs = block.getElementsByClassName("details")[0].getElementsByClassName("matinps")[0].getElementsByTagName("input");
     for (let index = 0; index < matrix_inputs.length; index++) {
         array.push(matrix_inputs[index].value);
     }
@@ -3130,7 +3134,7 @@ function RUN(mainblock) {
 
     try {
         let maincode = compile(mainblock)
-        // console.log(compile(mainblock));
+            // console.log(compile(mainblock));
         if (maincode === "") {
             alert("No input");
             return;
