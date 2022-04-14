@@ -2687,6 +2687,10 @@ var matrixBlock = (block) => {
         prevSelection.push(block);
         showprops();
         throw 0;
+    } else if (rows > 10) {
+        alert(`Exceeded the limit of no. of rows in matrix ${varname}, value should not be greater than 10`)
+    } else if (columns > 10) {
+        alert(`Exceeded the limit of no. of columns in matrix ${varname}, value should not be greater than 10`)
     }
     let array = [];
     let matrix_inputs = block.getElementsByClassName("details")[0].getElementsByClassName("matinps")[0].getElementsByTagName("input");
@@ -2717,6 +2721,8 @@ var identityBlock = (block) => {
         prevSelection.push(block);
         showprops();
         throw 0;
+    } else if (rows > 10) {
+        alert(`Exceeded the limit of no. of rows in matrix ${varname}, value should not be greater than 10`)
     }
     let array = [];
     for (let i = 0; i < rows; i++) {
@@ -2926,6 +2932,8 @@ var vectorBlock = (block) => {
         prevSelection.push(block);
         showprops();
         throw 0;
+    } else if (columns > 10) {
+        alert(`Exceeded the limit of no. of columns in matrix ${varname}, value should not be greater than 10`)
     }
     let array = [];
     console.log()
@@ -2952,6 +2960,10 @@ var unityMatrix = (block) => {
         prevSelection.push(block);
         showprops();
         throw 0;
+    } else if (rows > 10) {
+        alert(`Exceeded the limit of no. of rows in matrix ${varname}, value should not be greater than 10`)
+    } else if (columns > 10) {
+        alert(`Exceeded the limit of no. of columns in matrix ${varname}, value should not be greater than 10`)
     }
     let unitmat = [];
     for (let index = 0; index < rows * columns; index++) {
@@ -3099,6 +3111,10 @@ var zeroMatrix = (block) => {
         prevSelection.push(block);
         showprops();
         throw 0;
+    } else if (rows > 10) {
+        alert(`Exceeded the limit of no. of rows in matrix ${varname}, value should not be greater than 10`)
+    } else if (columns > 10) {
+        alert(`Exceeded the limit of no. of columns in matrix ${varname}, value should not be greater than 10`)
     }
     for (let index = 0; index < rows * columns; index++) {
         // const element = array[index];
