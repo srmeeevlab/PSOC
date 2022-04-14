@@ -1169,10 +1169,7 @@ let jsonexp = {
         <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate
             Table</button>
         <br>
-        <div class="matinps"><input type="text" id="1"><input type="text" id="2"><input type="text" id="3"><input
-                type="text" id="4"><br><br><input type="text" id="5"><input type="text" id="6"><input type="text"
-                id="7"><input type="text" id="8"><br><br><input type="text" id="9"><input type="text" id="10"><input
-                type="text" id="11"><input type="text" id="12"><br><br></div>
+        <div class="matinps"></div>
         <button id="mat0$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
@@ -1237,8 +1234,7 @@ let jsonexp = {
         <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate
             Table</button>
         <br>
-        <div class="matinps"><input type="text" id="1"><input type="text" id="2"><input type="text" id="3"><br><br>
-        </div>
+        <div class="matinps"></div>
         <button id="mat4$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
@@ -1260,7 +1256,7 @@ let jsonexp = {
         <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate
             Table</button>
         <br>
-        <div class="matinps"><input type="text" id="1"><input type="text" id="2"><input type="text" id="3"><br><br>
+        <div class="matinps">
         </div>
         <button id="mat5$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
@@ -1283,7 +1279,7 @@ let jsonexp = {
         <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate
             Table</button>
         <br>
-        <div class="matinps"><input type="text" id="1"><input type="text" id="2"><input type="text" id="3"><br><br>
+        <div class="matinps">
         </div>
         <button id="mat6$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
@@ -1306,7 +1302,7 @@ let jsonexp = {
         <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate
             Table</button>
         <br>
-        <div class="matinps"><input type="text" id="1"><input type="text" id="2"><input type="text" id="3"><br><br>
+        <div class="matinps">
         </div>
         <button id="mat7$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
@@ -1329,7 +1325,7 @@ let jsonexp = {
         <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate
             Table</button>
         <br>
-        <div class="matinps"><input type="text" id="1"><input type="text" id="2"><input type="text" id="3"><br><br>
+        <div class="matinps">
         </div>
         <button id="mat8$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
@@ -1822,7 +1818,7 @@ let jsonexp = {
         <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate
             Table</button>
         <br>
-        <div class="matinps"><input type="text" id="1"><input type="text" id="2"><br><br></div>
+        <div class="matinps"></div>
         <button id="mat42$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
@@ -1973,8 +1969,11 @@ function drop_handler(ev) {
                 ev.target.appendChild(clone);
                 ev.target.lastElementChild.id = clone.id;
                 ////
-                let childs = ev.target.lastElementChild.getElementsByClassName("details")[0].children;
-
+                let details = ev.target.lastElementChild.getElementsByClassName("details")[0];
+                let childs = details.getElementsByTagName("input");
+                childs = Array.from(childs);
+                childs = childs.concat(Array.from(details.getElementsByTagName("button")));
+                childs = childs.concat(Array.from(details.getElementsByTagName("select")));
                 ////
                 for (let index = 0; index < childs.length; index++) {
                     // const element = array[index];
@@ -1987,10 +1986,15 @@ function drop_handler(ev) {
             document.getElementById("interface").appendChild(clone);
             document.getElementById("interface").lastElementChild.id = clone.id;
             // console.log(document.getElementById("interface").lastElementChild);
-            let childs = document.getElementById("interface").lastElementChild;
-            if (!["Break", "Continue"].includes(childs.textContent.trim()))
-                childs = childs.getElementsByClassName("details")[0].children;
-
+            let details = document.getElementById("interface").lastElementChild;
+            let childs=[];
+            if (!["Break", "Continue"].includes(details.textContent.trim()))
+                details = details.getElementsByClassName("details")[0];
+                childs = details.getElementsByTagName("input");
+                childs = Array.from(childs);
+                childs = childs.concat(Array.from(details.getElementsByTagName("button")));
+                childs = childs.concat(Array.from(details.getElementsByTagName("select")));
+                console.log(childs);
             for (let index = 0; index < childs.length; index++) {
                 // const element = array[index];
                 if (childs[index].id) {
