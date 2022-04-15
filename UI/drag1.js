@@ -5,6 +5,13 @@ node.style.height = "20px";
 node.id = "green-blk"
 node.style.backgroundColor = "#AD8B73";
 node.classList.add("pl-3", "py-3");
+
+const Test_Output_Block = document.createElement("div")
+
+const msg = document.createElement("div")
+msg.style.borderBottom = "1px solid black"
+msg.style.height = "25px"
+
 max_level = 30;
 let count1 = 0;
 let sub_arr;
@@ -1861,9 +1868,899 @@ let jsonexp = {
         <button id="opb45$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
+    `,
+    3: `
+    <!-- <div class="alert alert-dark" role="role" ondragover="false" ondragenter="false" ondragleave="false">                </div> -->
+
+    <div id="drop-box">
+        <span>you can drop the blocks here</span>
+    </div>
+    
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst0">
+        Constant
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="cst0$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
+            <input type="text" name="" id="cst0$VAL" placeholder="Value">
+            <br>
+            <button id="cst0$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="mat1">
+        Matrix
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="mat1$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="ROW">Enter the number of rows of the matrix</label>
+            <input type="text" name="" id="mat1$ROW" placeholder="Number of Rows">
+            <br>
+            <label class="visually-hidden" for="COL">Enter the number of Column of the matrix</label>
+            <input type="text" name="" id="mat1$COL" placeholder="Number of Columns">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate
+                Table</button>
+            <br>
+            <div class="matinps"></div>
+            <button id="mat1$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec2">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="vec2$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name="" id="vec2$VAL" placeholder="Number of elements">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
+            <br>
+            <div class="vecinps"></div>
+            <button id="vec2$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst3">
+        Constant
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="cst3$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
+            <input type="text" name="" id="cst3$VAL" placeholder="Value">
+            <br>
+            <button id="cst3$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec4">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="vec4$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name="" id="vec4$VAL" placeholder="Number of elements">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
+            <br>
+            <div class="vecinps"></div>
+            <button id="vec4$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec5">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="vec5$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name="" id="vec5$VAL" placeholder="Number of elements">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
+            <br>
+            <div class="vecinps"></div>
+            <button id="vec5$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec6">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="vec6$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name="" id="vec6$VAL" placeholder="Number of elements">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
+            <br>
+            <div class="vecinps"></div>
+            <button id="vec6$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec7">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="vec7$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name="" id="vec7$VAL" placeholder="Number of elements">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
+            <br>
+            <div class="vecinps"></div>
+            <button id="vec7$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec8">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="vec8$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name="" id="vec8$VAL" placeholder="Number of elements">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
+            <br>
+            <div class="vecinps"></div>
+            <button id="vec8$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec9">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="vec9$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name="" id="vec9$VAL" placeholder="Number of elements">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
+            <br>
+            <div class="vecinps"></div>
+            <button id="vec9$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec10">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="vec10$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name="" id="vec10$VAL" placeholder="Number of elements">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
+            <br>
+            <div class="vecinps"></div>
+            <button id="vec10$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec11">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="vec11$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name="" id="vec11$VAL" placeholder="Number of elements">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
+            <br>
+            <div class="vecinps"></div>
+            <button id="vec11$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst12">
+        Constant
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="cst12$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
+            <input type="text" name="" id="cst12$VAL" placeholder="Value">
+            <br>
+            <button id="cst12$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst13">
+        Constant
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="cst13$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
+            <input type="text" name="" id="cst13$VAL" placeholder="Value">
+            <br>
+            <button id="cst13$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst14">
+        Constant
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="cst14$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
+            <input type="text" name="" id="cst14$VAL" placeholder="Value">
+            <br>
+            <button id="cst14$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="for15">
+        For
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="START"> Enter the start value of Counter </label>
+            <input type="text" name="" id="for15$START" placeholder="Start">
+            <br>
+            <label class="visually-hidden" for="END"> Enter the end value of counter </label>
+            <input type="text" name="" id="for15$END" placeholder="End">
+            <br>
+            <label class="visually-hidden" for="STEP"> Enter the step value of counter</label>
+            <input type="text" name="" value="" id="for15$STEP" placeholder="Step (Default 1)">
+            <br>
+    
+    
+            <button id="for15$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva16">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva16$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva16$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva16$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva17">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva17$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva17$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva17$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva18">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva18$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva18$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva18$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva19">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva19$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva19$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva19$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst20">
+        Constant
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="cst20$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
+            <input type="text" name="" id="cst20$VAL" placeholder="Value">
+            <br>
+            <button id="cst20$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst21">
+        Constant
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="cst21$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
+            <input type="text" name="" id="cst21$VAL" placeholder="Value">
+            <br>
+            <button id="cst21$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst22">
+        Constant
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="cst22$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
+            <input type="text" name="" id="cst22$VAL" placeholder="Value">
+            <br>
+            <button id="cst22$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst23">
+        Constant
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="cst23$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
+            <input type="text" name="" id="cst23$VAL" placeholder="Value">
+            <br>
+            <button id="cst23$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec24">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="vec24$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name="" id="vec24$VAL" placeholder="Number of elements">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
+            <br>
+            <div class="vecinps"></div>
+            <button id="vec24$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="for25">
+        For
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="START"> Enter the start value of Counter </label>
+            <input type="text" name="" id="for25$START" placeholder="Start">
+            <br>
+            <label class="visually-hidden" for="END"> Enter the end value of counter </label>
+            <input type="text" name="" id="for25$END" placeholder="End">
+            <br>
+            <label class="visually-hidden" for="STEP"> Enter the step value of counter</label>
+            <input type="text" name="" value="" id="for25$STEP" placeholder="Step (Default 1)">
+            <br>
+    
+    
+            <button id="for25$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva26">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva26$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva26$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva26$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    </div>
+    
+    
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst27">
+        Constant
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="cst27$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
+            <input type="text" name="" id="cst27$VAL" placeholder="Value">
+            <br>
+            <button id="cst27$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec28">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="vec28$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name="" id="vec28$VAL" placeholder="Number of elements">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
+            <br>
+            <div class="vecinps"></div>
+            <button id="vec28$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="whi29">
+        While
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="OP1"> Enter the Operand 1</label>
+            <input type="text" name="" id="whi29$OP1" placeholder="Operand One">
+            <br>
+    
+            <label class="visually-hidden" for="OP"> enter the operator </label>
+            <select name="" id="whi29$OP">
+                <option title="Greater Than" value=">">&gt;</option>
+                <option title="Lesser Than" value="<">
+                    &lt; </option>
+                <option title="Equals" value="==">=</option>
+                <option title="Greater Than or Equal to" value=">=">≥</option>
+                <option title="Lesser Than or Equal to" value="<=">≤</option>
+                <option title="Not Equals" value="!=">≠</option>
+            </select>
+            <br>
+    
+            <label class="visually-hidden" for="OP2"> enter the Operand 2 </label>
+            <input type="text" name="" id="whi29$OP2" placeholder="Operand Two">
+            <br>
+            <button id="whi29$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    
+    
+    
+    
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva40">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva40$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva40$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva40$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva41">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva41$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva41$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva41$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva42">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva42$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva42$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva42$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva43">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva43$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva43$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva43$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva44">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva44$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva44$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva44$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="for45">
+            For
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+                <label class="visually-hidden" for="START"> Enter the start value of Counter </label>
+                <input type="text" name="" id="for45$START" placeholder="Start">
+                <br>
+                <label class="visually-hidden" for="END"> Enter the end value of counter </label>
+                <input type="text" name="" id="for45$END" placeholder="End">
+                <br>
+                <label class="visually-hidden" for="STEP"> Enter the step value of counter</label>
+                <input type="text" name="" value="" id="for45$STEP" placeholder="Step (Default 1)">
+                <br>
+    
+    
+                <button id="for45$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+    
+            <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva50">
+                Evaluate
+                <span class="showvarname"></span>
+                <div class="details pb-2" style="display: none;">
+    
+                    <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                    <input type="text" name="Variable" id="eva50$VAR" placeholder="Variable Name">
+                    <br>
+                    <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                    <input type="text" name="" id="eva50$EVALUATE" placeholder="Evaluate/Math Operations">
+                    <br>
+                    <button id="eva50$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+                </div>
+            </div>
+    
+            <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva51">
+                Evaluate
+                <span class="showvarname"></span>
+                <div class="details pb-2" style="display: none;">
+    
+                    <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                    <input type="text" name="Variable" id="eva51$VAR" placeholder="Variable Name">
+                    <br>
+                    <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                    <input type="text" name="" id="eva51$EVALUATE" placeholder="Evaluate/Math Operations">
+                    <br>
+                    <button id="eva51$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+                </div>
+            </div>
+    
+            <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva52">
+                Evaluate
+                <span class="showvarname"></span>
+                <div class="details pb-2" style="display: none;">
+    
+                    <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                    <input type="text" name="Variable" id="eva52$VAR" placeholder="Variable Name">
+                    <br>
+                    <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                    <input type="text" name="" id="eva52$EVALUATE" placeholder="Evaluate/Math Operations">
+                    <br>
+                    <button id="eva52$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+                </div>
+            </div>
+    
+            <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva53">
+                Evaluate
+                <span class="showvarname"></span>
+                <div class="details pb-2" style="display: none;">
+    
+                    <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                    <input type="text" name="Variable" id="eva53$VAR" placeholder="Variable Name">
+                    <br>
+                    <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                    <input type="text" name="" id="eva53$EVALUATE" placeholder="Evaluate/Math Operations">
+                    <br>
+                    <button id="eva53$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva46">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva46$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva46$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva46$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="for47">
+            For
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+                <label class="visually-hidden" for="START"> Enter the start value of Counter </label>
+                <input type="text" name="" id="for47$START" placeholder="Start">
+                <br>
+                <label class="visually-hidden" for="END"> Enter the end value of counter </label>
+                <input type="text" name="" id="for47$END" placeholder="End">
+                <br>
+                <label class="visually-hidden" for="STEP"> Enter the step value of counter</label>
+                <input type="text" name="" value="" id="for47$STEP" placeholder="Step (Default 1)">
+                <br>
+    
+    
+                <button id="for47$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+    
+            <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva54">
+                Evaluate
+                <span class="showvarname"></span>
+                <div class="details pb-2" style="display: none;">
+    
+                    <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                    <input type="text" name="Variable" id="eva54$VAR" placeholder="Variable Name">
+                    <br>
+                    <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                    <input type="text" name="" id="eva54$EVALUATE" placeholder="Evaluate/Math Operations">
+                    <br>
+                    <button id="eva54$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+                </div>
+            </div>
+    
+            <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva55">
+                Evaluate
+                <span class="showvarname"></span>
+                <div class="details pb-2">
+    
+                    <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                    <input type="text" name="Variable" id="eva55$VAR" placeholder="Variable Name">
+                    <br>
+                    <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                    <input type="text" name="" id="eva55$EVALUATE" placeholder="Evaluate/Math Operations">
+                    <br>
+                    <button id="eva55$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+                </div>
+            </div>
+        </div>
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva48">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva48$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva48$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva48$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva49">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva49$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva49$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva49$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="for30">
+        For
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="START"> Enter the start value of Counter </label>
+            <input type="text" name="" id="for30$START" placeholder="Start">
+            <br>
+            <label class="visually-hidden" for="END"> Enter the end value of counter </label>
+            <input type="text" name="" id="for30$END" placeholder="End">
+            <br>
+            <label class="visually-hidden" for="STEP"> Enter the step value of counter</label>
+            <input type="text" name="" value="" id="for30$STEP" placeholder="Step (Default 1)">
+            <br>
+    
+    
+            <button id="for30$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva34">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva34$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva34$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva34$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva35">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva35$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva35$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva35$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="for31" draggable="false">
+        For
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="START"> Enter the start value of Counter </label>
+            <input type="text" name="" id="for31$START" placeholder="Start">
+            <br>
+            <label class="visually-hidden" for="END"> Enter the end value of counter </label>
+            <input type="text" name="" id="for31$END" placeholder="End">
+            <br>
+            <label class="visually-hidden" for="STEP"> Enter the step value of counter</label>
+            <input type="text" name="" value="" id="for31$STEP" placeholder="Step (Default 1)">
+            <br>
+    
+    
+            <button id="for31$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva36">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva36$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva36$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva36$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva37">
+            Evaluate
+            <span class="showvarname"></span>
+            <div class="details pb-2" style="display: none;">
+    
+                <label class="visually-hidden" for="VAR">Enter the variable name</label>
+                <input type="text" name="Variable" id="eva37$VAR" placeholder="Variable Name">
+                <br>
+                <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+                <input type="text" name="" id="eva37$EVALUATE" placeholder="Evaluate/Math Operations">
+                <br>
+                <button id="eva37$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            </div>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec32">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="vec32$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name="" id="vec32$VAL" placeholder="Number of elements">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
+            <br>
+            <div class="vecinps"></div>
+            <button id="vec32$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec33">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2" style="display: none;">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="vec33$VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name="" id="vec33$VAL" placeholder="Number of elements">
+            <br>
+            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button>
+            <br>
+            <div class="vecinps"></div>
+            <button id="vec33$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
     `
 }
-const prebuilt_code = jsonexp[2];
+const prebuilt_code = jsonexp[3];
 
 let supremecode;
 
@@ -1934,7 +2831,7 @@ function drop_handler(ev) {
         if (ev.target.classList.contains("highlight")) {
             return;
         }
-        if (["For", "While", "If", "Else", "Else If"].includes(ev.target.firstChild.textContent.trim())) {
+        if (["For", "While", "If", "Else", "Else If","Test Input Block"].includes(ev.target.firstChild.textContent.trim())) {
             if (!ev.target.classList.contains("highlight")) {
                 ev.target.appendChild(prevSelection[0]);
             }
@@ -2677,7 +3574,11 @@ var outputBlock = (block) => {
     output = document.getElementById(block.id + "$" + "VAL").value;
     if (!output)
         output = "\n";
-    return `console.log("output is",${output}); \n`;
+        
+
+    msg.innerHTML = output;
+    document.getElementById("OUTPUT-CONSOLE").appendChild(msg);
+    return 'console.log("outputted successfully ")';
 }
 
 var matrixBlock = (block) => {
