@@ -20,44 +20,47 @@ let count = 0;
 let ifshiftpressed = false;
 let jsonexp = {
     1: `
-    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst0">
+   <div id="drop-box">
+    <span>you can drop the blocks here</span>
+</div>
+
+
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst0" draggable="false">
     Constant
-    <span class="showvarname">@pi</span>
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-        <label for="VAR">Enter the variable name</label>
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
         <input type="text" name="Variable" id="cst0$VAR" placeholder="Variable Name">
         <br>
-        <label for="VAL">Enter the value</label>
+        <label class="visually-hidden" for="VAL">Enter the value</label>
         <input type="text" name="" id="cst0$VAL" placeholder="Value">
         <br>
         <button id="cst0$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-
-     
+    </div>
 </div>
 
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva1">
-    Evaluate
-    <span class="showvarname">@Vnom</span>
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst1">
+    Constant
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva1$VAR" placeholder="Variable Name">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst1$VAR" placeholder="Variable Name">
         <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva1$EVALUATE" placeholder="Evaluate/Math Operations">
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst1$VAL" placeholder="Value">
         <br>
-        <button id="eva1$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        <button id="cst1$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
 <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst2">
     Constant
-    <span class="showvarname">@freq</span>
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-        <label for="VAR">Enter the variable name</label>
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
         <input type="text" name="Variable" id="cst2$VAR" placeholder="Variable Name">
         <br>
-        <label for="VAL">Enter the value</label>
+        <label class="visually-hidden" for="VAL">Enter the value</label>
         <input type="text" name="" id="cst2$VAL" placeholder="Value">
         <br>
         <button id="cst2$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -66,100 +69,96 @@ let jsonexp = {
 
 <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst3">
     Constant
-    <span class="showvarname">@km</span>
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-        <label for="VAR">Enter the variable name</label>
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
         <input type="text" name="Variable" id="cst3$VAR" placeholder="Variable Name">
         <br>
-        <label for="VAL">Enter the value</label>
+        <label class="visually-hidden" for="VAL">Enter the value</label>
         <input type="text" name="" id="cst3$VAL" placeholder="Value">
         <br>
         <button id="cst3$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva4">
-    Evaluate
-    <span class="showvarname">@l</span>
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst4">
+    Constant
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva4$VAR" placeholder="Variable Name">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst4$VAR" placeholder="Variable Name">
         <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva4$EVALUATE" placeholder="Evaluate/Math Operations">
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst4$VAL" placeholder="Value">
         <br>
-        <button id="eva4$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        <button id="cst4$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva5">
-    Evaluate
-    <span class="showvarname">@c</span>
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst5">
+    Constant
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva5$VAR" placeholder="Variable Name">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst5$VAR" placeholder="Variable Name">
         <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva5$EVALUATE" placeholder="Evaluate/Math Operations">
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst5$VAL" placeholder="Value">
         <br>
-        <button id="eva5$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        <button id="cst5$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
 <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst6">
     Constant
-    <span class="showvarname">@delta</span>
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-        <label for="VAR">Enter the variable name</label>
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
         <input type="text" name="Variable" id="cst6$VAR" placeholder="Variable Name">
         <br>
-        <label for="VAL">Enter the value</label>
+        <label class="visually-hidden" for="VAL">Enter the value</label>
         <input type="text" name="" id="cst6$VAL" placeholder="Value">
         <br>
         <button id="cst6$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva7">
-    Evaluate
-    <span class="showvarname">@Z0</span>
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst7">
+    Constant
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva7$VAR" placeholder="Variable Name">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst7$VAR" placeholder="Variable Name">
         <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva7$EVALUATE" placeholder="Evaluate/Math Operations">
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst7$VAL" placeholder="Value">
         <br>
-        <button id="eva7$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        <button id="cst7$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva8">
-    Evaluate
-    <span class="showvarname">@SIL</span>
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst8">
+    Constant
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva8$VAR" placeholder="Variable Name">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst8$VAR" placeholder="Variable Name">
         <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva8$EVALUATE" placeholder="Evaluate/Math Operations">
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst8$VAL" placeholder="Value">
         <br>
-        <button id="eva8$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        <button id="cst8$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
 <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst9">
     Constant
-    <span class="showvarname">@Vs</span>
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-        <label for="VAR">Enter the variable name</label>
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
         <input type="text" name="Variable" id="cst9$VAR" placeholder="Variable Name">
         <br>
-        <label for="VAL">Enter the value</label>
+        <label class="visually-hidden" for="VAL">Enter the value</label>
         <input type="text" name="" id="cst9$VAL" placeholder="Value">
         <br>
         <button id="cst9$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -168,75 +167,71 @@ let jsonexp = {
 
 <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst10">
     Constant
-    <span class="showvarname">@Vr</span>
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-        <label for="VAR">Enter the variable name</label>
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
         <input type="text" name="Variable" id="cst10$VAR" placeholder="Variable Name">
         <br>
-        <label for="VAL">Enter the value</label>
+        <label class="visually-hidden" for="VAL">Enter the value</label>
         <input type="text" name="" id="cst10$VAL" placeholder="Value">
         <br>
         <button id="cst10$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva11">
-    Evaluate
-    <span class="showvarname">@Beta</span>
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst11">
+    Constant
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva11$VAR" placeholder="Variable Name">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst11$VAR" placeholder="Variable Name">
         <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva11$EVALUATE" placeholder="Evaluate/Math Operations">
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst11$VAL" placeholder="Value">
         <br>
-        <button id="eva11$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        <button id="cst11$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva12">
-    Evaluate
-    <span class="showvarname">@Ps_max</span>
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst12">
+    Constant
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva12$VAR" placeholder="Variable Name">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst12$VAR" placeholder="Variable Name">
         <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva12$EVALUATE" placeholder="Evaluate/Math Operations">
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst12$VAL" placeholder="Value">
         <br>
-        <button id="eva12$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        <button id="cst12$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva13">
-    Evaluate
-    <span class="showvarname">@Ps</span>
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst13">
+    Constant
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva13$VAR" placeholder="Variable Name">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst13$VAR" placeholder="Variable Name">
         <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva13$EVALUATE" placeholder="Evaluate/Math Operations">
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst13$VAL" placeholder="Value">
         <br>
-        <button id="eva13$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        <button id="cst13$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva14">
-    Evaluate
-    <span class="showvarname">@Qr</span>
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst14">
+    Constant
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva14$VAR" placeholder="Variable Name">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst14$VAR" placeholder="Variable Name">
         <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva14$EVALUATE" placeholder="Evaluate/Math Operations">
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst14$VAL" placeholder="Value">
         <br>
-        <button id="eva14$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        <button id="cst14$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
@@ -244,247 +239,243 @@ let jsonexp = {
     If
     <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-        <label for="OP1">Enter the Operand 1</label>
+        <label class="visually-hidden" for="OP1">Enter the Operand 1</label>
         <input type="text" name="" id="if15$OP1" placeholder="Operand One">
         <br>
-        <label for="OP">Enter the operator</label>
+        <label class="visually-hidden" for="OP">Enter the operator</label>
         <select name="" id="if15$OP">
-            <option title="Greater Than" value=">">&gt;</option>
-            <option title="Lesser Than" value="<">
-                &lt; </option>
-            <option title="Equals" value="==">=</option>
-            <option title="Greater Than or Equal to" value=">=">≥</option>
-            <option title="Lesser Than or Equal to" value="<=">≤</option>
-            <option title="Not Equals" value="!=">≠</option>
-        </select>
+                <option title="Greater Than" value=">">&gt;</option>
+                <option title="Lesser Than" value="<">
+                    &lt; </option>
+                <option title="Equals" value="==">=</option>
+                <option title="Greater Than or Equal to" value=">=">≥</option>
+                <option title="Lesser Than or Equal to" value="<=">≤</option>
+                <option title="Not Equals" value="!=">≠</option>
+            </select>
         <br>
 
-        <label for="OP2">Enter the Operand 2</label>
+        <label class="visually-hidden" for="OP2">Enter the Operand 2</label>
         <input type="text" name="" id="if15$OP2" placeholder="Operand Two">
         <br>
         <button id="if15$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="opb16">
-        Output Block
+        Print Block
         <span class="showvarname"></span>
         <div class="details pb-2" style="display: none;">
-            <label for="VAL">Enter the value to output</label>
-            <input type="text" name="" id="opb16$VAL" placeholder="Value">
+            <label class="visually-hidden" for="VAL">Enter the value to output</label>
+            <input type="text" name="" id="opb16$VAL" placeholder="Enter the message you want to display">
+            <input type="text" name="" id="opb16$VAR" placeholder="Value">
             <br>
             <button id="opb16$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
-
-
 </div>
 
 <div class="pl-3 pt-2 noselect selectable bordered-box" id="eli17">
     Else If
     <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-        <label for="OP1"> Enter the Operand 1 </label>
+        <label class="visually-hidden" for="OP1"> Enter the Operand 1 </label>
         <input type="text" name="" id="eli17$OP1" placeholder="Operand One">
         <br>
-        <label for="OP"> enter the operator</label>
+        <label class="visually-hidden" for="OP"> enter the operator</label>
         <select name="" id="eli17$OP">
-            <option title="Greater Than" value=">">&gt;</option>
-            <option title="Lesser Than" value="<">
-                &lt; </option>
-            <option title="Equals" value="=">=</option>
-            <option title="Greater Than or Equal to" value=">=">≥</option>
-            <option title="Lesser Than or Equal to" value="<=">≤</option>
-            <option title="Not Equals" value="!=">≠</option>
-        </select>
+                <option title="Greater Than" value=">">&gt;</option>
+                <option title="Lesser Than" value="<">
+                    &lt; </option>
+                <option title="Equals" value="=">=</option>
+                <option title="Greater Than or Equal to" value=">=">≥</option>
+                <option title="Lesser Than or Equal to" value="<=">≤</option>
+                <option title="Not Equals" value="!=">≠</option>
+            </select>
         <br>
-        <label for="OP2"> enter the Operand 2</label>
+        <label class="visually-hidden" for="OP2"> enter the Operand 2</label>
         <input type="text" name="" id="eli17$OP2" placeholder="Operand Two">
         <br>
         <button id="eli17$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
-    <div class="pl-3 pt-2 noselect selectable bordered-box" id="opb18" draggable="false">
-        Output Block
+
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="opb18">
+        Print Block
         <span class="showvarname"></span>
         <div class="details pb-2" style="display: none;">
-            <label for="VAL">Enter the value to output</label>
-            <input type="text" name="" id="opb18$VAL" placeholder="Value">
+            <label class="visually-hidden" for="VAL">Enter the value to output</label>
+            <input type="text" name="" id="opb18$VAL" placeholder="Enter the message you want to display">
+            <input type="text" name="" id="opb18$VAR" placeholder="Value">
             <br>
             <button id="opb18$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
-
 </div>
 
 <div class="pl-3 pt-2 noselect selectable bordered-box" id="els19">
     Else
+
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="opb20">
-        Output Block
+        Print Block
         <span class="showvarname"></span>
         <div class="details pb-2" style="display: none;">
-            <label for="VAL">Enter the value to output</label>
-            <input type="text" name="" id="opb20$VAL" placeholder="Value">
+            <label class="visually-hidden" for="VAL">Enter the value to output</label>
+            <input type="text" name="" id="opb20$VAL" placeholder="Enter the message you want to display">
+            <input type="text" name="" id="opb20$VAR" placeholder="Value">
             <br>
             <button id="opb20$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
 </div>
 
-
-
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva21">
-    Evaluate
-    <span class="showvarname">@aa</span>
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst21">
+    Constant
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva21$VAR" placeholder="Variable Name">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst21$VAR" placeholder="Variable Name">
         <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva21$EVALUATE" placeholder="Evaluate/Math Operations">
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst21$VAL" placeholder="Value">
         <br>
-        <button id="eva21$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        <button id="cst21$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva22">
-    Evaluate
-    <span class="showvarname">@bb</span>
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst22">
+    Constant
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva22$VAR" placeholder="Variable Name">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst22$VAR" placeholder="Variable Name">
         <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva22$EVALUATE" placeholder="Evaluate/Math Operations">
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst22$VAL" placeholder="Value">
         <br>
-        <button id="eva22$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        <button id="cst22$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
 <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst23">
     Constant
-    <span class="showvarname">@P0</span>
+    <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-        <label for="VAR">Enter the variable name</label>
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
         <input type="text" name="Variable" id="cst23$VAR" placeholder="Variable Name">
         <br>
-        <label for="VAL">Enter the value</label>
+        <label class="visually-hidden" for="VAL">Enter the value</label>
         <input type="text" name="" id="cst23$VAL" placeholder="Value">
         <br>
         <button id="cst23$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva24">
-    Evaluate
-    <span class="showvarname">@Vmp</span>
-    <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva24$VAR" placeholder="Variable Name">
-        <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva24$EVALUATE" placeholder="Evaluate/Math Operations">
-        <br>
-        <button id="eva24$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-    </div>
-</div>
-
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva25">
-    Evaluate
-    <span class="showvarname">@Vmn</span>
-    <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva25$VAR" placeholder="Variable Name">
-        <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva25$EVALUATE" placeholder="Evaluate/Math Operations">
-        <br>
-        <button id="eva25$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-    </div>
-</div>
-
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva26">
-    Evaluate
-    <span class="showvarname">@m1</span>
-    <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva26$VAR" placeholder="Variable Name">
-        <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva26$EVALUATE" placeholder="Evaluate/Math Operations">
-        <br>
-        <button id="eva26$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-    </div>
-</div>
-
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva27">
-    Evaluate
-    <span class="showvarname">@m2</span>
-    <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva27$VAR" placeholder="Variable Name">
-        <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva27$EVALUATE" placeholder="Evaluate/Math Operations">
-        <br>
-        <button id="eva27$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-    </div>
-</div>
-
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva28">
-    Evaluate
-    <span class="showvarname">@Vmpp</span>
-    <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva28$VAR" placeholder="Variable Name">
-        <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva28$EVALUATE" placeholder="Evaluate/Math Operations">
-        <br>
-        <button id="eva28$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-    </div>
-</div>
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="eva29" draggable="false">
-    Evaluate
-    <span class="showvarname">@Vm</span>
-    <div class="details pb-2" style="display: none;">
-
-        <label for="VAR">Enter the variable name</label>
-        <input type="text" name="Variable" id="eva29$VAR" placeholder="Variable Name">
-        <br>
-        <label for="EVALUATE"> enter the expression to evaluate </label>
-        <input type="text" name="" id="eva29$EVALUATE" placeholder="Evaluate/Math Operations">
-        <br>
-        <button id="eva29$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-    </div>
-</div>
-<div class="pl-3 pt-2 noselect selectable bordered-box" id="opb30">
-    Output Block
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst24">
+    Constant
     <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-        <label for="VAL">Enter the value to output</label>
-        <input type="text" name="" id="opb30$VAL" placeholder="Value">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst24$VAR" placeholder="Variable Name">
+        <br>
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst24$VAL" placeholder="Value">
+        <br>
+        <button id="cst24$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+    </div>
+</div>
+
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst25">
+    Constant
+    <span class="showvarname"></span>
+    <div class="details pb-2" style="display: none;">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst25$VAR" placeholder="Variable Name">
+        <br>
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst25$VAL" placeholder="Value">
+        <br>
+        <button id="cst25$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+    </div>
+</div>
+
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst26">
+    Constant
+    <span class="showvarname"></span>
+    <div class="details pb-2" style="display: none;">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst26$VAR" placeholder="Variable Name">
+        <br>
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst26$VAL" placeholder="Value">
+        <br>
+        <button id="cst26$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+    </div>
+</div>
+
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst27">
+    Constant
+    <span class="showvarname"></span>
+    <div class="details pb-2" style="display: none;">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst27$VAR" placeholder="Variable Name">
+        <br>
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst27$VAL" placeholder="Value">
+        <br>
+        <button id="cst27$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+    </div>
+</div>
+
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst28">
+    Constant
+    <span class="showvarname"></span>
+    <div class="details pb-2" style="display: none;">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst28$VAR" placeholder="Variable Name">
+        <br>
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst28$VAL" placeholder="Value">
+        <br>
+        <button id="cst28$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+    </div>
+</div>
+
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="cst29">
+    Constant
+    <span class="showvarname"></span>
+    <div class="details pb-2" style="display: none;">
+        <label class="visually-hidden" for="VAR">Enter the variable name</label>
+        <input type="text" name="Variable" id="cst29$VAR" placeholder="Variable Name">
+        <br>
+        <label class="visually-hidden" for="VAL">Enter the value</label>
+        <input type="text" name="" id="cst29$VAL" placeholder="Value">
+        <br>
+        <button id="cst29$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+    </div>
+</div>
+
+<div class="pl-3 pt-2 noselect selectable bordered-box" id="opb30">
+    Print Block
+    <span class="showvarname"></span>
+    <div class="details pb-2" style="display: none;">
+        <label class="visually-hidden" for="VAL">Enter the value to output</label>
+        <input type="text" name="" id="opb30$VAL" placeholder="Enter the message you want to display">
+        <input type="text" name="" id="opb30$VAR" placeholder="Value">
         <br>
         <button id="opb30$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
 
 <div class="pl-3 pt-2 noselect selectable bordered-box" id="opb31">
-    Output Block
+    Print Block
     <span class="showvarname"></span>
     <div class="details pb-2" style="display: none;">
-        <label for="VAL">Enter the value to output</label>
-        <input type="text" name="" id="opb31$VAL" placeholder="Value">
+        <label class="visually-hidden" for="VAL">Enter the value to output</label>
+        <input type="text" name="" id="opb31$VAL" placeholder="Enter the message you want to display">
+        <input type="text" name="" id="opb31$VAR" placeholder="Value">
         <br>
         <button id="opb31$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
     </div>
 </div>
-    `,
+   `,
     4: `
     <div id="drop-box"></div>
 
@@ -1870,6 +1861,7 @@ let jsonexp = {
 </div>
     `,
     3: `
+   <div id="interface" class="col-8 col-md-8" ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
     <!-- <div class="alert alert-dark" role="role" ondragover="false" ondragenter="false" ondragleave="false">                </div> -->
 
     <div id="drop-box">
@@ -1877,9 +1869,9 @@ let jsonexp = {
     </div>
     
     
-    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst0">
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst0" draggable="false">
         Constant
-        <span class="showvarname"></span>
+        <span class="showvarname">@pd</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="cst0$VAR" placeholder="Variable Name">
@@ -1893,7 +1885,7 @@ let jsonexp = {
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="mat1">
         Matrix
-        <span class="showvarname"></span>
+        <span class="showvarname">@costdata</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="mat1$VAR" placeholder="Variable Name">
@@ -1907,14 +1899,14 @@ let jsonexp = {
             <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate
                 Table</button>
             <br>
-            <div class="matinps"></div>
+            <div class="matinps"><input type="text" id="1"><input type="text" id="2"><input type="text" id="3"><input type="text" id="4"><br><br><input type="text" id="5"><input type="text" id="6"><input type="text" id="7"><input type="text" id="8"><br><br></div>
             <button id="mat1$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec2">
         Vector
-        <span class="showvarname"></span>
+        <span class="showvarname">@lossdata</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="vec2$VAR" placeholder="Variable Name">
@@ -1925,14 +1917,14 @@ let jsonexp = {
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
             <br>
-            <div class="vecinps"></div>
+            <div class="vecinps"><input type="text" id="1"><input type="text" id="2"></div>
             <button id="vec2$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst3">
         Constant
-        <span class="showvarname"></span>
+        <span class="showvarname">@ng</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="cst3$VAR" placeholder="Variable Name">
@@ -1946,7 +1938,7 @@ let jsonexp = {
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec4">
         Vector
-        <span class="showvarname"></span>
+        <span class="showvarname">@uno</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="vec4$VAR" placeholder="Variable Name">
@@ -1957,14 +1949,14 @@ let jsonexp = {
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
             <br>
-            <div class="vecinps"></div>
+            <div class="vecinps"><input type="text" id="1"><input type="text" id="2"></div>
             <button id="vec4$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec5">
         Vector
-        <span class="showvarname"></span>
+        <span class="showvarname">@a</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="vec5$VAR" placeholder="Variable Name">
@@ -1975,14 +1967,14 @@ let jsonexp = {
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
             <br>
-            <div class="vecinps"></div>
+            <div class="vecinps"><input type="text" id="1"><input type="text" id="2"></div>
             <button id="vec5$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec6">
         Vector
-        <span class="showvarname"></span>
+        <span class="showvarname">@b</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="vec6$VAR" placeholder="Variable Name">
@@ -1993,14 +1985,14 @@ let jsonexp = {
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
             <br>
-            <div class="vecinps"></div>
+            <div class="vecinps"><input type="text" id="1"><input type="text" id="2"></div>
             <button id="vec6$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec7">
         Vector
-        <span class="showvarname"></span>
+        <span class="showvarname">@d</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="vec7$VAR" placeholder="Variable Name">
@@ -2011,14 +2003,14 @@ let jsonexp = {
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
             <br>
-            <div class="vecinps"></div>
+            <div class="vecinps"><input type="text" id="1"><input type="text" id="2"></div>
             <button id="vec7$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec8">
         Vector
-        <span class="showvarname"></span>
+        <span class="showvarname">@p</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="vec8$VAR" placeholder="Variable Name">
@@ -2029,14 +2021,14 @@ let jsonexp = {
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
             <br>
-            <div class="vecinps"></div>
+            <div class="vecinps"><input type="text" id="1"><input type="text" id="2"></div>
             <button id="vec8$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec9">
         Vector
-        <span class="showvarname"></span>
+        <span class="showvarname">@den</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="vec9$VAR" placeholder="Variable Name">
@@ -2047,14 +2039,14 @@ let jsonexp = {
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
             <br>
-            <div class="vecinps"></div>
+            <div class="vecinps"><input type="text" id="1"><input type="text" id="2"></div>
             <button id="vec9$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec10">
         Vector
-        <span class="showvarname"></span>
+        <span class="showvarname">@l</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="vec10$VAR" placeholder="Variable Name">
@@ -2065,14 +2057,14 @@ let jsonexp = {
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
             <br>
-            <div class="vecinps"></div>
+            <div class="vecinps"><input type="text" id="1"><input type="text" id="2"></div>
             <button id="vec10$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec11">
         Vector
-        <span class="showvarname"></span>
+        <span class="showvarname">@ifc</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="vec11$VAR" placeholder="Variable Name">
@@ -2083,14 +2075,14 @@ let jsonexp = {
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
             <br>
-            <div class="vecinps"></div>
+            <div class="vecinps"><input type="text" id="1"><input type="text" id="2"></div>
             <button id="vec11$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst12">
         Constant
-        <span class="showvarname"></span>
+        <span class="showvarname">@pl</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="cst12$VAR" placeholder="Variable Name">
@@ -2104,7 +2096,7 @@ let jsonexp = {
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst13">
         Constant
-        <span class="showvarname"></span>
+        <span class="showvarname">@sum</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="cst13$VAR" placeholder="Variable Name">
@@ -2118,7 +2110,7 @@ let jsonexp = {
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst14">
         Constant
-        <span class="showvarname"></span>
+        <span class="showvarname">@delpla</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="cst14$VAR" placeholder="Variable Name">
@@ -2150,7 +2142,7 @@ let jsonexp = {
     
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva16">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@uno[i]</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2165,7 +2157,7 @@ let jsonexp = {
     
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva17">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@a[i]</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2180,7 +2172,7 @@ let jsonexp = {
     
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva18">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@b[i]</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2195,7 +2187,7 @@ let jsonexp = {
     
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva19">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@d[i]</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2211,7 +2203,7 @@ let jsonexp = {
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst20">
         Constant
-        <span class="showvarname"></span>
+        <span class="showvarname">@lambda</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="cst20$VAR" placeholder="Variable Name">
@@ -2225,7 +2217,7 @@ let jsonexp = {
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst21">
         Constant
-        <span class="showvarname"></span>
+        <span class="showvarname">@delp</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="cst21$VAR" placeholder="Variable Name">
@@ -2239,7 +2231,7 @@ let jsonexp = {
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst22">
         Constant
-        <span class="showvarname"></span>
+        <span class="showvarname">@dellambda</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="cst22$VAR" placeholder="Variable Name">
@@ -2253,7 +2245,7 @@ let jsonexp = {
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst23">
         Constant
-        <span class="showvarname"></span>
+        <span class="showvarname">@totgencost</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="cst23$VAR" placeholder="Variable Name">
@@ -2267,7 +2259,7 @@ let jsonexp = {
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec24">
         Vector
-        <span class="showvarname"></span>
+        <span class="showvarname">@B</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="vec24$VAR" placeholder="Variable Name">
@@ -2278,31 +2270,18 @@ let jsonexp = {
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
             <br>
-            <div class="vecinps"></div>
+            <div class="vecinps"><input type="text" id="1"><input type="text" id="2"></div>
             <button id="vec24$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
     
-    <div class="pl-3 pt-2 noselect selectable bordered-box" id="for25">
-        For
-        <span class="showvarname"></span>
-        <div class="details pb-2" style="display: none;">
-            <label class="visually-hidden" for="START"> Enter the start value of Counter </label>
-            <input type="text" name="" id="for25$START" placeholder="Start">
-            <br>
-            <label class="visually-hidden" for="END"> Enter the end value of counter </label>
-            <input type="text" name="" id="for25$END" placeholder="End">
-            <br>
-            <label class="visually-hidden" for="STEP"> Enter the step value of counter</label>
-            <input type="text" name="" value="" id="for25$STEP" placeholder="Step (Default 1)">
-            <br>
     
     
-            <button id="for25$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva26">
+    
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva26">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@B</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2313,14 +2292,9 @@ let jsonexp = {
                 <br>
                 <button id="eva26$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
             </div>
-        </div>
-    </div>
-    
-    
-    
-    <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst27">
+        </div><div class="pl-3 pt-2 noselect selectable bordered-box" id="cst27">
         Constant
-        <span class="showvarname"></span>
+        <span class="showvarname">@iter</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="cst27$VAR" placeholder="Variable Name">
@@ -2334,7 +2308,7 @@ let jsonexp = {
     
     <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec28">
         Vector
-        <span class="showvarname"></span>
+        <span class="showvarname">@data_disp</span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
             <input type="text" name="Variable" id="vec28$VAR" placeholder="Variable Name">
@@ -2345,7 +2319,7 @@ let jsonexp = {
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
             <br>
-            <div class="vecinps"></div>
+            <div class="vecinps"><input type="text" id="1"><input type="text" id="2"></div>
             <button id="vec28$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
@@ -2382,7 +2356,7 @@ let jsonexp = {
     
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva40">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@iter</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2397,7 +2371,7 @@ let jsonexp = {
     
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva41">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@lambda</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2412,7 +2386,7 @@ let jsonexp = {
     
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva42">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@pl</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2427,7 +2401,7 @@ let jsonexp = {
     
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva43">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@sum</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2442,7 +2416,7 @@ let jsonexp = {
     
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva44">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@delpla</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2473,9 +2447,9 @@ let jsonexp = {
                 <button id="for45$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
             </div>
     
-            <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva50">
+            <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva50" draggable="false">
                 Evaluate
-                <span class="showvarname"></span>
+                <span class="showvarname">@den</span>
                 <div class="details pb-2" style="display: none;">
     
                     <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2490,7 +2464,7 @@ let jsonexp = {
     
             <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva51">
                 Evaluate
-                <span class="showvarname"></span>
+                <span class="showvarname">@p[i]</span>
                 <div class="details pb-2" style="display: none;">
     
                     <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2505,7 +2479,7 @@ let jsonexp = {
     
             <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva52">
                 Evaluate
-                <span class="showvarname"></span>
+                <span class="showvarname">@pl</span>
                 <div class="details pb-2" style="display: none;">
     
                     <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2520,7 +2494,7 @@ let jsonexp = {
     
             <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva53">
                 Evaluate
-                <span class="showvarname"></span>
+                <span class="showvarname">@sum</span>
                 <div class="details pb-2" style="display: none;">
     
                     <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2536,7 +2510,7 @@ let jsonexp = {
     
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva46">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@delp</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2569,7 +2543,7 @@ let jsonexp = {
     
             <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva54">
                 Evaluate
-                <span class="showvarname"></span>
+                <span class="showvarname">@den</span>
                 <div class="details pb-2" style="display: none;">
     
                     <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2584,8 +2558,8 @@ let jsonexp = {
     
             <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva55">
                 Evaluate
-                <span class="showvarname"></span>
-                <div class="details pb-2">
+                <span class="showvarname">@delpla</span>
+                <div class="details pb-2" style="display: none;">
     
                     <label class="visually-hidden" for="VAR">Enter the variable name</label>
                     <input type="text" name="Variable" id="eva55$VAR" placeholder="Variable Name">
@@ -2600,7 +2574,7 @@ let jsonexp = {
     
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva48">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@dellambda </span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2615,7 +2589,7 @@ let jsonexp = {
     
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva49">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@data_disp</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2648,7 +2622,7 @@ let jsonexp = {
         </div>
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva34">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@den</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2660,9 +2634,12 @@ let jsonexp = {
                 <button id="eva34$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
             </div>
         </div>
-        <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva35">
+        
+    </div>
+    
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva35" draggable="false">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@l</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2673,10 +2650,7 @@ let jsonexp = {
                 <br>
                 <button id="eva35$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
             </div>
-        </div>
-    </div>
-    
-    <div class="pl-3 pt-2 noselect selectable bordered-box" id="for31" draggable="false">
+        </div><div class="pl-3 pt-2 noselect selectable bordered-box" id="for31" draggable="false">
         For
         <span class="showvarname"></span>
         <div class="details pb-2" style="display: none;">
@@ -2695,7 +2669,7 @@ let jsonexp = {
         </div>
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva36">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@totgencost</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2709,7 +2683,7 @@ let jsonexp = {
         </div>
         <div class="pl-3 pt-2 noselect selectable bordered-box" id="eva37">
             Evaluate
-            <span class="showvarname"></span>
+            <span class="showvarname">@ifc[i]</span>
             <div class="details pb-2" style="display: none;">
     
                 <label class="visually-hidden" for="VAR">Enter the variable name</label>
@@ -2721,44 +2695,57 @@ let jsonexp = {
                 <button id="eva37$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
             </div>
         </div>
-    </div>
     
-    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec32">
+    
+</div>
+    
+    
+    
+    
+    
+    
+
+    
+
+    
+
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec7" draggable="false">
         Vector
         <span class="showvarname"></span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="vec32$VAR" placeholder="Variable Name">
+            <input type="text" name="Variable" id="vec7$VAR" placeholder="Variable Name">
             <br>
             <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
-            <input type="text" name="" id="vec32$VAL" placeholder="Number of elements">
+            <input type="text" name="" id="vec7$VAL" placeholder="Number of elements">
             <br>
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
             <br>
-            <div class="vecinps"></div>
-            <button id="vec32$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <div class="vecinps"><input type="text" id="1"><input type="text" id="2"></div>
+            <button id="vec7$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
-    
-    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec33">
+
+    <div class="pl-3 pt-2 noselect selectable bordered-box" id="vec8">
         Vector
         <span class="showvarname"></span>
         <div class="details pb-2" style="display: none;">
             <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="vec33$VAR" placeholder="Variable Name">
+            <input type="text" name="Variable" id="vec8$VAR" placeholder="Variable Name">
             <br>
             <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
-            <input type="text" name="" id="vec33$VAL" placeholder="Number of elements">
+            <input type="text" name="" id="vec8$VAL" placeholder="Number of elements">
             <br>
             <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button>
             <br>
-            <div class="vecinps"></div>
-            <button id="vec33$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+            <div class="vecinps"><input type="text" id="1"><input type="text" id="2"></div>
+            <button id="vec8$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
         </div>
     </div>
-    `
+</div>
+   `
 }
 const prebuilt_code = jsonexp[3];
 
@@ -2831,7 +2818,7 @@ function drop_handler(ev) {
         if (ev.target.classList.contains("highlight")) {
             return;
         }
-        if (["For", "While", "If", "Else", "Else If","Test Input Block"].includes(ev.target.firstChild.textContent.trim())) {
+        if (["For", "While", "If", "Else", "Else If", "Test Input Block"].includes(ev.target.firstChild.textContent.trim())) {
             if (!ev.target.classList.contains("highlight")) {
                 ev.target.appendChild(prevSelection[0]);
             }
@@ -2884,14 +2871,14 @@ function drop_handler(ev) {
             document.getElementById("interface").lastElementChild.id = clone.id;
             // console.log(document.getElementById("interface").lastElementChild);
             let details = document.getElementById("interface").lastElementChild;
-            let childs=[];
+            let childs = [];
             if (!["Break", "Continue"].includes(details.textContent.trim()))
                 details = details.getElementsByClassName("details")[0];
-                childs = details.getElementsByTagName("input");
-                childs = Array.from(childs);
-                childs = childs.concat(Array.from(details.getElementsByTagName("button")));
-                childs = childs.concat(Array.from(details.getElementsByTagName("select")));
-                console.log(childs);
+            childs = details.getElementsByTagName("input");
+            childs = Array.from(childs);
+            childs = childs.concat(Array.from(details.getElementsByTagName("button")));
+            childs = childs.concat(Array.from(details.getElementsByTagName("select")));
+            console.log(childs);
             for (let index = 0; index < childs.length; index++) {
                 // const element = array[index];
                 if (childs[index].id) {
@@ -3570,13 +3557,13 @@ var matmath = (block) => {
 }
 
 var outputBlock = (block) => {
-    let variable,message1;
+    let variable, message1;
     variable = document.getElementById(block.id + "$" + "VAR").value;
     message1 = document.getElementById(block.id + "$" + "VAL").value;
     if (!variable)
         variable = "\n";
-        
-    
+
+
     // msg.innerHTML = message + `${variable}`;
     // document.getElementById("OUTPUT-CONSOLE").appendChild(msg);
     // return 'console.log("outputted successfully ")';
