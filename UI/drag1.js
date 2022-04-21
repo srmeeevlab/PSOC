@@ -8,9 +8,9 @@ node.classList.add("pl-3", "py-3");
 
 const Test_Output_Block = document.createElement("div")
 
-const msg = document.createElement("div")
-msg.style.borderBottom = "1px solid black"
-msg.style.height = "25px"
+// const msg = document.createElement("div")
+// msg.style.borderBottom = "1px solid black"
+// msg.style.height = "25px"
 
 max_level = 30;
 let count1 = 0;
@@ -3570,15 +3570,23 @@ var matmath = (block) => {
 }
 
 var outputBlock = (block) => {
-    let output;
-    output = document.getElementById(block.id + "$" + "VAL").value;
-    if (!output)
-        output = "\n";
+    let variable,message1;
+    variable = document.getElementById(block.id + "$" + "VAR").value;
+    message1 = document.getElementById(block.id + "$" + "VAL").value;
+    if (!variable)
+        variable = "\n";
         
-
-    msg.innerHTML = output;
+    
+    // msg.innerHTML = message + `${variable}`;
+    // document.getElementById("OUTPUT-CONSOLE").appendChild(msg);
+    // return 'console.log("outputted successfully ")';
+    return `
+    msg.innerHTML = " ${message1}" +eval( ${variable});
     document.getElementById("OUTPUT-CONSOLE").appendChild(msg);
-    return 'console.log("outputted successfully ")';
+    console.log("outputted successfully ");
+    
+    
+    `
 }
 
 var matrixBlock = (block) => {
@@ -3943,7 +3951,7 @@ function subRoutine(mainblock) {
                 // code = matevalBlock(element);
                 code = matmath(element);
                 break;
-            case "Output Block":
+            case "Print Block":
                 console.log("running output block");
                 code = outputBlock(element);
                 break;
@@ -4076,7 +4084,11 @@ function RUN(mainblock) {
 function compile(mainblock) {
     // window.maincode.concat("2");
 
-    let maincode = "";
+    let maincode = `
+    const msg = document.createElement("div")
+    msg.style.borderBottom = "1px solid black"
+    msg.style.height = "25px";
+    `;
     let blocksofcode = mainblock.children;
 
     // return blocksofcode;
@@ -4140,7 +4152,7 @@ function compile(mainblock) {
                 // code = matevalBlock(element);
                 code = matmath(element);
                 break;
-            case "Output Block":
+            case "Print Block":
                 console.log("running output block");
                 code = outputBlock(element);
                 break;
