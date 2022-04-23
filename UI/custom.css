@@ -32,6 +32,7 @@ nav {
 }
 #properties button {
   margin-top: 0.5rem;
+  width: fit-content;
 }
 .list-group-item {
   background-color: #fffbe9;
@@ -117,8 +118,8 @@ nav {
   background-color: white;
   /* border-radius: 0.5rem; */
   margin-top: 1rem;
-  min-height: 200px;
-  min-width: 150px;
+  min-height: 15rem;
+  min-width: 10rem;
   max-height: 300px;
   overflow: scroll;
 }

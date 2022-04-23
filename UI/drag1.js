@@ -2814,7 +2814,9 @@ function drop_handler(ev) {
 
     if (prevSelection.length > 0) {
         prevSelection[0].draggable = false;
-        document.getElementById("dragbut").innerHTML = "drag";
+        // document.getElementById("dragbut").innerHTML = "drag";
+        document.getElementById("dragbut").style.backgroundColor = "transparent";
+        document.getElementById("dragbut").style.color="black";
         if (ev.target.classList.contains("highlight")) {
             return;
         }
@@ -2898,7 +2900,9 @@ function drop_handler(ev) {
 
 
 function dragbu(event) {
-    document.getElementById("dragbut").innerHTML = "dragstarted";
+    // document.getElementById("dragbut").innerHTML = "dragstarted";
+    document.getElementById("dragbut").style.backgroundColor="black";
+    document.getElementById("dragbut").style.color="white";
     let target = prevSelection[0];
     target.draggable = true;
     target.setAttribute("ondrag", `drag_handler(event)`);
@@ -3091,7 +3095,11 @@ addEventListener("click", (event) => {
             if (prevSelection.length == 1 && !event.ctrlKey && !event.shiftKey) {
                 if (target.classList.contains("highlight")) {
                     prevSelection[0].draggable = false;
-                    document.getElementById("dragbut").innerHTML = "drag";
+                    // document.getElementById("dragbut").innerHTML = "drag";
+                    document.getElementById("dragbut").style.backgroundColor="transparent";
+                    document.getElementById("dragbut").style.color="black";
+
+
                     prevSelection.pop().classList.remove("highlight");
 
                 } else {

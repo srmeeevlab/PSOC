@@ -133,6 +133,21 @@
                                     <li id="mat-abs" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         ABS
                                     </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed noselect" href="#MAT-OP" aria-controls="con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="MAT-OP">
+                                Matrix Operations
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="MAT-OP">
+                                <ul class="list-group">
                                     <li id="mat-rcm" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Row Combine
                                     </li>
@@ -149,20 +164,21 @@
                             </div>
                         </div>
                     </div>
+
                     <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed noselect" href="#io" aria-controls="con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="io">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed noselect" href="#io" aria-controls="con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="io">
                                 input/output
                             </button>
                         </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
                             <div class="accordion-body" id="io">
                                 <ul class="list-group">
                                     <li id="io-tib" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Test Input Block
                                     </li>
                                     <li id="io-opb" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Output Block
+                                        Print Block
                                     </li>
                                     <li id="io-dob" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         Debug Output Block
@@ -171,9 +187,8 @@
                             </div>
                         </div>
                     </div>
-                    <div id="OUTPUT-CONSOLE">
 
-                    </div>
+                    
                 </div>
 
             </div>
@@ -189,25 +204,26 @@
 
             </div>
             <div id="properties" class="col-2">
-                <div class="pt-4 fixed-bottom sticky-md-top d-flex flex-md-column">
-                    <button type="button" id="view-question" class="btn btn-custom-outline-brown" onclick="">View
+                <div class="pt-4">
+                    <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
                         Question Statement</button>
-                    <button type="button" id="prebuilt" class="btn btn-custom-outline-brown" onclick="prebuilt()">PreBuilt</button>
-                    <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" onclick="up()"><i
-                            class="bi bi-caret-up-fill"></i> Up</button>
-                    <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" onclick="down()"><i
-                            class="bi bi-caret-down-fill"></i> Down</button>
-                    <button type="button" id="setbut" disabled class="btn btn-custom-outline-brown" onclick="showprops()"><i class="bi bi-pencil-fill"></i> Edit</button>
-                    <button type="button" id="delbut" disabled class="btn btn-custom-outline-brown" onclick="delel()"><i
-                            class="bi bi-trash-fill"></i> Delete</button>
-                    <button type="button" id="delallbut" disabled class="btn btn-custom-outline-brown" onclick="delallel()">
-                        <i class="bi bi-recycle"></i> Delete All</button>
-                    <button type="button" id="dragbut" disabled class="btn btn-custom-outline-brown" onclick="dragbu()">Drag</button>
-                    <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown" onclick="stepout()"><i class="bi bi-arrow-90deg-down"></i> StepOut</button>
-                    <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" onclick="stepin()"><i
-                            class="bi bi-arrow-return-right"></i> StepIn</button>
-                    <button type="button" id="run" class="btn btn-custom-outline-brown" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> Run</button>
+                    <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button>
+                    <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" title="move up" data-bs-toggle="tooltip" data-bs-placement="top" onclick="up()"><i
+                            class="bi bi-caret-up-fill"></i> </button>
+                    <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" title="move down" data-bs-toggle="tooltip" data-bs-placement="top" onclick="down()"><i
+                            class="bi bi-caret-down-fill"></i> </button>
+                    <button type="button" id="setbut" disabled class="btn btn-custom-outline-brown" title="Show Properties" data-bs-toggle="tooltip" data-bs-placement="top" onclick="showprops()"><i class="bi bi-pencil-fill"></i> </button>
+                    <button type="button" id="delbut" disabled class="btn btn-custom-outline-brown" title="Delete" data-bs-toggle="tooltip" data-bs-placement="top" onclick="delel()"><i
+                            class="bi bi-trash-fill"></i> </button>
+                    <button type="button" id="delallbut" disabled class="btn btn-custom-outline-brown" title="Delete All" data-bs-toggle="tooltip" data-bs-placement="top" onclick="delallel()">
+                        <i class="bi bi-recycle"></i> </button>
+                    <button type="button" id="dragbut" disabled class="btn btn-custom-outline-brown" title="DRAG" data-bs-toggle="tooltip" data-bs-placement="top" onclick="dragbu()"><i class="bi bi-arrows-move"></i></button>
+                    <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown" title="Step IN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepout()"><i class="bi bi-arrow-90deg-down"></i> </button>
+                    <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" title="Step Out" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepin()"><i
+                            class="bi bi-arrow-return-right"></i> </button>
+                    <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> </button>
                 </div>
+                <div id="OUTPUT-CONSOLE"></div>
             </div>
         </div>
     </div>
