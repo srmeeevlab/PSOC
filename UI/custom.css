@@ -119,9 +119,11 @@ nav {
   /* border-radius: 0.5rem; */
   margin-top: 1rem;
   min-height: 15rem;
-  min-width: 10rem;
-  max-height: 300px;
-  overflow: scroll;
+  /* width: 10rem; */
+  max-width: 12rem;
+  /* max-height: 300px; */
+  /* overflow-y: scroll; */
+  /* overflow-x: auto; */
 }
 .details {
   display: none;
