@@ -22,7 +22,7 @@ let ifshiftpressed = false;
 
 
 let prebuilt_code = '';
-fetch("./donejson.json").then(response => {
+fetch("../donejson.json").then(response => {
     return response.json();
 })
     .then(data => {

@@ -5,6 +5,11 @@ function Simulate() {
     //Exp no.6: economic dispatch problem(without limits and with loss)
     //pd = input ('Total Load Requirement (in MW) \n'); % Total Demand
     let pd = document.getElementById("pd").value
+    if(!pd || isNaN(pd)){
+        alert("pd value given is incorrect. setting to 1")
+        document.getElementById("pd").value = 1
+        pd = 1
+    }
     pd = eval(pd)
     console.log("pd",pd,typeof pd)
 
@@ -13,11 +18,21 @@ function Simulate() {
     let costdata1 =[]
     let costdtarr = document.getElementById("costdata").getElementsByClassName("matinps")[0].getElementsByTagName("input");
     Array.from(costdtarr).forEach(element => {
+        if(!element.value || isNaN(element.value)){
+            alert("matrix element value given is incorrect. setting to 1")
+            element.value = 1
+        }
         costdata1.push(eval(element.value))
     });
 
     let columns = document.getElementById("costdatacol").value
+    if(!columns || isNaN(columns)){
+        alert("columns value given is incorrect. setting to 1 and proceeding")
+        document.getElementById("costdatacol").value = 1
+        columns = 1
+    }
     columns = eval(columns)
+
     let costdata = [];
 
     while (costdata1.length) costdata.push(costdata1.splice(0, columns));
@@ -27,6 +42,10 @@ function Simulate() {
     let lossdata = []
     let lossdt = document.getElementById("lossdata").getElementsByClassName("vecinps")[0].getElementsByTagName("input")
     Array.from(lossdt).forEach(element => {
+        if(!element.value || isNaN(element.value)){
+            alert("Vector element value given is incorrect. setting to 1 and proceeding")
+            element.value = 1
+        }
         lossdata.push(eval(element.value))
     });
 
@@ -53,7 +72,21 @@ function Simulate() {
     let lambda = document.getElementById("lambda").value
     let delp = document.getElementById("delp").value // power mismatch 0.1 MW allowed PG=PD+PL
     let dellambda = document.getElementById("dellambda").value // Del lambda =0
-
+    if(!lambda || isNaN(lambda)){
+        alert("lambda value given is incorrect. setting to 1")
+        document.getElementById("lambda").value = 1
+        lambda = 1
+    }
+    if(!delp || isNaN(delp)){
+        alert("delp value given is incorrect. setting to 1")
+        document.getElementById("delp").value = 1
+        delp = 1
+    }
+    if(!dellambda || isNaN(dellambda)){
+        alert("dellambda value given is incorrect. setting to 0")
+        document.getElementById("dellambda").value = 0
+        dellambda = 0
+    }
     lambda = eval(lambda)
     delp = eval(delp)
     dellambda = eval(dellambda)
@@ -109,6 +142,7 @@ function Simulate() {
     console.log(ifc_pf)
     console.log('\nTotal Generation Cost = INR %6.2f per hour\n', totgencost)
     let outputs = document.getElementById("OUTPUT")
+    outputs.innerHTML = ""
     outputs.style.border = "0.25rem solid black"
     let heading = document.createElement("div")
     heading.innerHTML = "Results:"

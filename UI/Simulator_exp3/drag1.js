@@ -22,7 +22,7 @@ let ifshiftpressed = false;
 
 
 let prebuilt_code = '';
-fetch("./donejson.json").then(response => {
+fetch("../donejson.json").then(response => {
     return response.json();
 })
     .then(data => {
@@ -1522,7 +1522,10 @@ function compile(mainblock) {
     // console.log(maincode);
     return maincode;
 }
-
+function degrees_to_radians(degrees) {
+    var pi = Math.PI;
+    return degrees * (pi / 180);
+}
 
 var Sin = (num) => { return Math.sin(num); }
 var Cos = (num) => { return Math.cos(num); }
@@ -1530,6 +1533,7 @@ var Tan = (num) => { return Math.tan(num); }
 var Sinh = (num) => { return Math.sinh(num); }
 var Cosh = (num) => { return Math.cosh(num); }
 var Tanh = (num) => { return Math.tanh(num); }
+var Sqrt = (num) => { return Math.sqrt(num); }
 var Sind = (num) => { return Math.sin(degrees_to_radians(num)); }
 var Cosd = (num) => { return Math.cos(degrees_to_radians(num)); }
 var Tand = (num) => { return Math.tan(degrees_to_radians(num)); }
@@ -1555,8 +1559,8 @@ function prebuilt() {
     let interface = document.getElementById("interface");
     if (!prebuilton) {
         interface.innerHTML = "";
-        interface.innerHTML = prebuilt_code[1];
-        console.log("prebuilt clicked", prebuilt_code[1])
+        interface.innerHTML = prebuilt_code[3];
+        console.log("prebuilt clicked", prebuilt_code[3])
         prebuilton = true;
         document.getElementById("prebuilt").innerHTML = " RevertBack"
     } else {
