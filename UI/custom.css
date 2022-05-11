@@ -157,3 +157,13 @@ footer {
   -ms-user-select: none; /* Internet Explorer/Edge */
   user-select: none; /* Non-prefixed version, currently  supported by Chrome, Edge, Opera and Firefox */
 }
+
+#help{
+  text-decoration: none; color:black;
+}
+
+
+#help:hover{
+  color: white !important;
+  transition: all 0.2s;
+}
