@@ -4,9 +4,29 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="default.css">
     <title>Under Construction</title>
 </head>
 <body>
-    
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="srm-logo-white.png" alt="SRM Logo"></a>
+        </div>
+    </nav>
+    <div class="d-flex align-items-center" style="height: 100vh;">
+        <h1 class="text-center w-100 display-5 fw-bold">
+            This LAB is Currently Under Construction
+        </div>
+    </div>
+    <footer class="p-3">
+        Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
+        <script>
+            document.getElementById("year").innerText = new Date().getFullYear();
+        </script>
+    </footer>
 </body>
-</html>l
+</html>
