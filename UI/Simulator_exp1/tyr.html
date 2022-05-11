@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <meta charset="UTF-8">
+    <title>Experiment</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
+
+</head>
+
+<body>
+    <!-- 
+        <div style="height:1rem;border:1px solid green">
+        </div>
+
+     -->
+
+    <nav class="navbar navbar-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="srm-logo-white.png" alt="SRM Logo"></a>
+            <span id="exp-title">Experiment Title</span>
+            <span id="navbar-settings">
+                <span id="score-word">SCORE: </span><span id="score">100</span>
+            <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span>
+            </span>
+        </div>
+        <div id="INPUT-BLOCK">
+            <h5>INPUT</h5>
+            <span>            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, in quae animi, sed harum molestias consequatur doloribus autem architecto, dolor perspiciatis vitae atque laudantium sint placeat voluptatibus at ab odit.
+            </span>
+        </div>
+    </nav>
+    <div class="container-fluid h-100">
+        <div class="row">
+            <!-- start of accordian       -->
+
+            <div id="pallete" class="col-4 col-md-2">
+                <div class="accordion pt-4 sticky-top" id="accordionExample" style="min-height:100vh;">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingOne">
+                            <button class="accordion-button collapsed noselect" href="#var" type="button" aria-controls="var" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false">
+                                Variables
+                            </button>
+                        </h2>
+                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="var">
+                                <ul class="list-group">
+                                    <li id="var-boolean" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Boolean
+                                    </li>
+                                    <li id="var-cst" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Constant
+                                    </li>
+
+                                    <li id="var-matrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Matrix
+                                    </li>
+                                    <li id="var-imatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Identity Matrix
+                                    </li>
+                                    <li id="var-umatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Unity Matrix
+                                    </li>
+                                    <li id="var-zmatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Zero Matrix
+                                    </li>
+                                    <li id="var-vector" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Vector
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingTwo">
+                            <button class="accordion-button collapsed noselect" aria-controls="con-loop" href="#con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">
+                                Conditionals and Loops
+                            </button>
+                        </h2>
+                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="con-loop">
+                                <ul class="list-group">
+                                    <li id="con-if" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        If
+                                    </li>
+                                    <li id="con-elif" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Else If
+                                    </li>
+                                    <li id="con-else" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Else
+                                    </li>
+                                    <li id="lop-for" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        For
+                                    </li>
+                                    <li id="lop-while" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        While
+                                    </li>
+                                    <li id="con-break" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Break
+                                    </li>
+                                    <li id="con-continue" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Continue
+                                    </li>
+                                </ul>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingThree">
+                            <button class="accordion-button collapsed noselect" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                Math
+                            </button>
+                        </h2>
+                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+                            <div class="accordion-body">
+                                <ul class="list-group">
+                                    <li id="mat-eva" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Evaluate
+                                    </li>
+                                    <li id="mat-mev" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Matrix Evaluate
+                                    </li>
+                                    <li id="mat-transpose" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Transpose
+                                    </li>
+                                    <li id="mat-abs" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        ABS
+                                    </li>
+                                    
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFour">
+                            <button class="accordion-button collapsed noselect" href="#MAT-OP" aria-controls="con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="MAT-OP">
+                                Matrix Operations
+                            </button>
+                        </h2>
+                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="MAT-OP">
+                                <ul class="list-group">
+                                    <li id="mat-rcm" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Row Combine
+                                    </li>
+                                    <li id="mat-ccm" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Column Combine
+                                    </li>
+                                    <li id="mat-ewm" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Element Wise Multiply
+                                    </li>
+                                    <li id="mat-ewd" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Element Wise Divide
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="headingFive">
+                            <button class="accordion-button collapsed noselect" href="#io" aria-controls="con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="io">
+                                input/output
+                            </button>
+                        </h2>
+                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
+                            <div class="accordion-body" id="io">
+                                <ul class="list-group">
+                                    <li id="io-tib" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Test Input Block
+                                    </li>
+                                    <li id="io-opb" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Print Block
+                                    </li>
+                                    <li id="io-dob" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
+                                        Debug Output Block
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    
+                </div>
+
+            </div>
+
+            <!-- end of accordcian-->
+
+            <div id="interface" class="col-8 col-md-8" ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
+                <!-- <div class="alert alert-dark" role="role" ondragover="false" ondragenter="false" ondragleave="false">                </div> -->
+
+                <div id="drop-box">
+                    <span>you can drop the blocks here</span>
+                </div>
+
+            </div>
+            <div id="properties" class="col-2">
+                <div class="pt-4">
+                    <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
+                        Question Statement</button>
+                    <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button>
+                    <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./simulator-exp1.html" style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button>
+                    <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" title="move up" data-bs-toggle="tooltip" data-bs-placement="top" onclick="up()"><i
+                            class="bi bi-caret-up-fill"></i> </button>
+                    <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" title="move down" data-bs-toggle="tooltip" data-bs-placement="top" onclick="down()"><i
+                            class="bi bi-caret-down-fill"></i> </button>
+                    <button type="button" id="setbut" disabled class="btn btn-custom-outline-brown" title="Show Properties" data-bs-toggle="tooltip" data-bs-placement="top" onclick="showprops()"><i class="bi bi-pencil-fill"></i> </button>
+                    <button type="button" id="delbut" disabled class="btn btn-custom-outline-brown" title="Delete" data-bs-toggle="tooltip" data-bs-placement="top" onclick="delel()"><i
+                            class="bi bi-trash-fill"></i> </button>
+                    <button type="button" id="delallbut" disabled class="btn btn-custom-outline-brown" title="Delete All" data-bs-toggle="tooltip" data-bs-placement="top" onclick="delallel()">
+                        <i class="bi bi-recycle"></i> </button>
+                    <button type="button" id="dragbut" disabled class="btn btn-custom-outline-brown" title="DRAG" data-bs-toggle="tooltip" data-bs-placement="top" onclick="dragbu()"><i class="bi bi-arrows-move"></i></button>
+                    <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown" title="Step IN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepout()"><i class="bi bi-arrow-90deg-down"></i> </button>
+                    <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" title="Step Out" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepin()"><i
+                            class="bi bi-arrow-return-right"></i> </button>
+                    <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> </button>
+                </div>
+                <div id="OUTPUT-CONSOLE"></div>
+            </div>
+        </div>
+    </div>
+    <div id="TEST-OUTPUT">
+        <h5>OUTPUT</h5>
+        <span>        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis nemo non accusantium vero magnam velit suscipit nesciunt laudantium qui, ex mollitia? Facilis alias consequuntur eligendi recusandae. Illo iusto sapiente quo!       </span>
+    </div>
+    <footer class="p-3">
+        Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
+        <script>
+            document.getElementById("year").innerText = new Date().getFullYear();
+        </script>
+    </footer>
+    <!-- <script src="../programming-interface/main.js"></script> -->
+    <script src="./drag1.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js" integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</body>
+<template id="boo">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Boolean
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
+            <select name="" id="VAL">
+                <option value="true">True</option>
+                <option value="false">False</option>
+            </select>
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="cst">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Constant
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the value</label>
+            <input type="text" name="" id="VAL" placeholder="Value">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="mat">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Matrix
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="ROW">Enter the number of rows of the matrix</label>
+            <input type="text" name="" onchange="matinput(prevSelection[0])" id="ROW" placeholder="Number of Rows">
+            <br>
+            <label class="visually-hidden" for="COL">Enter the number of Column of the matrix</label>
+            <input type="text" name="" onchange="matinput(prevSelection[0])" id="COL" placeholder="Number of Columns">
+            <br>
+            <!-- <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate -->
+                <!-- Table</button> -->
+            <br>
+            <div class="matinps"></div>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="ima">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Identity Matrix
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="ROW">Enter the number of rows</label>
+            <input type="text" name="" id="ROW" placeholder="Number of Rows">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+
+
+    </div>
+</template>
+<template id="uma">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Unity Matrix
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="ROW"> Enter the number of rows </label>
+            <input type="text" name="" id="ROW" placeholder="Number of Rows">
+            <br>
+            <label class="visually-hidden" for="COL"> enter the number of Columns </label>
+            <input type="text" name="" id="COL" placeholder="Number of Columns">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="zma">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Zeros Matrix
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="ROW">Enter the number of rows</label>
+            <input type="text" name="" id="ROW" placeholder="Number of Rows">
+            <br>
+            <label class="visually-hidden" for="COL">enter the number of Columns</label>
+            <input type="text" name="" id="COL" placeholder="Number of Columns">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="vec">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Vector
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+            <input type="text" name=""  onchange="vecinput(prevSelection[0])" id="VAL" placeholder="Number of elements">
+            <br>
+            <!-- <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button> -->
+            <br>
+            <div class="vecinps"></div>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="if">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        If
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="OP1">Enter the Operand 1</label>
+            <input type="text" name="" id="OP1" placeholder="Operand One">
+            <br>
+            <label class="visually-hidden" for="OP">Enter the operator</label>
+            <select name="" id="OP">
+                <option title="Greater Than" value=">">></option>
+                <option title="Lesser Than" value="<">
+                    < </option>
+                <option title="Equals" value="==">=</option>
+                <option title="Greater Than or Equal to" value=">=">≥</option>
+                <option title="Lesser Than or Equal to" value="<=">≤</option>
+                <option title="Not Equals" value="!=">≠</option>
+            </select>
+            <br>
+
+            <label class="visually-hidden" for="OP2">Enter the Operand 2</label>
+            <input type="text" name="" id="OP2" placeholder="Operand Two">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="eli">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Else If
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="OP1"> Enter the Operand 1 </label>
+            <input type="text" name="" id="OP1" placeholder="Operand One">
+            <br>
+            <label class="visually-hidden" for="OP"> enter the operator</label>
+            <select name="" id="OP">
+                <option title="Greater Than" value=">">></option>
+                <option title="Lesser Than" value="<">
+                    < </option>
+                <option title="Equals" value="=">=</option>
+                <option title="Greater Than or Equal to" value=">=">≥</option>
+                <option title="Lesser Than or Equal to" value="<=">≤</option>
+                <option title="Not Equals" value="!=">≠</option>
+            </select>
+            <br>
+            <label class="visually-hidden" for="OP2"> enter the Operand 2</label>
+            <input type="text" name="" id="OP2" placeholder="Operand Two">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="els">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Else
+    </div>
+</template>
+<template id="for">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        For
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="START"> Enter the start value of Counter </label>
+            <input type="text" name="" id="START" placeholder="Start">
+            <br>
+            <label class="visually-hidden" for="END"> Enter the end value of counter </label>
+            <input type="text" name="" id="END" placeholder="End">
+            <br>
+            <label class="visually-hidden" for="STEP"> Enter the step value of counter</label>
+            <input type="text" name="" value="" id="STEP" placeholder="Step (Default 1)">
+            <br>
+
+
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="whi">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        While
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="OP1"> Enter the Operand 1</label>
+            <input type="text" name="" id="OP1" placeholder="Operand One">
+            <br>
+
+            <label class="visually-hidden" for="OP"> enter the operator </label>
+            <select name="" id="OP">
+                <option title="Greater Than" value=">">></option>
+                <option title="Lesser Than" value="<">
+                    < </option>
+                <option title="Equals" value="==">=</option>
+                <option title="Greater Than or Equal to" value=">=">≥</option>
+                <option title="Lesser Than or Equal to" value="<=">≤</option>
+                <option title="Not Equals" value="!=">≠</option>
+            </select>
+            <br>
+
+            <label class="visually-hidden" for="OP2"> enter the Operand 2 </label>
+            <input type="text" name="" id="OP2" placeholder="Operand Two">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="bre">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Break
+    </div>
+</template>
+<template id="con">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Continue
+    </div>
+</template>
+<template id="eva">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Evaluate
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
+            <br>
+            <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
+            <input type="text" name="" id="EVALUATE" placeholder="Evaluate/Math Operations">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="mev">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Matrix Evaluate
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder=" Variable Name">
+            <br>
+            <label class="visually-hidden" for="OP1"></label>
+            <input type="text" name="" id="OP1" placeholder="Operand One">
+            <label class="visually-hidden" for=""></label>
+            <select name="" id="OP">
+                <option title="Sum" value="+">+</option>
+                <option title="Subtract" value="-">-</option>
+                <option title="Multiply" value="*">*</option>
+                <option title="Divide" value="/">/</option>
+                <option title="Modulus (Remainder)" value="%">%</option>
+            </select>
+            <label class="visually-hidden" for="OP2"></label>
+            <input type="text" name="Variable" id="OP2" placeholder="Operand Two">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="tra">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Transpose
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <br>
+            <label class="visually-hidden" for="MAT">Enter the matrix name</label>
+            <input type="text" name="" id="MAT" placeholder="Matrix Variable Name">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="abs">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Absolute
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <br>
+            <label class="visually-hidden" for="VAL"> enter the value </label>
+            <input type="text" name="" id="VAL" placeholder="Evaluate for Absolute Operations">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<template id="rcm">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Row Combine
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <br>
+            <label class="visually-hidden" for="M1">Enter the matrix/vector 1</label>
+            <input type="text" name="" id="M1" placeholder="m1">
+            <br>
+            <label class="visually-hidden" for="M2"> enter the matrix/vector 2</label>
+            <input type="text" name="" id="M2" placeholder="m2">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+
+</template>
+<template id="ccm">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Column Combine
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <br>
+            <label class="visually-hidden" for="M1">Enter the matrix/vector 1</label>
+            <input type="text" name="" id="M1" placeholder="m1">
+            <br>
+            <label class="visually-hidden" for="M2">enter the matrix/vector 2</label>
+            <input type="text" name="" id="M2" placeholder="m2">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+
+</template>
+<template id="ewm">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Element Wise Multiply
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <br>
+            <label class="visually-hidden" for="M1">Enter the matrix 1</label>
+            <input type="text" name="" id="M1" placeholder="m1">
+            <label class="visually-hidden" for="M2">Enter the matrix 2</label>
+            <input type="text" name="" id="M2" placeholder="m2">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+
+</template>
+<template id="ewd">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Element Wise Divide
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAR">Enter the variable name</label>
+            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
+            <br>
+            <label class="visually-hidden" for="M1">Enter the matrix 1</label>
+            <input type="text" name="" id="M1" placeholder="m1">
+            <label class="visually-hidden" for="M2">Enter the matrix 2</label>
+            <input type="text" name="" id="M2" placeholder="m2">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+
+</template>
+
+<template id="tib">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Test Input Block
+    </div>
+</template>
+<template id="opb">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Print Block
+        <span class="showvarname"></span>
+        <div class="details pb-2">
+            <label class="visually-hidden" for="VAL">Enter the value to output</label>
+            <input type="text" name="" id="VAL" placeholder="Enter the message you want to display">
+            <input type="text" name="" id="VAR" placeholder="Value">
+            <br>
+            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
+        </div>
+    </div>
+</template>
+<!-- <template id="dob">
+    <div class="pl-3 pt-2 noselect selectable bordered-box">
+        Debug Output Block
+    </div>
+</template> -->
+
+</html>
