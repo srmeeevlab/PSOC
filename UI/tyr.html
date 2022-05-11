@@ -208,6 +208,7 @@
                     <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
                         Question Statement</button>
                     <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button>
+                    <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./simulator-exp1.html" style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button>
                     <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" title="move up" data-bs-toggle="tooltip" data-bs-placement="top" onclick="up()"><i
                             class="bi bi-caret-up-fill"></i> </button>
                     <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" title="move down" data-bs-toggle="tooltip" data-bs-placement="top" onclick="down()"><i
@@ -285,13 +286,13 @@
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
             <br>
             <label class="visually-hidden" for="ROW">Enter the number of rows of the matrix</label>
-            <input type="text" name="" id="ROW" placeholder="Number of Rows">
+            <input type="text" name="" onchange="matinput(prevSelection[0])" id="ROW" placeholder="Number of Rows">
             <br>
             <label class="visually-hidden" for="COL">Enter the number of Column of the matrix</label>
-            <input type="text" name="" id="COL" placeholder="Number of Columns">
+            <input type="text" name="" onchange="matinput(prevSelection[0])" id="COL" placeholder="Number of Columns">
             <br>
-            <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate
-                Table</button>
+            <!-- <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate -->
+                <!-- Table</button> -->
             <br>
             <div class="matinps"></div>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -360,10 +361,10 @@
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
             <br>
             <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
-            <input type="text" name="" id="VAL" placeholder="Number of elements">
+            <input type="text" name=""  onchange="vecinput(prevSelection[0])" id="VAL" placeholder="Number of elements">
             <br>
-            <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
-                row</button>
+            <!-- <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
+                row</button> -->
             <br>
             <div class="vecinps"></div>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
