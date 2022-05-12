@@ -1,13 +1,13 @@
 function Simulate() {
 
-    let c1 = []
+    let c11 = []
     let costdtarr = document.getElementById("c1").getElementsByClassName("matinps")[0].getElementsByTagName("input");
     Array.from(costdtarr).forEach(element => {
         if (!element.value || isNaN(element.value)) {
             alert("matrix element value given is incorrect. setting to 1")
             element.value = 1
         }
-        c1.push(eval(element.value))
+        c11.push(eval(element.value))
     });
 
     let columns = document.getElementById("costdatacol").value
@@ -17,8 +17,8 @@ function Simulate() {
         columns = 1
     }
     columns = eval(columns)
-
-    while (c1.length) c1.push(c1.splice(0, columns));
+    let c1 = []
+    while (c11.length) c1.push(c11.splice(0, columns));
     console.log("c1", c1, typeof c1)
 
     //Enter the values of B coefficient
@@ -54,7 +54,7 @@ function Simulate() {
     for (let i = 0; i < 3; i++) {
         IX[i] = FLAPC.indexOf(FLAPC[i])
     }
-    PriorityOrder = sort(FLAPC)
+    PriorityOrder = math.sort(FLAPC)
     console.log(FLAPC)
     console.log(IX)
 
@@ -64,7 +64,7 @@ function Simulate() {
         document.getElementById("PD").value = 1
         PD = 1
     }
-    pd = eval(pd)
+    PD = eval(PD)
 
     if (PD <= Pmax[0]) console.log('The committed unit no. is: %d \n', IX[0])
     else if (PD > Pmax[0] && PD < Pmax[0] + Pmax[1])
@@ -94,10 +94,10 @@ function Simulate() {
         ans2.innerHTML = "The committed unit no. is:" + IX[0]
     } else if (PD > Pmax[0] && PD < Pmax[0] + Pmax[1]) {
 
-        ans2.innerHTML = 'The committed unit nos. order are:' + IX[0] + IX[1]
+        ans2.innerHTML = 'The committed unit nos. order are:' + IX[0] + ', ' + IX[1]
     } else if (PD >= math.sum(Pmax)) {
 
-        ans2.innerHTML = "The committed unit nos. order are:" + IX[0] + IX[1] + IX[2]
+        ans2.innerHTML = "The committed unit nos. order are:" + IX[0] + ', ' + IX[1] + ', ' + IX[2]
     }
     ans1.style.marginBottom = "1rem"
     ans2.style.marginBottom = "1rem"
