@@ -27,7 +27,7 @@
             <span id="exp-title">Experiment Title</span>
             <span id="navbar-settings">
                 <span id="score-word">SCORE: </span><span id="score">100</span>
-            <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span>
+            <span id="nav-help" title="Help"><a data-bs-toggle="modal" data-bs-target="#modal1" title="Help" role="button"><i class="bi bi-info-circle-fill"></i></a></span>
             </span>
         </div>
         <div id="INPUT-BLOCK">
@@ -36,6 +36,218 @@
             </span>
         </div>
     </nav>
+    <div>
+        <div class="modal fade" id="modal1" aria-hidden="true" aria-labelledby="modal1Label" tabindex="-1">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal1Label">Interface</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Show a second modal and hide this one with the button below. -->
+                        <h1>Blocks</h1>
+                        <h4>Variables</h4>
+                        <div>
+                            <h5>Boolean</h5>
+                            <p>A boolean variable is defined. It can have the values set to be true or false</p>
+                        </div>
+                        <div>
+                            <h5>Constant</h5>
+                            <p>A constant variable is defined. Any real number can be assigned to the variable defined.</p>
+                        </div>
+                        <div>
+                            <h5>Matrix</h5>
+                            <p>A matrix with assigned variable of given number of rows and columns is created. Values can be assigned in the box which will be opened after clicking the OK button.</p>
+                        </div>
+                        <div>
+                            <h5>Identity Matrix</h5>
+                            <p>A matrix with assigned variable of given number of rows is created.Values can be assigned in the box which will be opened after clicking the OK button.</p>
+                        </div>
+                        <div>
+                            <h5>Unity Matrix</h5>
+                            <p>A unity matrix with assigned variable of given number of rows and columns is created. Values can be assigned in the box which will be opened after clicking the OK button.</p>
+                        </div>
+                        <div>
+                            <h5>Zero Matrix</h5>
+                            <p>A Zero matrix with assigned variable of given number of rows and columns is created. Values can be assigned in the box which will be opened after clicking the OK button.</p>
+                        </div>
+                        <div>
+                            <h5>Vector</h5>
+                            <p>A vector with assigned variable of given number of elements is created. Values can be assigned in the box which will be opened after clicking the OK button.</p>
+                        </div>
+                        <h4>Conditionals and Loops</h4>
+                        <div>
+                            <h5>If</h5>
+                            <p>An if block is defined with the user defined condition. If the condition is true,then the if block will run.</p>
+                        </div>
+                        <div>
+                            <h5>Else if</h5>
+                            <p>An else if block is defined with the user defined condition. If the else if condition is true,then the if block will run. If block is mandatory before an else if block.</p>
+                        </div>
+                        <div>
+                            <h5>Else</h5>
+                            <p>An else if block is define.If the if condition is false,then the else block will run. If block is mandatory before an else block.</p>
+                        </div>
+                        <div>
+                            <h5>For</h5>
+                            <p>A for loop block is created with specified initiliazed value,condition and increment/decrement value. Default value for initialization is 0 and increment/decrement is 1. </p>
+                        </div>
+                        <div>
+                            <h5>While</h5>
+                            <p>A while block is defined with the user defined condition. The while block will run as long as the condition is satisfied.</p>
+                        </div>
+                        <div>
+                            <h5>Break</h5>
+                            <p>Break Statement breaks out of a conditional or a loop</p>
+                        </div>
+                        <div>
+                            <h5>Continue</h5>
+                            <p>A continue statement ends the current iteration of a loop</p>
+                        </div>
+                        <h4>Math</h4>
+                        <div>
+                            <h5>Evaluate</h5>
+                            <p>Evaluate block evaluates the specified variable with the specified math operations and expressions.</p>
+                        </div>
+                        <div>
+                            <h5>Matrix Evaluate</h5>
+                            <p>This block is used to evaluate to matrix elements with the specified operations.</p>
+                        </div>
+                        <div>
+                            <h5>Transpose</h5>
+                            <p>In transpose block, the output variable name is assigned with the transpose values of the given matrix block.</p>
+                        </div>
+                        <div>
+                            <h5>Absolute</h5>
+                            <p>In Absolute block, the output variable name is assigned with the absolute values of the given variables/operations.</p>
+                        </div>
+                        <h4>Matrix Operations</h4>
+                        <div>
+                            <h5>Row combine</h5>
+                            <p>In row combine block, if two matrices with same column dimension and different/same row dimension are given, the output block gets the combined row values. For example, if matrix A has dimensions 2*2 and matrix B has dimension
+                                3*2, the resultant matrix has dimensions 5*2</p>
+                        </div>
+                        <div>
+                            <h5>Column combine</h5>
+                            <p>In column combine block, if two matrices with same row dimension and different/same column dimension are given, the output block gets the combined row values. For example, if matrix A has dimensions 2*2 and matrix B has dimension
+                                2*3, the resultant matrix has dimensions 2*5</p>
+                        </div>
+                        <div>
+                            <h5>Element wise multiply</h5>
+                            <p>In this block, the output matrix gets the value of m1 matrix multiplied with m2 matrix element wise.</p>
+                        </div>
+                        <div>
+                            <h5>Element wise divide</h5>
+                            <p>In this block, the output matrix gets the value of m1 matrix divided with m2 matrix element wise.</p>
+                        </div>
+                        <h4>Input/Output</h4>
+                        <div>
+                            <h5>Test input block</h5>
+                            <p>Test inputs provided are evaluated for the whole logic and answers are evaluated.</p>
+                        </div>
+                        <div>
+                            <h5>Print Block</h5>
+                            <p>Using print block, the output is printed in the output block space. Value is entered for whose the output is to be shown and a message can be entered to get displayed.</p>
+                        </div>
+                        <div>
+                            <h5>Debug output block</h5>
+                            <p>This block can be used for debugging.</p>
+                        </div>
+                        <h1>PreBuiit</h1>
+                        <div>
+                            <h5>PreBuiit</h5>
+                            <p>Used to get the prebuilt logic of the given experiment.</p>
+                        </div>
+                        <h1>Buttons</h1>
+                        <div>
+                            <h5>Up Button</h5>
+                            <p>Used to move a block upwards.</p>
+                        </div>
+                        <div>
+                            <h5>Down Button</h5>
+                            <p>Used to move a block downwards.</p>
+                        </div>
+                        <div>
+                            <h5>Edit Button</h5>
+                            <p>Used to edit a block.</p>
+                        </div>
+                        <div>
+                            <h5>Delete Button</h5>
+                            <p>Used to delete a block.</p>
+                        </div>
+                        <div>
+                            <h5>Delete all</h5>
+                            <p>Used to delete all blocks.</p>
+                        </div>
+                        <div>
+                            <h5>Drag Button</h5>
+                            <p>Used to drag a block</p>
+                        </div>
+                        <div>
+                            <h5>Step in Button</h5>
+                            <p>Used when a block is to be indented inside another block.</p>
+                        </div>
+                        <div>
+                            <h5>Step out Button</h5>
+                            <p>Used when an indented block is to come out of the indentation.</p>
+                        </div>
+                        <div>
+                            <h5>Run Button</h5>
+                            <p>Used to run the logic.</p>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Next</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal2" aria-hidden="true" aria-labelledby="modal2Label" tabindex="-1">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal2Label">Simulation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h2>Procedure:</h2>
+                        <p>In the inputs section,provide the values of pd,lambda,delp and dellambda.</p>
+                        <p>For costdata, provide the number of rows.</p>
+                        <p>The columns are in the order uno,a,b and c.</p>
+                        <p>On clicking the run button, the outputs are displayed.</p>
+                        <p>Values can be changed and the experiment can be simulated again.</p>
+                        <p>Help button can be used to check the functionality of buttons and requirements.</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#modal1" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
+                        <button class="btn btn-primary" data-bs-target="#modal3" data-bs-toggle="modal" data-bs-dismiss="modal">Next</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal3" aria-hidden="true" aria-labelledby="modal3Label" tabindex="-1">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal3Label"></h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <h5>Theory</h5>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <div class="container-fluid h-100">
         <div class="row">
             <!-- start of accordian       -->
