@@ -17,7 +17,7 @@
             <a class="navbar-brand" href="#"><img src="SRM-logo.png" alt="SRM Logo"></a>
             <span id="exp-title">P-V CHARACTERISTICS</span>
             <span id="navbar-settings">
-                <span id="score-word">SCORE: </span><span id="score">100</span>
+                <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
                 <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span>
             </span>
         </div>
@@ -827,15 +827,15 @@
     let questionvoltage = []
     let questioncurrent = []
     let questionpower = []
-    let sign = [1,-1][Math.floor(Math.random()*[1,-1].length)]
+    let sign = [1, -1][Math.floor(Math.random() * [1, -1].length)]
     for (let i = 0; i < voltage_X_axis.length; i++) {
-        questionvoltage.push((voltage_X_axis[i]+sign*(voltage_X_axis[i] * deltapercentage / 100)).toFixed(2))
+        questionvoltage.push((voltage_X_axis[i] + sign * (voltage_X_axis[i] * deltapercentage / 100)).toFixed(2))
     }
     for (let i = 0; i < current_Y_axis.length; i++) {
-        questioncurrent.push((current_Y_axis[i]+ sign*(current_Y_axis[i] * deltapercentage / 100)).toFixed(2))
+        questioncurrent.push((current_Y_axis[i] + sign * (current_Y_axis[i] * deltapercentage / 100)).toFixed(2))
     }
     for (let i = 0; i < power_Y_axis.length; i++) {
-        questionpower.push((power_Y_axis[i] + sign*(power_Y_axis[i] * deltapercentage / 100)).toFixed(2))
+        questionpower.push((power_Y_axis[i] + sign * (power_Y_axis[i] * deltapercentage / 100)).toFixed(2))
     }
 
 
@@ -846,7 +846,7 @@
     const data_VvsI = {
         labels: questionvoltage,
         datasets: [{
-            label: "",
+            label: "V vs I0",
             fill: false,
             data: questioncurrent.filter(nonzero)
         }]
@@ -856,6 +856,10 @@
         data: data_VvsI,
 
         options: {
+            title: {
+                display: true,
+                text: 'Voltage Vs Current - VI characteristics'
+            },
             scales: {
                 xAxes: [{
                     gridLines: {
@@ -884,16 +888,21 @@
 
                     }
                 },
-                y: {
+                y: [{
                     grid: {
                         display: false
+                    },
+                    title: {
+                        display: true,
+                        text: "hello there"
                     }
-                }
+                }]
             },
-            plugins: {
-                title: {
-                    display: true,
-                    text: 'V vs Px',
+            
+            legend: {
+                display: true,
+                labels: {
+                    color: 'rgb(255, 99, 132)'
                 }
             }
         }
@@ -909,7 +918,7 @@
     const data_VvsP = {
         labels: questionvoltage,
         datasets: [{
-            label: "",
+            label: "V vs P0",
             fill: false,
             data: questionpower.filter(nonzero)
         }]
@@ -919,6 +928,10 @@
         type: 'line',
         data: data_VvsP,
         options: {
+            title: {
+                display: true,
+                text: 'Voltage Vs Power -  PV characteristics',
+            },
             scales: {
                 x: {
                     grid: {

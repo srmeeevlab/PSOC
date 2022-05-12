@@ -120,14 +120,18 @@ function Simulate() {
         console.log(P)
         console.log(lambda.toFixed(2));
         // console.log("===========")
-    
+        for (let idx = 0; idx < P.length; idx++) {
+            // const element = P[idx];
+            P[idx] = P[idx].toFixed(2)
+            
+        }
         let ans2 = document.createElement("div")
         let ans1 = document.createElement("div")
         let ans3 = document.createElement("div")
         // let ans4 = document.createElement("div")
         ans1.innerHTML = "k - " + k.toFixed(2) + " unit"
         ans2.innerHTML = 'P- ' + P + ' unit'
-        ans3.innerHTML = 'lambda - ' + lambda + ' unit'
+        ans3.innerHTML = 'lambda - ' + lambda.toFixed(2) + ' unit'
         // ans4.innerHTML = 'Total Generation Cost = INR  ' + totgencost.toFixed(2) + ' per hour'
         ans1.style.marginBottom = "1rem"
         ans2.style.marginBottom = "1rem"

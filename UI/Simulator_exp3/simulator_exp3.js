@@ -154,10 +154,20 @@ function Simulate() {
     let ans1 = document.createElement("div")
     let ans3 = document.createElement("div")
     let ans4 = document.createElement("div")
+    opt_gen = opt_gen.flat()
+    for (let idx = 0; idx < opt_gen.length; idx++) {
+        opt_gen[idx]= opt_gen[idx].toFixed(2);
+        
+    }
+    ifc_pf = ifc_pf.flat()
+    for (let idx = 0; idx < ifc_pf.length; idx++) {
+        ifc_pf[idx]= ifc_pf[idx].toFixed(2);
+        
+    }
     ans1.innerHTML = "Output of Economic Dispatch Problem Lambda -" + lambda.toFixed(2) + " unit"
-    ans2.innerHTML = '**Optimal Generation** Unit No  Optimal Generation (in MW)' +opt_gen+ ' unit'
+    ans2.innerHTML = '**Optimal Generation** Unit No  Optimal Generation (in MW) ' +opt_gen+ ' unit'
     ans3.innerHTML = 'Incremental Fuel Cost and Penalty factors are:     Unit No    IFC     Penalty Factor ' +ifc_pf+ ' unit'
-    ans4.innerHTML = 'Total Generation Cost = INR  ' +totgencost.toFixed(2)+ ' per hour'
+    ans4.innerHTML = 'Total Generation Cost = INR  ' +totgencost+ ' per hour'
     ans1.style.marginBottom = "1rem"
     ans2.style.marginBottom = "1rem"
     ans3.style.marginBottom = "1rem"
