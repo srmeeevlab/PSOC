@@ -264,6 +264,7 @@ const delallel = () => {
         while (document.getElementById("interface").lastElementChild.id != "drop-box") {
             document.getElementById("interface").lastElementChild.remove();
         }
+        document.getElementById("prebuilt").innerHTML = "PreBuilt"
     } else {
         console.log('cancelled delete all action');
     }

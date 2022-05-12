@@ -319,7 +319,7 @@ function exe() {
 
 let holdpressed = false
 let hidepressed = false
-let chartcount = 0
+let chartcount = 1
 
 function random_arr() {
     const arr = []

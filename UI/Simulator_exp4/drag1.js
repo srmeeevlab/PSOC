@@ -1559,8 +1559,8 @@ function prebuilt() {
     let interface = document.getElementById("interface");
     if (!prebuilton) {
         interface.innerHTML = "";
-        interface.innerHTML = prebuilt_code[3];
-        console.log("prebuilt clicked", prebuilt_code[3])
+        interface.innerHTML = prebuilt_code[4];
+        console.log("prebuilt clicked", prebuilt_code[4])
         prebuilton = true;
         document.getElementById("prebuilt").innerHTML = " RevertBack"
     } else {

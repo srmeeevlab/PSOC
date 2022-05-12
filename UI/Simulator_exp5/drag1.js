@@ -23,8 +23,8 @@ let ifshiftpressed = false;
 
 let prebuilt_code = '';
 fetch("../donejson.json").then(response => {
-    return response.json();
-})
+        return response.json();
+    })
     .then(data => {
         console.log(data)
         prebuilt_code = data
@@ -125,7 +125,7 @@ function drop_handler(ev) {
         // console.log(id);
         for (i; i < id.length; i++)
             if (id[i] === "-") id = id.slice(i + 1, i + 4);
-        // console.log(id);
+            // console.log(id);
 
         const temp = document.getElementById(id);
         const clone = temp.content.cloneNode(true);
@@ -264,7 +264,6 @@ const delallel = () => {
         while (document.getElementById("interface").lastElementChild.id != "drop-box") {
             document.getElementById("interface").lastElementChild.remove();
         }
-        document.getElementById("prebuilt").innerHTML = "PreBuilt"
     } else {
         console.log('cancelled delete all action');
     }
@@ -635,7 +634,7 @@ var evalBlock = (block) => {
     evalValue = evalValue.split(" ").join("");
     console.log(evalValue);
     return ` ${varname} =  ${evalValue} ;\n`
-    // return `console.log(${evalValue})`;
+        // return `console.log(${evalValue})`;
 }
 
 var matevalBlock = (block) => {
@@ -1373,7 +1372,7 @@ function RUN(mainblock) {
 
     try {
         let maincode = compile(mainblock)
-        // console.log(compile(mainblock));
+            // console.log(compile(mainblock));
         if (maincode === "") {
             alert("No input");
             return;
@@ -1523,6 +1522,7 @@ function compile(mainblock) {
     // console.log(maincode);
     return maincode;
 }
+
 function degrees_to_radians(degrees) {
     var pi = Math.PI;
     return degrees * (pi / 180);
@@ -1559,8 +1559,8 @@ function prebuilt() {
     let interface = document.getElementById("interface");
     if (!prebuilton) {
         interface.innerHTML = "";
-        interface.innerHTML = prebuilt_code[3];
-        console.log("prebuilt clicked", prebuilt_code[3])
+        interface.innerHTML = prebuilt_code[5];
+        console.log("prebuilt clicked", prebuilt_code[5])
         prebuilton = true;
         document.getElementById("prebuilt").innerHTML = " RevertBack"
     } else {
@@ -1680,4 +1680,3 @@ var DotDivide = (block) => {
 
     `
 }
-
