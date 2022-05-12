@@ -116,7 +116,8 @@ function Simulate() {
             delpla = delpla + (d[i] + B[i] * 0.01 * b[i]) / den
         }
         dellambda = delp / delpla
-        data_disp = data_disp.concat(iter, lambda, p[0], p[1], pl);
+        // data_disp = data_disp.concat(iter, lambda, p[0], p[1], pl);
+        data_disp.push([iter,lambda,p[0],p[1],pl])
     }
 
     console.log('\n**Iteration-wise Output**\n')
