@@ -1522,7 +1522,10 @@ function compile(mainblock) {
     // console.log(maincode);
     return maincode;
 }
-
+function degrees_to_radians(degrees) {
+    var pi = Math.PI;
+    return degrees * (pi / 180);
+}
 
 var Sin = (num) => { return Math.sin(num); }
 var Cos = (num) => { return Math.cos(num); }
@@ -1536,7 +1539,7 @@ var Tand = (num) => { return Math.tan(degrees_to_radians(num)); }
 var Sinhd = (num) => { return Math.sinh(degrees_to_radians(num)); }
 var Coshd = (num) => { return Math.cosh(degrees_to_radians(num)); }
 var Tanhd = (num) => { return Math.tanh(degrees_to_radians(num)); }
-var Sqrt = (num) => { return Math.sqrt(num); }
+var Sqrt = (num) => { return math.sqrt(num); }
 var Abs = (num) => { return Math.abs(num); }
 var Max = (num1, num2) => { return Math.max(num1, num2) }
 var Sort = (arr) => { return arr.sort() }

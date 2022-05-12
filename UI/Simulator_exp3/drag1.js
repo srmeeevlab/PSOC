@@ -1533,14 +1533,13 @@ var Tan = (num) => { return Math.tan(num); }
 var Sinh = (num) => { return Math.sinh(num); }
 var Cosh = (num) => { return Math.cosh(num); }
 var Tanh = (num) => { return Math.tanh(num); }
-var Sqrt = (num) => { return Math.sqrt(num); }
+var Sqrt = (num) => { return math.sqrt(num); }
 var Sind = (num) => { return Math.sin(degrees_to_radians(num)); }
 var Cosd = (num) => { return Math.cos(degrees_to_radians(num)); }
 var Tand = (num) => { return Math.tan(degrees_to_radians(num)); }
 var Sinhd = (num) => { return Math.sinh(degrees_to_radians(num)); }
 var Coshd = (num) => { return Math.cosh(degrees_to_radians(num)); }
 var Tanhd = (num) => { return Math.tanh(degrees_to_radians(num)); }
-var Sqrt = (num) => { return Math.sqrt(num); }
 var Abs = (num) => { return Math.abs(num); }
 var Max = (num1, num2) => { return Math.max(num1, num2) }
 var Sort = (arr) => { return arr.sort() }
