@@ -14,8 +14,8 @@ let v = []
 
 //for i
 let i = []
-// i = np * Ipv - np * Id * (Math.exp(q * (v + isc * rs) / (k * tck * a * ns)) - 1) - np * (Math.abs(ish));
-// for (let ele = 0; ele)
+    // i = np * Ipv - np * Id * (Math.exp(q * (v + isc * rs) / (k * tck * a * ns)) - 1) - np * (Math.abs(ish));
+    // for (let ele = 0; ele)
 
 let P = []
 
@@ -25,7 +25,7 @@ function question() {
     P = []
     let k = 1.38 * Math.pow(10, -23)
     const q = 1.6 * Math.pow(10, -19)
-    // const Chart = require('chart.js');
+        // const Chart = require('chart.js');
     let eg = (Math.random() * 100 + 1)
     let a = (Math.random() * 100 + 1)
     let ns = (Math.random())
@@ -46,24 +46,24 @@ function question() {
     let kp = Math.random()
     console.log(typeof eg)
     console.log(
-        eg,
-        a,
-        ns,
-        np,
-        rs,
-        rsh,
-        voc,
-        isc,
-        vmp,
-        imp,
-        pm,
-        it,
-        io,
-        ki,
-        kv,
-        kp,
-    )
-    //console.log(range(0, 2, 0.5));
+            eg,
+            a,
+            ns,
+            np,
+            rs,
+            rsh,
+            voc,
+            isc,
+            vmp,
+            imp,
+            pm,
+            it,
+            io,
+            ki,
+            kv,
+            kp,
+        )
+        //console.log(range(0, 2, 0.5));
     v = range(0, voc, 0.1)
     let vsz = v.length
     let ta = Math.floor(Math.random() * 100)
@@ -72,7 +72,7 @@ function question() {
 
     let noct = Math.floor(Math.random() * 100)
     console.log('notc type', typeof noct)
-    //for gravity
+        //for gravity
     let g = Math.floor(Math.random() * 2000)
     console.log('g type', typeof g)
     let tc = ta + ((noct - 20) * g) / 1000
@@ -83,10 +83,10 @@ function question() {
     //for vt
     let vt = (ns * k * tck) / q
     console.log('vt is', vt)
-    //for ipv
+        //for ipv
     let Ipv = (isc + ki * (tck - tak)) * (g / 1000)
     console.log('ipv', Ipv)
-    //for id
+        //for id
 
     let Id =
         io *
@@ -122,7 +122,7 @@ function exe() {
     P = []
     let k = 1.38 * Math.pow(10, -23)
     const q = 1.6 * Math.pow(10, -19)
-    // const Chart = require('chart.js');
+        // const Chart = require('chart.js');
     let eg = (document.getElementById('eg').value)
     if (!eg || isNaN(eg)) {
         alert("eg is invalid. Setting to 1")
@@ -131,14 +131,14 @@ function exe() {
     } else {
         eg = eval(eg)
     }
-    let a = (document.getElementById('a').value)
-    if (!a || isNaN(a)) {
-        alert("a is invalid. Setting to 1")
-        document.getElementById('a').value = 1
-        a = 1
-    } else {
-        a = eval(a)
-    }
+    let a = 1.3
+        // if (!a || isNaN(a)) {
+        //     alert("a is invalid. Setting to 1")
+        //     document.getElementById('a').value = 1
+        //     a = 1
+        // } else {
+        //     a = eval(a)
+        // }
     let ns = (document.getElementById('ns').value)
     if (!ns || isNaN(ns)) {
         alert("ns is invalid. Setting to 1")
@@ -187,30 +187,30 @@ function exe() {
     } else {
         isc = eval(isc)
     }
-    let vmp = (document.getElementById('vmp').value)
-    if (!vmp || isNaN(vmp)) {
-        alert("vmp is invalid. Setting to 1")
-        document.getElementById('vmp').value = 1
-        vmp = 1
-    } else {
-        vmp = eval(vmp)
-    }
-    let imp = (document.getElementById('imp').value)
-    if (!imp || isNaN(imp)) {
-        alert("imp is invalid. Setting to 1")
-        document.getElementById('imp').value = 1
-        imp = 1
-    } else {
-        imp = eval(imp)
-    }
-    let pm = (document.getElementById('pm').value)
-    if (!pm || isNaN(pm)) {
-        alert("pm is invalid. Setting to 1")
-        document.getElementById('pm').value = 1
-        pm = 1
-    } else {
-        pm = eval(pm)
-    }
+    let vmp = 17.28
+        // if (!vmp || isNaN(vmp)) {
+        //     alert("vmp is invalid. Setting to 1")
+        //     document.getElementById('vmp').value = 1
+        //     vmp = 1
+        // } else {
+        //     vmp = eval(vmp)
+        // }
+    let imp = 5.71
+        // if (!imp || isNaN(imp)) {
+        //     alert("imp is invalid. Setting to 1")
+        //     document.getElementById('imp').value = 1
+        //     imp = 1
+        // } else {
+        //     imp = eval(imp)
+        // }
+    let pm = 235
+        // if (!pm || isNaN(pm)) {
+        //     alert("pm is invalid. Setting to 1")
+        //     document.getElementById('pm').value = 1
+        //     pm = 1
+        // } else {
+        //     pm = eval(pm)
+        // }
     let io = (document.getElementById('io').value)
     if (!io || isNaN(io)) {
         alert("io is invalid. Setting to 1")
@@ -227,44 +227,44 @@ function exe() {
     } else {
         ki = eval(ki)
     }
-    let kv = (document.getElementById('kv').value)
-    if (!kv || isNaN(kv)) {
-        alert("kv is invalid. Setting to 1")
-        document.getElementById('kv').value = 1
-        kv = 1
-    } else {
-        kv = eval(kv)
-    }
-    let kp = (document.getElementById('kp').value)
-    if (!kp || isNaN(kp)) {
-        alert("kp is invalid. Setting to 1")
-        document.getElementById('kp').value = 1
-        kp = 1
-    } else {
-        kp = eval(kp)
-    }
+    let kv = -0.123
+        // if (!kv || isNaN(kv)) {
+        //     alert("kv is invalid. Setting to 1")
+        //     document.getElementById('kv').value = 1
+        //     kv = 1
+        // } else {
+        //     kv = eval(kv)
+        // }
+    let kp = -0.0047
+        // if (!kp || isNaN(kp)) {
+        //     alert("kp is invalid. Setting to 1")
+        //     document.getElementById('kp').value = 1
+        //     kp = 1
+        // } else {
+        //     kp = eval(kp)
+        // }
 
     let it = np * isc
     console.log(typeof eg)
     console.log(
-        eg,
-        a,
-        ns,
-        np,
-        rs,
-        rsh,
-        voc,
-        isc,
-        vmp,
-        imp,
-        pm,
-        it,
-        io,
-        ki,
-        kv,
-        kp,
-    )
-    //console.log(range(0, 2, 0.5));
+            eg,
+            a,
+            ns,
+            np,
+            rs,
+            rsh,
+            voc,
+            isc,
+            vmp,
+            imp,
+            pm,
+            it,
+            io,
+            ki,
+            kv,
+            kp,
+        )
+        //console.log(range(0, 2, 0.5));
     v = range(0, voc, 0.1)
     let vsz = v.length
     let ta = Number(document.getElementById('ta').value)
@@ -273,7 +273,7 @@ function exe() {
 
     let noct = Number(document.getElementById('noct').value)
     console.log('notc type', typeof noct)
-    //for gravity
+        //for gravity
     let g = Number(document.getElementById('gra').value)
     console.log('g type', typeof g)
     let tc = ta + ((noct - 20) * g) / 1000
@@ -284,10 +284,10 @@ function exe() {
     //for vt
     let vt = (ns * k * tck) / q
     console.log('vt is', vt)
-    //for ipv
+        //for ipv
     let Ipv = (isc + ki * (tck - tak)) * (g / 1000)
     console.log('ipv', Ipv)
-    //for id
+        //for id
 
     let Id =
         io *
@@ -348,7 +348,7 @@ function PLOT() {
     let arr_I = [0, 0, 0, 0, 0]
     let arr_P = [7, 8, 9, 10, 11]
     labels = [1, 2, 3, 4, 5]
-    // chart1
+        // chart1
     if (holdpressed) {
         exe()
         chart1.data.datasets.push({
@@ -383,14 +383,14 @@ function PLOT() {
             label: 'V vs I' + chartcount,
             borderColor: '#' + randomColor,
             fill: false,
-        },]
+        }, ]
         console.log("all vals===", chart1.data.datasets[1].data)
         chart2.data.datasets = [chart2.data.datasets[0], {
             data: P.filter(nonzero),
             label: 'V vs P' + chartcount,
             fill: false,
             borderColor: '#' + randomColor,
-        },]
+        }, ]
 
         console.log('new chart')
         let constarrI = chart1.data.datasets[0].data
@@ -430,8 +430,8 @@ function HOLD() {
     holdpressed = true
     document.getElementById('holdbut').innerHTML = 'hold pressed';
 }
-$("#toggle").click(function () {
-    chart1.data.datasets.forEach(function (ds) {
+$("#toggle").click(function() {
+    chart1.data.datasets.forEach(function(ds) {
         ds.hidden = !ds.hidden;
     });
     chart1.update();
@@ -446,7 +446,7 @@ function HIDE() {
     let arr_I = [0, 0, 0, 0, 0]
     let arr_P = [7, 8, 9, 10, 11]
     labels = [1, 2, 3, 4, 5]
-    // chart1
+        // chart1
     question()
 
     chartcount = 0
@@ -457,13 +457,13 @@ function HIDE() {
         label: 'V vs I' + chartcount,
         borderColor: '#000000',
         fill: false,
-    },]
+    }, ]
     chart2.data.datasets = [{
         data: P.filter(nonzero),
         label: 'V vs P' + chartcount,
         fill: false,
         borderColor: '#000000',
-    },]
+    }, ]
 
     // console.log("length same?", arr1.length == constarr.length)
     // console.log("same???", JSON.stringify(arr1) == JSON.stringify(constarr)
