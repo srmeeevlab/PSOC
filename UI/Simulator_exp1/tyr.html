@@ -258,6 +258,25 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="output_modal" aria-hidden="true" aria-labelledby="output_modalLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="output_modalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Result</h3>
+                    <div id="result_modal">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#output_modal" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid h-100">
         <div class="row">
             <!-- start of accordian       -->
@@ -444,9 +463,10 @@
                     <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown" title="Step IN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepout()"><i class="bi bi-arrow-90deg-down"></i> </button>
                     <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" title="Step Out" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepin()"><i
                             class="bi bi-arrow-return-right"></i> </button>
-                    <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> </button>
+                    <!-- <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-toggle="tooltip" data-bs-target="#output_modal" data-bs-toggle="modal" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> </button> -->
+                    <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'))" data-bs-toggle="modal"><i class="bi bi-play-fill"></i> </button>
                 </div>
-                <div id="OUTPUT-CONSOLE"></div>
+
             </div>
         </div>
     </div>

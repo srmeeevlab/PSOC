@@ -84,9 +84,9 @@ function Simulate() {
     //Lambda
     //Unit No    Optimal Generation
     console.log(opt_gen)
-        //Incremental Fuel Cost
+    //Incremental Fuel Cost
     console.log(ifc[0])
-        //Total Generation Cost
+    //Total Generation Cost
     console.log(totgencost)
     let outputs = document.getElementById("OUTPUT")
     outputs.style.border = "0.25rem solid black"
@@ -158,19 +158,26 @@ function matinput() {
     divblock.innerHTML = "";
     if (!rows || !columns) {
         rows = 1
-        columns = 1
         document.getElementById("costdatarow").value = 1
-        document.getElementById("costdatacol").value = 1
+        if (document.getElementById("costdatacol").disabled == false) {
+
+            document.getElementById("costdatacol").value = 1
+            columns = 1
+        }
+    }
+    if(rows <= 1){
+
+        document.getElementById("costdatarow").value = 1
     }
     if (isNaN(rows) || isNaN(columns) || rows <= 0 || columns <= 0) {
         if (isNaN(rows)) {
             document.getElementById("costdatarow").value = 1
         }
-        if (isNaN(columns)) {
+        if (isNaN(columns) && document.getElementById("costdatacol").disabled == false) {
             document.getElementById("costdatacol").value = 1
+            columns = 1
         }
         rows = 1
-        columns = 1
     }
 
     let inpcount = 1;

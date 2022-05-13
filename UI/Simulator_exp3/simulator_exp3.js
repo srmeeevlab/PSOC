@@ -18,19 +18,29 @@ function Simulate() {
     let costdata1 =[]
     let costdtarr = document.getElementById("costdata").getElementsByClassName("matinps")[0].getElementsByTagName("input");
     Array.from(costdtarr).forEach(element => {
+        if (document.getElementById("costdatacol").disabled == false) {
+
+            document.getElementById("costdatacol").value = 1
+            columns = 1
+        }
+
         if(!element.value || isNaN(element.value)){
             alert("matrix element value given is incorrect. setting to 1")
             element.value = 1
         }
         costdata1.push(eval(element.value))
+        
     });
 
+
     let columns = document.getElementById("costdatacol").value
+    
     if(!columns || isNaN(columns)){
         alert("columns value given is incorrect. setting to 1 and proceeding")
         document.getElementById("costdatacol").value = 1
         columns = 1
     }
+    
     columns = eval(columns)
 
     let costdata = [];
@@ -221,19 +231,26 @@ function matinput() {
     divblock.innerHTML = "";
     if (!rows || !columns) {
         rows = 1
-        columns = 1
         document.getElementById("costdatarow").value = 1
-        document.getElementById("costdatacol").value = 1
+        if (document.getElementById("costdatacol").disabled == false) {
+
+            document.getElementById("costdatacol").value = 1
+            columns = 1
+        }
+    }
+    if(rows <= 1){
+
+        document.getElementById("costdatarow").value = 1
     }
     if (isNaN(rows) || isNaN(columns) || rows <= 0 || columns <= 0) {
         if (isNaN(rows)) {
             document.getElementById("costdatarow").value = 1
         }
-        if (isNaN(columns)) {
+        if (isNaN(columns) && document.getElementById("costdatacol").disabled == false) {
             document.getElementById("costdatacol").value = 1
+            columns = 1
         }
         rows = 1
-        columns = 1
     }
 
     let inpcount = 1;

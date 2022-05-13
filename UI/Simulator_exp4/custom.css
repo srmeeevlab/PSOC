@@ -211,3 +211,9 @@ footer {
 #dropdownMenuButton1 {
     margin-right: 5rem;
 }
+
+#result_modal {
+    padding: 1rem;
+    margin: 1rem;
+    line-height: 2rem;
+}
