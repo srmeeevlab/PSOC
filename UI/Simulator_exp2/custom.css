@@ -3,6 +3,14 @@ body {
 }
 
 .rows_columns {
+
+    max-width: 100px;
+}
+
+
+.Run_Button {
+
+    margin-left: 200px !important;
 }
 
 #interface {
@@ -120,6 +128,7 @@ nav {
         background-color: inherit;
         color: black;
     }
+
     to {
         background-color: #ad8b73;
         color: white;
