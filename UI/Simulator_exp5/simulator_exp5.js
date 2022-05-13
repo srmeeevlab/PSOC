@@ -104,3 +104,75 @@ function Simulate() {
     outputs.appendChild(ans1)
     outputs.appendChild(ans2)
 }
+function vecinput() {
+    let columns = document.getElementById("lossdatacols").value;
+    let divblock = document.getElementById("lossdata").getElementsByClassName("vecinps")[0];
+    divblock.innerHTML = "";
+    // if (!columns || columns < 0) {
+    //     alert("Invalid input");
+    //     block.classList.add("error_block");
+    //     prevSelection.push(block);
+    //     showprops();
+    //     throw 0;
+    // }
+    if (!columns || columns <= 0 || isNaN(columns)) {
+        columns = 1
+        document.getElementById("lossdatacols").value = 1
+    }
+    let inpcount = 1;
+    for (let index = 0; index < columns; index++) {
+        divblock.appendChild(document.createElement("input"));
+        divblock.lastElementChild.type = "text";
+        divblock.lastElementChild.id = inpcount;
+        inpcount++;
+    }
+
+}
+
+function matinput() {
+    let rows, columns;
+    rows = document.getElementById("costdatarow").value;
+    columns = document.getElementById("costdatacol").value;
+    let divblock = document.getElementById("costdata").getElementsByClassName("matinps")[0];
+    divblock.innerHTML = "";
+    if (!rows || !columns) {
+        rows = 1
+        document.getElementById("costdatarow").value = 1
+        if (document.getElementById("costdatacol").disabled == false) {
+
+            document.getElementById("costdatacol").value = 1
+            columns = 1
+        }
+    }
+    if(rows <= 1){
+
+        document.getElementById("costdatarow").value = 1
+    }
+    if (isNaN(rows) || isNaN(columns) || rows <= 0 || columns <= 0) {
+        if (isNaN(rows)) {
+            document.getElementById("costdatarow").value = 1
+        }
+        if (isNaN(columns) && document.getElementById("costdatacol").disabled == false) {
+            document.getElementById("costdatacol").value = 1
+            columns = 1
+        }
+        rows = 1
+    }
+
+    let inpcount = 1;
+    for (let i = 0; i < rows; i++) {
+        // const element = array[i];
+
+        for (let index = 0; index < columns; index++) {
+            // const element = array[index];
+            divblock.appendChild(document.createElement("input"));
+            divblock.lastElementChild.type = "text";
+            divblock.lastElementChild.id = inpcount;
+            inpcount++;
+
+        }
+        divblock.appendChild(document.createElement("br"))
+        divblock.appendChild(document.createElement("br"))
+    }
+
+}

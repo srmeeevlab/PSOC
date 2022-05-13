@@ -117,6 +117,7 @@ nav {
         background-color: inherit;
         color: black;
     }
+
     to {
         background-color: #ad8b73;
         color: white;
@@ -156,6 +157,11 @@ nav {
 
 .details {
     display: none;
+}
+
+
+.matheading p {
+    width: 100px;
 }
 
 .matinps input {
@@ -211,3 +217,8 @@ footer {
 #dropdownMenuButton1 {
     margin-right: 5rem !important;
 }
+
+/* #1{
+
+    margin-right: 100px;
+} */
