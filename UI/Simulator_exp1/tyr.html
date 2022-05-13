@@ -35,7 +35,7 @@
                         <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
                           <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal1">Interface</a></li>
                           <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal2">Simulation</a></li>
-                          <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal3">Procedure</a></li>
+                          <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal3">Theory</a></li>
                         </ul>
                       </div>
                 </span>
@@ -57,6 +57,39 @@
                     </div>
                     <div class="modal-body">
                         <!-- Show a second modal and hide this one with the button below. -->
+
+                        <h1>Procedure</h1>
+                        <h5>Your task here is to form an appropriate algorithm for understanding the experiment's workflow.</h5>
+                        <h5>For a pre-built structure, navigate to “PreBuilt”, and click it. After doing so, follow steps a - e:
+                        </h5>
+                        <ul>
+                            <li>Step a: Navigate to the “Help” button and click on it.</li>
+                            <li>Step b: Navigate to “Theory” in the modal displayed, and read the text for conceptual understanding.</li>
+                            <li>Step c: Navigate back to the interface.</li>
+                            <li>Step d: Verify the values in each element/block by clicking the element/block individually.
+                            </li>
+                            <li>Step e: Now, run the simulation and verify the results.
+                            </li>
+                        </ul>
+                        <h5>For forming the algorithm yourself, follow steps 1-10:</h5>
+                        <ul>
+                            <li>Step 1: Navigate to the “Help” button and click on it.
+                            </li>
+                            <li>Step 2: Navigate to “Theory” in the modal displayed, and read the text for conceptual understanding.
+                            </li>
+                            <li>Step 3: Navigate back to the interface.
+                            </li>
+                            <li>Step 4: Use the palette provided on the left to navigate to the drag-drop elements/blocks. </li>
+                            <li>Step 5: Upon selecting the element/block, drag it to the specified area.</li>
+                            <li>Step 6: Name the elements/blocks appropriately.
+                            </li>
+                            <li>Step 7: Fill in values for the elements/blocks chosen.</li>
+                            <li>Step 8: Click on the “Run” button.</li>
+                            <li>Step 9: Verify the result against manual calculations.
+                            </li>
+                            <li>Step 10: View your score.
+                            </li>
+                        </ul>
                         <h1>Blocks</h1>
                         <h4>Variables</h4>
                         <div>
@@ -224,13 +257,23 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
+                        <p>You are in the interface page. To proceed to the simulation page, <a href="simulator-exp1.html">Click Here</a></p>
                         <h2>Procedure:</h2>
-                        <p>In the inputs section,provide the values of pd,lambda,delp and dellambda.</p>
-                        <p>For costdata, provide the number of rows.</p>
-                        <p>The columns are in the order uno,a,b and c.</p>
-                        <p>On clicking the run button, the outputs are displayed.</p>
-                        <p>Values can be changed and the experiment can be simulated again.</p>
-                        <p>Help button can be used to check the functionality of buttons and requirements.</p>
+                        <h5>The user has to provide the input values to run the simulator. The following steps help the user to explore the platform.</h5>
+                        <ul>
+                            <li>Step 1: Navigate to the “Help” button and click on it.
+                            </li>
+                            <li>Step 2: Navigate to “Theory” in the drop-down, and read the text for conceptual understanding.</li>
+                            <li>Step 3: Navigate back to the interface.</li>
+                            <li>Step 4: Enter the values for the input parameters on the display window.
+                            </li>
+                            <li>Step 5: Click on the “Run” button.</li>
+                            <li>Step 6: On ruunig it, “Results” section can be observed below the inputs.</li>
+                            <li>Step 7: Verify the results provided by the simulator against manual calculations.
+                            </li>
+                            <li>Step 8: View your score.
+                            </li>
+                        </ul>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary" data-bs-target="#modal1" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
@@ -254,25 +297,6 @@
                         <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
                         <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="modal fade" id="output_modal" aria-hidden="true" aria-labelledby="output_modalLabel" tabindex="-1">
-        <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="output_modalLabel"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h3>Result</h3>
-                    <div id="result_modal">
-
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#output_modal" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
