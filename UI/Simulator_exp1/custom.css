@@ -216,4 +216,5 @@ footer {
     padding: 1rem;
     margin: 1rem;
     line-height: 2rem;
+    word-wrap: break-word;
 }

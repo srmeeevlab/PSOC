@@ -487,7 +487,7 @@ function ok(event) {
         varname = ""
     }
     if (varname) {
-        document.getElementById(ID).firstElementChild.innerHTML = `@${varname}`;
+        document.getElementById(ID).firstElementChild.innerHTML = ` : ${varname}`;
     } else {
         document.getElementById(ID).firstElementChild.innerHTML = ``;
 
@@ -891,9 +891,9 @@ var outputBlock = (block) => {
     // document.getElementById("OUTPUT-CONSOLE").appendChild(msg);
     // return 'console.log("outputted successfully ")';
     return `
-    msg.innerHTML = " ${message1}" +eval( ${variable});
-    document.getElementById("OUTPUT-CONSOLE").appendChild(msg);
-    console.log("outputted successfully ");
+    let ${block.id}print=document.createElement("p")
+    ${block.id}print.innerHTML="${message1}" +eval(${variable});
+    msg.appendChild(${block.id}print)
     
     
     `
@@ -1398,6 +1398,7 @@ function compile(mainblock) {
     const msg = document.createElement("p")
     msg.style.borderBottom = "1px solid black"
     // msg.style.height = "25px";
+    let lastoutput;
     `;
     let blocksofcode = mainblock.children;
 
@@ -1463,7 +1464,7 @@ function compile(mainblock) {
                 code = matmath(element);
                 break;
             case "Print Block":
-                console.log("running output block");
+                console.log("running block");
                 code = outputBlock(element);
                 break;
             case "Matrix":
@@ -1521,6 +1522,18 @@ function compile(mainblock) {
 
     }
     // console.log(maincode);
+    maincode += `
+    console.log("lastchild of result",document.getElementById("result_modal").firstElementChild)
+    lastoutput = document.getElementById("result_modal").firstElementChild
+    if(lastoutput)
+        lastoutput.style.border = "none"
+    
+    msg.style.border = "5px solid black"
+    msg.style.padding = "1rem"
+    document.getElementById("result_modal").prepend(msg);
+    console.log("outputted successfully ");
+    
+    // document.getElementById("OUTPUT_CONSOLE").appendChild(msg);`
     return maincode;
 }
 

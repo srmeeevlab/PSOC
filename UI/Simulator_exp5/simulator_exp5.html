@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <meta charset="UTF-8">
     <title>Experiment</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -21,10 +20,10 @@
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="../srm-logo-white.png" alt="SRM Logo"></a>
-            <span id="exp-title">UNIT COMMITMENT PROBLEM OF ECONOMIC DISPATCH BY PRIORITY LIST METHOD</span>
+            <span id="exp-title">EEE Unit commitment using the priority list method</span>
             <span id="navbar-settings">
                 <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
-                <span id="nav-help" title="Help">
+            <span id="nav-help" title="Help">
 
                     <div class="dropdown">
                         <button class="btn dropdown-toggle btn btn-custom-outline-brown w-100 d-block" type="button"
@@ -56,9 +55,7 @@
         <div class="row">
 
 
-            <div id="interface" class="col-9 col-md-9 " ondragenter="dragEnter_handler(event)"
-                ondragover="dragOver_handler(event)" ondrop="drop_handler(event)"
-                ondragleave="dragLeave_handler(event)">
+            <div id="interface" class="col-9 col-md-9 " ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
 
 
                 <div id="INPUT" class="d-flex justify-content-around mt-5">
@@ -84,13 +81,11 @@
                                 <input type="text" name="Variable" id="mat0$VAR" placeholder="Variable Name">
                                 <br> -->
                                 <label class="visually-hidden" for="ROW">Enter the number of rows of the matrix</label>
-                                <input value="3" type="text" onchange="matinput()" id="costdatarow" name=""
-                                    onchange="matinput()" id="mat0$ROW" placeholder="Number of Rows">
+                                <input value="3" type="text" onchange="matinput()" id="costdatarow" name="" onchange="matinput()" id="mat0$ROW" placeholder="Number of Rows">
                                 <br>
                                 <label class="visually-hidden" for="COL">Enter the number of Column of the
                                     matrix</label>
-                                <input value="3" type="text" id="costdatacol" name="" onchange="matinput()"
-                                    id="mat0$COL" placeholder="Number of Columns">
+                                <input value="3" type="text" id="costdatacol" name="" onchange="matinput()" id="mat0$COL" placeholder="Number of Columns">
                                 <br>
                                 <!-- <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate -->
                                 <!-- Table</button> -->
@@ -120,8 +115,7 @@
                                 <input value="" type="text" name="Variable" id="vec1$VAR" placeholder="Variable Name">
                                 <br> -->
                                 <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
-                                <input value="3" type="text" id="lossdatacols" name="" onchange="vecinput()"
-                                    id="vec1$VAL" placeholder="Number of elements">
+                                <input value="3" type="text" id="lossdatacols" name="" onchange="vecinput()" id="vec1$VAL" placeholder="Number of elements">
                                 <br>
                                 <!-- <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                             row</button> -->
@@ -158,16 +152,12 @@
 
             <div id="properties" class="col-3">
                 <div class="pt-4">
-                    <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown"
-                        title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top"
-                        onclick="">View
+                    <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
                         Question Statement</button>
-                    <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  "
-                        data-bs-toggle="tooltip" data-bs-placement="top" onclick=""><a href="./tyr.html"
+                    <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""><a href="./tyr.html"
                             style="text-decoration: none;color:black;display: block;">Go to
                             programming-interface</a></button>
-                    <button type="button" id="run" class="btn btn-custom-outline-brown w-100 d-block" title="RUN"
-                        data-bs-toggle="tooltip" data-bs-placement="top" onclick="console.log('clicked');Simulate()"><i
+                    <button type="button" id="run" class="btn btn-custom-outline-brown w-100 d-block" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="console.log('clicked');Simulate()"><i
                             class="bi bi-play-fill"></i> </button>
                 </div>
                 <!-- <div id="OUTPUT-CONSOLE"></div> -->
@@ -176,9 +166,7 @@
     </div>
 
     <footer class="p-3">
-        Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute
-        of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology
-        Partner
+        Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
         <script>
             document.getElementById("year").innerText = new Date().getFullYear();
         </script>
@@ -186,18 +174,10 @@
     <!-- <script src="../programming-interface/main.js"></script> -->
     <!-- <script src="drag1.js"></script> -->
     <script src="./simulator_exp5.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js"
-        integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.5.2/math.js"
-        integrity="sha512-vdwP2fMacZZUetdvY+t/hsPJfEeifOcTBv0zYwUyj5qj3NbMvIFg87DxanM5dwqpu4yZkPry5VZv9TnQrll6tg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js" integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.5.2/math.js" integrity="sha512-vdwP2fMacZZUetdvY+t/hsPJfEeifOcTBv0zYwUyj5qj3NbMvIFg87DxanM5dwqpu4yZkPry5VZv9TnQrll6tg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 

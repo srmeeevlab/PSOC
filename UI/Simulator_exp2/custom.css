@@ -4,7 +4,7 @@ body {
 
 .rows_columns {
 
-    max-width: 90px;
+    max-width: 100px;
 }
 
 
@@ -170,7 +170,6 @@ nav {
     display: none;
 }
 
-
 .matheading p {
     width: 100px;
 }
@@ -233,9 +232,5 @@ footer {
     padding: 1rem;
     margin: 1rem;
     line-height: 2rem;
-}
-
-.Margin_Addition {
-
-    margin-right: 12.5px;
+    word-wrap: break-word;
 }

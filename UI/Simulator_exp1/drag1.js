@@ -23,8 +23,8 @@ let ifshiftpressed = false;
 
 let prebuilt_code = '';
 fetch("../donejson.json").then(response => {
-    return response.json();
-})
+        return response.json();
+    })
     .then(data => {
         console.log(data)
         prebuilt_code = data
@@ -125,7 +125,7 @@ function drop_handler(ev) {
         // console.log(id);
         for (i; i < id.length; i++)
             if (id[i] === "-") id = id.slice(i + 1, i + 4);
-        // console.log(id);
+            // console.log(id);
 
         const temp = document.getElementById(id);
         const clone = temp.content.cloneNode(true);
@@ -635,7 +635,7 @@ var evalBlock = (block) => {
     evalValue = evalValue.split(" ").join("");
     console.log(evalValue);
     return ` ${varname} =  ${evalValue} ;\n`
-    // return `console.log(${evalValue})`;
+        // return `console.log(${evalValue})`;
 }
 
 var matevalBlock = (block) => {
@@ -891,9 +891,12 @@ var outputBlock = (block) => {
     // document.getElementById("OUTPUT-CONSOLE").appendChild(msg);
     // return 'console.log("outputted successfully ")';
     return `
-    msg.innerHTML = " ${message1}" +eval( ${variable});
-    document.getElementById("OUTPUT-CONSOLE").appendChild(msg);
-    console.log("outputted successfully ");
+
+    let ${block.id}print=document.createElement("p")
+    ${block.id}print.innerHTML="${message1}" +eval(${variable});
+    msg.appendChild(${block.id}print)
+
+    
     
     
     `
@@ -1373,7 +1376,7 @@ function RUN(mainblock) {
 
     try {
         let maincode = compile(mainblock)
-        // console.log(compile(mainblock));
+            // console.log(compile(mainblock));
         if (maincode === "") {
             alert("No input");
             return;
@@ -1396,8 +1399,9 @@ function compile(mainblock) {
 
     let maincode = `
     const msg = document.createElement("p")
-    msg.style.borderBottom = "1px solid black"
+    // msg.style.borderBottom = "1px solid black"
     // msg.style.height = "25px";
+    let lastoutput;
     `;
     let blocksofcode = mainblock.children;
 
@@ -1521,8 +1525,22 @@ function compile(mainblock) {
 
     }
     // console.log(maincode);
+    maincode += `
+    console.log("lastchild of result",document.getElementById("result_modal").firstElementChild)
+    lastoutput = document.getElementById("result_modal").firstElementChild
+    if(lastoutput)
+        lastoutput.style.border = "none"
+    
+    msg.style.border = "5px solid black"
+    msg.style.padding = "1rem"
+    document.getElementById("result_modal").prepend(msg);
+    console.log("outputted successfully ");
+    
+    `
     return maincode;
+
 }
+
 function degrees_to_radians(degrees) {
     var pi = Math.PI;
     return degrees * (pi / 180);
@@ -1680,4 +1698,3 @@ var DotDivide = (block) => {
 
     `
 }
-
