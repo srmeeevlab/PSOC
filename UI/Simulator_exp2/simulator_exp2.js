@@ -165,7 +165,7 @@ function matinput() {
             columns = 1
         }
     }
-    if(rows <= 1){
+    if (rows <= 1) {
 
         document.getElementById("costdatarow").value = 1
     }
@@ -189,6 +189,8 @@ function matinput() {
             divblock.appendChild(document.createElement("input"));
             divblock.lastElementChild.type = "text";
             divblock.lastElementChild.id = inpcount;
+            divblock.lastElementChild.classList.add('Margin_Addition');
+            console.log("ids are ", divblock.lastElementChild.classList)
             inpcount++;
 
         }
