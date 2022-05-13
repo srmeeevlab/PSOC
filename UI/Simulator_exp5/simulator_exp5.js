@@ -94,16 +94,17 @@ function Simulate() {
         ans2.innerHTML = "The committed unit no. is:" + IX[0]
     } else if (PD > Pmax[0] && PD < Pmax[0] + Pmax[1]) {
 
-        ans2.innerHTML = 'The committed unit nos. order are:' + IX[0] + ', ' + IX[1]
+        ans2.innerHTML = 'The committed unit numbers order are:' + IX[0] + ', ' + IX[1]
     } else if (PD >= math.sum(Pmax)) {
 
-        ans2.innerHTML = "The committed unit nos. order are:" + IX[0] + ', ' + IX[1] + ', ' + IX[2]
+        ans2.innerHTML = "The committed unit numbers order are:" + IX[0] + ', ' + IX[1] + ', ' + IX[2]
     }
     ans1.style.marginBottom = "1rem"
     ans2.style.marginBottom = "1rem"
     outputs.appendChild(ans1)
     outputs.appendChild(ans2)
 }
+
 function vecinput() {
     let columns = document.getElementById("lossdatacols").value;
     let divblock = document.getElementById("lossdata").getElementsByClassName("vecinps")[0];
@@ -144,7 +145,7 @@ function matinput() {
             columns = 1
         }
     }
-    if(rows <= 1){
+    if (rows <= 1) {
 
         document.getElementById("costdatarow").value = 1
     }
