@@ -2,6 +2,9 @@ body {
     font-family: "JetBrains Mono", monospace;
 }
 
+.rows_columns {
+}
+
 #interface {
     background-color: #fffbe9;
     min-height: 100vh;
