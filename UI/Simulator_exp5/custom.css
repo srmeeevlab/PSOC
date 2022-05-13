@@ -207,3 +207,7 @@ footer {
     color: white !important;
     transition: all 0.2s;
 }
+
+#dropdownMenuButton1 {
+    margin-right: 5rem;
+}

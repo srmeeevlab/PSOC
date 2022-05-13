@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width" />
     <meta charset="UTF-8">
     <title>Experiment</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
@@ -21,11 +20,21 @@
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="../srm-logo-white.png" alt="SRM Logo"></a>
-            <span id="exp-title">Gradient Method</span>
+            <span id="exp-title">ECONOMIC DISPATCH BY GRADIENT TECHNIQUE</span>
             <span id="navbar-settings">
                 <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
-                <span id="nav-help" title="Help"><a data-bs-toggle="modal" data-bs-target="#modal1" title="Help"
-                        role="button"><i class="bi bi-info-circle-fill"></i> HELP</a></span>
+            <span id="nav-help" title="Help">
+                <div class="dropdown">
+                    <button class="btn dropdown-toggle btn btn-custom-outline-brown w-100 d-block" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                      Help
+                    </button>
+                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                      <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal1">Interface</a></li>
+                      <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal2">Simulation</a></li>
+                      <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal3">Procedure</a></li>
+                    </ul>
+                  </div>
+            </span>
 
 
             </span>
@@ -61,55 +70,44 @@
                         </div>
                         <div>
                             <h5>Matrix</h5>
-                            <p>A matrix with assigned variable of given number of rows and columns is created. Values
-                                can be assigned in the box which will be opened after clicking the OK button.</p>
+                            <p>A matrix with assigned variable of given number of rows and columns is created. Values can be assigned in the box which will be opened after clicking the OK button.</p>
                         </div>
                         <div>
                             <h5>Identity Matrix</h5>
-                            <p>A matrix with assigned variable of given number of rows is created.Values can be assigned
-                                in the box which will be opened after clicking the OK button.</p>
+                            <p>A matrix with assigned variable of given number of rows is created.Values can be assigned in the box which will be opened after clicking the OK button.</p>
                         </div>
                         <div>
                             <h5>Unity Matrix</h5>
-                            <p>A unity matrix with assigned variable of given number of rows and columns is created.
-                                Values can be assigned in the box which will be opened after clicking the OK button.</p>
+                            <p>A unity matrix with assigned variable of given number of rows and columns is created. Values can be assigned in the box which will be opened after clicking the OK button.</p>
                         </div>
                         <div>
                             <h5>Zero Matrix</h5>
-                            <p>A Zero matrix with assigned variable of given number of rows and columns is created.
-                                Values can be assigned in the box which will be opened after clicking the OK button.</p>
+                            <p>A Zero matrix with assigned variable of given number of rows and columns is created. Values can be assigned in the box which will be opened after clicking the OK button.</p>
                         </div>
                         <div>
                             <h5>Vector</h5>
-                            <p>A vector with assigned variable of given number of elements is created. Values can be
-                                assigned in the box which will be opened after clicking the OK button.</p>
+                            <p>A vector with assigned variable of given number of elements is created. Values can be assigned in the box which will be opened after clicking the OK button.</p>
                         </div>
                         <h4>Conditionals and Loops</h4>
                         <div>
                             <h5>If</h5>
-                            <p>An if block is defined with the user defined condition. If the condition is true,then the
-                                if block will run.</p>
+                            <p>An if block is defined with the user defined condition. If the condition is true,then the if block will run.</p>
                         </div>
                         <div>
                             <h5>Else if</h5>
-                            <p>An else if block is defined with the user defined condition. If the else if condition is
-                                true,then the if block will run. If block is mandatory before an else if block.</p>
+                            <p>An else if block is defined with the user defined condition. If the else if condition is true,then the if block will run. If block is mandatory before an else if block.</p>
                         </div>
                         <div>
                             <h5>Else</h5>
-                            <p>An else if block is define.If the if condition is false,then the else block will run. If
-                                block is mandatory before an else block.</p>
+                            <p>An else if block is define.If the if condition is false,then the else block will run. If block is mandatory before an else block.</p>
                         </div>
                         <div>
                             <h5>For</h5>
-                            <p>A for loop block is created with specified initiliazed value,condition and
-                                increment/decrement value. Default value for initialization is 0 and increment/decrement
-                                is 1. </p>
+                            <p>A for loop block is created with specified initiliazed value,condition and increment/decrement value. Default value for initialization is 0 and increment/decrement is 1. </p>
                         </div>
                         <div>
                             <h5>While</h5>
-                            <p>A while block is defined with the user defined condition. The while block will run as
-                                long as the condition is satisfied.</p>
+                            <p>A while block is defined with the user defined condition. The while block will run as long as the condition is satisfied.</p>
                         </div>
                         <div>
                             <h5>Break</h5>
@@ -122,8 +120,8 @@
                         <h4>Math</h4>
                         <div>
                             <h5>Evaluate</h5>
-                            <p>Evaluate block evaluates the specified variable with the specified math operations and
-                                expressions.</p>
+                            <p>Evaluate block evaluates the specified variable with the specified math operations and expressions.
+                            </p>
                         </div>
                         <div>
                             <h5>Matrix Evaluate</h5>
@@ -131,38 +129,30 @@
                         </div>
                         <div>
                             <h5>Transpose</h5>
-                            <p>In transpose block, the output variable name is assigned with the transpose values of the
-                                given matrix block.</p>
+                            <p>In transpose block, the output variable name is assigned with the transpose values of the given matrix block.</p>
                         </div>
                         <div>
                             <h5>Absolute</h5>
-                            <p>In Absolute block, the output variable name is assigned with the absolute values of the
-                                given variables/operations.</p>
+                            <p>In Absolute block, the output variable name is assigned with the absolute values of the given variables/operations.</p>
                         </div>
                         <h4>Matrix Operations</h4>
                         <div>
                             <h5>Row combine</h5>
-                            <p>In row combine block, if two matrices with same column dimension and different/same row
-                                dimension are given, the output block gets the combined row values. For example, if
-                                matrix A has dimensions 2*2 and matrix B has dimension
+                            <p>In row combine block, if two matrices with same column dimension and different/same row dimension are given, the output block gets the combined row values. For example, if matrix A has dimensions 2*2 and matrix B has dimension
                                 3*2, the resultant matrix has dimensions 5*2</p>
                         </div>
                         <div>
                             <h5>Column combine</h5>
-                            <p>In column combine block, if two matrices with same row dimension and different/same
-                                column dimension are given, the output block gets the combined row values. For example,
-                                if matrix A has dimensions 2*2 and matrix B has dimension
+                            <p>In column combine block, if two matrices with same row dimension and different/same column dimension are given, the output block gets the combined row values. For example, if matrix A has dimensions 2*2 and matrix B has dimension
                                 2*3, the resultant matrix has dimensions 2*5</p>
                         </div>
                         <div>
                             <h5>Element wise multiply</h5>
-                            <p>In this block, the output matrix gets the value of m1 matrix multiplied with m2 matrix
-                                element wise.</p>
+                            <p>In this block, the output matrix gets the value of m1 matrix multiplied with m2 matrix element wise.</p>
                         </div>
                         <div>
                             <h5>Element wise divide</h5>
-                            <p>In this block, the output matrix gets the value of m1 matrix divided with m2 matrix
-                                element wise.</p>
+                            <p>In this block, the output matrix gets the value of m1 matrix divided with m2 matrix element wise.</p>
                         </div>
                         <h4>Input/Output</h4>
                         <div>
@@ -171,8 +161,7 @@
                         </div>
                         <div>
                             <h5>Print Block</h5>
-                            <p>Using print block, the output is printed in the output block space. Value is entered for
-                                whose the output is to be shown and a message can be entered to get displayed.</p>
+                            <p>Using print block, the output is printed in the output block space. Value is entered for whose the output is to be shown and a message can be entered to get displayed.</p>
                         </div>
                         <div>
                             <h5>Debug output block</h5>
@@ -223,8 +212,7 @@
 
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal"
-                            data-bs-dismiss="modal">Next</button>
+                        <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Next</button>
                         <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -247,10 +235,8 @@
                         <p>Help button can be used to check the functionality of buttons and requirements.</p>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-target="#modal1" data-bs-toggle="modal"
-                            data-bs-dismiss="modal">Previous</button>
-                        <button class="btn btn-primary" data-bs-target="#modal3" data-bs-toggle="modal"
-                            data-bs-dismiss="modal">Next</button>
+                        <button class="btn btn-primary" data-bs-target="#modal1" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
+                        <button class="btn btn-primary" data-bs-target="#modal3" data-bs-toggle="modal" data-bs-dismiss="modal">Next</button>
                         <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -267,8 +253,7 @@
                         <h5>Theory</h5>
                     </div>
                     <div class="modal-footer">
-                        <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal"
-                            data-bs-dismiss="modal">Previous</button>
+                        <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
                         <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -279,9 +264,7 @@
         <div class="row">
 
 
-            <div id="interface" class="col-9 col-md-9 " ondragenter="dragEnter_handler(event)"
-                ondragover="dragOver_handler(event)" ondrop="drop_handler(event)"
-                ondragleave="dragLeave_handler(event)">
+            <div id="interface" class="col-9 col-md-9 " ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
 
 
                 <div id="INPUT" class="d-flex justify-content-around mt-5">
@@ -329,13 +312,11 @@
                                 <input type="text" name="Variable" id="mat0$VAR" placeholder="Variable Name">
                                 <br> -->
                                 <label class="visually-hidden" for="ROW">Enter the number of rows of the matrix</label>
-                                <input value="2" type="text" id="costdatarow" name="" onchange="matinput()"
-                                    id="mat0$ROW" placeholder="Number of Rows">
+                                <input value="2" type="text" id="costdatarow" name="" onchange="matinput()" id="mat0$ROW" placeholder="Number of Rows">
                                 <br>
                                 <label class="visually-hidden" for="COL">Enter the number of Column of the
                                     matrix</label>
-                                <input value="4" disabled type="text" id="costdatacol" name="" onchange="matinput()"
-                                    id="mat0$COL" placeholder="Number of Columns">
+                                <input value="4" disabled type="text" id="costdatacol" name="" onchange="matinput()" id="mat0$COL" placeholder="Number of Columns">
                                 <br>
                                 <!-- <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate -->
                                 <!-- Table</button> -->
@@ -369,8 +350,7 @@
                                 <input value="" type="text" name="Variable" id="vec1$VAR" placeholder="Variable Name">
                                 <br> -->
                                 <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
-                                <input value="3" type="text" id="Pcols" name="" onchange="vecinput()" id="vec1$VAL"
-                                    placeholder="Number of elements">
+                                <input value="3" type="text" id="Pcols" name="" onchange="vecinput()" id="vec1$VAL" placeholder="Number of elements">
                                 <br>
                                 <!-- <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                             row</button> -->
@@ -395,16 +375,12 @@
 
             <div id="properties" class="col-3">
                 <div class="pt-4">
-                    <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown"
-                        title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top"
-                        onclick="">View
+                    <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
                         Question Statement</button>
-                    <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  "
-                        data-bs-toggle="tooltip" data-bs-placement="top" onclick=""><a href="./tyr.html"
+                    <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""><a href="./tyr.html"
                             style="text-decoration: none;color:black;display: block;">Go to
                             programming-interface</a></button>
-                    <button type="button" id="run" class="btn btn-custom-outline-brown w-100 d-block" title="RUN"
-                        data-bs-toggle="tooltip" data-bs-placement="top" onclick="console.log('clicked');Simulate()"><i
+                    <button type="button" id="run" class="btn btn-custom-outline-brown w-100 d-block" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="console.log('clicked');Simulate()"><i
                             class="bi bi-play-fill"></i> </button>
                 </div>
                 <!-- <div id="OUTPUT-CONSOLE"></div> -->
@@ -413,9 +389,7 @@
     </div>
 
     <footer class="p-3">
-        Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute
-        of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology
-        Partner
+        Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
         <script>
             document.getElementById("year").innerText = new Date().getFullYear();
         </script>
@@ -423,18 +397,10 @@
     <!-- <script src="../programming-interface/main.js"></script> -->
     <!-- <script src="drag1.js"></script> -->
     <script src="./simulator_exp4.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-        crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js"
-        integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.5.2/math.js"
-        integrity="sha512-vdwP2fMacZZUetdvY+t/hsPJfEeifOcTBv0zYwUyj5qj3NbMvIFg87DxanM5dwqpu4yZkPry5VZv9TnQrll6tg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js" integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.5.2/math.js" integrity="sha512-vdwP2fMacZZUetdvY+t/hsPJfEeifOcTBv0zYwUyj5qj3NbMvIFg87DxanM5dwqpu4yZkPry5VZv9TnQrll6tg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 

@@ -24,10 +24,21 @@
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="srm-logo-white.png" alt="SRM Logo"></a>
-            <span id="exp-title">Experiment Title</span>
+            <span id="exp-title">Voltage control of SIMB System</span>
             <span id="navbar-settings">
                 <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
-                <span id="nav-help" title="Help"><a data-bs-toggle="modal" data-bs-target="#modal1" title="Help" role="button"><i class="bi bi-info-circle-fill"></i> HELP</a></span>
+            <span id="nav-help" title="Help">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle btn-custom-outline-brown w-100 d-block" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Help
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal1">Interface</a></li>
+                          <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal2">Simulation</a></li>
+                          <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal3">Procedure</a></li>
+                        </ul>
+                      </div>
+                </span>
             </span>
         </div>
         <div id="INPUT-BLOCK">
@@ -344,7 +355,7 @@
                                     <li id="mat-abs" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         ABS
                                     </li>
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -399,7 +410,7 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
 
             </div>
