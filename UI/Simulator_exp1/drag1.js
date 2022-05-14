@@ -884,8 +884,10 @@ var outputBlock = (block) => {
     variable = document.getElementById(block.id + "$" + "VAR").value;
     message1 = document.getElementById(block.id + "$" + "VAL").value;
     if (!variable)
-        variable = "\n";
-
+        variable = "";
+    else {
+        variable = eval(variable)
+    }
 
     // msg.innerHTML = message + `${variable}`;
     // document.getElementById("OUTPUT-CONSOLE").appendChild(msg);
@@ -893,7 +895,7 @@ var outputBlock = (block) => {
     return `
 
     let ${block.id}print=document.createElement("p")
-    ${block.id}print.innerHTML="${message1}" +eval(${variable});
+    ${block.id}print.innerHTML="${message1}" +${variable};
     msg.appendChild(${block.id}print)
 
     
