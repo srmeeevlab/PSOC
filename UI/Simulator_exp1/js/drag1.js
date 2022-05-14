@@ -499,7 +499,12 @@ function vecinput(block) {
     divblock = divblock.getElementsByClassName("vecinps")[0];
     divblock.innerHTML = "";
     if (!columns) {
-
+        columns=1
+        document.getElementById(block.id + "$" + "VAL").value = 1
+    }
+    if( columns>=25){
+        alert("cannot enter more than 25 elements")
+        return;
     }
     if (isNaN(columns) || columns <= 0) {
         columns = 1
@@ -542,6 +547,10 @@ function matinput(block) {
         columns = 1
         document.getElementById(block.id + "$" + "COL").value = 1
         document.getElementById(block.id + "$" + "ROW").value = 1
+    }
+    if(rows>=10 || columns>=10){
+        alert("cannot enter more than 10X10 matrix")
+        return;
     }
     if (isNaN(rows) || isNaN(columns) || rows <= 0 || columns <= 0) {
         if (isNaN(rows)) {
