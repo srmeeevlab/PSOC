@@ -142,6 +142,15 @@ nav {
     padding: 10px 50px;
 }
 
+#sample-input {
+    background-color: #ad8b73;
+    padding: 10px 50px;
+}
+
+#right-buttons {
+    margin: 1.5rem !important;
+}
+
 #OUTPUT-CONSOLE {
     background-color: white;
     /* border-radius: 0.5rem; */
