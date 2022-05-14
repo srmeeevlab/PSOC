@@ -24,7 +24,7 @@
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="images/srm-logo-white.png" alt="SRM Logo"></a>
-            <span id="exp-title">EEE Development of voltage controllers of SMIB system</span>
+            <span id="exp-title">Development of voltage controllers of SMIB system</span>
             <span id="navbar-settings">
                 <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
             <span id="nav-help" title="Help">
@@ -41,7 +41,7 @@
                 </span>
             </span>
         </div>
-        <div>
+        <div id="sample-input">
             <h4>Sample input:</h4>
             <h6>Nominal Voltage(kV):735 Inductance(mH):0.9323 Frequency(Hz):60 <br><br>Capacitance(nF):12.2 Transmission line length(Km):800 Delta(deg):0</h6>
         </div>
@@ -85,9 +85,7 @@
                             <li>Step 7: Fill in values for the elements/blocks chosen.</li>
                             <li>Step 8: Click on the “Run” button.</li>
                             <li>Step 9: Verify the result against manual calculations.
-                            </li>
-                            <li>Step 10: View your score.
-                            </li>
+
                         </ul>
                         <h1>Blocks</h1>
                         <h4>Variables</h4>
@@ -270,8 +268,7 @@
                             <li>Step 6: On ruunig it, “Results” section can be observed below the inputs.</li>
                             <li>Step 7: Verify the results provided by the simulator against manual calculations.
                             </li>
-                            <li>Step 8: View your score.
-                            </li>
+
                         </ul>
                     </div>
                     <div class="modal-footer">
@@ -488,8 +485,7 @@
             </div>
             <div id="properties" class="col-2">
                 <div class="pt-4">
-                    <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
-                        Question Statement</button>
+
                     <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button>
                     <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./simulator-exp1.html" style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button>
                     <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" title="move up" data-bs-toggle="tooltip" data-bs-placement="top" onclick="up()"><i
@@ -515,7 +511,14 @@
     </div>
     <div id="TEST-OUTPUT">
         <h4>Sample output:</h4>
-        <h6>Nominal Voltage(kV):735 Inductance(mH):0.9323 Frequency(Hz):60 <br><br>Capacitance(nF):12.2 Transmission line length(Km):800 Delta(deg):0</h6>
+        <h6>Q is surplus..So Inductive nature of reactive power is required 1
+
+
+
+
+            <h6>Acutal voltage at the midd-point without mid-point compensation is 841.4976011576975</h6>
+            <h6>Reactive power is required to maintain the mid-point voltage at 1 per unit -1089.4466860904868</h6>
+        </h6>
     </div>
     <footer class="p-3">
         Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
