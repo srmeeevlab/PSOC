@@ -130,6 +130,7 @@ function vecinput() {
 
 }
 
+
 function matinput() {
     let rows, columns;
     rows = document.getElementById("costdatarow").value;
@@ -169,6 +170,8 @@ function matinput() {
             divblock.appendChild(document.createElement("input"));
             divblock.lastElementChild.type = "text";
             divblock.lastElementChild.id = inpcount;
+            divblock.lastElementChild.classList.add('Margin_Addition');
+            console.log("ids are ", divblock.lastElementChild.classList)
             inpcount++;
 
         }
