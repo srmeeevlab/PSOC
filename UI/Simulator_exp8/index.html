@@ -25,15 +25,23 @@
             </span>
         </div>
     </nav>
-    <div class="modal fade" id="modal1" aria-hidden="true" aria-labelledby="modal3Label" tabindex="-1">
+    <div class="modal fade" id="modal1" aria-hidden="true" aria-labelledby="modal2Label" tabindex="-1">
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal3Label"></h5>
+                    <h5 class="modal-title" id="modal2Label">Theory</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <h5>Theory</h5>
+                    
+                    <p>A Simple Case To develop a good, qualitative understanding of the need for reactive-power control, let us consider a simple case of a lossless short-transmission line con-necting a source Vs to a load Zb:k.</p>
+                    <p>Between the sending- and the receiving-end voltages, a magnitude variation, as well as a phase difference, is created.</p>
+                    <p>The most significant part of the voltage drop in the line reactance (AV1 .j/xXi) is due to the reactive component of the load current, I. To keep the voltages in the network at nearly the rated value, two control actions seem possible i.e. load compensation and base compensation.</p>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Next</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                 </div>
                 <!-- <div class="modal-footer">
                     <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
@@ -42,17 +50,43 @@
             </div>
         </div>
     </div>
+    <div class="modal fade" id="modal2" aria-hidden="true" aria-labelledby="modal2Label" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal2Label">Procedure</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    
+                    <p>A Simple Case To develop a good, qualitative understanding of the need for reactive-power control, let us consider a simple case of a lossless short-transmission line con-necting a source Vs to a load Zb:k.</p>
+                    <p>Between the sending- and the receiving-end voltages, a magnitude variation, as well as a phase difference, is created.</p>
+                    <p>The most significant part of the voltage drop in the line reactance (AV1 .j/xXi) is due to the reactive component of the load current, I. To keep the voltages in the network at nearly the rated value, two control actions seem possible i.e. load compensation and base compensation.</p>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#modal1" data-bs-toggle="modal" data-bs-dismiss="modal">Procedure</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+                <!-- <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#modal1" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div> -->
+            </div>
+        </div>
+    </div>
     <main>
 
-        <div class="content-fluid h-100">
+        <div class="container-fluid">
             <div class="row" id="main-div">
-                <div class="col-2 " id="input-col">
+                <div class="col-2 px-0" id="input-col">
                     <div class="input">
                         <h5>INPUT</h5>
 
                         <!-- <h4>INPUTS</h4> -->
 
-                        <div class="inps"> <label for="eg">Bandgap energy :</label>
+                        <div class="inps"> 
+                            <label for="eg">Bandgap energy :</label>
                             <input onchange="exe()" type="number" id="eg" name="eg" value="1.166">
                         </div>
                         <!-- <div class="inps"> <label for="a">a :</label>
@@ -124,12 +158,12 @@
 
                 </div>
 
-                <div class="col-9 px-0 m-5 ">
+                <div class="col-10 p-5 m-0 ">
                     <div class="outputs">
                         <div class="d-flex flex-column bd-highlight">
                             <div class="p-2 bd-highlight" id="heading">
                                 <div class="buttons">
-                                    <span><button id="" class="each-bu" onclick="PLOT();SCORE()">PLOT</button>
+                                    <span><button id="" class="each-bu" onclick="PLOT()">PLOT</button>
                                         <button id="holdbut" class="each-bu" onclick=" HOLD() ">HOLD</button>
                                         <button id="toggle" class="each-bu" onclick=" hide() ">HIDE</button>
                                     </span>
