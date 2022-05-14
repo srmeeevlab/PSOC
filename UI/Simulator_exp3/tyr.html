@@ -24,7 +24,7 @@
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="../srm-logo-white.png" alt="SRM Logo"></a>
-            <span id="exp-title">EEE Economic dispatch considering transmission losses</span>
+            <span id="exp-title"> Economic dispatch considering transmission losses</span>
             <span id="navbar-settings">
                 <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
             <!-- <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span> -->
@@ -44,11 +44,24 @@
             </span>
         </div>
         <div id="INPUT-BLOCK">
-            <h5>INPUT</h5>
-            <span> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, in quae animi, sed harum molestias
-                consequatur doloribus autem architecto, dolor perspiciatis vitae atque laudantium sint placeat
-                voluptatibus at ab odit.
-            </span>
+            <h5>SAMPLE INPUT</h5>
+            <h6>
+                Total Demand (pd): 1000 Incremental Cost (lambda) : 9 Tolerance (delp) : 0.1 Tolerance (dellambda) : 0
+                <div class=" d-flex">
+                    <div class="mx-3">
+                        <br><b>Cost Data</b>
+                        <div>1 0.5 215 5000 </div>
+                        <div>2 1 270 5000 </div>
+                        <div>3 0.7 160 9000 </div>
+                    </div>
+                    <div class="mx-3">
+                        <br><b>Loss Data</b>
+                        <div>1 0.5 215 5000 </div>
+                        <div>2 1 270 5000 </div>
+                        <div>3 0.7 160 9000 </div>
+                    </div>
+                </div>
+            </h6>
         </div>
     </nav>
     <div id="HELP-MODAL">
@@ -91,8 +104,8 @@
                             <li>Step 8: Click on the “Run” button.</li>
                             <li>Step 9: Verify the result against manual calculations.
                             </li>
-                            <li>Step 10: View your score.
-                            </li>
+                            <!-- <li>Step 10: View your score.
+                            </li> -->
                         </ul>
                         <h1>Blocks</h1>
                         <h4>Variables</h4>
@@ -275,8 +288,8 @@
                             <li>Step 6: On ruunig it, “Results” section can be observed below the inputs.</li>
                             <li>Step 7: Verify the results provided by the simulator against manual calculations.
                             </li>
-                            <li>Step 8: View your score.
-                            </li>
+                            <!-- <li>Step 8: View your score.
+                            </li> -->
                         </ul>
                     </div>
                     <div class="modal-footer">
@@ -501,8 +514,8 @@
             </div>
             <div id="properties" class="col-2">
                 <div class="pt-4">
-                    <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
-                        Question Statement</button>
+                    <!-- <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
+                        Question Statement</button> -->
                     <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button>
                     <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./simulator_exp3.html"
                             style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button>
@@ -531,10 +544,11 @@
         </div>
     </div>
     <div id="TEST-OUTPUT">
-        <h5>OUTPUT</h5>
-        <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis nemo non accusantium vero magnam
-            velit suscipit nesciunt laudantium qui, ex mollitia? Facilis alias consequuntur eligendi recusandae. Illo
-            iusto sapiente quo! </span>
+        <h5>SAMPLE OUTPUT</h5>
+        <h6>Output of Economic Dispatch Problem Lambda -12.10 unit</h6>
+        <h6>**Optimal Generation** Unit No Optimal Generation (in MW) 1.00,2.00,177.30,489.82 unit</h6>
+        <h6>Incremental Fuel Cost and Penalty factors are: Unit No IFC Penalty Factor 1.00,2.00,10.62,11.34,1.14,1.07 unit</h6>
+        <h6>Total Generation Cost = INR 7386.183544547467 per hour</h6>
     </div>
     <footer class="p-3">
         Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner

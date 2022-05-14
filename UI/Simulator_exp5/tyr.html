@@ -24,7 +24,7 @@
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="../srm-logo-white.png" alt="SRM Logo"></a>
-            <span id="exp-title">EEE Unit commitment using the priority list method</span>
+            <span id="exp-title"> Unit commitment using the priority list method</span>
             <span id="navbar-settings">
                 <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
             <!-- <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span> -->
@@ -42,10 +42,21 @@
         </div>
         <div id="INPUT-BLOCK">
             <h5>INPUT</h5>
-            <span> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, in quae animi, sed harum molestias
-                consequatur doloribus autem architecto, dolor perspiciatis vitae atque laudantium sint placeat
-                voluptatibus at ab odit.
-            </span>
+            <h6>Total Demand (pd): 700</h6>
+            <div class=" d-flex">
+                <div class="">
+                    <br><b>cost curve coefficients c1</b>
+                    <div>0.01562 79.2 5610 </div>
+                    <div> 0.0194 78.5 3100</div>
+                    <div>0.05784 95.64 936
+                    </div>
+                </div>
+                <div class="mx-5">
+                    <br><b>Pmax</b>
+                    <div>600 400 200</div>
+
+                </div>
+            </div>
         </div>
     </nav>
     <div id="HELP-MODAL">
@@ -88,8 +99,8 @@
                             <li>Step 8: Click on the “Run” button.</li>
                             <li>Step 9: Verify the result against manual calculations.
                             </li>
-                            <li>Step 10: View your score.
-                            </li>
+                            <!-- <li>Step 10: View your score.
+                            </li> -->
                         </ul>
                         <h1>Blocks</h1>
                         <h4>Variables</h4>
@@ -272,8 +283,8 @@
                             <li>Step 6: On ruunig it, “Results” section can be observed below the inputs.</li>
                             <li>Step 7: Verify the results provided by the simulator against manual calculations.
                             </li>
-                            <li>Step 8: View your score.
-                            </li>
+                            <!-- <li>Step 8: View your score.
+                            </li> -->
                         </ul>
                     </div>
                     <div class="modal-footer">
@@ -501,8 +512,8 @@
             </div>
             <div id="properties" class="col-2">
                 <div class="pt-4">
-                    <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
-                        Question Statement</button>
+                    <!-- <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
+                        Question Statement</button> -->
                     <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button>
                     <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./simulator_exp5.html"
                             style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button>
@@ -531,10 +542,9 @@
         </div>
     </div>
     <div id="TEST-OUTPUT">
-        <h5>OUTPUT</h5>
-        <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis nemo non accusantium vero magnam
-            velit suscipit nesciunt laudantium qui, ex mollitia? Facilis alias consequuntur eligendi recusandae. Illo
-            iusto sapiente quo! </span>
+        <h5>SAMPLE OUTPUT</h5>
+        <h6>Printing the unit commitment schedule for the given load demand</h6>
+        <h6>The committed unit numbers order are : 0, 1</h6>
     </div>
     <footer class="p-3">
         Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner

@@ -24,7 +24,7 @@
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="../srm-logo-white.png" alt="SRM Logo"></a>
-            <span id="exp-title">EEE Economic dispatch using a gradient method</span>
+            <span id="exp-title"> Economic dispatch using a gradient method</span>
             <span id="navbar-settings">
                 <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
             <!-- <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span> -->
@@ -44,11 +44,24 @@
             </span>
         </div>
         <div id="INPUT-BLOCK">
-            <h5>INPUT</h5>
-            <span> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, in quae animi, sed harum molestias
-                consequatur doloribus autem architecto, dolor perspiciatis vitae atque laudantium sint placeat
-                voluptatibus at ab odit.
-            </span>
+            <h5>SAMPLE INPUT</h5>
+            <h6> Power Demand : 500</h6>
+            <h6>Epsilon constant - e : 10</h6>
+            <div class=" d-flex">
+                <div class="mx-3">
+                    <br><b>Cost Data</b>
+                    <div>1 0.5 215 5000 </div>
+                    <div>2 1 270 5000 </div>
+                    <div>3 0.7 160 9000 </div>
+                </div>
+                <div class="mx-3">
+                    <br><b>P - initial values of power generation</b>
+                    <div>159 100 250</div>
+
+                </div>
+            </div>
+
+
         </div>
     </nav>
     <div id="HELP-MODAL">
@@ -91,8 +104,8 @@
                             <li>Step 8: Click on the “Run” button.</li>
                             <li>Step 9: Verify the result against manual calculations.
                             </li>
-                            <li>Step 10: View your score.
-                            </li>
+                            <!-- <li>Step 10: View your score.
+                            </li> -->
                         </ul>
                         <h1>Blocks</h1>
                         <h4>Variables</h4>
@@ -275,8 +288,8 @@
                             <li>Step 6: On ruunig it, “Results” section can be observed below the inputs.</li>
                             <li>Step 7: Verify the results provided by the simulator against manual calculations.
                             </li>
-                            <li>Step 8: View your score.
-                            </li>
+                            <!-- <li>Step 8: View your score.
+                            </li> -->
                         </ul>
                     </div>
                     <div class="modal-footer">
@@ -499,8 +512,8 @@
             </div>
             <div id="properties" class="col-2">
                 <div class="pt-4">
-                    <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
-                        Question Statement</button>
+                    <!-- <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
+                        Question Statement</button> -->
                     <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button>
                     <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./simulator_exp4.html"
                             style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button>
@@ -528,10 +541,14 @@
         </div>
     </div>
     <div id="TEST-OUTPUT">
-        <h5>OUTPUT</h5>
-        <span> Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis nemo non accusantium vero magnam
-            velit suscipit nesciunt laudantium qui, ex mollitia? Facilis alias consequuntur eligendi recusandae. Illo
-            iusto sapiente quo! </span>
+        <h5>SAMPLE OUTPUT</h5>
+        <h6>lambda - 0.71</h6>
+        <h6>k - 1.00 P- 150.30,100.10,249.60 unit</h6>
+        <h6>k - 2.00 P- 150.60,100.20,249.21 unit </h6>
+        <h6>k - 3.00 P- 150.89,100.30,248.82 unit </h6>
+        <h6>k - 4.00 P- 151.18,100.40,248.44 unit</h6>
+        <h6>k - 5.00 P- 151.46,100.49,248.06 unit</h6>
+        <h6>k - 6.00 P- 151.74,100.58,247.69 unit </h6>
     </div>
     <footer class="p-3">
         Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
