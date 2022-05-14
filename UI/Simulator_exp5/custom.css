@@ -2,6 +2,21 @@ body {
     font-family: "JetBrains Mono", monospace;
 }
 
+.rows_columns {
+
+    max-width: 100px;
+}
+
+.Margin_Addition {
+
+    margin-left: 12.5px;
+}
+
+.Margin_Add {
+
+    margin-top: 12.5px;
+}
+
 #interface {
     background-color: #fffbe9;
     min-height: 100vh;
@@ -117,6 +132,7 @@ nav {
         background-color: inherit;
         color: black;
     }
+
     to {
         background-color: #ad8b73;
         color: white;

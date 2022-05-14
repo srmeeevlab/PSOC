@@ -20,7 +20,7 @@
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="../srm-logo-white.png" alt="SRM Logo"></a>
-            <span id="exp-title">EEE Economic dispatch using a gradient method</span>
+            <span id="exp-title">Economic Dispatch Using a Gradient Method</span>
             <span id="navbar-settings">
                 <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
             <span id="nav-help" title="Help">
@@ -318,6 +318,10 @@
                 <div id="INPUT" class="d-flex justify-content-around mt-5">
                     <div id="left">
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="pdblock" draggable="false">
+                            
+                            <b>System Cost</b>
+                            <br>
+                            <br>
                             Power Demand
                             <!-- <span class="showvarname">@Vnom</span> -->
                             <div class="details pb-2" style="display: block;">
@@ -353,22 +357,29 @@
 
                     <div id="right">
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="costdata">
-                            Costdata
+                            <b>Costdata</b>
+                            <br>
+                            <br>
                             <!-- <span class="showvarname">@costdata</span> -->
                             <div class="details pb-2" style="display: block;">
                                 <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
                                 <input type="text" name="Variable" id="mat0$VAR" placeholder="Variable Name">
                                 <br> -->
-                                <label class="visually-hidden" for="ROW">Enter the number of rows of the matrix</label>
-                                <input value="2" type="text" id="costdatarow" name="" onchange="matinput()" id="mat0$ROW" placeholder="Number of Rows">
-                                <br>
-                                <label class="visually-hidden" for="COL">Enter the number of Column of the
-                                    matrix</label>
-                                <input value="4" disabled type="text" id="costdatacol" name="" onchange="matinput()" id="mat0$COL" placeholder="Number of Columns">
+                                <label for="ROW">Number of Rows</label>
+                                <input value="2" type="text" id="costdatarow" name="" onchange="matinput()" id="mat0$ROW" placeholder="Number of Rows" class="rows_columns">
+                                
+                                <label for="COL">Number of Columns</label>
+                                <input value="4" disabled type="text" id="costdatacol" name="" onchange="matinput()" id="mat0$COL" placeholder="Number of Columns" class="rows_columns">
                                 <br>
                                 <!-- <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate -->
                                 <!-- Table</button> -->
                                 <br>
+                                <div id="matheading" class="d-flex text-center">
+                                    <p class="mx-3 bold">S.No.</p>
+                                    <p class="mx-2 bold">a (₹/hr)</p>
+                                    <p class="mx-2 bold">b (₹/MW)</p>
+                                    <p class="mx-2 bold">c (₹/MW<sup>2</sup>)</p>
+                                </div>
                                 <div class="matinps">
                                     <input value="1" type="text" id="1">
                                     <input value="6" type="text" id="2">
@@ -391,22 +402,25 @@
                         </div>
 
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="P">
+                            <br>
                             P - initial values of power generation
+                            <br>
+                            <br>    
                             <!-- <span class="showvarname">@lossdata</span> -->
                             <div class="details pb-2" style="display: block;">
                                 <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
                                 <input value="" type="text" name="Variable" id="vec1$VAR" placeholder="Variable Name">
                                 <br> -->
-                                <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
+                                <label for="VAL">Number of Elements</label><br>
                                 <input value="3" type="text" id="Pcols" name="" onchange="vecinput()" id="vec1$VAL" placeholder="Number of elements">
                                 <br>
                                 <!-- <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                             row</button> -->
                                 <br>
                                 <div class="vecinps">
-                                    <input value="150" type="text" id="1">
-                                    <input value="100" type="text" id="2">
-                                    <input value="250" type="text" id="3">
+                                    <input value="150" type="text" id="1" class = "Margin_Add">
+                                    <input value="100" type="text" id="2" class = "Margin_Add">
+                                    <input value="250" type="text" id="3" class = "Margin_Add">
                                 </div>
                                 <!-- <button id="vec1$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
                             </div>
@@ -428,8 +442,8 @@
                     <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""><a href="./tyr.html"
                             style="text-decoration: none;color:black;display: block;">Go to
                             programming-interface</a></button>
-                    <button type="button" id="run" class="btn btn-custom-outline-brown w-100 d-block" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="console.log('clicked');Simulate()"><i
-                            class="bi bi-play-fill"></i> </button>
+                            <div style="width: 100%; text-align:center;"><button id="run" type="button" class="btn btn-success w-50" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="Simulate()" style="display: inline-block;">Run</button>
+                            </div>
                 </div>
                 <!-- <div id="OUTPUT-CONSOLE"></div> -->
             </div>
