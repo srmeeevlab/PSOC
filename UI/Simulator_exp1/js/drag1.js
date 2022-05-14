@@ -483,7 +483,7 @@ function ok(event) {
         varname = ""
     }
     if (varname) {
-        document.getElementById(ID).firstElementChild.innerHTML = `@${varname}`;
+        document.getElementById(ID).firstElementChild.innerHTML = ` : ${varname}`;
     } else {
         document.getElementById(ID).firstElementChild.innerHTML = ``;
 
@@ -880,7 +880,7 @@ var outputBlock = (block) => {
     variable = document.getElementById(block.id + "$" + "VAR").value;
     message1 = document.getElementById(block.id + "$" + "VAL").value;
     if (!variable)
-        variable = "\n";
+        variable = "1";
 
 
     // msg.innerHTML = message + `${variable}`;
@@ -889,7 +889,7 @@ var outputBlock = (block) => {
     return `
 
     let ${block.id}print=document.createElement("p")
-    ${block.id}print.innerHTML="${message1}" +eval(${variable});
+    ${block.id}print.innerHTML="${message1} " +eval(${variable});
     msg.appendChild(${block.id}print)
 
     
@@ -1547,21 +1547,21 @@ function degrees_to_radians(degrees) {
     return degrees * (pi / 180);
 }
 
-var Sin = (num) => { return Math.sin(num); }
-var Cos = (num) => { return Math.cos(num); }
-var Tan = (num) => { return Math.tan(num); }
-var Sinh = (num) => { return Math.sinh(num); }
-var Cosh = (num) => { return Math.cosh(num); }
-var Tanh = (num) => { return Math.tanh(num); }
-var Sind = (num) => { return Math.sin(degrees_to_radians(num)); }
-var Cosd = (num) => { return Math.cos(degrees_to_radians(num)); }
-var Tand = (num) => { return Math.tan(degrees_to_radians(num)); }
-var Sinhd = (num) => { return Math.sinh(degrees_to_radians(num)); }
-var Coshd = (num) => { return Math.cosh(degrees_to_radians(num)); }
-var Tanhd = (num) => { return Math.tanh(degrees_to_radians(num)); }
+var Sin = (num) => { return math.sin(num); }
+var Cos = (num) => { return math.cos(num); }
+var Tan = (num) => { return math.tan(num); }
+var Sinh = (num) => { return math.sinh(num); }
+var Cosh = (num) => { return math.cosh(num); }
+var Tanh = (num) => { return math.tanh(num); }
+var Sind = (num) => { return math.sin(degrees_to_radians(num)); }
+var Cosd = (num) => { return math.cos(degrees_to_radians(num)); }
+var Tand = (num) => { return math.tan(degrees_to_radians(num)); }
+var Sinhd = (num) => { return math.sinh(degrees_to_radians(num)); }
+var Coshd = (num) => { return math.cosh(degrees_to_radians(num)); }
+var Tanhd = (num) => { return math.tanh(degrees_to_radians(num)); }
 var Sqrt = (num) => { return math.sqrt(num); }
-var Abs = (num) => { return Math.abs(num); }
-var Max = (num1, num2) => { return Math.max(num1, num2) }
+var Abs = (num) => { return math.abs(num); }
+var Max = (num1, num2) => { return math.max(num1, num2) }
 var Sort = (arr) => { return arr.sort() }
 var Sum = (arr) => {
     let sum = 0;
