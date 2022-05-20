@@ -896,13 +896,17 @@
     function nonzero(NUM) {
         if (NUM > 0) return NUM
     }
+    // const data_VvsI = {
+    //     labels: [],
+    //     datasets: [{
+    //         label: "V vs I0",
+    //         fill: false,
+    //         data: questioncurrent.filter(nonzero)
+    //     }]
+    // }
     const data_VvsI = {
-        labels: questionvoltage,
-        datasets: [{
-            label: "V vs I0",
-            fill: false,
-            data: questioncurrent.filter(nonzero)
-        }]
+        labels: [],
+        datasets: []
     }
     const config_VvsI = {
         type: 'line',
@@ -976,13 +980,17 @@
         ctx1,
         config_VvsI
     );
+    // const data_VvsP = {
+    //     labels: [],
+    //     datasets: [{
+    //         label: "V vs P0",
+    //         fill: false,
+    //         data: questionpower.filter(nonzero)
+    //     }]
+    // }
     const data_VvsP = {
-        labels: questionvoltage,
-        datasets: [{
-            label: "V vs P0",
-            fill: false,
-            data: questionpower.filter(nonzero)
-        }]
+        labels: [],
+        datasets: []
     }
 
     const config_VvsP = {
@@ -1055,6 +1063,8 @@
         ctx2,
         config_VvsP
     );
+
+    question();
 </script>
 <script src="./app.js"></script>
 

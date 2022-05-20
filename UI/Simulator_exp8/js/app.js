@@ -9,110 +9,144 @@ var range = (start, stop, step) => {
 //for tak
 
 let v = []
-
+let v_question = []
 //for tc
 
 //for i
 let i = []
+let i_question = []
     // i = np * Ipv - np * Id * (Math.exp(q * (v + isc * rs) / (k * tck * a * ns)) - 1) - np * (Math.abs(ish));
     // for (let ele = 0; ele)
 
 let P = []
+let P_question=[]
+
+function twentyerr(num=0){
+     // implement error of positive or negative
+    // return num*(85+Math.random()*15)/100
+    let errp = Math.random()*15/100
+    let a = [1,-1]
+    let sign= a[Math.floor(Math.random()*a.length)]
+    return num + sign*errp*num
+}
+
 
 function question() {
-    i = []
-    v = []
-    P = []
-    let k = 1.38 * Math.pow(10, -23)
-    const q = 1.6 * Math.pow(10, -19)
-        // const Chart = require('chart.js');
-    let eg = (Math.random() * 100 + 1)
-    let a = (Math.random() * 100 + 1)
-    let ns = (Math.random())
-    let np = (Math.random() * 50 + 1)
-    let rs = Math.random()
-    let rsh = (Math.random() * 10000 + 1)
-    let voc = (Math.random() * 100 + 1)
-    let isc = (Math.random() * 10 + 1)
-    let vmp = (Math.random() * 50 + 1)
-    let imp = (Math.random() * 10 + 1)
-    let pm = Math.floor((Math.random() * 100 + 1))
+    i_question = []
+    v_question = []
+    P_question = []
+    let k_question = 1.38 * Math.pow(10, -23)
+    let q_question = 1.6 * Math.pow(10, -19)
+    let eg_question = twentyerr(1.66) //1.166
+    let a_question = twentyerr(1.3) // 1.3
+    let ns_question = twentyerr(35) //35
+    let np_question = twentyerr(5) //5
+    let rs_question = twentyerr(0.000006) //0.000006
+    let rsh_question = twentyerr(5000) //5000
+    let voc_question = twentyerr(21.5) //21.5
+    let isc_question = twentyerr(1.2) //1.2
+    let vmp_question = twentyerr(17.28) //17.28
+    let imp_question = twentyerr(5.71) // 5.71
+    let pm_question = twentyerr(235) //235
 
-    let it = np * isc
+    let it_question = np_question * isc_question
 
-    let io = (Math.random())
-    let ki = Math.random()
-    let kv = Math.random() * -1
-    let kp = Math.random()
-    console.log(typeof eg)
+    let io_question = twentyerr(0.00000002)  // 0.00000002
+    let ki_question = twentyerr(0.0044) //0.0044
+    let kv_question = twentyerr(-0.123) // -0.123
+    let kp_question = twentyerr(-0.0047) // -0.0047
+    console.log(typeof eg_question)
     console.log(
-            eg,
-            a,
-            ns,
-            np,
-            rs,
-            rsh,
-            voc,
-            isc,
-            vmp,
-            imp,
-            pm,
-            it,
-            io,
-            ki,
-            kv,
-            kp,
+            eg_question,
+            a_question,
+            ns_question,
+            np_question,
+            rs_question,
+            rsh_question,
+            voc_question,
+            isc_question,
+            vmp_question,
+            imp_question,
+            pm_question,
+            it_question,
+            io_question,
+            ki_question,
+            kv_question,
+            kp_question,
         )
         //console.log(range(0, 2, 0.5));
-    v = range(0, voc, 0.1)
-    let vsz = v.length
-    let ta = Math.floor(Math.random() * 100)
-    console.log('ta type', typeof ta)
-    let tak = ta + 273
+    v_question = range(0, voc_question, 0.1)
+    let vsz_question = v_question.length
+    let ta_question = twentyerr(50) // 50
+    console.log('ta type', typeof ta_question)
+    let tak_question = ta_question + 273
 
-    let noct = Math.floor(Math.random() * 100)
-    console.log('notc type', typeof noct)
+    let noct_question =twentyerr(45) // 45 floor
+    console.log('notc type', typeof noct_question)
         //for gravity
-    let g = Math.floor(Math.random() * 2000)
-    console.log('g type', typeof g)
-    let tc = ta + ((noct - 20) * g) / 1000
-    console.log('tc', tc)
-    let tck = tc + 273
-    console.log('tck', tck)
+    let g_question =twentyerr(1000) // 1000 floor
+    console.log('g type', typeof g_question)
+    let tc_question = ta_question + ((noct_question - 20) * g_question) / 1000
+    console.log('tc', tc_question)
+    let tck_question = tc_question + 273
+    console.log('tck', tck_question)
 
     //for vt
-    let vt = (ns * k * tck) / q
-    console.log('vt is', vt)
+    let vt_question = (ns_question * k_question * tck_question) / q_question
+    console.log('vt is', vt_question)
         //for ipv
-    let Ipv = (isc + ki * (tck - tak)) * (g / 1000)
-    console.log('ipv', Ipv)
+    let Ipv_question = (isc_question + ki_question * (tck_question - tak_question)) * (g_question / 1000)
+    console.log('ipv', Ipv_question)
         //for id
 
-    let Id =
-        io *
-        Math.pow(tck / tak, 3) *
-        Math.exp(((q * eg) / (k * a)) * (1 / tak - 1 / tck))
+    let Id_question =
+        io_question *
+        Math.pow(tck_question / tak_question, 3) *
+        Math.exp(((q_question * eg_question) / (k_question * a_question)) * (1 / tak_question - 1 / tck_question))
 
-    let ish = ((Ipv - Id) * rs) / (rs + rsh)
-    console.log('id ish', Id, ish)
-    v.forEach((element) => {
-        i.push(
-            np * Ipv -
-            np *
-            Id *
-            (Math.exp((q * (element + isc * rs)) / (k * tck * a * ns)) - 1) -
-            np * Math.abs(ish),
+    let ish_question = ((Ipv_question - Id_question) * rs_question) / (rs_question + rsh_question)
+    console.log('id ish', Id_question, ish_question)
+    v_question.forEach((element_question) => {
+        i_question.push(
+            np_question * Ipv_question -
+            np_question *
+            Id_question *
+            (Math.exp((q_question * (element_question + isc_question * rs_question)) / (k_question * tck_question * a_question * ns_question)) - 1) -
+            np_question * Math.abs(ish_question),
         )
     })
-    for (let y = 1; y <= vsz; y++) {
-        if (i[y] <= 0) i[y] = 0
+    for (let y = 1; y <= vsz_question; y++) {
+        if (i_question[y] <= 0) 
+            i_question[y] = 0
     }
-    for (let y = 0; y < i.length; y++) {
-        P.push(v[y] * i[y])
+    for (let y = 0; y < i_question.length; y++) {
+        P_question.push(v_question[y] * i_question[y])
     }
-    console.log('v is', v)
-    console.log('i is', i)
-    console.log('P is', P)
+    console.log('v_question is', v_question)
+    console.log('i_question is', i_question)
+    console.log('P_question is', P_question)
+    let chart1 = Chart1
+    let chart2 = Chart2
+    chart1.data.datasets.push({
+        data:i_question.filter(nonzero),
+        label: "V vs I question",
+        borderColor: "#000",
+        fill:false
+        
+    })
+    chart1.data.labels = v_question
+    chart2.data.labels = v_question
+    chart2.data.datasets.push({
+        data:P_question.filter(nonzero),
+        label: "V vs I question",
+        borderColor: "#000",
+        fill:false
+        
+    })
+
+    chart1.update()
+    chart2.update()
+    console.log("v_question is",v_question)
 }
 
 
