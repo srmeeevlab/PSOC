@@ -1,15 +1,19 @@
 function Simulate() {
+    let alrtmsggiven = false
 
     let c11 = []
     let costdtarr = document.getElementById("c1").getElementsByClassName("matinps")[0].getElementsByTagName("input");
     Array.from(costdtarr).forEach(element => {
         if (!element.value || isNaN(element.value)) {
-            alert("matrix element value given is incorrect. setting to 1")
+            if(!alrtmsggiven){
+                alert("matrix element value given is incorrect. setting to 1")
+                alrtmsggiven = true
+            }
             element.value = 1
         }
         c11.push(eval(element.value))
     });
-
+    
     let columns = document.getElementById("costdatacol").value
     if (!columns || isNaN(columns)) {
         alert("columns value given is incorrect. setting to 1 and proceeding")
@@ -24,9 +28,13 @@ function Simulate() {
     //Enter the values of B coefficient
     let Pmax = []
     let Pm = document.getElementById("Pmax").getElementsByClassName("vecinps")[0].getElementsByTagName("input")
+    alrtmsggiven = false
     Array.from(Pm).forEach(element => {
         if (!element.value || isNaN(element.value)) {
-            alert("Vector element value given is incorrect. setting to 1 and proceeding")
+            if(!alrtmsggiven){
+                alert("Vector element value given is incorrect. setting to 1 and proceeding")
+                alrtmsggiven = true
+            }
             element.value = 1
         }
         Pmax.push(eval(element.value))
@@ -106,8 +114,13 @@ function Simulate() {
 }
 
 function vecinput() {
-    let columns = document.getElementById("lossdatacols").value;
-    let divblock = document.getElementById("lossdata").getElementsByClassName("vecinps")[0];
+    let columns = document.getElementById("Pmaxcols").value;
+    if(columns>10){
+        document.getElementById("Pmaxcols").value = 10;
+        columns = 10
+        alert("vector limit - 10. you have given "+columns +"setting it to 10")
+    }
+    let divblock = document.getElementById("Pmax").getElementsByClassName("vecinps")[0];
     divblock.innerHTML = "";
     // if (!columns || columns < 0) {
     //     alert("Invalid input");
@@ -118,7 +131,7 @@ function vecinput() {
     // }
     if (!columns || columns <= 0 || isNaN(columns)) {
         columns = 1
-        document.getElementById("lossdatacols").value = 1
+        document.getElementById("Pmaxcols").value = 1
     }
     let inpcount = 1;
     for (let index = 0; index < columns; index++) {
@@ -135,7 +148,17 @@ function matinput() {
     let rows, columns;
     rows = document.getElementById("costdatarow").value;
     columns = document.getElementById("costdatacol").value;
-    let divblock = document.getElementById("costdata").getElementsByClassName("matinps")[0];
+    if(columns>10){
+        alert("matrix limit - 10x10. you have given "+rows+"x"+columns +" setting columns to 10")
+        document.getElementById("costdatacol").value = 10
+        columns=10
+    }
+    if(rows>10){
+        alert("matrix limit - 10x10. you have given "+rows+"x"+columns +" setting rows to 10")
+        document.getElementById("costdatarow").value = 10
+        rows=10
+    }
+    let divblock = document.getElementById("c1").getElementsByClassName("matinps")[0];
     divblock.innerHTML = "";
     if (!rows || !columns) {
         rows = 1

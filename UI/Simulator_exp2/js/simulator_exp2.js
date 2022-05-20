@@ -14,14 +14,17 @@ function Simulate() {
     //Data of each unit needs to be entered as a new row
     let costdata1 = []
     let costdtarr = document.getElementById("costdata").getElementsByClassName("matinps")[0].getElementsByTagName("input");
+    let alrtmsggiven = false
     Array.from(costdtarr).forEach(element => {
         costdata1.push(eval(element.value))
         if (!element.value || isNaN(element.value)) {
-            alert("matrix element value given is incorrect. setting to 1")
+            if(!alrtmsggiven){
+                alert("matrix element value given is incorrect. setting to 1")
+                alrtmsggiven = true
+            }
             element.value = 1
         }
     });
-
     let columns = document.getElementById("costdatacol").value
     columns = eval(columns)
     let costdata = [];
@@ -127,6 +130,11 @@ const radsToDegs = rad => rad * 180 / Math.PI;
 
 function vecinput() {
     let columns = document.getElementById("lossdatacols").value;
+    if(columns>10){
+        alert("vector limit - 10. you have given"+columns+" setting columns to 10")
+        document.getElementById("lossdatacols").value = 10
+        columns=10
+    }
     let divblock = document.getElementById("lossdata").getElementsByClassName("vecinps")[0];
     divblock.innerHTML = "";
     // if (!columns || columns < 0) {
@@ -154,6 +162,17 @@ function matinput() {
     let rows, columns;
     rows = document.getElementById("costdatarow").value;
     columns = document.getElementById("costdatacol").value;
+    if(columns>10){
+        alert("matrix limit - 10x10. you have given "+rows+"x"+columns +" setting columns to 10")
+        document.getElementById("costdatacol").value = 10
+        columns=10
+    }
+    if(rows>10){
+        alert("matrix limit - 10x10. you have given "+rows+"x"+columns +" setting rows to 10")
+        document.getElementById("costdatarow").value = 10
+        rows=10
+    }
+
     let divblock = document.getElementById("costdata").getElementsByClassName("matinps")[0];
     divblock.innerHTML = "";
     if (!rows || !columns) {
