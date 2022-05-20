@@ -24,7 +24,7 @@
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="images/srm-logo-white.png" alt="SRM Logo"></a>
-            <span id="exp-title">Economic Dispatch Neglecting Losses</span>
+            <span id="exp-title">State Estimation Using Weighted Least Square Method</span>
             <span id="navbar-settings">
                 <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
             <span id="nav-help" title="Help">
@@ -41,15 +41,19 @@
             </span>
             </span>
         </div>
+        
         <div id="INPUT-BLOCK">
-            <h5> SAMPLE INPUT</h5>
-            <h6>
-                Total Demand (pd): 1000 Incremental Cost (lambda) : 9 Tolerance (delp) : 0.1 Tolerance (dellambda) : 0
-                <br><br><b>Cost Data</b>
-                <div>1 0.5 215 5000 </div>
-                <div>2 1 270 5000 </div>
-                <div>3 0.7 160 9000 </div>
-            </h6>
+            <h5>SAMPLE INPUT</h5>
+            <p>
+                Bus Data = [  1     1    1.006   0       0     0     0     0      0      0;
+                            2     2    1.00    0      0   0.0  0.0   0.0      0      0;
+                            3     3    1.00   0       0   00  0.0     0.0      0      0;];
+                <br>
+                Line Data = [   1      2       0.01     0.03          0        1
+              1      3       0.02     0.05          0        1
+              2      3       0.03     0.08          0         1]
+            </p>
+            
         </div>
     </nav>
     <div id="HELP-MODAL">
@@ -90,7 +94,8 @@
                             </li>
                             <li>Step 8: Click on the “Run” button. </li>
                             <li>Step 9: Verify the result against manual calculations.</li>
-
+                            <li>Step 10: View your score.
+                            </li>
                         </ul>
                         <h1>Blocks</h1>
                         <h4>Variables</h4>
@@ -261,7 +266,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>You are in the interface page. To proceed to the simulation page, <a href="index.html">Click Here</a></p>
+                        <!-- <p>You are in the interface page. To proceed to the simulation page, <a href="simulator_exp2.html">Click Here</a></p> -->
                         <h2>Procedure:</h2>
                         <h5>Your task is to input values and run the simulator to obtain results. This can be done by following the steps mentioned below:</h5>
                         <ul>
@@ -272,7 +277,8 @@
                             <li>Step 5: Click on the “Run” button.</li>
                             <li>Step 6: Navigate to “Results”.</li>
                             <li>Step 7: Verify the results provided by the simulator against manual calculations.</li>
-
+                            <li>Step 8: View your score.
+                            </li>
                         </ul>
                     </div>
                     <div class="modal-footer">
@@ -499,8 +505,8 @@
                 <div class="pt-4">
                     <!-- <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
                         Question Statement</button> -->
-                    <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button>
-                    <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./index.html" style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button>
+                    <!-- <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button> -->
+                    <!-- <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./simulator_exp2.html" style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button> -->
                     <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" title="move up" data-bs-toggle="tooltip" data-bs-placement="top" onclick="up()"><i
                             class="bi bi-caret-up-fill"></i> </button>
                     <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" title="move down" data-bs-toggle="tooltip" data-bs-placement="top" onclick="down()"><i
@@ -523,11 +529,17 @@
         </div>
     </div>
     <div id="TEST-OUTPUT">
-        <h4> SAMPLE OUTPUT</h4>
-        <h6>Output of Economic Dispatch Problem Lambda is 661.29 unit </h6>
-        <h6>**Optimal Generation** Unit No Optimal Generation (in MW)1,2,3,446.29,195.65,358.06 unit </h6>
-        <h6> Incremental Fuel Cost and Penalty factors are: Unit No IFC Penalty Factor 661.29 unit </h6>
-        <h6> Total Generation Cost = INR 452678.63 per hour</h6>
+        <h5>SAMPLE OUTPUT</h5>
+        <p>-------- State Estimation ------------------
+            <br>
+            --------
+            | Bus |    V   |  Angle  | 
+            | No  |   pu   |  Degree | 
+            ---
+               1    0.9996     0.0000
+               2    0.9741    -1.2489
+               3    0.9438    -2.7450
+            ---</p>
     </div>
     <footer class="p-3">
         Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner

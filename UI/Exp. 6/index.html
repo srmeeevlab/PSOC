@@ -24,7 +24,7 @@
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="images/srm-logo-white.png" alt="SRM Logo"></a>
-            <span id="exp-title">Economic Dispatch Neglecting Losses</span>
+            <span id="exp-title">Newton’s Method of Optimal Power Flow Problem</span>
             <span id="navbar-settings">
                 <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
             <span id="nav-help" title="Help">
@@ -41,15 +41,19 @@
             </span>
             </span>
         </div>
+        
         <div id="INPUT-BLOCK">
-            <h5> SAMPLE INPUT</h5>
-            <h6>
-                Total Demand (pd): 1000 Incremental Cost (lambda) : 9 Tolerance (delp) : 0.1 Tolerance (dellambda) : 0
-                <br><br><b>Cost Data</b>
-                <div>1 0.5 215 5000 </div>
-                <div>2 1 270 5000 </div>
-                <div>3 0.7 160 9000 </div>
-            </h6>
+            <h5>SAMPLE INPUT</h5>
+            <span>Fuel Cost-Coefficient = [1      1   60  200  140   
+                2      2   75  150  120    
+                ] <br>
+                Bus Data = [1	   1	    1.04	0	20  10	0	  0	  0	   0	  0
+                2	   2	    1.04    0	0	0	0	  0	  0	   0	  0
+                3	   0	    1.00    0	150	6	0	  0	  0	   0	  0] 
+                <br> Line Data = [1	   2	0.02	0.08	0.02	  1	   295
+                1	   3	0.02	0.08	0.02	  1	   295
+                2	   3	0.02	0.08	0.02	  1	   295 ]
+            </span>
         </div>
     </nav>
     <div id="HELP-MODAL">
@@ -66,18 +70,6 @@
                         <h2>Procedure:</h2>
                         <h5>Your task here is to form an appropriate algorithm for understanding the experiment's workflow.
                         </h5>
-                        <h5>Note: If you want to run the simulator for a pre-built structure, navigate to “PreBuilt”, and click it. After doing so, follow steps a - e:
-                        </h5>
-                        <ul>
-                            <li>Step a: Navigate to the “Help” button and click on it.
-                            </li>
-                            <li>Step b: Navigate to “Theory” in the modal displayed, and read the text for conceptual understanding.
-                            </li>
-                            <li>Step c: Navigate back to the interface.</li>
-                            <li>Step d: Verify the values in each element/block by clicking the element/block individually.</li>
-                            <li>Step e: Now, run the simulation and verify the results.</li>
-                        </ul>
-                        <h5>If you prefer forming the algorithm yourself, follow steps 1-10:</h5>
                         <ul>
                             <li>Step 1: Navigate to the “Help” button and click on it.</li>
                             <li>Step 2: Navigate to “Theory” in the modal displayed, and read the text for conceptual understanding.</li>
@@ -90,7 +82,6 @@
                             </li>
                             <li>Step 8: Click on the “Run” button. </li>
                             <li>Step 9: Verify the result against manual calculations.</li>
-
                         </ul>
                         <h1>Blocks</h1>
                         <h4>Variables</h4>
@@ -261,7 +252,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>You are in the interface page. To proceed to the simulation page, <a href="index.html">Click Here</a></p>
+                        <!-- <p>You are in the interface page. To proceed to the simulation page, <a href="simulator_exp2.html">Click Here</a></p> -->
                         <h2>Procedure:</h2>
                         <h5>Your task is to input values and run the simulator to obtain results. This can be done by following the steps mentioned below:</h5>
                         <ul>
@@ -272,7 +263,6 @@
                             <li>Step 5: Click on the “Run” button.</li>
                             <li>Step 6: Navigate to “Results”.</li>
                             <li>Step 7: Verify the results provided by the simulator against manual calculations.</li>
-
                         </ul>
                     </div>
                     <div class="modal-footer">
@@ -291,15 +281,17 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Purpose of the economic dispatch or optimal dispatch is to reduce the fuel costs in order to achieve minimum operating cost. </p>
-                        <p>Purpose of the economic dispatch or optimal dispatch is to reduce the fuel costs in order to achieve minimum operating cost. </p>
-                        <p>The economic dispatch problem is a sub problem of two different problems, i.e. Unit commitment and online dispatch. </p>
-                        <p>There are two methods used to find the economic dispatch:</p>
-                        <ul>
-                            <li>Base Load Method, where the most efficient unit is loaded to its maximum capability, then the second most efficient is loaded and so on.</li>
-                            <li>Best Point Method (Incremental Method), where the units are successively loaded to their lowest heat rate point, beginning with the most efficient unit and working down to the least efficient unit.</li>
-                        </ul>
-                        <p>The power balance constraint states that the total generation must meet the total demand (PD)</p>
+                        <p>The solution of the economic dispatch by the equal incremental cost method was a precursor of the Optimal Power Flow (OPF). The arrival of the OPF marked the end of the "classical" period of economic dispatch.
+                            The OPF constitutes a static nonlinear optimization problem which computes optimal settings for electrical variables in a power network, for given settings of loads and system parameters.</p>
+                        <p>The optimal power flow is a power flow problem in which certain controllable variables are adjusted to minimize an objective function such as the cost of active power generation or the losses, while satisfying physical and operating limits on various controls, dependent variables and function of variables.</p>
+                        <p>An Optimal Power Flow (OPF) function schedules the power system controls to optimize an objective function while satisfying a set of nonlinear equality and inequality constraints. 
+                            The equality constraints are the conventional power flow equations; the inequality constraints are the limits on the control and operating variables of the system.</p>
+                        <p><br>Optimal Power Flow:<br><br>Definition: The optimal power problem seeks to find an optimal profile of active and reactive power, generations along with voltage magnitudes in such a manner as to minimize the total operating costs of a thermal electric power system, while satisfying network security constraints.</p>
+                        <p><br>OPF-NEWTON’s METHOD-Introduction:<br><br>Newton OPF has been formulated by Sun et al. (1984), and later by Maria et al. (Aug. 1987). An augmented Lagrangian is first formed. 
+                            The set of first derivatives of the augmented objective with respect to the control variables gives a set of nonlinear equations as in the Dommel and Tinney method.</p>
+                        <p>Newton’s method has been widely accepted in the power industry as a powerful tool to solve problems such as the load flow and optimal load flow. 
+                            This is due to its reliable and fast convergence, known to be quadratic</p>
+                        
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
@@ -499,8 +491,8 @@
                 <div class="pt-4">
                     <!-- <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
                         Question Statement</button> -->
-                    <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button>
-                    <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./index.html" style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button>
+                    <!-- <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button> -->
+                    <!-- <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./simulator_exp2.html" style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button> -->
                     <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" title="move up" data-bs-toggle="tooltip" data-bs-placement="top" onclick="up()"><i
                             class="bi bi-caret-up-fill"></i> </button>
                     <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" title="move down" data-bs-toggle="tooltip" data-bs-placement="top" onclick="down()"><i
@@ -523,11 +515,51 @@
         </div>
     </div>
     <div id="TEST-OUTPUT">
-        <h4> SAMPLE OUTPUT</h4>
-        <h6>Output of Economic Dispatch Problem Lambda is 661.29 unit </h6>
-        <h6>**Optimal Generation** Unit No Optimal Generation (in MW)1,2,3,446.29,195.65,358.06 unit </h6>
-        <h6> Incremental Fuel Cost and Penalty factors are: Unit No IFC Penalty Factor 661.29 unit </h6>
-        <h6> Total Generation Cost = INR 452678.63 per hour</h6>
+        <h5>SAMPLE OUTPUT</h5>
+        <p>
+            <br>
+            Total Cost
+            660.336 
+           
+            Iterations 
+              4 
+            <br>
+            <br>
+           *****Bus Voltages, Real/Reactive Power and Lambda Real/Reactive**************
+            
+            <br><br>
+            Bus  Voltage  Angle    -----Load (p.u)---  ---Gen(p.u)--    Calcul_Power---        ---Lambda---    
+            <br>   
+            <br>
+               No.  Mag.     Radian     PD        QD      PG       QG       Pcal      Qcal      LambdaP      LambdaQ 
+                                                                                                                     
+                1 1.04000  0.00000   0.20000   0.10000  0.776704  0.071460   0.576705  0.052160   293.204448  0.000000
+                2 1.04000  0.00967   0.00000   0.00000  0.945246  0.088540   0.945245  -0.032746   291.786943  0.000000
+                3 1.02297 -0.05142   1.50000   0.06000  0.000000  0.000000  -1.500000  -0.060000   301.031938  0.589646
+           
+                                      Line Flow and Losses 
+           
+                --Line--  Power at bus & line flow    --Line loss--  Transformer
+                from  to    MW      Mvar     MVA       MW      Mvar      tap
+              
+                1         57.670   -2.854   57.741
+                      2  -12.287    0.972   12.325    0.030   -4.207
+                      3   69.957    4.244   70.086    0.913   -0.606
+              
+                2         94.525    8.854   94.938
+                      1
+              12.316   -5.179   13.361    0.030   -4.207
+                      3   82.208    1.904   82.230    1.253    0.755
+              
+                3       -150.000   -6.000  150.120
+                      1  -69.044   -4.850   69.215    0.913   -0.606
+                      2  -80.956   -1.150   80.964    1.253    0.755
+              
+               Total loss                             2.195   -4.059
+           <br>
+           <br>
+           *************************************
+           Run Completed Successfully *************************************</p>
     </div>
     <footer class="p-3">
         Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
