@@ -1,8 +1,14 @@
 var range = (start, stop, step) => {
     let rangelst = []
+    console.log("range started")
     for (let j = start; j <= stop; j += step) {
-        rangelst.push(j)
+
+        rangelst.push(
+            Number(j.toFixed(2))
+        )
     }
+    console.log("range sis", rangelst)
+    console.log("range enedded")
     return rangelst //for positive vals
 }
 
@@ -20,6 +26,35 @@ let i_question = []
 
 let P = []
 let P_question=[]
+let k_question=0;
+let q_question=0;
+let eg_question=0;
+let a_question=0;
+let ns_question=0;
+let np_question=0;
+let rs_question=0;
+let rsh_question=0;
+let voc_question=0;
+let isc_question=0;
+let vmp_question=0;
+let imp_question=0;
+let pm_question=0;
+let it_question=0;
+let io_question=0;
+let ki_question=0;
+let kv_question=0;
+let kp_question=0;
+let vsz_question=0;
+let ta_question=0;
+let tak_question=0;
+let noct_question=0;
+let g_question=0;
+let tc_question=0;
+let tck_question=0;
+let vt_question=0;
+let Ipv_question=0;
+let Id_question=0;
+let ish_question=0;
 
 function twentyerr(num=0){
      // implement error of positive or negative
@@ -35,26 +70,26 @@ function question() {
     i_question = []
     v_question = []
     P_question = []
-    let k_question = 1.38 * Math.pow(10, -23)
-    let q_question = 1.6 * Math.pow(10, -19)
-    let eg_question = twentyerr(1.66) //1.166
-    let a_question = twentyerr(1.3) // 1.3
-    let ns_question = twentyerr(35) //35
-    let np_question = twentyerr(5) //5
-    let rs_question = twentyerr(0.000006) //0.000006
-    let rsh_question = twentyerr(5000) //5000
-    let voc_question = twentyerr(21.5) //21.5
-    let isc_question = twentyerr(1.2) //1.2
-    let vmp_question = twentyerr(17.28) //17.28
-    let imp_question = twentyerr(5.71) // 5.71
-    let pm_question = twentyerr(235) //235
+     k_question = 1.38 * Math.pow(10, -23)
+     q_question = 1.6 * Math.pow(10, -19)
+     eg_question = Math.round(twentyerr(1.66),2) //1.166
+     a_question = (1.3) // 1.3
+     ns_question = Math.floor(twentyerr(35)) //35
+     np_question = Math.floor(twentyerr(5)) //5
+     rs_question = twentyerr(0.000006) //0.000006
+     rsh_question = Math.round(twentyerr(5000)) //5000
+     voc_question = Math.round(twentyerr(21.5),2) //21.5
+     isc_question = Math.round(twentyerr(1.2),2) //1.2
+     vmp_question = (17.28) //17.28
+     imp_question = (5.71)// 5.71
+     pm_question =(235)//235
 
-    let it_question = np_question * isc_question
+    it_question = np_question * isc_question
 
-    let io_question = twentyerr(0.00000002)  // 0.00000002
-    let ki_question = twentyerr(0.0044) //0.0044
-    let kv_question = twentyerr(-0.123) // -0.123
-    let kp_question = twentyerr(-0.0047) // -0.0047
+    io_question =   twentyerr(0.00000002)  // 0.00000002
+    ki_question = (0.0044) //0.0044
+    kv_question = (-0.123) // -0.123
+    kp_question = (-0.0047) // -0.0047
     console.log(typeof eg_question)
     console.log(
             eg_question,
@@ -76,35 +111,35 @@ function question() {
         )
         //console.log(range(0, 2, 0.5));
     v_question = range(0, voc_question, 0.1)
-    let vsz_question = v_question.length
-    let ta_question = twentyerr(50) // 50
+    vsz_question = v_question.length
+    ta_question = Math.floor(twentyerr(50)) // 50
     console.log('ta type', typeof ta_question)
-    let tak_question = ta_question + 273
+    tak_question = (ta_question) + 273
 
-    let noct_question =twentyerr(45) // 45 floor
+    noct_question =Math.floor(twentyerr(45)) // 45 floor
     console.log('notc type', typeof noct_question)
         //for gravity
-    let g_question =twentyerr(1000) // 1000 floor
+    g_question = Math.floor(twentyerr(1000)) // 1000 floor
     console.log('g type', typeof g_question)
-    let tc_question = ta_question + ((noct_question - 20) * g_question) / 1000
+    tc_question = ta_question + ((noct_question - 20) * g_question) / 1000
     console.log('tc', tc_question)
-    let tck_question = tc_question + 273
+    tck_question = tc_question + 273
     console.log('tck', tck_question)
 
     //for vt
-    let vt_question = (ns_question * k_question * tck_question) / q_question
+    vt_question = (ns_question * k_question * tck_question) / q_question
     console.log('vt is', vt_question)
         //for ipv
-    let Ipv_question = (isc_question + ki_question * (tck_question - tak_question)) * (g_question / 1000)
+    Ipv_question = (isc_question + ki_question * (tck_question - tak_question)) * (g_question / 1000)
     console.log('ipv', Ipv_question)
         //for id
 
-    let Id_question =
+    Id_question =
         io_question *
         Math.pow(tck_question / tak_question, 3) *
         Math.exp(((q_question * eg_question) / (k_question * a_question)) * (1 / tak_question - 1 / tck_question))
 
-    let ish_question = ((Ipv_question - Id_question) * rs_question) / (rs_question + rsh_question)
+    ish_question = ((Ipv_question - Id_question) * rs_question) / (rs_question + rsh_question)
     console.log('id ish', Id_question, ish_question)
     v_question.forEach((element_question) => {
         i_question.push(
@@ -134,8 +169,8 @@ function question() {
         fill:false
         
     })
-    chart1.data.labels = v_question
-    chart2.data.labels = v_question
+    chart1.data.labels = v_question.filter(nonzero)
+    chart2.data.labels = v_question.filter(nonzero)
     chart2.data.datasets.push({
         data:P_question.filter(nonzero),
         label: "V vs I question",
@@ -147,6 +182,123 @@ function question() {
     chart1.update()
     chart2.update()
     console.log("v_question is",v_question)
+}
+
+function checkans(){
+    let k=1.38 * Math.pow(10, -23)
+    let q=1.6 * Math.pow(10, -19)
+    let eg=Number(document.getElementById('eg').value)
+    let a=1.3;
+    let ns=Number(document.getElementById('ns').value);
+    let np=Number(document.getElementById('np').value);
+    let rs=Number(document.getElementById('rs').value);
+    let rsh=Number(document.getElementById('rsh').value);
+    let voc=Number(document.getElementById('voc').value);
+    let isc=Number(document.getElementById('isc').value);
+    let vmp=17.28;
+    let imp=5.71;
+    let pm=235;
+    let it=np * isc;
+    let io=Number(document.getElementById('io').value);
+    let ki=Number(document.getElementById('ki').value);
+    let kv=-0.123
+    let kp=-0.0047;
+    let vsz=v.length;
+    let ta=Number(document.getElementById('ta').value);
+    let tak=Number(ta) + 273;
+    let noct=Number(document.getElementById('noct').value);
+    let g=Number(document.getElementById('gra').value);
+    let tc=ta + ((noct - 20) * g) / 1000
+    let tck=tc + 273
+    let vt=(ns * k * tck) / q
+    let Ipv=(isc + ki * (tck - tak)) * (g / 1000)
+    let Id=io * Math.pow(tck / tak, 3) * Math.exp(((q * eg) / (k * a)) * (1 / tak - 1 / tck));
+    let ish=((Ipv - Id) * rs) / (rs + rsh);
+
+    console.log("k",k,"k_question",k_question)
+    console.log("q",q,"q_question",q_question)
+    console.log("eg",eg,"eg_question",eg_question)
+    console.log("a",a,"a_question",a_question)
+    console.log("ns",ns,"ns_question",ns_question)
+    console.log("np",np,"np_question",np_question)
+    console.log("rs",rs,"rs_question",rs_question)
+    console.log("rsh",rsh,"rsh_question",rsh_question)
+    console.log("voc",voc,"voc_question",voc_question)
+    console.log("isc",isc,"isc_question",isc_question)
+    console.log("vmp",vmp,"vmp_question",vmp_question)
+    console.log("imp",imp,"imp_question",imp_question)
+    console.log("pm",pm,"pm_question",pm_question)
+    console.log("it",it,"it_question",it_question)
+    console.log("io",io,"io_question",io_question)
+    console.log("ki",ki,"ki_question",ki_question)
+    console.log("kv",kv,"kv_question",kv_question)
+    console.log("kp",kp,"kp_question",kp_question)
+    console.log("vsz",vsz,"vsz_question",vsz_question)
+    console.log("ta",ta,"ta_question",ta_question)
+    console.log("tak",tak,"tak_question",tak_question)
+    console.log("noct",noct,"noct_question",noct_question)
+    console.log("g",g,"g_question",g_question)
+    console.log("tc",tc,"tc_question",tc_question)
+    console.log("tck",tck,"tck_question",tck_question)
+    console.log("vt",vt,"vt_question",vt_question)
+    console.log("Ipv",Ipv,"Ipv_question",Ipv_question)
+    console.log("Id",Id,"Id_question",Id_question)
+    console.log("ish",ish,"ish_question",ish_question)
+    let orig = [
+        eg
+        ,ns
+        ,np
+        ,rs
+        ,rsh
+        ,voc
+        ,isc
+        ,it
+        ,io
+        ,vsz
+        ,ta
+        ,tak
+        ,noct
+        ,g
+        ,tc
+        ,tck
+        ,vt
+        ,Ipv
+        ,Id
+        ,ish
+    ]
+    let ques = [
+        eg
+        ,ns
+        ,np
+        ,rs
+        ,rsh
+        ,voc
+        ,isc
+        ,it
+        ,io
+        ,vsz
+        ,ta
+        ,tak
+        ,noct
+        ,g
+        ,tc
+        ,tck
+        ,vt
+        ,Ipv
+        ,Id
+        ,ish
+    ]
+    // let diff = (math.subtract(orig,ques))
+    // console.log("diffff",diff)
+    for (let index = 0; index < ques.length; index++) {
+        console.log("diff",ques[index]>orig[index])
+        console.log("ds",Math.abs(ques[index] - orig[index]))
+        if(Math.abs(ques[index] - orig[index]) > 0.01*ques[index]){
+            alert("your graph does not meet the required criteria of a relative error less than 1%. \
+            Please try again with a values of"+ques[index]+" "+orig[index])
+        }
+        
+    }
 }
 
 
