@@ -304,6 +304,7 @@ function checkans(){
     console.log("diff in length",Math.abs(v.length - v_question.length),Math.floor(0.1*v_question.length))
     if(Math.abs(v.length - v_question.length)>Math.floor(0.1*v_question.length)){
         alert("number of plotted points are either too high pr too low from given points")
+        return;
     }
     let errcnt =0;
 
