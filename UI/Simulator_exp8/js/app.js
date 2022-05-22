@@ -290,15 +290,33 @@ function checkans(){
     ]
     // let diff = (math.subtract(orig,ques))
     // console.log("diffff",diff)
-    for (let index = 0; index < ques.length; index++) {
-        console.log("diff",ques[index]>orig[index])
-        console.log("ds",Math.abs(ques[index] - orig[index]))
-        if(Math.abs(ques[index] - orig[index]) > 0.01*ques[index]){
-            alert("your graph does not meet the required criteria of a relative error less than 1%. \
-            Please try again with a values of"+ques[index]+" "+orig[index])
-        }
+    // for (let index = 0; index < ques.length; index++) {
+    //     console.log("diff",ques[index]>orig[index])
+    //     console.log("ds",Math.abs(ques[index] - orig[index]))
+    //     if(Math.abs(ques[index] - orig[index]) > 0.01*ques[index]){
+    //         alert("your graph does not meet the required criteria of a relative error less than 1%. \
+    //         Please try again with a values of"+ques[index]+" "+orig[index])
+    //     }
         
+    // }
+    // console.log("V",v,"v_ques",v_question,"sub",math.subtract(v[0],v_question[0]))
+    console.log("I",i,"I_ques",i_question,"sub",math.subtract(i[0],i_question[0]),0.01*i_question[0])
+    console.log("diff in length",Math.abs(v.length - v_question.length),Math.floor(0.1*v_question.length))
+    if(Math.abs(v.length - v_question.length)>Math.floor(0.1*v_question.length)){
+        alert("number of plotted points are either too high pr too low from given points")
     }
+    let errcnt =0;
+
+    for (let idx = 0; idx < Math.min(v_question.length,v.length); idx++) {
+        if(Math.abs(i[idx] - i_question[idx]) > 0.1*i_question[idx]){
+            errcnt++;
+        }
+        if(errcnt>100){
+            alert("your graph does not meet the required criteria of a relative error less than 1%.")
+            break;
+        }
+    }
+    console.log(errcnt)
 }
 
 
