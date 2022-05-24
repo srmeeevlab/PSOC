@@ -15,46 +15,41 @@
 </head>
 
 <body>
-    <!-- 
-        <div style="height:1rem;border:1px solid green">
-        </div>
 
-     -->
 
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="images/srm-logo-white.png" alt="SRM Logo"></a>
-            <span id="exp-title">State Estimation Using Weighted Least Square Method</span>
+            <span id="exp-title">Unit Commitment Using The Priority List Method</span>
             <span id="navbar-settings">
                 <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
             <span id="nav-help" title="Help">
-                <div class="dropdown">
-                    <button class="btn dropdown-toggle btn btn-custom-outline-brown w-100 d-block" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                      Help
-                    </button>
-                    <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                      <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal1">Interface</a></li>
-                      <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal2">Simulation</a></li>
-                      <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal3">Theory</a></li>
-                    </ul>
-                  </div>
-            </span>
+
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle btn btn-custom-outline-brown w-100 d-block" type="button"
+                            id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                            Help
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#modal1">Interface</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#modal2">Simulation</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
+                                    data-bs-target="#modal3">Procedure</a></li>
+                        </ul>
+                    </div>
+                </span>
+
             </span>
         </div>
-        
-        <div id="INPUT-BLOCK">
-            <h5>SAMPLE INPUT</h5>
-            <p>
-                Bus Data = [  1     1    1.006   0       0     0     0     0      0      0;
-                            2     2    1.00    0      0   0.0  0.0   0.0      0      0;
-                            3     3    1.00   0       0   00  0.0     0.0      0      0;];
-                <br>
-                Line Data = [   1      2       0.01     0.03          0        1
-              1      3       0.02     0.05          0        1
-              2      3       0.03     0.08          0         1]
-            </p>
-            
-        </div>
+        <!-- <div id="INPUT-BLOCK" class="m-3">
+            <h5>INPUT</h5>
+            <span> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, in quae animi, sed harum molestias
+                consequatur doloribus autem architecto, dolor perspiciatis vitae atque laudantium sint placeat
+                voluptatibus at ab odit.
+            </span>
+        </div> -->
     </nav>
     <div id="HELP-MODAL">
         <div class="modal fade" id="modal1" aria-hidden="true" aria-labelledby="modal1Label" tabindex="-1">
@@ -66,36 +61,38 @@
                     </div>
                     <div class="modal-body">
                         <!-- Show a second modal and hide this one with the button below. -->
-
-                        <h2>Procedure:</h2>
-                        <h5>Your task here is to form an appropriate algorithm for understanding the experiment's workflow.
-                        </h5>
-                        <h5>Note: If you want to run the simulator for a pre-built structure, navigate to “PreBuilt”, and click it. After doing so, follow steps a - e:
+                        <p>You are in the simulation page. To proceed to the interface page, <a href="tyr.html">Click Here</a></p>
+                        <h1>Procedure</h1>
+                        <h5>Your task here is to form an appropriate algorithm for understanding the experiment's workflow.</h5>
+                        <h5>For a pre-built structure, navigate to “PreBuilt”, and click it. After doing so, follow steps a - e:
                         </h5>
                         <ul>
-                            <li>Step a: Navigate to the “Help” button and click on it.
-                            </li>
-                            <li>Step b: Navigate to “Theory” in the modal displayed, and read the text for conceptual understanding.
-                            </li>
+                            <li>Step a: Navigate to the “Help” button and click on it.</li>
+                            <li>Step b: Navigate to “Theory” in the modal displayed, and read the text for conceptual understanding.</li>
                             <li>Step c: Navigate back to the interface.</li>
-                            <li>Step d: Verify the values in each element/block by clicking the element/block individually.</li>
-                            <li>Step e: Now, run the simulation and verify the results.</li>
+                            <li>Step d: Verify the values in each element/block by clicking the element/block individually.
+                            </li>
+                            <li>Step e: Now, run the simulation and verify the results.
+                            </li>
                         </ul>
-                        <h5>If you prefer forming the algorithm yourself, follow steps 1-10:</h5>
+                        <h5>For forming the algorithm yourself, follow steps 1-10:</h5>
                         <ul>
-                            <li>Step 1: Navigate to the “Help” button and click on it.</li>
-                            <li>Step 2: Navigate to “Theory” in the modal displayed, and read the text for conceptual understanding.</li>
+                            <li>Step 1: Navigate to the “Help” button and click on it.
+                            </li>
+                            <li>Step 2: Navigate to “Theory” in the modal displayed, and read the text for conceptual understanding.
+                            </li>
                             <li>Step 3: Navigate back to the interface.
                             </li>
-                            <li>Step 4: Use the code palette provided on the left to navigate to the drag-drop elements/blocks.</li>
+                            <li>Step 4: Use the palette provided on the left to navigate to the drag-drop elements/blocks. </li>
                             <li>Step 5: Upon selecting the element/block, drag it to the specified area.</li>
-                            <li>Step 6: Name the elements/blocks appropriately.</li>
-                            <li>Step 7: Fill in values for the elements/blocks chosen.
+                            <li>Step 6: Name the elements/blocks appropriately.
                             </li>
-                            <li>Step 8: Click on the “Run” button. </li>
-                            <li>Step 9: Verify the result against manual calculations.</li>
-                            <li>Step 10: View your score.
+                            <li>Step 7: Fill in values for the elements/blocks chosen.</li>
+                            <li>Step 8: Click on the “Run” button.</li>
+                            <li>Step 9: Verify the result against manual calculations.
                             </li>
+                            <!-- <li>Step 10: View your score.
+                            </li> -->
                         </ul>
                         <h1>Blocks</h1>
                         <h4>Variables</h4>
@@ -105,8 +102,7 @@
                         </div>
                         <div>
                             <h5>Constant</h5>
-                            <p>A constant variable is defined. Any real number can be assigned to the variable defined.
-                            </p>
+                            <p>A constant variable is defined. Any real number can be assigned to the variable defined.</p>
                         </div>
                         <div>
                             <h5>Matrix</h5>
@@ -160,8 +156,7 @@
                         <h4>Math</h4>
                         <div>
                             <h5>Evaluate</h5>
-                            <p>Evaluate block evaluates the specified variable with the specified math operations and expressions.
-                            </p>
+                            <p>Evaluate block evaluates the specified variable with the specified math operations and expressions.</p>
                         </div>
                         <div>
                             <h5>Matrix Evaluate</h5>
@@ -266,19 +261,21 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- <p>You are in the interface page. To proceed to the simulation page, <a href="simulator_exp2.html">Click Here</a></p> -->
                         <h2>Procedure:</h2>
-                        <h5>Your task is to input values and run the simulator to obtain results. This can be done by following the steps mentioned below:</h5>
+                        <h5>The user has to provide the input values to run the simulator. The following steps help the user to explore the platform.</h5>
                         <ul>
-                            <li>Step 1: Navigate to the “Help” button and click on it.</li>
-                            <li>Step 2: Navigate to “Theory” in the modal displayed, and read the text for conceptual understanding.</li>
-                            <li>Step 3: Navigate back to the interface.</li>
-                            <li>Step 4: Input values in the various input labels provided.</li>
-                            <li>Step 5: Click on the “Run” button.</li>
-                            <li>Step 6: Navigate to “Results”.</li>
-                            <li>Step 7: Verify the results provided by the simulator against manual calculations.</li>
-                            <li>Step 8: View your score.
+                            <li>Step 1: Navigate to the “Help” button and click on it.
                             </li>
+                            <li>Step 2: Navigate to “Theory” in the drop-down, and read the text for conceptual understanding.</li>
+                            <li>Step 3: Navigate back to the interface.</li>
+                            <li>Step 4: Enter the values for the input parameters on the display window.
+                            </li>
+                            <li>Step 5: Click on the “Run” button.</li>
+                            <li>Step 6: On ruunig it, “Results” section can be observed below the inputs.</li>
+                            <li>Step 7: Verify the results provided by the simulator against manual calculations.
+                            </li>
+                            <!-- <li>Step 8: View your score.
+                            </li> -->
                         </ul>
                     </div>
                     <div class="modal-footer">
@@ -297,15 +294,21 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Purpose of the economic dispatch or optimal dispatch is to reduce the fuel costs in order to achieve minimum operating cost. </p>
-                        <p>Purpose of the economic dispatch or optimal dispatch is to reduce the fuel costs in order to achieve minimum operating cost. </p>
-                        <p>The economic dispatch problem is a sub problem of two different problems, i.e. Unit commitment and online dispatch. </p>
-                        <p>There are two methods used to find the economic dispatch:</p>
-                        <ul>
-                            <li>Base Load Method, where the most efficient unit is loaded to its maximum capability, then the second most efficient is loaded and so on.</li>
-                            <li>Best Point Method (Incremental Method), where the units are successively loaded to their lowest heat rate point, beginning with the most efficient unit and working down to the least efficient unit.</li>
-                        </ul>
-                        <p>The power balance constraint states that the total generation must meet the total demand (PD)</p>
+                        <div class="modal-body">
+                            <p>Economic dispatch gives the optimum schedule corresponding to one particular load on the system. </p>
+                            <p>The total load in the power system varies throughout the day and reaches different peak value from one day to another. </p>
+                            <p>Generally different generators will have different power ratings different efficiency. </p>
+                            <p>Different combination of generators, are to be connected in the system to meet the varying load. </p>
+                            <p>When the load decreases, the utility has to decide in advance the sequence in which the generator units are to be shut down. </p>
+                            <p>Similarly, when the load increases, the operating engineer need to know in advance the sequence in which the generating units are to be brought.</p>
+                            <p>The problem of finding the order in which the units are to be brought in and the order in which the units are to be shut down over a period of time, say one day, so the total operating cost involved on that day is minimum.
+                            </p>
+                            <p>This is known as Unit Commitment (UC) problem. Thus UC problem is economic dispatch over a day. The period considered shall be one day, one week, one month or one year.</p>
+                            <p>But why this problem is there in the operation of electric power system? Why not just simply commit enough units to cover the maximum system load and leave them running? Note that to “commit” means a generating unit is to be
+                                “turned on”; that is, bring the unit up to speed, synchronize it to the system and make it to deliver power to the network.</p>
+                            <p>“Commit enough units and leave them on line” is one solution. However, it is quite expensive to run too many generating units when the load to be met with is low. A great deal of money can be saved by turning units off (de-committing
+                                them) when they are not needed.</p>
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
@@ -315,232 +318,114 @@
             </div>
         </div>
     </div>
-    <div class="modal fade" id="output_modal" aria-hidden="true" aria-labelledby="output_modalLabel" tabindex="-1">
-        <div class="modal-dialog modal-dialog-scrollable">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="output_modalLabel"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body">
-                    <h3>Result</h3>
-                    <div id="result_modal">
 
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#output_modal" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
-                </div>
-            </div>
-        </div>
-    </div>
+
     <div class="container-fluid h-100">
         <div class="row">
-            <!-- start of accordian       -->
 
-            <div id="pallete" class="col-4 col-md-2">
-                <div class="accordion pt-4 sticky-top" id="accordionExample" style="min-height:100vh;">
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingOne">
-                            <button class="accordion-button collapsed noselect" href="#var" type="button" aria-controls="var" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="false">
-                                Variables
-                            </button>
-                        </h2>
-                        <div id="collapseOne" class="accordion-collapse collapse" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
-                            <div class="accordion-body" id="var">
-                                <ul class="list-group">
-                                    <li id="var-boolean" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Boolean
-                                    </li>
-                                    <li id="var-cst" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Constant
-                                    </li>
 
-                                    <li id="var-matrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Matrix
-                                    </li>
-                                    <li id="var-imatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Identity Matrix
-                                    </li>
-                                    <li id="var-umatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Unity Matrix
-                                    </li>
-                                    <li id="var-zmatrix" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Zero Matrix
-                                    </li>
-                                    <li id="var-vector" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Vector
-                                    </li>
-                                </ul>
+            <div id="interface" class="col-9 col-md-9 " ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
+
+                <h2 class="text-center">Simulator</h2>
+                <div id="INPUT" class="d-flex justify-content-around mt-5">
+                    <div id="left">
+                        <!-- <div class="pl-3 pt-2 noselect selectable bordered-box" id="c1">
+                            <br> c1
+                            <div class="details pb-2" class="matinps" style="display: block;">
+    
+                                <label for="ROW">Number of Rows</label>
+                                <input value="3" class="rows_columns" type="text" onchange="matinput()" id="costdatarow" name="" onchange="matinput()" id="mat0$ROW" placeholder="Number of Rows">
+
+                                <label for="COL">Number of Columns</label>
+                                <input value="3" type="text" id="costdatacol" name="" onchange="matinput()" id="mat0$COL" placeholder="Number of Columns" class="rows_columns">
+                                <br>
+
+                                <br>
+                                <div class="matinps">
+                                    <input value="0.01562" type="text" id="1">
+                                    <input value="79.2" type="text" id="2">
+                                    <input value="5610" type="text" id="3">
+                                    <br><br>
+                                    <input value="0.0194" type="text" id="4">
+                                    <input value="78.5" type="text" id="5">
+                                    <input value="3100" type="text" id="6">
+                                    <br><br>
+                                    <input value="0.05784" type="text" id="7">
+                                    <input value="95.64" type="text" id="8">
+                                    <input value="936" type="text" id="9">
+                                    <br><br>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingTwo">
-                            <button class="accordion-button collapsed noselect" aria-controls="con-loop" href="#con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false">
-                                Conditionals and Loops
-                            </button>
-                        </h2>
-                        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
-                            <div class="accordion-body" id="con-loop">
-                                <ul class="list-group">
-                                    <li id="con-if" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        If
-                                    </li>
-                                    <li id="con-elif" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Else If
-                                    </li>
-                                    <li id="con-else" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Else
-                                    </li>
-                                    <li id="lop-for" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        For
-                                    </li>
-                                    <li id="lop-while" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        While
-                                    </li>
-                                    <li id="con-break" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Break
-                                    </li>
-                                    <li id="con-continue" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Continue
-                                    </li>
-                                </ul>
+                        <div class="pl-3 pt-2 noselect selectable bordered-box" id="c1">
+                            <br> c1
+                            <div class="details pb-2" class="matinps" style="display: block;">
+                                
+                                <label for="ROW">Number of Rows</label>
+                                <input value="3" class="rows_columns" type="text" onchange="matinput()" id="costdatarow" name="" onchange="matinput()" id="mat0$ROW" placeholder="Number of Rows">
 
+                                <label for="COL">Number of Columns</label>
+                                <input value="3" type="text" id="costdatacol" name="" onchange="matinput()" id="mat0$COL" placeholder="Number of Columns" class="rows_columns">
+                                <br>
+        
+                                <br>
+                                <div class="matinps">
+                                    <input value="0.01562" type="text" id="1">
+                                    <input value="79.2" type="text" id="2">
+                                    <input value="5610" type="text" id="3">
+                                    <br><br>
+                                    <input value="0.0194" type="text" id="4">
+                                    <input value="78.5" type="text" id="5">
+                                    <input value="3100" type="text" id="6">
+                                    <br><br>
+                                    <input value="0.05784" type="text" id="7">
+                                    <input value="95.64" type="text" id="8">
+                                    <input value="936" type="text" id="9">
+                                    <br><br>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingThree">
-                            <button class="accordion-button collapsed noselect" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
-                                Math
-                            </button>
-                        </h2>
-                        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
-                            <div class="accordion-body">
-                                <ul class="list-group">
-                                    <li id="mat-eva" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Evaluate
-                                    </li>
-                                    <li id="mat-mev" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Matrix Evaluate
-                                    </li>
-                                    <li id="mat-transpose" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Transpose
-                                    </li>
-                                    <li id="mat-abs" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        ABS
-                                    </li>
+ -->
 
-                                </ul>
-                            </div>
+                        <label for="datarow">Choose a dataset number</label>
+
+                        <select name="datarow" id="datarow" onchange="console.log('changed')">
+                        <option value="0">select</option>
+                        <option value="3">3</option>
+                        <option value="14">14</option>
+                        <!-- <option value="30">30</option> -->
+
+                        </select>
+                        <button class="btn mx-5 btn-custom-outline-brown" onclick="showdata()">View Data</button>
+                        <div id="data_disp">
+
                         </div>
                     </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFour">
-                            <button class="accordion-button collapsed noselect" href="#MAT-OP" aria-controls="con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="MAT-OP">
-                                Matrix Operations
-                            </button>
-                        </h2>
-                        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#accordionExample">
-                            <div class="accordion-body" id="MAT-OP">
-                                <ul class="list-group">
-                                    <li id="mat-rcm" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Row Combine
-                                    </li>
-                                    <li id="mat-ccm" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Column Combine
-                                    </li>
-                                    <li id="mat-ewm" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Element Wise Multiply
-                                    </li>
-                                    <li id="mat-ewd" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Element Wise Divide
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="accordion-item">
-                        <h2 class="accordion-header" id="headingFive">
-                            <button class="accordion-button collapsed noselect" href="#io" aria-controls="con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="io">
-                                input/output
-                            </button>
-                        </h2>
-                        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#accordionExample">
-                            <div class="accordion-body" id="io">
-                                <ul class="list-group">
-                                    <li id="io-tib" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Test Input Block
-                                    </li>
-                                    <li id="io-opb" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Print Block
-                                    </li>
-                                    <li id="io-dob" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
-                                        Debug Output Block
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-
 
                 </div>
-
-            </div>
-
-            <!-- end of accordcian-->
-
-            <div id="interface" class="col-8 col-md-8" ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
-                <!-- <div class="alert alert-dark" role="role" ondragover="false" ondragenter="false" ondragleave="false">                </div> -->
-
-                <div id="drop-box">
-                    <span>you can drop the blocks here</span>
+                <div class="d-flex justify-content-evenly mt-5">
+                    
+                    <div id="OUTPUT" class="my-5  px-5">
+                    </div>
                 </div>
-
             </div>
-            <div id="properties" class="col-2">
+
+
+            <div id="properties" class="col-3">
                 <div class="pt-4">
                     <!-- <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
                         Question Statement</button> -->
-                    <!-- <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button> -->
-                    <!-- <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./simulator_exp2.html" style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button> -->
-                    <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" title="move up" data-bs-toggle="tooltip" data-bs-placement="top" onclick="up()"><i
-                            class="bi bi-caret-up-fill"></i> </button>
-                    <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" title="move down" data-bs-toggle="tooltip" data-bs-placement="top" onclick="down()"><i
-                            class="bi bi-caret-down-fill"></i> </button>
-                    <button type="button" id="setbut" disabled class="btn btn-custom-outline-brown" title="Show Properties" data-bs-toggle="tooltip" data-bs-placement="top" onclick="showprops()"><i class="bi bi-pencil-fill"></i> </button>
-                    <button type="button" id="delbut" disabled class="btn btn-custom-outline-brown" title="Delete" data-bs-toggle="tooltip" data-bs-placement="top" onclick="delel()"><i
-                            class="bi bi-trash-fill"></i> </button>
-                    <button type="button" id="delallbut" disabled class="btn btn-custom-outline-brown" title="Delete All" data-bs-toggle="tooltip" data-bs-placement="top" onclick="delallel()">
-                        <i class="bi bi-recycle"></i> </button>
-                    <button type="button" id="dragbut" disabled class="btn btn-custom-outline-brown" title="DRAG" data-bs-toggle="tooltip" data-bs-placement="top" onclick="dragbu()"><i class="bi bi-arrows-move"></i></button>
-                    <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown" title="Step IN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepout()"><i class="bi bi-arrow-90deg-down"></i> </button>
-                    <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" title="Step Out" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepin()"><i
-                            class="bi bi-arrow-return-right"></i> </button>
-                    <!-- <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> </button> -->
-                    <!-- <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'))" data-bs-toggle="modal"><i class="bi bi-play-fill"></i> </button> -->
-                    <button type="button" id="run" class="btn btn-success" title="RUN" data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'))" data-bs-toggle="modal">RUN </button>
-                    <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-target="#output_modal" data-bs-toggle="modal">OUTPUT </button>
+                    <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""><a href="./tyr.html"
+                            style="text-decoration: none;color:black;display: block;">Go to
+                            programming-interface</a></button>
+                    <div style="width: 100%; text-align:center;"><button id="run" type="button" class="btn btn-success w-50" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="sim()" style="display: inline-block;">Run</button>
+                    </div>
                 </div>
+                <!-- <div id="OUTPUT-CONSOLE"></div> -->
             </div>
         </div>
     </div>
-    <div id="TEST-OUTPUT">
-        <h5>SAMPLE OUTPUT</h5>
-        <p>-------- State Estimation ------------------
-            <br>
-            --------
-            | Bus |    V   |  Angle  | 
-            | No  |   pu   |  Degree | 
-            ---
-               1    0.9996     0.0000
-               2    0.9741    -1.2489
-               3    0.9438    -2.7450
-            ---</p>
-    </div>
+
     <footer class="p-3">
         Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
         <script>
@@ -548,422 +433,13 @@
         </script>
     </footer>
     <!-- <script src="../programming-interface/main.js"></script> -->
-    <script src="js/drag1.js"></script>
+    <!-- <script src="drag1.js"></script> -->
+    <script src="js/wls.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js" integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.5.2/math.js" integrity="sha512-vdwP2fMacZZUetdvY+t/hsPJfEeifOcTBv0zYwUyj5qj3NbMvIFg87DxanM5dwqpu4yZkPry5VZv9TnQrll6tg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
-<template id="boo">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Boolean
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
-            <br>
-            <label class="visually-hidden" for="VAL">Enter the value</label>
-            <select name="" id="VAL">
-                <option value="true">True</option>
-                <option value="false">False</option>
-            </select>
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="cst">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Constant
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
-            <br>
-            <label class="visually-hidden" for="VAL">Enter the value</label>
-            <input type="text" name="" id="VAL" placeholder="Value">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="mat">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Matrix
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
-            <br>
-            <label class="visually-hidden" for="ROW">Enter the number of rows of the matrix</label>
-            <input type="text" name="" onchange="matinput(prevSelection[0])" id="ROW" placeholder="Number of Rows">
-            <br>
-            <label class="visually-hidden" for="COL">Enter the number of Column of the matrix</label>
-            <input type="text" name="" onchange="matinput(prevSelection[0])" id="COL" placeholder="Number of Columns">
-            <br>
-            <!-- <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate -->
-                <!-- Table</button> -->
-            <br>
-            <div class="matinps"></div>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="ima">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Identity Matrix
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
-            <br>
-            <label class="visually-hidden" for="ROW">Enter the number of rows</label>
-            <input type="text" name="" id="ROW" placeholder="Number of Rows">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
 
-
-    </div>
-</template>
-<template id="uma">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Unity Matrix
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
-            <br>
-            <label class="visually-hidden" for="ROW"> Enter the number of rows </label>
-            <input type="text" name="" id="ROW" placeholder="Number of Rows">
-            <br>
-            <label class="visually-hidden" for="COL"> enter the number of Columns </label>
-            <input type="text" name="" id="COL" placeholder="Number of Columns">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="zma">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Zeros Matrix
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
-            <br>
-            <label class="visually-hidden" for="ROW">Enter the number of rows</label>
-            <input type="text" name="" id="ROW" placeholder="Number of Rows">
-            <br>
-            <label class="visually-hidden" for="COL">enter the number of Columns</label>
-            <input type="text" name="" id="COL" placeholder="Number of Columns">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="vec">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Vector
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
-            <br>
-            <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
-            <input type="text" name=""  onchange="vecinput(prevSelection[0])" id="VAL" placeholder="Number of elements">
-            <br>
-            <!-- <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
-                row</button> -->
-            <br>
-            <div class="vecinps"></div>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="if">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        If
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="OP1">Enter the Operand 1</label>
-            <input type="text" name="" id="OP1" placeholder="Operand One">
-            <br>
-            <label class="visually-hidden" for="OP">Enter the operator</label>
-            <select name="" id="OP">
-                <option title="Greater Than" value=">">></option>
-                <option title="Lesser Than" value="<">
-                    < </option>
-                <option title="Equals" value="==">=</option>
-                <option title="Greater Than or Equal to" value=">=">≥</option>
-                <option title="Lesser Than or Equal to" value="<=">≤</option>
-                <option title="Not Equals" value="!=">≠</option>
-            </select>
-            <br>
-
-            <label class="visually-hidden" for="OP2">Enter the Operand 2</label>
-            <input type="text" name="" id="OP2" placeholder="Operand Two">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="eli">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Else If
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="OP1"> Enter the Operand 1 </label>
-            <input type="text" name="" id="OP1" placeholder="Operand One">
-            <br>
-            <label class="visually-hidden" for="OP"> enter the operator</label>
-            <select name="" id="OP">
-                <option title="Greater Than" value=">">></option>
-                <option title="Lesser Than" value="<">
-                    < </option>
-                <option title="Equals" value="=">=</option>
-                <option title="Greater Than or Equal to" value=">=">≥</option>
-                <option title="Lesser Than or Equal to" value="<=">≤</option>
-                <option title="Not Equals" value="!=">≠</option>
-            </select>
-            <br>
-            <label class="visually-hidden" for="OP2"> enter the Operand 2</label>
-            <input type="text" name="" id="OP2" placeholder="Operand Two">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="els">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Else
-    </div>
-</template>
-<template id="for">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        For
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="START"> Enter the start value of Counter </label>
-            <input type="text" name="" id="START" placeholder="Start">
-            <br>
-            <label class="visually-hidden" for="END"> Enter the end value of counter </label>
-            <input type="text" name="" id="END" placeholder="End">
-            <br>
-            <label class="visually-hidden" for="STEP"> Enter the step value of counter</label>
-            <input type="text" name="" value="" id="STEP" placeholder="Step (Default 1)">
-            <br>
-
-
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="whi">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        While
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="OP1"> Enter the Operand 1</label>
-            <input type="text" name="" id="OP1" placeholder="Operand One">
-            <br>
-
-            <label class="visually-hidden" for="OP"> enter the operator </label>
-            <select name="" id="OP">
-                <option title="Greater Than" value=">">></option>
-                <option title="Lesser Than" value="<">
-                    < </option>
-                <option title="Equals" value="==">=</option>
-                <option title="Greater Than or Equal to" value=">=">≥</option>
-                <option title="Lesser Than or Equal to" value="<=">≤</option>
-                <option title="Not Equals" value="!=">≠</option>
-            </select>
-            <br>
-
-            <label class="visually-hidden" for="OP2"> enter the Operand 2 </label>
-            <input type="text" name="" id="OP2" placeholder="Operand Two">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="bre">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Break
-    </div>
-</template>
-<template id="con">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Continue
-    </div>
-</template>
-<template id="eva">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Evaluate
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
-            <br>
-            <label class="visually-hidden" for="EVALUATE"> enter the expression to evaluate </label>
-            <input type="text" name="" id="EVALUATE" placeholder="Evaluate/Math Operations">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="mev">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Matrix Evaluate
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder=" Variable Name">
-            <br>
-            <label class="visually-hidden" for="OP1"></label>
-            <input type="text" name="" id="OP1" placeholder="Operand One">
-            <label class="visually-hidden" for=""></label>
-            <select name="" id="OP">
-                <option title="Sum" value="+">+</option>
-                <option title="Subtract" value="-">-</option>
-                <option title="Multiply" value="*">*</option>
-                <option title="Divide" value="/">/</option>
-                <option title="Modulus (Remainder)" value="%">%</option>
-            </select>
-            <label class="visually-hidden" for="OP2"></label>
-            <input type="text" name="Variable" id="OP2" placeholder="Operand Two">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="tra">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Transpose
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
-            <br>
-            <label class="visually-hidden" for="MAT">Enter the matrix name</label>
-            <input type="text" name="" id="MAT" placeholder="Matrix Variable Name">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="abs">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Absolute
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
-            <br>
-            <label class="visually-hidden" for="VAL"> enter the value </label>
-            <input type="text" name="" id="VAL" placeholder="Evaluate for Absolute Operations">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<template id="rcm">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Row Combine
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
-            <br>
-            <label class="visually-hidden" for="M1">Enter the matrix/vector 1</label>
-            <input type="text" name="" id="M1" placeholder="m1">
-            <br>
-            <label class="visually-hidden" for="M2"> enter the matrix/vector 2</label>
-            <input type="text" name="" id="M2" placeholder="m2">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-
-</template>
-<template id="ccm">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Column Combine
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
-            <br>
-            <label class="visually-hidden" for="M1">Enter the matrix/vector 1</label>
-            <input type="text" name="" id="M1" placeholder="m1">
-            <br>
-            <label class="visually-hidden" for="M2">enter the matrix/vector 2</label>
-            <input type="text" name="" id="M2" placeholder="m2">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-
-</template>
-<template id="ewm">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Element Wise Multiply
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
-            <br>
-            <label class="visually-hidden" for="M1">Enter the matrix 1</label>
-            <input type="text" name="" id="M1" placeholder="m1">
-            <label class="visually-hidden" for="M2">Enter the matrix 2</label>
-            <input type="text" name="" id="M2" placeholder="m2">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-
-</template>
-<template id="ewd">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Element Wise Divide
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAR">Enter the variable name</label>
-            <input type="text" name="Variable" id="VAR" placeholder="Output Variable Name">
-            <br>
-            <label class="visually-hidden" for="M1">Enter the matrix 1</label>
-            <input type="text" name="" id="M1" placeholder="m1">
-            <label class="visually-hidden" for="M2">Enter the matrix 2</label>
-            <input type="text" name="" id="M2" placeholder="m2">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-
-</template>
-
-<template id="tib">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Test Input Block
-    </div>
-</template>
-<template id="opb">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Print Block
-        <span class="showvarname"></span>
-        <div class="details pb-2">
-            <label class="visually-hidden" for="VAL">Enter the value to output</label>
-            <input type="text" name="" id="VAL" placeholder="Enter the message you want to display">
-            <input type="text" name="" id="VAR" placeholder="Value">
-            <br>
-            <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
-        </div>
-    </div>
-</template>
-<!-- <template id="dob">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Debug Output Block
-    </div>
-</template> -->
 
 </html>
