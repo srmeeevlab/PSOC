@@ -1,4 +1,4 @@
-(function() {
+(function () {
     // Functions
     function buildQuiz() {
         // variable to store the HTML output
@@ -7,30 +7,41 @@
         // for each question...
         myQuestions.forEach(
             (currentQuestion, questionNumber) => {
+                console.log('this is', currentQuestion, questionNumber)
+                if (currentQuestion.question) {
+                    // variable to store the list of possible answers
+                    const answers = [];
 
-                // variable to store the list of possible answers
-                const answers = [];
+                    // and for each available answer...
+                    for (letter in currentQuestion.answers) {
 
-                // and for each available answer...
-                for (letter in currentQuestion.answers) {
+                        // ...add an HTML radio button
+                        answers.push(
+                            `<label>
+                                <input type="radio" name="question${questionNumber}" value="${letter}">
+                                ${letter} :
+                                ${currentQuestion.answers[letter]}
+                                </label>`
+                        );
+                    }
 
-                    // ...add an HTML radio button
-                    answers.push(
-                        `<label>
-                <input type="radio" name="question${questionNumber}" value="${letter}">
-                ${letter} :
-                ${currentQuestion.answers[letter]}
-              </label>`
+                    // add this question and its answers to the output
+                    output.push(
+                        `<div class="slide">
+                            <div class="question"> ${currentQuestion.question} </div>
+                            <div class="answers"> ${answers.join("")} </div>
+                            </div>`
                     );
+                } else if (currentQuestion.note) { // the object will note as the heading and content as the text
+                    output.push(
+                        ` 
+                            <div class='slide'>
+                                <div class="question">  ${currentQuestion.note} </div>
+                                <div class="answers"> ${currentQuestion.content} </div>
+                            </div>
+                        `
+                    )
                 }
-
-                // add this question and its answers to the output
-                output.push(
-                    `<div class="slide">
-              <div class="question"> ${currentQuestion.question} </div>
-              <div class="answers"> ${answers.join("")} </div>
-            </div>`
-                );
             }
         );
 
@@ -49,23 +60,24 @@
         // for each question...
         myQuestions.forEach((currentQuestion, questionNumber) => {
 
-            // find selected answer
-            const answerContainer = answerContainers[questionNumber];
-            const selector = `input[name=question${questionNumber}]:checked`;
-            const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+            if (currentQuestion.question) {// find selected answer
+                const answerContainer = answerContainers[questionNumber];
+                const selector = `input[name=question${questionNumber}]:checked`;
+                const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
-            // if answer is correct
-            if (userAnswer === currentQuestion.correctAnswer) {
-                // add to the number of correct answers
-                numCorrect++;
+                // if answer is correct
+                if (userAnswer === currentQuestion.correctAnswer) {
+                    // add to the number of correct answers
+                    numCorrect++;
 
-                // color the answers green
-                answerContainers[questionNumber].style.color = 'lightgreen';
-            }
-            // if answer is wrong or blank
-            else {
-                // color the answers red
-                answerContainers[questionNumber].style.color = 'red';
+                    // color the answers green
+                    answerContainers[questionNumber].style.color = 'lightgreen';
+                }
+                // if answer is wrong or blank
+                else {
+                    // color the answers red
+                    answerContainers[questionNumber].style.color = 'red';
+                }
             }
         });
 
@@ -103,33 +115,40 @@
     const quizContainer = document.getElementById('quiz');
     const resultsContainer = document.getElementById('results');
     const submitButton = document.getElementById('submit');
-    const myQuestions = [{
-            question: "Who invented JavaScript?",
-            answers: {
-                a: "Douglas Crockford",
-                b: "Sheryl Sandberg",
-                c: "Brendan Eich"
-            },
-            correctAnswer: "c"
-        },
+    const myQuestions = [
         {
-            question: "Which one of these is a JavaScript package manager?",
+            question: "The Bmn matrix is called as",
             answers: {
-                a: "Node.js",
-                b: "TypeScript",
-                c: "npm"
-            },
-            correctAnswer: "c"
-        },
-        {
-            question: "Which tool can you use to ensure code quality?",
-            answers: {
-                a: "Angular",
-                b: "jQuery",
-                c: "RequireJS",
-                d: "ESLint"
+                a: "Real power matrix",
+                b: "Reactive power matrix",
+                c: "Apparent power matrix",
+                d: "Loss coefficient matrix"
             },
             correctAnswer: "d"
+        },
+        {
+            question: "Which of the following factor is used to move one optimal schedule to another when load changes are small?",
+            answers: {
+                a: "Base point factor",
+                b: "Maximum point factor",
+                c: "Penalty factor",
+                d: "Participation factor"
+            },
+            correctAnswer: "d"
+        },
+        {
+            question: "Transmission loss is",
+            answers: {
+                a: " Function of real power generation",
+                b: " independent of real power generation",
+                c: "function of reactive power generation",
+                d: "function of bus voltage magnitude and its angle"
+            },
+            correctAnswer: "a"
+        },
+        {
+            note: "hi there here as note to look for",
+            content: " yo there i know this is tought but we gotta do what we gott di"
         }
     ];
 
