@@ -260,6 +260,9 @@ const delallel = () => {
     } else {
         console.log('cancelled delete all action');
     }
+    if (document.getElementById("interface").childNodes.length == 1) {
+        document.getElementById("delallbut").disabled = true;
+    }
 
 
     // document.getElementById("delbut").disabled = true;
@@ -495,10 +498,10 @@ function vecinput(block) {
     divblock = divblock.getElementsByClassName("vecinps")[0];
     divblock.innerHTML = "";
     if (!columns) {
-        columns=1
+        columns = 1
         document.getElementById(block.id + "$" + "VAL").value = 1
     }
-    if( columns>=25){
+    if (columns >= 25) {
         alert("cannot enter more than 25 elements")
         return;
     }
@@ -544,7 +547,7 @@ function matinput(block) {
         document.getElementById(block.id + "$" + "COL").value = 1
         document.getElementById(block.id + "$" + "ROW").value = 1
     }
-    if(rows>=10 || columns>=10){
+    if (rows >= 10 || columns >= 10) {
         alert("cannot enter more than 10X10 matrix")
         return;
     }
