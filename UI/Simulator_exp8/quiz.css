@@ -66,6 +66,6 @@ button:hover {
 
 .quiz-container {
     position: relative;
-    height: 200px;
-    margin-top: 40px;
+    min-height: 200px;
+    margin: 40px 0px;
 }

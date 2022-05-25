@@ -30,7 +30,11 @@
                         `<div class="slide">
                             <div class="question"> ${currentQuestion.question} </div>
                             <div class="answers"> ${answers.join("")} </div>
-                            </div>`
+                            <div class="expa" style="display:none;">
+                                <button id="expbut" onclick="document.getElementById('exp-${questionNumber}').style.display= 'inline' ">explanation</button>
+                                <p class="explanation" id="exp-${questionNumber}" style="display:none;">${currentQuestion.explanation}</p>
+                            </div>
+                        </div>`
                     );
                 } else if (currentQuestion.note) { // the object will note as the heading and content as the text
                     output.push(
@@ -50,17 +54,22 @@
     }
 
     function showResults() {
-
+        console.log("submited")
+        Array.from(explanationbut).forEach(element => {
+            element.style.display = "inline-block"
+            console.log('element',element)
+        });
         // gather answer containers from our quiz
         const answerContainers = quizContainer.querySelectorAll('.answers');
 
         // keep track of user's answers
         let numCorrect = 0;
-
+        let questioncount=0
         // for each question...
         myQuestions.forEach((currentQuestion, questionNumber) => {
 
             if (currentQuestion.question) {// find selected answer
+                questioncount++;
                 const answerContainer = answerContainers[questionNumber];
                 const selector = `input[name=question${questionNumber}]:checked`;
                 const userAnswer = (answerContainer.querySelector(selector) || {}).value;
@@ -82,7 +91,7 @@
         });
 
         // show number of correct answers out of total
-        resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+        resultsContainer.innerHTML = `${numCorrect} out of ${questioncount}`;
     }
 
     function showSlide(n) {
@@ -97,6 +106,7 @@
         if (currentSlide === slides.length - 1) {
             nextButton.style.display = 'none';
             submitButton.style.display = 'inline-block';
+
         } else {
             nextButton.style.display = 'inline-block';
             submitButton.style.display = 'none';
@@ -115,6 +125,7 @@
     const quizContainer = document.getElementById('quiz');
     const resultsContainer = document.getElementById('results');
     const submitButton = document.getElementById('submit');
+    let explanationbut = document.getElementsByClassName('expa')
     const myQuestions = [
         {
             question: "The Bmn matrix is called as",
@@ -124,7 +135,8 @@
                 c: "Apparent power matrix",
                 d: "Loss coefficient matrix"
             },
-            correctAnswer: "d"
+            explanation: "he"
+            ,correctAnswer: "d"
         },
         {
             question: "Which of the following factor is used to move one optimal schedule to another when load changes are small?",
@@ -134,7 +146,8 @@
                 c: "Penalty factor",
                 d: "Participation factor"
             },
-            correctAnswer: "d"
+            explanation: "he"
+            ,correctAnswer: "d"
         },
         {
             question: "Transmission loss is",
@@ -144,7 +157,8 @@
                 c: "function of reactive power generation",
                 d: "function of bus voltage magnitude and its angle"
             },
-            correctAnswer: "a"
+            explanation: "he"
+            ,correctAnswer: "a"
         },
         {
             note: "hi there here as note to look for",
