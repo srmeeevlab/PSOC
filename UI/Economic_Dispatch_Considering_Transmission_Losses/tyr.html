@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="custom.css">
+    <link rel="stylesheet" href="css/custom.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.1/font/bootstrap-icons.css">
 
 </head>
@@ -23,19 +23,328 @@
 
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="#"><img src="srm-logo-white.png" alt="SRM Logo"></a>
-            <span id="exp-title">Experiment Title</span>
+            <a class="navbar-brand" href="#"><img src="images/srm-logo-white.png" alt="SRM Logo"></a>
+            <span id="exp-title">Economic Dispatch Considering Transmission Losses</span>
             <span id="navbar-settings">
-                <span id="score-word">SCORE: </span><span id="score">100</span>
-            <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span>
+                <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
+            <!-- <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span> -->
+            <span id="nav-help" title="Help">
+                    <div class="dropdown">
+                        <button class="btn dropdown-toggle btn btn-custom-outline-brown w-100 d-block" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Help
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal1">Interface</a></li>
+                          <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal2">Simulation</a></li>
+                          <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal3">Theory</a></li>
+                        </ul>
+                      </div>
+                </span>
+
             </span>
         </div>
         <div id="INPUT-BLOCK">
-            <h5>INPUT</h5>
-            <span>            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, in quae animi, sed harum molestias consequatur doloribus autem architecto, dolor perspiciatis vitae atque laudantium sint placeat voluptatibus at ab odit.
-            </span>
+            <h5>SAMPLE INPUT</h5>
+            <h6>
+                Total Demand (pd): 1000 Incremental Cost (lambda) : 9 Tolerance (delp) : 0.1 Tolerance (dellambda) : 0
+                <div class=" d-flex">
+                    <div class="mx-3">
+                        <br><b>Cost Data</b>
+                        <div>1 0.5 215 5000 </div>
+                        <div>2 1 270 5000 </div>
+                        <div>3 0.7 160 9000 </div>
+                    </div>
+                    <div class="mx-3">
+                        <br><b>Loss Data</b>
+                        <div>1 0.5 215 5000 </div>
+                        <div>2 1 270 5000 </div>
+                        <div>3 0.7 160 9000 </div>
+                    </div>
+                </div>
+            </h6>
         </div>
     </nav>
+    <div id="HELP-MODAL">
+        <div class="modal fade" id="modal1" aria-hidden="true" aria-labelledby="modal1Label" tabindex="-1">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal1Label">Interface</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <!-- Show a second modal and hide this one with the button below. -->
+
+                        <h1>Procedure</h1>
+                        <h5>Your task here is to form an appropriate algorithm for understanding the experiment's workflow.</h5>
+                        <h5>For a pre-built structure, navigate to “PreBuilt”, and click it. After doing so, follow steps a - e:
+                        </h5>
+                        <ul>
+                            <li>Step a: Navigate to the “Help” button and click on it.</li>
+                            <li>Step b: Navigate to “Theory” in the modal displayed, and read the text for conceptual understanding.</li>
+                            <li>Step c: Navigate back to the interface.</li>
+                            <li>Step d: Verify the values in each element/block by clicking the element/block individually.
+                            </li>
+                            <li>Step e: Now, run the simulation and verify the results.
+                            </li>
+                        </ul>
+                        <h5>For forming the algorithm yourself, follow steps 1-10:</h5>
+                        <ul>
+                            <li>Step 1: Navigate to the “Help” button and click on it.
+                            </li>
+                            <li>Step 2: Navigate to “Theory” in the modal displayed, and read the text for conceptual understanding.
+                            </li>
+                            <li>Step 3: Navigate back to the interface.
+                            </li>
+                            <li>Step 4: Use the palette provided on the left to navigate to the drag-drop elements/blocks. </li>
+                            <li>Step 5: Upon selecting the element/block, drag it to the specified area.</li>
+                            <li>Step 6: Name the elements/blocks appropriately.
+                            </li>
+                            <li>Step 7: Fill in values for the elements/blocks chosen.</li>
+                            <li>Step 8: Click on the “Run” button.</li>
+                            <li>Step 9: Verify the result against manual calculations.
+                            </li>
+                            <!-- <li>Step 10: View your score.
+                            </li> -->
+                        </ul>
+                        <h1>Blocks</h1>
+                        <h4>Variables</h4>
+                        <div>
+                            <h5>Boolean</h5>
+                            <p>A boolean variable is defined. It can have the values set to be true or false</p>
+                        </div>
+                        <div>
+                            <h5>Constant</h5>
+                            <p>A constant variable is defined. Any real number can be assigned to the variable defined.</p>
+                        </div>
+                        <div>
+                            <h5>Matrix</h5>
+                            <p>A matrix with assigned variable of given number of rows and columns is created. Values can be assigned in the box which will be opened after clicking the OK button.</p>
+                        </div>
+                        <div>
+                            <h5>Identity Matrix</h5>
+                            <p>A matrix with assigned variable of given number of rows is created.Values can be assigned in the box which will be opened after clicking the OK button.</p>
+                        </div>
+                        <div>
+                            <h5>Unity Matrix</h5>
+                            <p>A unity matrix with assigned variable of given number of rows and columns is created. Values can be assigned in the box which will be opened after clicking the OK button.</p>
+                        </div>
+                        <div>
+                            <h5>Zero Matrix</h5>
+                            <p>A Zero matrix with assigned variable of given number of rows and columns is created. Values can be assigned in the box which will be opened after clicking the OK button.</p>
+                        </div>
+                        <div>
+                            <h5>Vector</h5>
+                            <p>A vector with assigned variable of given number of elements is created. Values can be assigned in the box which will be opened after clicking the OK button.</p>
+                        </div>
+                        <h4>Conditionals and Loops</h4>
+                        <div>
+                            <h5>If</h5>
+                            <p>An if block is defined with the user defined condition. If the condition is true,then the if block will run.</p>
+                        </div>
+                        <div>
+                            <h5>Else if</h5>
+                            <p>An else if block is defined with the user defined condition. If the else if condition is true,then the if block will run. If block is mandatory before an else if block.</p>
+                        </div>
+                        <div>
+                            <h5>Else</h5>
+                            <p>An else if block is define.If the if condition is false,then the else block will run. If block is mandatory before an else block.</p>
+                        </div>
+                        <div>
+                            <h5>For</h5>
+                            <p>A for loop block is created with specified initiliazed value,condition and increment/decrement value. Default value for initialization is 0 and increment/decrement is 1. </p>
+                        </div>
+                        <div>
+                            <h5>While</h5>
+                            <p>A while block is defined with the user defined condition. The while block will run as long as the condition is satisfied.</p>
+                        </div>
+                        <div>
+                            <h5>Break</h5>
+                            <p>Break Statement breaks out of a conditional or a loop</p>
+                        </div>
+                        <div>
+                            <h5>Continue</h5>
+                            <p>A continue statement ends the current iteration of a loop</p>
+                        </div>
+                        <h4>Math</h4>
+                        <div>
+                            <h5>Evaluate</h5>
+                            <p>Evaluate block evaluates the specified variable with the specified math operations and expressions.</p>
+                        </div>
+                        <div>
+                            <h5>Matrix Evaluate</h5>
+                            <p>This block is used to evaluate to matrix elements with the specified operations.</p>
+                        </div>
+                        <div>
+                            <h5>Transpose</h5>
+                            <p>In transpose block, the output variable name is assigned with the transpose values of the given matrix block.</p>
+                        </div>
+                        <div>
+                            <h5>Absolute</h5>
+                            <p>In Absolute block, the output variable name is assigned with the absolute values of the given variables/operations.</p>
+                        </div>
+                        <h4>Matrix Operations</h4>
+                        <div>
+                            <h5>Row combine</h5>
+                            <p>In row combine block, if two matrices with same column dimension and different/same row dimension are given, the output block gets the combined row values. For example, if matrix A has dimensions 2*2 and matrix B has dimension
+                                3*2, the resultant matrix has dimensions 5*2</p>
+                        </div>
+                        <div>
+                            <h5>Column combine</h5>
+                            <p>In column combine block, if two matrices with same row dimension and different/same column dimension are given, the output block gets the combined row values. For example, if matrix A has dimensions 2*2 and matrix B has dimension
+                                2*3, the resultant matrix has dimensions 2*5</p>
+                        </div>
+                        <div>
+                            <h5>Element wise multiply</h5>
+                            <p>In this block, the output matrix gets the value of m1 matrix multiplied with m2 matrix element wise.</p>
+                        </div>
+                        <div>
+                            <h5>Element wise divide</h5>
+                            <p>In this block, the output matrix gets the value of m1 matrix divided with m2 matrix element wise.</p>
+                        </div>
+                        <h4>Input/Output</h4>
+                        <div>
+                            <h5>Test input block</h5>
+                            <p>Test inputs provided are evaluated for the whole logic and answers are evaluated.</p>
+                        </div>
+                        <div>
+                            <h5>Print Block</h5>
+                            <p>Using print block, the output is printed in the output block space. Value is entered for whose the output is to be shown and a message can be entered to get displayed.</p>
+                        </div>
+                        <div>
+                            <h5>Debug output block</h5>
+                            <p>This block can be used for debugging.</p>
+                        </div>
+                        <h1>PreBuiit</h1>
+                        <div>
+                            <h5>PreBuiit</h5>
+                            <p>Used to get the prebuilt logic of the given experiment.</p>
+                        </div>
+                        <h1>Buttons</h1>
+                        <div>
+                            <h5>Up Button</h5>
+                            <p>Used to move a block upwards.</p>
+                        </div>
+                        <div>
+                            <h5>Down Button</h5>
+                            <p>Used to move a block downwards.</p>
+                        </div>
+                        <div>
+                            <h5>Edit Button</h5>
+                            <p>Used to edit a block.</p>
+                        </div>
+                        <div>
+                            <h5>Delete Button</h5>
+                            <p>Used to delete a block.</p>
+                        </div>
+                        <div>
+                            <h5>Delete all</h5>
+                            <p>Used to delete all blocks.</p>
+                        </div>
+                        <div>
+                            <h5>Drag Button</h5>
+                            <p>Used to drag a block</p>
+                        </div>
+                        <div>
+                            <h5>Step in Button</h5>
+                            <p>Used when a block is to be indented inside another block.</p>
+                        </div>
+                        <div>
+                            <h5>Step out Button</h5>
+                            <p>Used when an indented block is to come out of the indentation.</p>
+                        </div>
+                        <div>
+                            <h5>Run Button</h5>
+                            <p>Used to run the logic.</p>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Next</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal2" aria-hidden="true" aria-labelledby="modal2Label" tabindex="-1">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal2Label">Simulation</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>You are in the interface page. To proceed to the simulation page, <a href="index.html">Click Here</a></p>
+                        <h2>Procedure:</h2>
+                        <h5>The user has to provide the input values to run the simulator. The following steps help the user to explore the platform.</h5>
+                        <ul>
+                            <li>Step 1: Navigate to the “Help” button and click on it.
+                            </li>
+                            <li>Step 2: Navigate to “Theory” in the drop-down, and read the text for conceptual understanding.</li>
+                            <li>Step 3: Navigate back to the interface.</li>
+                            <li>Step 4: Enter the values for the input parameters on the display window.
+                            </li>
+                            <li>Step 5: Click on the “Run” button.</li>
+                            <li>Step 6: On ruunig it, “Results” section can be observed below the inputs.</li>
+                            <li>Step 7: Verify the results provided by the simulator against manual calculations.
+                            </li>
+                            <!-- <li>Step 8: View your score.
+                            </li> -->
+                        </ul>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#modal1" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
+                        <button class="btn btn-primary" data-bs-target="#modal3" data-bs-toggle="modal" data-bs-dismiss="modal">Next</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal3" aria-hidden="true" aria-labelledby="modal3Label" tabindex="-1">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal3Label">Theory</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <p>Purpose of the economic dispatch or optimal dispatch is to reduce the fuel costs in order to achieve minimum operating cost. </p>
+                        <p>Purpose of the economic dispatch or optimal dispatch is to reduce the fuel costs in order to achieve minimum operating cost. </p>
+                        <p>The economic dispatch problem is a sub problem of two different problems, i.e. Unit commitment and online dispatch. </p>
+                        <p>There are two methods used to find the economic dispatch:</p>
+                        <ul>
+                            <li>Base Load Method, where the most efficient unit is loaded to its maximum capability, then the second most efficient is loaded and so on.</li>
+                            <li>Best Point Method (Incremental Method), where the units are successively loaded to their lowest heat rate point, beginning with the most efficient unit and working down to the least efficient unit.</li>
+                        </ul>
+                        <p>The power balance constraint states that the total generation must meet the total demand (PD)</p>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="output_modal" aria-hidden="true" aria-labelledby="output_modalLabel" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="output_modalLabel"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <h3>Result</h3>
+                    <div id="result_modal">
+
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#output_modal" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="container-fluid h-100">
         <div class="row">
             <!-- start of accordian       -->
@@ -133,7 +442,7 @@
                                     <li id="mat-abs" class="list-group-item noselect" draggable="true" ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                         ABS
                                     </li>
-                                    
+
                                 </ul>
                             </div>
                         </div>
@@ -188,7 +497,7 @@
                         </div>
                     </div>
 
-                    
+
                 </div>
 
             </div>
@@ -197,7 +506,7 @@
 
             <div id="interface" class="col-8 col-md-8" ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
                 <!-- <div class="alert alert-dark" role="role" ondragover="false" ondragenter="false" ondragleave="false">                </div> -->
-
+                <h2 class="text-center">Interface</h2>
                 <div id="drop-box">
                     <span>you can drop the blocks here</span>
                 </div>
@@ -205,10 +514,11 @@
             </div>
             <div id="properties" class="col-2">
                 <div class="pt-4">
-                    <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
-                        Question Statement</button>
+                    <!-- <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
+                        Question Statement</button> -->
                     <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button>
-                    <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./Simulator_exp1/simulator-exp1.html" style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button>
+                    <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./index.html"
+                            style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button>
                     <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" title="move up" data-bs-toggle="tooltip" data-bs-placement="top" onclick="up()"><i
                             class="bi bi-caret-up-fill"></i> </button>
                     <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" title="move down" data-bs-toggle="tooltip" data-bs-placement="top" onclick="down()"><i
@@ -218,19 +528,27 @@
                             class="bi bi-trash-fill"></i> </button>
                     <button type="button" id="delallbut" disabled class="btn btn-custom-outline-brown" title="Delete All" data-bs-toggle="tooltip" data-bs-placement="top" onclick="delallel()">
                         <i class="bi bi-recycle"></i> </button>
-                    <button type="button" id="dragbut" disabled class="btn btn-custom-outline-brown" title="DRAG" data-bs-toggle="tooltip" data-bs-placement="top" onclick="dragbu()"><i class="bi bi-arrows-move"></i></button>
-                    <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown" title="Step IN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepout()"><i class="bi bi-arrow-90deg-down"></i> </button>
+                    <button type="button" id="dragbut" disabled class="btn btn-custom-outline-brown" title="DRAG" data-bs-toggle="tooltip" data-bs-placement="top" onclick="dragbu()"><i
+                            class="bi bi-arrows-move"></i></button>
+                    <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown" title="Step IN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepout()"><i
+                            class="bi bi-arrow-90deg-down"></i> </button>
                     <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" title="Step Out" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepin()"><i
                             class="bi bi-arrow-return-right"></i> </button>
-                    <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> </button>
+                    <!-- <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> </button> -->
+                    <button type="button" id="run" class="btn btn-success" title="RUN" data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'))" data-bs-toggle="modal">RUN </button>
+                    <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-target="#output_modal" data-bs-toggle="modal">OUTPUT </button>
+
                 </div>
-                <div id="OUTPUT-CONSOLE"></div>
+
             </div>
         </div>
     </div>
     <div id="TEST-OUTPUT">
-        <h5>OUTPUT</h5>
-        <span>        Lorem ipsum dolor sit amet consectetur adipisicing elit. Blanditiis nemo non accusantium vero magnam velit suscipit nesciunt laudantium qui, ex mollitia? Facilis alias consequuntur eligendi recusandae. Illo iusto sapiente quo!       </span>
+        <h5>SAMPLE OUTPUT</h5>
+        <h6>Output of Economic Dispatch Problem Lambda -12.10 unit</h6>
+        <h6>**Optimal Generation** Unit No Optimal Generation (in MW) 1.00,2.00,177.30,489.82 unit</h6>
+        <h6>Incremental Fuel Cost and Penalty factors are: Unit No IFC Penalty Factor 1.00,2.00,10.62,11.34,1.14,1.07 unit</h6>
+        <h6>Total Generation Cost = INR 7386.183544547467 per hour</h6>
     </div>
     <footer class="p-3">
         Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
@@ -239,7 +557,7 @@
         </script>
     </footer>
     <!-- <script src="../programming-interface/main.js"></script> -->
-    <script src="drag1.js"></script>
+    <script src="js/drag1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js" integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -292,7 +610,7 @@
             <input type="text" name="" onchange="matinput(prevSelection[0])" id="COL" placeholder="Number of Columns">
             <br>
             <!-- <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate -->
-                <!-- Table</button> -->
+            <!-- Table</button> -->
             <br>
             <div class="matinps"></div>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -361,7 +679,7 @@
             <input type="text" name="Variable" id="VAR" placeholder="Variable Name">
             <br>
             <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
-            <input type="text" name=""  onchange="vecinput(prevSelection[0])" id="VAL" placeholder="Number of elements">
+            <input type="text" name="" onchange="vecinput(prevSelection[0])" id="VAL" placeholder="Number of elements">
             <br>
             <!-- <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
                 row</button> -->

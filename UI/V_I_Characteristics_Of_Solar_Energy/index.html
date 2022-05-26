@@ -16,8 +16,6 @@
             <a class="navbar-brand" href="#"><img src="images/srm-logo-white.png" alt="SRM Logo"></a>
             <span id="exp-title">V-I characteristics of solar energy</span>
             <span id="navbar-settings">
-                <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
-
             <a class="btn btn-custom-outline-brown w-100 d-block" id="help-btn" data-bs-toggle="modal" data-bs-target="#modal1" title="Help" role="button">HELP</a>
 
             </span>
@@ -91,15 +89,10 @@
                     <div class="input">
                         <h5>INPUT</h5>
 
-                        <!-- <h4>INPUTS</h4> -->
-
                         <div class="inps">
                             <label for="eg">Bandgap energy :</label>
                             <input onchange="exe()" type="number" id="eg" name="eg" value="1.166">
                         </div>
-                        <!-- <div class="inps"> <label for="a">a :</label>
-                            <input onchange="exe()" type="number" id="a" name="a" value="1.3">
-                        </div> -->
                         <div class="inps"> <label for="ns">Number of Series cell :</label>
                             <input onchange="exe()" type="number" id="ns" name="ns" value="35">
                         </div>
@@ -124,29 +117,14 @@
                         <div class="inps"> <label for="isc">Short circuit current:</label>
                             <input onchange="exe()" type="number" id="isc" name="isc" value="1.2">
                         </div>
-                        <!-- <div class="inps"> <label for="vmp">vmp:</label>
-                            <input onchange="exe()" type="number" id="vmp" name="vmp" value="17.28">
-                        </div>
 
-
-                        <div class="inps"> <label for="imp">imp:</label>
-                            <input onchange="exe()" type="number" id="imp" name="imp" value="5.71">
-                        </div>
-                        <div class="inps"> <label for="pm">pm :</label>
-                            <input onchange="exe()" type="number" id="pm" name="pm" value="235">
-                        </div> -->
                         <div class="inps"> <label for="io">Diode saturation current :</label>
                             <input onchange="exe()" type="number" id="io" name="io" value="0.00000002">
                         </div>
                         <div class="inps"> <label for="ki">Current Coefficient :</label>
                             <input onchange="exe()" type="number" id="ki" name="ki" value="0.0044">
                         </div>
-                        <!-- <div class="inps"> <label for="kv">kv :</label>
-                            <input onchange="exe()" type="number" id="kv" name="kv" value="-0.123">
-                        </div>
-                        <div class="inps"> <label for="kp">kp :</label>
-                            <input onchange="exe()" type="number" id="kp" name="kp" value="0.0047">
-                        </div> -->
+
 
 
                         <div class="inps"> <label for="ta">ambient temperature :</label>
@@ -195,11 +173,9 @@
                                     </div>
                                     <div>
                                         <div class="tabs tabv" id="graph1">
-                                            <!-- <h4 class="text1">V vs I Graph</h4> -->
                                             <canvas id="VVSI" style="background-color: white;"></canvas>
                                         </div>
                                         <div class="tabs" id="graph2">
-                                            <!-- <h4 class="text2">P vs V Graph</h4> -->
                                             <canvas id="VVSP" style="background-color: white;"></canvas>
                                         </div>
                                     </div>
@@ -216,27 +192,27 @@
     </main>
     <div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModal" style="display: none;" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 id="quiz-title" class="modal-title"></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p id="quiz-body"></p>
-              <div id="quiz-select">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="quiz-title" class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="quiz-body"></p>
+                    <div id="quiz-select">
 
-              </div>
-              <div id="quiz-result">
+                    </div>
+                    <div id="quiz-result">
 
-              </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="quiz-previous" type="button" class="btn btn-primary" onclick="previousInteraction();">Previous</button>
+                    <button id="quiz-next" type="button" class="btn btn-primary" onclick="nextInteraction();">Next</button>
+                    <button id="quiz-submit" type="button" class="btn btn-success" onclick="checkAns();">Check Answer</button>
+                </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button id="quiz-previous" type="button" class="btn btn-primary" onclick="previousInteraction();">Previous</button>
-              <button id="quiz-next" type="button" class="btn btn-primary" onclick="nextInteraction();">Next</button>
-              <button id="quiz-submit" type="button" class="btn btn-success" onclick="checkAns();">Check Answer</button>
-            </div>
-          </div>
         </div>
     </div>
 
@@ -247,7 +223,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
-<!-- <script src="path/to/chartjs/dist/chart.js"></script> -->
 <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.4/dist/Chart.bundle.min.js"></script>
 
 <script>
@@ -923,14 +898,6 @@
     function nonzero(NUM) {
         if (NUM > 0) return NUM
     }
-    // const data_VvsI = {
-    //     labels: [],
-    //     datasets: [{
-    //         label: "V vs I0",
-    //         fill: false,
-    //         data: questioncurrent.filter(nonzero)
-    //     }]
-    // }
     const data_VvsI = {
         labels: [],
         datasets: []
@@ -1007,14 +974,7 @@
         ctx1,
         config_VvsI
     );
-    // const data_VvsP = {
-    //     labels: [],
-    //     datasets: [{
-    //         label: "V vs P0",
-    //         fill: false,
-    //         data: questionpower.filter(nonzero)
-    //     }]
-    // }
+
     const data_VvsP = {
         labels: [],
         datasets: []
@@ -1058,7 +1018,6 @@
                     ticks: {
                         beginAtZero: true,
                         callback: function(value) {
-                            console.log("Rahul's code **********************************************************");
                             console.log(chart2.data.labels[value].toFixed(1));
                             return (chart2.data.labels[value].toFixed(1));
                         }
@@ -1095,4 +1054,5 @@
 </script>
 <script src="./app.js"></script>
 <script src="./js/quiz.js"></script>
+
 </html>
