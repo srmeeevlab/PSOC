@@ -1,6 +1,8 @@
 // from Math import sin
 // const jsonexp = require("./donejson.json")
 
+
+
 const node = document.createElement("div");
 node.style.height = "20px";
 node.id = "green-blk"
@@ -982,7 +984,6 @@ var transposeBlock = (block) => {
         for(let i=0;i<${varname}.length;i++){
             ${varname}[i] = new Array(${matrix}.length).fill("#");
         }
-
         for(let i=0;i<${varname}.length;i++){
             for(let j=0;j<${varname}[0].length;j++){
                 ${varname}[i][j] = ${matrix}[j][i];
@@ -1080,7 +1081,6 @@ var ifBlock = (block) => {
     if(${condition}){
         ${subroutine}
     }
-
     `
 }
 
@@ -1118,7 +1118,6 @@ var elseifBlock = (block) => {
     else if(${condition}){
         ${subroutine}
     }
-
     `
 }
 
@@ -1142,7 +1141,6 @@ var whileBlock = (block) => {
     while(${condition}){
         ${subroutine}
     }
-
     `
 }
 
@@ -1692,6 +1690,5 @@ var DotDivide = (block) => {
     
     let ${varname} = math.dotDivide(${m1},${m2});
     console.log(${varname});
-
     `
 }

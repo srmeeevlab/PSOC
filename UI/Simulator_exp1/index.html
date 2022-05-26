@@ -22,7 +22,6 @@
             <a class="navbar-brand" href="#"><img src="images/srm-logo-white.png" alt="SRM Logo"></a>
             <span id="exp-title">Development of Voltage Vontrollers of SMIB System</span>
             <span id="navbar-settings">
-                <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
             <span id="nav-help" title="Help">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle btn btn-custom-outline-brown w-100 d-block" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
@@ -39,14 +38,7 @@
 
             </span>
         </div>
-        <!-- <div id="INPUT-BLOCK" class="m-3">
-            <h5>INPUT</h5>
-            <span> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, in quae animi, sed harum molestias
-                consequatur doloribus autem architecto, dolor perspiciatis vitae atque laudantium sint placeat
-                voluptatibus at ab odit.
-            </span>
-        </div> -->
-        
+
     </nav>
     <div id="HELP-MODAL">
         <div class="modal fade" id="modal1" aria-hidden="true" aria-labelledby="modal1Label" tabindex="-1">
@@ -57,7 +49,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- Show a second modal and hide this one with the button below. -->
+                        
                         <p>You are in the simulation page. To proceed to the interface page, <a href="tyr.html">Click Here</a></p>
                         <h1>Procedure</h1>
                         <h5>Your task here is to form an appropriate algorithm for understanding the experiment's workflow.</h5>
@@ -307,52 +299,46 @@
 
     <div class="container-fluid h-100">
         <div class="row">
-            <h2 class="text-center">Simulator</h2>
+
 
             <div id="interface" class="col-9 col-md-9 " ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
-
+                <h2 class="text-center">Simulator</h2>
 
                 <div id="INPUT" class="d-flex justify-content-around mt-5">
                     <div id="left">
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst0" draggable="false">
                             Nominal Voltage (kV)
-                            <!-- <span class="showvarname">@Vnom</span> -->
+                            
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input type="text" name="Variable" id="cst0$VAR" placeholder="Variable Name">
-                                <br> -->
+                                
                                 <label class="visually-hidden" for="vnom">Enter the value</label>
                                 <input value="735 " type="text" name="" id="vnom" placeholder="Value">
                                 <br>
-                                <!-- <button id="cst0$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
+                                
                             </div>
                         </div>
 
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst1">
                             Frequency (Hz)
-                            <!-- <span class="showvarname">@freq</span> -->
+                            
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input value="" type="text" name="Variable" id="cst1$VAR" placeholder="Variable Name">
-                                <br> -->
+                                
                                 <label class="visually-hidden" for="freq">Enter the value</label>
                                 <input value="60" type="text" name="" id="freq" placeholder="Value">
                                 <br>
-                                <!-- <button id="cst1$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
+                     
                             </div>
                         </div>
 
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst2" draggable="false">
                             Transmission line length (Km)
-                            <!-- <span class="showvarname">@km</span> -->
+                           
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input value="" type="text" name="Variable" id="cst2$VAR" placeholder="Variable Name">
-                                <br> -->
+                                
                                 <label class="visually-hidden" for="km">Enter the value</label>
                                 <input value="800" type="text" name="" id="km" placeholder="Value">
                                 <br>
-                                <!-- <button id="cst2$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
+                               
                             </div>
                         </div>
                     </div>
@@ -360,43 +346,31 @@
                     <div id="right">
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst3" draggable="false">
                             Inductance (mH)
-                            <!-- <span class="showvarname">@l</span> -->
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input value="" type="text" name="Variable" id="cst3$VAR" placeholder="Variable Name">
-                                <br> -->
+                                
                                 <label class="visually-hidden" for="l">Enter the value</label>
                                 <input value="0.9323" type="text" name="" id="l" placeholder="Value">
                                 <br>
-                                <!-- <button id="cst3$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
                             </div>
                         </div>
 
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="cst4">
                             Capacitance (nF)
-                            <!-- <span class="showvarname">@c</span> -->
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input value="" type="text" name="Variable" id="cst4$VAR" placeholder="Variable Name">
-                                <br> -->
+                                
                                 <label class="visually-hidden" for="c">Enter the value</label>
                                 <input value="12.2 " type="text" name="" id="c" placeholder="Value">
                                 <br>
-                                <!-- <button id="cst4$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
                             </div>
                         </div>
 
                         <div class="pl-3 pt-2 noselect selectable bordered-box" title="Voltage angle of sending end bus" id="cst5">
                             Delta (deg)
-                            <!-- <span class="showvarname">@delta</span> -->
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input value="" type="text" name="Variable" id="cst5$VAR" placeholder="Variable Name">
-                                <br> -->
+                                
                                 <label class="visually-hidden" for="delta">Enter the value</label>
                                 <input value="0" type="text" name="" id="delta" placeholder="Value">
                                 <br>
-                                <!-- <button id="cst5$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
                             </div>
                         </div>
                     </div>
@@ -417,24 +391,47 @@
                     <div style="width: 100%; text-align:center;"><button id="run" type="button" class="btn btn-success w-50" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="Simulate()" style="display: inline-block;">Run</button>
                     </div>
                 </div>
-                <!-- <div id="OUTPUT-CONSOLE"></div> -->
             </div>
         </div>
     </div>
+    <div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModal" style="display: none;" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 id="quiz-title" class="modal-title"></h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+              <p id="quiz-body"></p>
+              <div id="quiz-select">
 
+              </div>
+              <div id="quiz-result">
+
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+              <button id="quiz-previous" type="button" class="btn btn-primary" onclick="previousInteraction();">Previous</button>
+              <button id="quiz-next" type="button" class="btn btn-primary" onclick="nextInteraction();">Next</button>
+              <button id="quiz-submit" type="button" class="btn btn-success" onclick="checkAns();">Check Answer</button>
+            </div>
+          </div>
+        </div>
+    </div>
     <footer class="p-3">
         Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
         <script>
             document.getElementById("year").innerText = new Date().getFullYear();
         </script>
     </footer>
-    <!-- <script src="../programming-interface/main.js"></script> -->
-    <!-- <script src="drag1.js"></script> -->
+    
     <script src="js/simulator-exp1.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js" integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.5.2/math.js" integrity="sha512-vdwP2fMacZZUetdvY+t/hsPJfEeifOcTBv0zYwUyj5qj3NbMvIFg87DxanM5dwqpu4yZkPry5VZv9TnQrll6tg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/quiz.js"></script>
 </body>
 
 
