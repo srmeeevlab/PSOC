@@ -268,6 +268,9 @@ const delallel = () => {
     } else {
         console.log('cancelled delete all action');
     }
+    if (document.getElementById("interface").childNodes.length == 1) {
+        document.getElementById("delallbut").disabled = true;
+    }
 
 
     // document.getElementById("delbut").disabled = true;

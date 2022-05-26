@@ -264,9 +264,11 @@ const delallel = () => {
         while (document.getElementById("interface").lastElementChild.id != "drop-box") {
             document.getElementById("interface").lastElementChild.remove();
         }
-        document.getElementById("prebuilt").innerHTML = "PreBuilt"
     } else {
         console.log('cancelled delete all action');
+    }
+    if (document.getElementById("interface").childNodes.length == 1) {
+        document.getElementById("delallbut").disabled = true;
     }
 
 
@@ -503,10 +505,10 @@ function vecinput(block) {
     divblock = divblock.getElementsByClassName("vecinps")[0];
     divblock.innerHTML = "";
     if (!columns) {
-        columns=1
+        columns = 1
         document.getElementById(block.id + "$" + "VAL").value = 1
     }
-    if( columns>=25){
+    if (columns >= 25) {
         alert("cannot enter more than 25 elements")
         return;
     }
@@ -552,7 +554,7 @@ function matinput(block) {
         document.getElementById(block.id + "$" + "COL").value = 1
         document.getElementById(block.id + "$" + "ROW").value = 1
     }
-    if(rows>=10 || columns>=10){
+    if (rows >= 10 || columns >= 10) {
         alert("cannot enter more than 10X10 matrix")
         return;
     }
@@ -1405,7 +1407,7 @@ function compile(mainblock) {
 
     let maincode = `
     const msg = document.createElement("p")
-    // msg.style.borderBottom = "1px solid black"
+    msg.style.borderBottom = "1px solid black"
     // msg.style.height = "25px";
     let lastoutput;
     `;
@@ -1424,7 +1426,7 @@ function compile(mainblock) {
         }
         const path = getpath(element);
         let blockname = element.firstChild.textContent.trim();
-        // let blockname = element.firstChild.textContent.split(" : ").reverse()[0].trim();
+        // let blockname = element.firstChild.textContent.split("@").reverse()[0].trim();
         // console.log("blk name",blockname);
 
         if (blockname == "Break" || blockname == "Continue") {
@@ -1582,8 +1584,8 @@ function prebuilt() {
     let interface = document.getElementById("interface");
     if (!prebuilton) {
         interface.innerHTML = "";
-        interface.innerHTML = prebuilt_code[3];
-        console.log("prebuilt clicked", prebuilt_code[3])
+        interface.innerHTML = prebuilt_code[5];
+        console.log("prebuilt clicked", prebuilt_code[5])
         prebuilton = true;
         document.getElementById("prebuilt").innerHTML = " RevertBack"
     } else {

@@ -15,53 +15,42 @@
 </head>
 
 <body>
-    <!-- 
-        <div style="height:1rem;border:1px solid green">
-        </div>
-
-     -->
 
     <nav class="navbar navbar-dark">
         <div class="container-fluid">
             <a class="navbar-brand" href="#"><img src="images/srm-logo-white.png" alt="SRM Logo"></a>
-            <span id="exp-title">Economic Dispatch Considering Transmission Losses</span>
+            <span id="exp-title"> Unit commitment using the priority list method</span>
             <span id="navbar-settings">
-                <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
-            <!-- <span id="nav-help" title="Help"><a role="button"><i class="bi bi-info-circle-fill"></i></a></span> -->
-            <span id="nav-help" title="Help">
-                    <div class="dropdown">
-                        <button class="btn dropdown-toggle btn btn-custom-outline-brown w-100 d-block" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-                          Help
-                        </button>
-                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-                          <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal1">Interface</a></li>
-                          <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal2">Simulation</a></li>
-                          <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal3">Theory</a></li>
-                        </ul>
-                      </div>
-                </span>
-
+                
+            <div class="dropdown">
+                <button class="btn dropdown-toggle btn btn-custom-outline-brown w-100 d-block" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                  Help
+                </button>
+                <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal1">Interface</a></li>
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal2">Simulation</a></li>
+                    <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal3">Procedure</a></li>
+                </ul>
+            </div>
             </span>
         </div>
         <div id="INPUT-BLOCK">
-            <h5>SAMPLE INPUT</h5>
-            <h6>
-                Total Demand (pd): 1000 Incremental Cost (lambda) : 9 Tolerance (delp) : 0.1 Tolerance (dellambda) : 0
-                <div class=" d-flex">
-                    <div class="mx-3">
-                        <br><b>Cost Data</b>
-                        <div>1 0.5 215 5000 </div>
-                        <div>2 1 270 5000 </div>
-                        <div>3 0.7 160 9000 </div>
-                    </div>
-                    <div class="mx-3">
-                        <br><b>Loss Data</b>
-                        <div>1 0.5 215 5000 </div>
-                        <div>2 1 270 5000 </div>
-                        <div>3 0.7 160 9000 </div>
+            <h5>INPUT</h5>
+            <h6>Total Demand (pd): 700</h6>
+            <div class=" d-flex">
+                <div class="">
+                    <br><b>cost curve coefficients c1</b>
+                    <div>0.01562 79.2 5610 </div>
+                    <div> 0.0194 78.5 3100</div>
+                    <div>0.05784 95.64 936
                     </div>
                 </div>
-            </h6>
+                <div class="mx-5">
+                    <br><b>Pmax</b>
+                    <div>600 400 200</div>
+
+                </div>
+            </div>
         </div>
     </nav>
     <div id="HELP-MODAL">
@@ -308,15 +297,18 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Purpose of the economic dispatch or optimal dispatch is to reduce the fuel costs in order to achieve minimum operating cost. </p>
-                        <p>Purpose of the economic dispatch or optimal dispatch is to reduce the fuel costs in order to achieve minimum operating cost. </p>
-                        <p>The economic dispatch problem is a sub problem of two different problems, i.e. Unit commitment and online dispatch. </p>
-                        <p>There are two methods used to find the economic dispatch:</p>
-                        <ul>
-                            <li>Base Load Method, where the most efficient unit is loaded to its maximum capability, then the second most efficient is loaded and so on.</li>
-                            <li>Best Point Method (Incremental Method), where the units are successively loaded to their lowest heat rate point, beginning with the most efficient unit and working down to the least efficient unit.</li>
-                        </ul>
-                        <p>The power balance constraint states that the total generation must meet the total demand (PD)</p>
+                        <p>Economic dispatch gives the optimum schedule corresponding to one particular load on the system. </p>
+                        <p>The total load in the power system varies throughout the day and reaches different peak value from one day to another. </p>
+                        <p>Generally different generators will have different power ratings different efficiency. </p>
+                        <p>Different combination of generators, are to be connected in the system to meet the varying load. </p>
+                        <p>When the load decreases, the utility has to decide in advance the sequence in which the generator units are to be shut down. </p>
+                        <p>Similarly, when the load increases, the operating engineer need to know in advance the sequence in which the generating units are to be brought.</p>
+                        <p>The problem of finding the order in which the units are to be brought in and the order in which the units are to be shut down over a period of time, say one day, so the total operating cost involved on that day is minimum. </p>
+                        <p>This is known as Unit Commitment (UC) problem. Thus UC problem is economic dispatch over a day. The period considered shall be one day, one week, one month or one year.</p>
+                        <p>But why this problem is there in the operation of electric power system? Why not just simply commit enough units to cover the maximum system load and leave them running? Note that to “commit” means a generating unit is to be “turned
+                            on”; that is, bring the unit up to speed, synchronize it to the system and make it to deliver power to the network.</p>
+                        <p>“Commit enough units and leave them on line” is one solution. However, it is quite expensive to run too many generating units when the load to be met with is low. A great deal of money can be saved by turning units off (de-committing
+                            them) when they are not needed.</p>
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
@@ -506,7 +498,7 @@
 
             <div id="interface" class="col-8 col-md-8" ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
                 <!-- <div class="alert alert-dark" role="role" ondragover="false" ondragenter="false" ondragleave="false">                </div> -->
-
+                <h2 class="text-center">Interface</h2>
                 <div id="drop-box">
                     <span>you can drop the blocks here</span>
                 </div>
@@ -535,9 +527,9 @@
                     <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" title="Step Out" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepin()"><i
                             class="bi bi-arrow-return-right"></i> </button>
                     <!-- <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> </button> -->
+                    <!-- <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'))" data-bs-toggle="modal"><i class="bi bi-play-fill"></i> </button> -->
                     <button type="button" id="run" class="btn btn-success" title="RUN" data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'))" data-bs-toggle="modal">RUN </button>
                     <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-target="#output_modal" data-bs-toggle="modal">OUTPUT </button>
-
                 </div>
 
             </div>
@@ -545,10 +537,8 @@
     </div>
     <div id="TEST-OUTPUT">
         <h5>SAMPLE OUTPUT</h5>
-        <h6>Output of Economic Dispatch Problem Lambda -12.10 unit</h6>
-        <h6>**Optimal Generation** Unit No Optimal Generation (in MW) 1.00,2.00,177.30,489.82 unit</h6>
-        <h6>Incremental Fuel Cost and Penalty factors are: Unit No IFC Penalty Factor 1.00,2.00,10.62,11.34,1.14,1.07 unit</h6>
-        <h6>Total Generation Cost = INR 7386.183544547467 per hour</h6>
+        <h6>Printing the unit commitment schedule for the given load demand</h6>
+        <h6>The committed unit numbers order are : 0, 1</h6>
     </div>
     <footer class="p-3">
         Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
@@ -969,10 +959,6 @@
         </div>
     </div>
 </template>
-<!-- <template id="dob">
-    <div class="pl-3 pt-2 noselect selectable bordered-box">
-        Debug Output Block
-    </div>
-</template> -->
+
 
 </html>

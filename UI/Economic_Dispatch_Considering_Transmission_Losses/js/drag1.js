@@ -22,9 +22,9 @@ let ifshiftpressed = false;
 
 
 let prebuilt_code = '';
-fetch("./donejson.json").then(response => {
-    return response.json();
-})
+fetch("../donejson.json").then(response => {
+        return response.json();
+    })
     .then(data => {
         console.log(data)
         prebuilt_code = data
@@ -125,7 +125,7 @@ function drop_handler(ev) {
         // console.log(id);
         for (i; i < id.length; i++)
             if (id[i] === "-") id = id.slice(i + 1, i + 4);
-        // console.log(id);
+            // console.log(id);
 
         const temp = document.getElementById(id);
         const clone = temp.content.cloneNode(true);
@@ -267,6 +267,9 @@ const delallel = () => {
         document.getElementById("prebuilt").innerHTML = "PreBuilt"
     } else {
         console.log('cancelled delete all action');
+    }
+    if (document.getElementById("interface").childNodes.length == 1) {
+        document.getElementById("delallbut").disabled = true;
     }
 
 
@@ -487,7 +490,7 @@ function ok(event) {
         varname = ""
     }
     if (varname) {
-        document.getElementById(ID).firstElementChild.innerHTML = `@${varname}`;
+        document.getElementById(ID).firstElementChild.innerHTML = ` : ${varname}`;
     } else {
         document.getElementById(ID).firstElementChild.innerHTML = ``;
 
@@ -503,7 +506,12 @@ function vecinput(block) {
     divblock = divblock.getElementsByClassName("vecinps")[0];
     divblock.innerHTML = "";
     if (!columns) {
-
+        columns = 1
+        document.getElementById(block.id + "$" + "VAL").value = 1
+    }
+    if (columns >= 25) {
+        alert("cannot enter more than 25 elements")
+        return;
     }
     if (isNaN(columns) || columns <= 0) {
         columns = 1
@@ -546,6 +554,10 @@ function matinput(block) {
         columns = 1
         document.getElementById(block.id + "$" + "COL").value = 1
         document.getElementById(block.id + "$" + "ROW").value = 1
+    }
+    if (rows >= 10 || columns >= 10) {
+        alert("cannot enter more than 10X10 matrix")
+        return;
     }
     if (isNaN(rows) || isNaN(columns) || rows <= 0 || columns <= 0) {
         if (isNaN(rows)) {
@@ -635,7 +647,7 @@ var evalBlock = (block) => {
     evalValue = evalValue.split(" ").join("");
     console.log(evalValue);
     return ` ${varname} =  ${evalValue} ;\n`
-    // return `console.log(${evalValue})`;
+        // return `console.log(${evalValue})`;
 }
 
 var matevalBlock = (block) => {
@@ -884,16 +896,16 @@ var outputBlock = (block) => {
     variable = document.getElementById(block.id + "$" + "VAR").value;
     message1 = document.getElementById(block.id + "$" + "VAL").value;
     if (!variable)
-        variable = "\n";
+        variable = "1";
 
 
     // msg.innerHTML = message + `${variable}`;
     // document.getElementById("OUTPUT-CONSOLE").appendChild(msg);
     // return 'console.log("outputted successfully ")';
     return `
-    msg.innerHTML = " ${message1}" +eval( ${variable});
-    document.getElementById("OUTPUT-CONSOLE").appendChild(msg);
-    console.log("outputted successfully ");
+    let ${block.id}print=document.createElement("p")
+    ${block.id}print.innerHTML="${message1} " +eval(${variable});
+    msg.appendChild(${block.id}print)
     
     
     `
@@ -1373,7 +1385,7 @@ function RUN(mainblock) {
 
     try {
         let maincode = compile(mainblock)
-        // console.log(compile(mainblock));
+            // console.log(compile(mainblock));
         if (maincode === "") {
             alert("No input");
             return;
@@ -1396,8 +1408,9 @@ function compile(mainblock) {
 
     let maincode = `
     const msg = document.createElement("p")
-    msg.style.borderBottom = "1px solid black"
+    // msg.style.borderBottom = "1px solid black"
     // msg.style.height = "25px";
+    let lastoutput;
     `;
     let blocksofcode = mainblock.children;
 
@@ -1414,7 +1427,7 @@ function compile(mainblock) {
         }
         const path = getpath(element);
         let blockname = element.firstChild.textContent.trim();
-        // let blockname = element.firstChild.textContent.split("@").reverse()[0].trim();
+        // let blockname = element.firstChild.textContent.split(" : ").reverse()[0].trim();
         // console.log("blk name",blockname);
 
         if (blockname == "Break" || blockname == "Continue") {
@@ -1521,25 +1534,41 @@ function compile(mainblock) {
 
     }
     // console.log(maincode);
+    maincode += `
+    console.log("lastchild of result",document.getElementById("result_modal").firstElementChild)
+    lastoutput = document.getElementById("result_modal").firstElementChild
+    if(lastoutput)
+        lastoutput.style.border = "none"
+    
+    msg.style.border = "5px solid black"
+    msg.style.padding = "1rem"
+    document.getElementById("result_modal").prepend(msg);
+    console.log("outputted successfully ");
+    
+    // document.getElementById("OUTPUT_CONSOLE").appendChild(msg);`
     return maincode;
 }
 
+function degrees_to_radians(degrees) {
+    var pi = Math.PI;
+    return degrees * (pi / 180);
+}
 
-var Sin = (num) => { return Math.sin(num); }
-var Cos = (num) => { return Math.cos(num); }
-var Tan = (num) => { return Math.tan(num); }
-var Sinh = (num) => { return Math.sinh(num); }
-var Cosh = (num) => { return Math.cosh(num); }
-var Tanh = (num) => { return Math.tanh(num); }
-var Sind = (num) => { return Math.sin(degrees_to_radians(num)); }
-var Cosd = (num) => { return Math.cos(degrees_to_radians(num)); }
-var Tand = (num) => { return Math.tan(degrees_to_radians(num)); }
-var Sinhd = (num) => { return Math.sinh(degrees_to_radians(num)); }
-var Coshd = (num) => { return Math.cosh(degrees_to_radians(num)); }
-var Tanhd = (num) => { return Math.tanh(degrees_to_radians(num)); }
-var Sqrt = (num) => { return Math.sqrt(num); }
-var Abs = (num) => { return Math.abs(num); }
-var Max = (num1, num2) => { return Math.max(num1, num2) }
+var Sin = (num) => { return math.sin(num); }
+var Cos = (num) => { return math.cos(num); }
+var Tan = (num) => { return math.tan(num); }
+var Sinh = (num) => { return math.sinh(num); }
+var Cosh = (num) => { return math.cosh(num); }
+var Tanh = (num) => { return math.tanh(num); }
+var Sqrt = (num) => { return math.sqrt(num); }
+var Sind = (num) => { return math.sin(degrees_to_radians(num)); }
+var Cosd = (num) => { return math.cos(degrees_to_radians(num)); }
+var Tand = (num) => { return math.tan(degrees_to_radians(num)); }
+var Sinhd = (num) => { return math.sinh(degrees_to_radians(num)); }
+var Coshd = (num) => { return math.cosh(degrees_to_radians(num)); }
+var Tanhd = (num) => { return math.tanh(degrees_to_radians(num)); }
+var Abs = (num) => { return math.abs(num); }
+var Max = (num1, num2) => { return math.max(num1, num2) }
 var Sort = (arr) => { return arr.sort() }
 var Sum = (arr) => {
     let sum = 0;
@@ -1556,8 +1585,8 @@ function prebuilt() {
     let interface = document.getElementById("interface");
     if (!prebuilton) {
         interface.innerHTML = "";
-        interface.innerHTML = prebuilt_code[1];
-        console.log("prebuilt clicked", prebuilt_code[1])
+        interface.innerHTML = prebuilt_code[3];
+        console.log("prebuilt clicked", prebuilt_code[3])
         prebuilton = true;
         document.getElementById("prebuilt").innerHTML = " RevertBack"
     } else {
@@ -1677,4 +1706,3 @@ var DotDivide = (block) => {
 
     `
 }
-

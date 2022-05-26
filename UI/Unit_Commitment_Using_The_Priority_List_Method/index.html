@@ -326,37 +326,32 @@
 
             <div id="interface" class="col-9 col-md-9 " ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
 
-
+                <h2 class="text-center">Simulator</h2>
                 <div id="INPUT" class="d-flex justify-content-around mt-5">
                     <div id="left">
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="pdblock" draggable="false">
                             PD
-                            <!-- <span class="showvarname">@Vnom</span> -->
+
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input type="text" name="Variable" id="cst0$VAR" placeholder="Variable Name">
-                                <br> -->
+
                                 <label class="visually-hidden" for="vnom">Enter the value</label>
                                 <input value="700" type="text" name="" id="PD" placeholder="Value">
                                 <br>
-                                <!-- <button id="cst0$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
+
                             </div>
                         </div>
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="c1">
                             <br> c1
-                            <!-- <span class="showvarname">@costdata</span> -->
+
                             <div class="details pb-2" class="matinps" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input type="text" name="Variable" id="mat0$VAR" placeholder="Variable Name">
-                                <br> -->
+
                                 <label for="ROW">Number of Rows</label>
                                 <input value="3" class="rows_columns" type="text" onchange="matinput()" id="costdatarow" name="" onchange="matinput()" id="mat0$ROW" placeholder="Number of Rows">
 
                                 <label for="COL">Number of Columns</label>
                                 <input value="3" type="text" id="costdatacol" name="" onchange="matinput()" id="mat0$COL" placeholder="Number of Columns" class="rows_columns">
                                 <br>
-                                <!-- <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate -->
-                                <!-- Table</button> -->
+
                                 <br>
                                 <div class="matinps">
                                     <input value="0.01562" type="text" id="1">
@@ -372,30 +367,27 @@
                                     <input value="936" type="text" id="9">
                                     <br><br>
                                 </div>
-                                <!-- <button id="mat0$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
+
                             </div>
                         </div>
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="Pmax">
                             Pmax
                             <br>
 
-                            <!-- <span class="showvarname">@lossdata</span> -->
+
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input value="" type="text" name="Variable" id="vec1$VAR" placeholder="Variable Name">
-                                <br> -->
+
                                 <label for="VAL">Number of Elements</label><br>
                                 <input value="3" type="text" id="Pmaxcols" name="" onchange="vecinput()" id="vec1$VAL" placeholder="Number of elements">
                                 <br>
-                                <!-- <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
-                            row</button> -->
+
                                 <br>
                                 <div class="vecinps">
                                     <input value="600" type="text" id="1">
                                     <input value="400" type="text" id="2">
                                     <input value="200" type="text" id="3">
                                 </div>
-                                <!-- <button id="vec1$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
+
                             </div>
                         </div>
 
@@ -422,15 +414,14 @@
 
             <div id="properties" class="col-3">
                 <div class="pt-4">
-                    <!-- <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
-                        Question Statement</button> -->
+
                     <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""><a href="./tyr.html"
                             style="text-decoration: none;color:black;display: block;">Go to
                             programming-interface</a></button>
                     <div style="width: 100%; text-align:center;"><button id="run" type="button" class="btn btn-success w-50" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="Simulate()" style="display: inline-block;">Run</button>
                     </div>
                 </div>
-                <!-- <div id="OUTPUT-CONSOLE"></div> -->
+
             </div>
         </div>
     </div>
@@ -441,8 +432,7 @@
             document.getElementById("year").innerText = new Date().getFullYear();
         </script>
     </footer>
-    <!-- <script src="../programming-interface/main.js"></script> -->
-    <!-- <script src="drag1.js"></script> -->
+
     <script src="js/simulator_exp5.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
