@@ -490,7 +490,7 @@ function ok(event) {
         varname = ""
     }
     if (varname) {
-        document.getElementById(ID).firstElementChild.innerHTML = `@${varname}`;
+        document.getElementById(ID).firstElementChild.innerHTML = ` : ${varname}`;
     } else {
         document.getElementById(ID).firstElementChild.innerHTML = ``;
 
@@ -506,12 +506,7 @@ function vecinput(block) {
     divblock = divblock.getElementsByClassName("vecinps")[0];
     divblock.innerHTML = "";
     if (!columns) {
-        columns = 1
-        document.getElementById(block.id + "$" + "VAL").value = 1
-    }
-    if (columns >= 25) {
-        alert("cannot enter more than 25 elements")
-        return;
+
     }
     if (isNaN(columns) || columns <= 0) {
         columns = 1
@@ -554,10 +549,6 @@ function matinput(block) {
         columns = 1
         document.getElementById(block.id + "$" + "COL").value = 1
         document.getElementById(block.id + "$" + "ROW").value = 1
-    }
-    if (rows >= 10 || columns >= 10) {
-        alert("cannot enter more than 10X10 matrix")
-        return;
     }
     if (isNaN(rows) || isNaN(columns) || rows <= 0 || columns <= 0) {
         if (isNaN(rows)) {
@@ -896,21 +887,16 @@ var outputBlock = (block) => {
     variable = document.getElementById(block.id + "$" + "VAR").value;
     message1 = document.getElementById(block.id + "$" + "VAL").value;
     if (!variable)
-        variable = "";
-    else {
-        variable = eval(variable)
-    }
+        variable = "\n";
+
 
     // msg.innerHTML = message + `${variable}`;
     // document.getElementById("OUTPUT-CONSOLE").appendChild(msg);
     // return 'console.log("outputted successfully ")';
     return `
-
     let ${block.id}print=document.createElement("p")
-    ${block.id}print.innerHTML="${message1}" +${variable};
+    ${block.id}print.innerHTML="${message1}" +eval(${variable});
     msg.appendChild(${block.id}print)
-
-    
     
     
     `
@@ -1413,7 +1399,7 @@ function compile(mainblock) {
 
     let maincode = `
     const msg = document.createElement("p")
-    // msg.style.borderBottom = "1px solid black"
+    msg.style.borderBottom = "1px solid black"
     // msg.style.height = "25px";
     let lastoutput;
     `;
@@ -1481,7 +1467,7 @@ function compile(mainblock) {
                 code = matmath(element);
                 break;
             case "Print Block":
-                console.log("running output block");
+                console.log("running block");
                 code = outputBlock(element);
                 break;
             case "Matrix":
@@ -1550,15 +1536,10 @@ function compile(mainblock) {
     document.getElementById("result_modal").prepend(msg);
     console.log("outputted successfully ");
     
-    `
+    // document.getElementById("OUTPUT_CONSOLE").appendChild(msg);`
     return maincode;
-
 }
 
-function degrees_to_radians(degrees) {
-    var pi = Math.PI;
-    return degrees * (pi / 180);
-}
 
 var Sin = (num) => { return Math.sin(num); }
 var Cos = (num) => { return Math.cos(num); }
@@ -1566,13 +1547,7 @@ var Tan = (num) => { return Math.tan(num); }
 var Sinh = (num) => { return Math.sinh(num); }
 var Cosh = (num) => { return Math.cosh(num); }
 var Tanh = (num) => { return Math.tanh(num); }
-var Sind = (num) => { return Math.sin(degrees_to_radians(num)); }
-var Cosd = (num) => { return Math.cos(degrees_to_radians(num)); }
-var Tand = (num) => { return Math.tan(degrees_to_radians(num)); }
-var Sinhd = (num) => { return Math.sinh(degrees_to_radians(num)); }
-var Coshd = (num) => { return Math.cosh(degrees_to_radians(num)); }
-var Tanhd = (num) => { return Math.tanh(degrees_to_radians(num)); }
-var Sqrt = (num) => { return math.sqrt(num); }
+var Sqrt = (num) => { return Math.sqrt(num); }
 var Abs = (num) => { return Math.abs(num); }
 var Max = (num1, num2) => { return Math.max(num1, num2) }
 var Sort = (arr) => { return arr.sort() }
@@ -1591,8 +1566,8 @@ function prebuilt() {
     let interface = document.getElementById("interface");
     if (!prebuilton) {
         interface.innerHTML = "";
-        interface.innerHTML = prebuilt_code[1];
-        console.log("prebuilt clicked", prebuilt_code[1])
+        interface.innerHTML = prebuilt_code[2];
+        console.log("prebuilt clicked", prebuilt_code[2])
         prebuilton = true;
         document.getElementById("prebuilt").innerHTML = " RevertBack"
     } else {
