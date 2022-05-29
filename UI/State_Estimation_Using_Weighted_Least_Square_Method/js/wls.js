@@ -1,5 +1,5 @@
 // const math = require("mathjs")
-
+startInteraction(data[0]);
 
 //bbus
 function busdatas(num) {

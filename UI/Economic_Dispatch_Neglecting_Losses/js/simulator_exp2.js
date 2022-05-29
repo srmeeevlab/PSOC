@@ -1,3 +1,4 @@
+startInteraction(data[0]);
 function Simulate() {
 
     let pd = document.getElementById("pd").value

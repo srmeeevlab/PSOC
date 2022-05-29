@@ -1,5 +1,5 @@
 // const math = require('mathjs')
-
+startInteraction(data[0]);
 function Simulate() {
 
     const pi = 3.1416;

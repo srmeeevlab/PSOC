@@ -1,5 +1,5 @@
 // const math = require('mathjs')
-
+startInteraction(data[0]);
 function Simulate() {
 
     //Exp no.6: economic dispatch problem(without limits and with loss)

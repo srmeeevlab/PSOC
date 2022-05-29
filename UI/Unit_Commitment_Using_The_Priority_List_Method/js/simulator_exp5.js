@@ -1,3 +1,4 @@
+startInteraction(data[0]);
 function Simulate() {
     let alrtmsggiven = false
 

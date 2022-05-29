@@ -1,22 +1,79 @@
 const quizModal = new bootstrap.Modal(document.getElementById("quizModal"));
-const data = [{
-    title:"This is an title",
-    body:"This is the body",
-    answer: undefined
-},
-{
-    title:"This is an title 2",
-    body:"This is the body 2",
-    answer: {
-        option:["A","B","C","D"],
-        ans:"a"
-    }
-},
-{
-    title:"This is an title 3",
-    body:"This is the body 3",
-    answer: undefined
-}];
+const data = [
+    [{
+        title:"This is an title",
+        body:"This is the body",
+        answer: undefined
+    },
+    {
+        title:"This is an title 2",
+        body:"This is the body 2",
+        answer: {
+            option:["A","B","C","D"],
+            ans:"a"
+        }
+    },
+    {
+        title:"This is an title 3",
+        body:"This is the body 3",
+        answer: undefined
+    }],
+    [{
+        title:"This is an title",
+        body:"This is the body",
+        answer: undefined
+    },
+    {
+        title:"This is an title 2",
+        body:"This is the body 2",
+        answer: {
+            option:["e","g","C","D"],
+            ans:"a"
+        }
+    },
+    {
+        title:"This is an title 3",
+        body:"This is the body 3",
+        answer: undefined
+    }],
+    [{
+        title:"This is an title",
+        body:"This is the body",
+        answer: undefined
+    },
+    {
+        title:"This is an title 2",
+        body:"This is the body 2",
+        answer: {
+            option:["e","g","C","D"],
+            ans:"a"
+        }
+    },
+    {
+        title:"This is an title 3",
+        body:"This is the body 3",
+        answer: undefined
+    }],
+    [{
+        title:"This is an title",
+        body:"This is the body",
+        answer: undefined
+    },
+    {
+        title:"This is an title 2",
+        body:"This is the body 2",
+        answer: {
+            option:["e","g","C","D"],
+            ans:"a"
+        }
+    },
+    {
+        title:"This is an title 3",
+        body:"This is the body 3",
+        answer: undefined
+    }]
+]
+
 const currentInteraction ={
     currentArray:[],
     position:0
@@ -35,15 +92,19 @@ function generateQuestion(data,next,previous){
         data.answer.option.forEach(ans => {
             const _div = document.createElement("div");
             _div.classList.add("form-check");
+            
             const _input = document.createElement("input");
             _input.classList.add("form-check-input");
             setAttributes(_input,{"type":"radio","id":`quiz-ans-${_opt}`,"name":"quiz-ans"});
+            
             const _label = document.createElement("label");
             _label.classList.add("form-check-label");
             _label.setAttribute("for",`quiz-ans-${_opt}`);
             _label.innerHTML = `${_opt}: ${ans}`; 
+            
             if(_opt === data.answer.ans)
                 _input.setAttribute("data-ans",true);
+            
             _div.appendChild(_input);
             _div.appendChild(_label);
             _opt = nextChar(_opt);
@@ -61,6 +122,7 @@ function nextChar(c) {
     return String.fromCharCode(c.charCodeAt(0) + 1);
 }
 function startInteraction(dataArray){
+    currentInteraction.position=0
     currentInteraction.currentArray = dataArray;
     if(currentInteraction.currentArray.length === 1){
         generateQuestion(currentInteraction.currentArray[currentInteraction.position],false,false);
@@ -105,4 +167,3 @@ function checkAns(){
     else
         document.getElementById("quiz-result").innerHTML = "This should not be selected";
 }
-startInteraction(data);

@@ -1,7 +1,7 @@
 // from Math import sin
 // const jsonexp = require("./donejson.json")
 
-
+startInteraction(data[2]);
 
 const node = document.createElement("div");
 node.style.height = "20px";

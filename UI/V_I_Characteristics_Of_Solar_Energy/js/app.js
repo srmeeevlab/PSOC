@@ -1,3 +1,4 @@
+startInteraction(data[0]);
 var range = (start, stop, step) => {
     let rangelst = []
     console.log("range started")
