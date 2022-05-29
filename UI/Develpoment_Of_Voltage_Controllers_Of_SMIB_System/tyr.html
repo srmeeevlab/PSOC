@@ -299,7 +299,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="output_modalLabel"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button"  onclick="if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false}" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <h3>Result</h3>
@@ -308,7 +308,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#output_modal" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+                    <button class="btn btn-primary" onclick="if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false}" data-bs-target="#output_modal" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
@@ -496,7 +496,7 @@
                     <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown" title="Step IN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepout()"><i class="bi bi-arrow-90deg-down"></i> </button>
                     <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" title="Step Out" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepin()"><i
                             class="bi bi-arrow-return-right"></i> </button>
-                    <button type="button" id="run" class="btn btn-success" title="RUN" data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'));startInteraction(data[3])" data-bs-toggle="modal">RUN </button>
+                    <button type="button" id="run" class="btn btn-success" title="RUN" data-bs-target="#output_modal" onclick="runcount++;RUN(document.getElementById('interface'));" data-bs-toggle="modal">RUN </button>
                     <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-target="#output_modal" data-bs-toggle="modal">OUTPUT </button>
                 </div>
 
@@ -540,6 +540,7 @@
     <footer class="p-3">
         Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology Partner
         <script>
+            let ask_post_quiz=true;
             document.getElementById("year").innerText = new Date().getFullYear();
         </script>
     </footer>

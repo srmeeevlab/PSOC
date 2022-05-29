@@ -361,7 +361,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="output_modalLabel"></h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button onclick="if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false}" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <h3>Result</h3>
@@ -370,7 +370,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button class="btn btn-primary" data-bs-target="#output_modal" data-bs-toggle="modal"
+                    <button onclick="if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false}" class="btn btn-primary" data-bs-target="#output_modal" data-bs-toggle="modal"
                         data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -668,6 +668,7 @@
         of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology
         Partner
         <script>
+            let ask_post_quiz = true;
             document.getElementById("year").innerText = new Date().getFullYear();
         </script>
     </footer>
