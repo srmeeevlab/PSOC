@@ -1,77 +1,86 @@
 const quizModal = new bootstrap.Modal(document.getElementById("quizModal"));
 const data = [
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Which condition is called Surge Impedance Loading (SIL)?",
         answer: {
-            option:["A","B","C","D"],
-            ans:"a"
+            option:[
+                "Surge impedance loading is defined as the power load in which the total real power of the lines becomes zero. Transmission line is terminated by reactance impedance alone",
+                "Surge Impedance Loading is the connected load in transmission line for which reactive power generated is equal to reactive power consumed i.e. the flow of reactive power is zero. There is an exact balance between reactive power generation and consumption."
+            ]
+            ,ans:"b"
         }
     },
     {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
+        title:"Question 2",
+        body:"Choose the no loading condition of the transmission line",
+        answer: {
+            option:[
+                "The line carries zero real power from sending end to receiving end. i. e The difference voltage angle of the sending and receiving end is zero",
+                "The line carries zero reactive power from sending end to receiving end. i. e The difference in voltage magnitude of the sending and receiving end is zero"
+            ],
+            ans:"a"
+        }
     }],
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Choose the condition for symmetrical lossless line?",
         answer: {
-            option:["e","g","C","D"],
+            option: [
+                "Vs=Vr i.e sending end voltage is equal to receiving end voltage",
+                "Is=Iri.e sending end current is equal to receiving end current"
+            ],
             ans:"a"
         }
     },
     {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
-    }],
+        title:"Question 2",
+        body:"The real power transfer between two buses mainly depends on ",
+        answer: {
+            option:[
+            "Difference in voltage magnitude of sending end and receiving end",
+            "Difference in voltage angle of sending end and receiving end"
+        ],
+            ans:"b"
+        }
+    },
+    ],
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"A typical value of Surge impedance for the underground cable is",
         answer: {
-            option:["e","g","C","D"],
+            option:["Around 40 ohms","Around 100 ohms"],
             ans:"a"
         }
     },
     {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
-    }],
+        title:"Question 2",
+        body:"The reactive power transfer between two buses mainly depends on",
+        answer: {
+            option:["Difference in voltage magnitude of sending end and receiving end of the bus","Difference in voltage angle of sending end and receiving end of the bus"],
+            ans:"a"
+        }
+    },],
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"A typical value of Surge impedance for the Over headline is",
         answer: {
-            option:["e","g","C","D"],
+            option:["Around 400 ohms","Around 40 ohms"],
             ans:"a"
         }
     },
     {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
-    }]
+        title:"Question 2",
+        body:"Typical voltage level (kV) and line length (in km) value of the long transmission line is ",
+        answer: {
+            option:[
+                "Greater than 100 kV, Greater than 250 km",
+                "Line voltage is between 20 kV and 100 kV, line length is between 100 km and 250 km"
+            ],
+            ans:"a"
+        }
+    },
+    ]
 ]
 
 const currentInteraction ={
