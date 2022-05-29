@@ -299,7 +299,8 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- <p>You are in the interface page. To proceed to the simulation page, <a href="simulator_exp2.html">Click Here</a></p> -->
+                        <p>You are in the interface page. To proceed to the simulation page, <a href="index.html">Click
+                                Here</a></p>
                         <h2>Procedure:</h2>
                         <h5>Your task is to input values and run the simulator to obtain results. This can be done by
                             following the steps mentioned below:</h5>
@@ -334,13 +335,16 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <p>The objective of the SE problem is to estimate the system state   that maximises the probability of the true value being equal to the measured quantity, i.e. the   which maximises the probability density function. An estimate   thus obtained is called the maximum likelihood estimate</p>
+                        <p>The objective of the SE problem is to estimate the system state that maximises the
+                            probability of the true value being equal to the measured quantity, i.e. the which maximises
+                            the probability density function. An estimate thus obtained is called the maximum likelihood
+                            estimate</p>
                         <ul>
                             <li>Read bus data, line data and measurement vector.</li>
                             <li>Assume suitable values for weightages and tolerances.</li>
                             <li>Initialize the state vector [X¬0].</li>
                             <li>Calculate the measurement function h(x) and Jacobian [H].</li>
-                            <li>Form the gain matrix [HT R  H].</li>
+                            <li>Form the gain matrix [HT R H].</li>
                             <li>Obtain the state correction vector.</li>
                             <li>Update the state vector.</li>
                             <li>Check for convergence. If converged go to next step otherwise, go to the 4th point</li>
@@ -361,7 +365,8 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="output_modalLabel"></h5>
-                    <button onclick="if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false}" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button onclick="if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false}" type="button"
+                        class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <h3>Result</h3>
@@ -370,7 +375,8 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button onclick="if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false}" class="btn btn-primary" data-bs-target="#output_modal" data-bs-toggle="modal"
+                    <button onclick="if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false}"
+                        class="btn btn-primary" data-bs-target="#output_modal" data-bs-toggle="modal"
                         data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
@@ -617,7 +623,8 @@
                     <!-- <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> </button> -->
                     <!-- <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'))" data-bs-toggle="modal"><i class="bi bi-play-fill"></i> </button> -->
                     <button type="button" id="run" class="btn btn-success" title="RUN" data-bs-target="#output_modal"
-                        onclick="RUN(document.getElementById('interface'));startInteraction(data[3]);" data-bs-toggle="modal">RUN </button>
+                        onclick="RUN(document.getElementById('interface'));startInteraction(data[3]);"
+                        data-bs-toggle="modal">RUN </button>
                     <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN"
                         data-bs-target="#output_modal" data-bs-toggle="modal">OUTPUT </button>
                 </div>
@@ -638,29 +645,33 @@
             ---
         </p>
     </div>
-    <div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModal" style="display: none;" aria-hidden="true">
+    <div class="modal fade" id="quizModal" tabindex="-1" aria-labelledby="quizModal" style="display: none;"
+        aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
-          <div class="modal-content">
-            <div class="modal-header">
-              <h5 id="quiz-title" class="modal-title"></h5>
-              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-            </div>
-            <div class="modal-body">
-              <p id="quiz-body"></p>
-              <div id="quiz-select">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 id="quiz-title" class="modal-title"></h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p id="quiz-body"></p>
+                    <div id="quiz-select">
 
-              </div>
-              <div id="quiz-result">
+                    </div>
+                    <div id="quiz-result">
 
-              </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button id="quiz-previous" type="button" class="btn btn-primary"
+                        onclick="previousInteraction();">Previous</button>
+                    <button id="quiz-next" type="button" class="btn btn-primary"
+                        onclick="nextInteraction();">Next</button>
+                    <button id="quiz-submit" type="button" class="btn btn-success" onclick="checkAns();">Check
+                        Answer</button>
+                </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-              <button id="quiz-previous" type="button" class="btn btn-primary" onclick="previousInteraction();">Previous</button>
-              <button id="quiz-next" type="button" class="btn btn-primary" onclick="nextInteraction();">Next</button>
-              <button id="quiz-submit" type="button" class="btn btn-success" onclick="checkAns();">Check Answer</button>
-            </div>
-          </div>
         </div>
     </div>
     <footer class="p-3">
