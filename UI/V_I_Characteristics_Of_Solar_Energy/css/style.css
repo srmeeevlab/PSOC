@@ -14,7 +14,6 @@ body {
 .container {
     background-color: #61A4BC;
     border-radius: 10px;
-    /* width: 100%; */
 }
 
 #exp-title {
@@ -33,7 +32,6 @@ body {
 .content {
     display: flex;
     flex-wrap: wrap;
-    /* flex-direction: column; */
 }
 
 .flex {
@@ -49,9 +47,7 @@ nav {
 }
 
 .input {
-    /* flex: 1; */
     display: flex;
-    /* flex-wrap: wrap; */
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
@@ -61,7 +57,6 @@ nav {
     padding: 3.15rem;
     margin: auto;
     min-height: 600px;
-    /* margin: 10px; */
 }
 
 .input-col {
@@ -107,8 +102,6 @@ input{
 }
 
 canvas {
-    /* margin: 1rem 0; */
-    /* height: 600px !important; */
     min-width: 50px;
 }
 
@@ -123,13 +116,10 @@ canvas {
 
 main {
     background-color: #fffbe9;
-    /* height: 100vh;
-    width: 100vh; */
 }
 
 
 .tabs {
-    /* margin: 10px; */
     display: none;
 }
 

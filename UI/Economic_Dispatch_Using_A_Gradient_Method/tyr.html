@@ -321,7 +321,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="output_modalLabel"></h5>
-                    <buttononclick="if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false}"  type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <buttonon onclick=" if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false} "  type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <h3>Result</h3>
@@ -520,7 +520,7 @@
                             class="bi bi-arrow-90deg-down"></i> </button>
                     <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" title="Step Out" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepin()"><i
                             class="bi bi-arrow-return-right"></i> </button>
-                    <button type="button" id="run" class="btn btn-success" title="RUN" data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'));startInteraction(data[3]);" data-bs-toggle="modal">RUN </button>
+                    <button type="button" id="run" class="btn btn-success" title="RUN" data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'));" data-bs-toggle="modal">RUN </button>
                     <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-target="#output_modal" data-bs-toggle="modal">OUTPUT </button>
                 </div>
             </div>

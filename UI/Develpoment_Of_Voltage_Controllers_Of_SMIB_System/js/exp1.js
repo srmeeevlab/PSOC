@@ -1,6 +1,5 @@
 const msg = document.createElement("p")
 msg.style.borderBottom = "1px solid black"
-// msg.style.height = "25px";
 let pi = 3.1416;
 let Vnom = 735 * 0.001;
 let freq = 60;

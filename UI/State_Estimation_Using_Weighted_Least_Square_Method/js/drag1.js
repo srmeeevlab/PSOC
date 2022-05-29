@@ -1,5 +1,4 @@
-// from Math import sin
-// const jsonexp = require("./donejson.json")
+
 startInteraction(data[2]);
 const node = document.createElement("div");
 node.style.height = "20px";
@@ -9,9 +8,7 @@ node.classList.add("pl-3", "py-3");
 
 const Test_Output_Block = document.createElement("div")
 
-// const msg = document.createElement("div")
-// msg.style.borderBottom = "1px solid black"
-// msg.style.height = "25px"
+
 
 max_level = 30;
 let count1 = 0;
@@ -22,14 +19,7 @@ let ifshiftpressed = false;
 
 
 let prebuilt_code = '';
-fetch("../donejson.json").then(response => {
-        return response.json();
-    })
-    .then(data => {
-        console.log(data)
-        prebuilt_code = data
-        console.log(prebuilt_code)
-    });
+
 
 let exp_number = 5;
 let supremecode;
@@ -55,8 +45,7 @@ function drag_start_handler(ev) {
 
 function dragOver_handler(ev) {
     ev.preventDefault();
-    console.log(ev.target.id == "green-blk");
-    console.log(ev.target.id);
+   
 
     if (["For", "While", "If", "Else", "Else If"].includes(ev.target.firstChild.textContent.trim())) {
         if (!ev.target.classList.contains("highlight")) {
@@ -69,27 +58,22 @@ function dragOver_handler(ev) {
 
 function dragEnter_handler(ev) {
     ev.preventDefault();
-    // console.log("drag enter",ev.target.id);
 
 
 }
 
 
 function dragLeave_handler(ev) {
-    // if (ev.target != node) {
     let parent = ev.target.children;
     parent = Array.from(parent);
     if (parent.includes(node)) {
-        console.log("yes nde is ther")
         ev.target.removeChild(node);
     }
-    // node.remove();
-    // }
+    
 }
 
 function drop_handler(ev) {
     ev.preventDefault();
-    // console.log("drop",ev);
 
     node.remove();
 
@@ -97,7 +81,6 @@ function drop_handler(ev) {
 
     if (prevSelection.length > 0) {
         prevSelection[0].draggable = false;
-        // document.getElementById("dragbut").innerHTML = "drag";
         document.getElementById("dragbut").style.backgroundColor = "transparent";
         document.getElementById("dragbut").style.color = "black";
         if (ev.target.classList.contains("highlight")) {
@@ -113,26 +96,21 @@ function drop_handler(ev) {
 
 
     } else {
-        // console.log("block path length is",getpath(ev.target).length);
         if (getpath(ev.target).length > max_level) {
             alert("max indentation reached");
             return;
         }
 
-        // ev.target.style.borderColor = "transparent";
         let id = ev.dataTransfer.getData("text/plain");
         let i = 0;
-        // console.log(id);
         for (i; i < id.length; i++)
             if (id[i] === "-") id = id.slice(i + 1, i + 4);
-            // console.log(id);
 
         const temp = document.getElementById(id);
         const clone = temp.content.cloneNode(true);
         clone.id = id + count1++;
         ////
 
-        // console.log("clone id- ", clone.id);
         if (["For", "While", "If", "Else", "Else If"].includes(ev.target.firstChild.textContent.trim())) {
             if (!ev.target.classList.contains("highlight")) {
                 ev.target.appendChild(clone);
@@ -145,7 +123,6 @@ function drop_handler(ev) {
                 childs = childs.concat(Array.from(details.getElementsByTagName("select")));
                 ////
                 for (let index = 0; index < childs.length; index++) {
-                    // const element = array[index];
                     if (childs[index].id) {
                         childs[index].id = clone.id + "$" + childs[index].id;
                     }
@@ -154,7 +131,6 @@ function drop_handler(ev) {
         } else {
             document.getElementById("interface").appendChild(clone);
             document.getElementById("interface").lastElementChild.id = clone.id;
-            // console.log(document.getElementById("interface").lastElementChild);
             let details = document.getElementById("interface").lastElementChild;
             let childs = [];
             if (!["Break", "Continue"].includes(details.textContent.trim()))
@@ -163,9 +139,7 @@ function drop_handler(ev) {
             childs = Array.from(childs);
             childs = childs.concat(Array.from(details.getElementsByTagName("button")));
             childs = childs.concat(Array.from(details.getElementsByTagName("select")));
-            console.log(childs);
             for (let index = 0; index < childs.length; index++) {
-                // const element = array[index];
                 if (childs[index].id) {
                     childs[index].id = clone.id + "$" + childs[index].id;
                 }
@@ -196,16 +170,14 @@ function dragbu(event) {
 function up() {
     if (prevSelection.length == 1) {
         let target = prevSelection[0];
-        // if (!target.previousElementSibling || target.previousElementSibling.id != "drop-box") {
         target.parentNode.insertBefore(target, target.previousElementSibling);
-        // }
+    
     }
 }
 
 function down() {
     if (prevSelection.length == 1) {
         let target = prevSelection[0];
-        // if (target.nextElementSibling)
         target.parentNode.insertBefore(target, target.nextElementSibling.nextElementSibling);
     }
 }
@@ -230,9 +202,7 @@ function deselect() {
         element = prevSelection.pop()
         element.classList.remove("highlight");
         element.classList.remove("error_block");
-        // if(element.getElementsByClassName("details").length>0){
-        //     element.getElementsByClassName("details")[0].style.display = "none";
-        // }
+      
     }
     document.getElementById("delbut").disabled = true;
     document.getElementById("setbut").disabled = true;
@@ -249,37 +219,21 @@ const delel = () => {
     while (prevSelection.length > 0) {
         prevSelection.pop().remove();
     }
-    // document.getElementById("delbut").disabled = true;
-    // document.getElementById("upbut").disabled = true;
-    // document.getElementById("downbut").disabled = true;
-    // document.getElementById("dragbut").innerHTML = "drag";
-    // document.getElementById("dragbut").disabled = true;
-    // document.getElementById("stepo").disabled = true;
-    // document.getElementById("stepi").disabled = true;
+
 }
 
 const delallel = () => {
-    // document.getElementById("interface").innerHTML = "";
     if (confirm('Are you sure you want to delete all the blocks?')) {
         while (document.getElementById("interface").lastElementChild.id != "drop-box") {
             document.getElementById("interface").lastElementChild.remove();
         }
         document.getElementById("prebuilt").innerHTML = "PreBuilt"
     } else {
-        console.log('cancelled delete all action');
     }
     if (document.getElementById("interface").childNodes.length == 1) {
         document.getElementById("delallbut").disabled = true;
     }
 
-
-    // document.getElementById("delbut").disabled = true;
-    // document.getElementById("upbut").disabled = true;
-    // document.getElementById("downbut").disabled = true;
-    // document.getElementById("dragbut").innerHTML = "drag";
-    // document.getElementById("dragbut").disabled = true;
-    // document.getElementById("stepo").disabled = true;
-    // document.getElementById("stepi").disabled = true;
 }
 
 
@@ -300,7 +254,6 @@ function checkButtonStatus() {
 
     }
 
-    console.log("inside chck status")
     if (prevSelection.length != 1) {
         document.getElementById("upbut").disabled = true;
         document.getElementById("downbut").disabled = true;
@@ -361,7 +314,6 @@ addEventListener("dblclick", (event) => {
 
 
 addEventListener("click", (event) => {
-    // console.log("details",event.detail)
     const target = event.target;
     if (target.id == "interface") {
         deselect();
@@ -382,7 +334,6 @@ addEventListener("click", (event) => {
             if (prevSelection.length == 1 && !event.ctrlKey && !event.shiftKey) {
                 if (target.classList.contains("highlight")) {
                     prevSelection[0].draggable = false;
-                    // document.getElementById("dragbut").innerHTML = "drag";
                     document.getElementById("dragbut").style.backgroundColor = "transparent";
                     document.getElementById("dragbut").style.color = "black";
 
@@ -411,36 +362,29 @@ addEventListener("click", (event) => {
                     target.classList.add("highlight");
                 }
 
-                // console.log("control is presses",event.ctrlKey);
             }
             // shift slect
             else if (event.shiftKey && prevSelection[0] != undefined) {
 
 
-                // console.log("shift is presses",event.shiftKey);
                 let lastselectedelem = prevSelection.pop();
 
-                // console.log(ifshiftpressed);
-                // console.log("start",lastselectedelem);
-                // console.log("end",target);
+                
                 if (!ifshiftpressed) {
                     ifshiftpressed = true;
                 }
                 deselect();
-                // console.log(ifshiftpressed);
 
                 const siblnglst = Array.from(document.getElementsByClassName("selectable"));
                 let starttemp = siblnglst.indexOf(lastselectedelem);
                 let endtemp = siblnglst.indexOf(target);
 
                 if (endtemp > starttemp) {
-                    // console.log("end is greater");
                     for (let i = endtemp; i >= starttemp; i--) {
                         prevSelection.push(siblnglst[i]);
                         siblnglst[i].classList.add("highlight");
                     }
                 } else {
-                    // console.log("start is greater");
                     for (let i = endtemp; i <= starttemp; i++) {
                         prevSelection.push(siblnglst[i]);
                         siblnglst[i].classList.add("highlight");
@@ -455,10 +399,7 @@ addEventListener("click", (event) => {
 
 
     }
-    // else{
-
-    //     deselect();
-    // }
+ 
     checkButtonStatus();
 
 });
@@ -512,13 +453,7 @@ function vecinput(block) {
         columns = 1
         document.getElementById(block.id + "$" + "VAL").value = 1
     }
-    // if (!columns || columns < 0) {
-    //     alert("Invalid input");
-    //     block.classList.add("error_block");
-    //     prevSelection.push(block);
-    //     showprops();
-    //     throw 0;
-    // }
+    
     let inpcount = 1;
     for (let index = 0; index < columns; index++) {
         divblock.appendChild(document.createElement("input"));
@@ -536,14 +471,7 @@ function matinput(block) {
     let divblock = block.getElementsByClassName("details")[0];
     divblock = divblock.getElementsByClassName("matinps")[0];
     divblock.innerHTML = "";
-    // let lastchilds = document.getElementById(block.id)
-    // console.log("last child block",lastchilds)
-    // console.log(lastchilds.getElementsByClassName("matinps"))
-    // console.log(lastchilds.getElementsByClassName("matinps")[0])
-    // console.log(lastchilds.getElementsByClassName("matinps")[0].children)
-    // console.log(lastchilds.getElementsByClassName("matinps")[0].children.length)
-    // lastchilds = lastchilds.getElementsByClassName("matinps")[0].children.length
-    // console.log("length of matrix",lastchilds)
+    
     if (!rows || !columns) {
         rows = 1
         columns = 1
@@ -560,20 +488,11 @@ function matinput(block) {
         rows = 1
         columns = 1
     }
-    // if ( rows <= 0 || columns <= 0) {
-    //     alert("Invalid input");
-    //     block.classList.add("error_block");
-    //     prevSelection.push(block);
-    //     showprops();
-    //     throw 0;
-    // }
 
     let inpcount = 1;
     for (let i = 0; i < rows; i++) {
-        // const element = array[i];
 
         for (let index = 0; index < columns; index++) {
-            // const element = array[index];
             divblock.appendChild(document.createElement("input"));
             divblock.lastElementChild.type = "text";
             divblock.lastElementChild.id = inpcount;
@@ -588,7 +507,6 @@ function matinput(block) {
 
 var constantBlock = (block) => {
     let varname, valname;
-    console.log("inside constant");
     varname = document.getElementById(block.id + "$" + "VAR").value;
 
     valname = document.getElementById(block.id + "$" + "VAL").value;;
@@ -600,17 +518,14 @@ var constantBlock = (block) => {
         throw 0;
 
     }
-    // varname = "a";
-    // valname = "3";
+    
     return ` let ${varname} = ${valname} ;\n`;
-    // block.innerHTML += " : " + varname;
-    //  " let a = 3"
+    
 }
 
 var booleanBlock = (block) => {
     let varname, valname;
-    // varname = "bo";
-    // valname = "true";
+  
     varname = document.getElementById(block.id + "$" + "VAR").value;
     valname = document.getElementById(block.id + "$" + "VAL").value;
     if (!valname || !varname || !isNaN(varname)) {
@@ -620,7 +535,6 @@ var booleanBlock = (block) => {
         showprops();
         throw 0;
     }
-    // block.innerHTML += " : " + varname;
     return ` let ${varname} = ${valname} ;\n`;
 }
 
@@ -636,9 +550,7 @@ var evalBlock = (block) => {
         throw 0;
     }
     evalValue = evalValue.split(" ").join("");
-    console.log(evalValue);
     return ` ${varname} =  ${evalValue} ;\n`
-        // return `console.log(${evalValue})`;
 }
 
 var matevalBlock = (block) => {
@@ -659,8 +571,7 @@ var matevalBlock = (block) => {
 
     for (let index = 0; index < evallist.length; index++) {
         const element = evallist[index];
-        // [+,-,*,/,%]
-        // (-3)*(-3)
+        
         if (["+", '-', '*', '/', '%'].includes(element) && (["+", '-', '*', '/', '%'].includes(evallist[index - 1]) || ["+", '-', '*', '/', '%'].includes(evallist[index + 1]))) {
             alert("Invalid Mathmatical operations ");
             block.classList.add("error_block");
@@ -703,7 +614,7 @@ var matevalBlock = (block) => {
             }
             code += `
             math.add(${op1}, ${op2});
-            console.log("added matrix is",math.add(${op1}, ${op2}));
+            //console.log("added matrix is",math.add(${op1}, ${op2}));
             `;
         } else if (element == "-") {
 
@@ -735,7 +646,7 @@ var matevalBlock = (block) => {
 
             code += `
             math.subtract(${op1}, ${op2});
-            console.log("subtract matrix is",math.subtract(${op1}, ${op2}));
+            //console.log("subtract matrix is",math.subtract(${op1}, ${op2}));
             `
         } else if (element == "*") {
             if (evallist[index - 1] == "(") {
@@ -769,7 +680,7 @@ var matevalBlock = (block) => {
             }
             code += `
             math.multiply(${op1}, ${op2});
-            console.log("multiply matrix is",math.multiply(${op1}, ${op2}));
+            //console.log("multiply matrix is",math.multiply(${op1}, ${op2}));
             `
         } else if (element == "/") {
             if (evallist[index - 1] == "(") {
@@ -782,7 +693,7 @@ var matevalBlock = (block) => {
             if (evallist[index - 1] != ")")
                 op1 = evallist[index - 1];
             else {
-                // op1 = ;
+                
                 let ind = index - 2;
                 while (evallist[ind] != "(" && ind > 0) {
                     op1 += evallist[ind];
@@ -803,7 +714,7 @@ var matevalBlock = (block) => {
             }
             code += `
             math.divide(${op1}, ${op2});
-            console.log("divide matrix is",math.divide(${op1}, ${op2}));
+            //console.log("divide matrix is",math.divide(${op1}, ${op2}));
             `
         } else if (element == "%") {
             if (evallist[index - 1] == "(") {
@@ -837,7 +748,7 @@ var matevalBlock = (block) => {
             }
             code += `
             math.mod(${op1}, ${op2});
-            console.log("mod matrix is",math.mod(${op1}, ${op2}));
+            //console.log("mod matrix is",math.mod(${op1}, ${op2}));
             `
         }
 
@@ -852,9 +763,7 @@ var matmath = (block) => {
     op1 = document.getElementById(block.id + "$" + "OP1").value;
     op = document.getElementById(block.id + "$" + "OP").value;
     op2 = document.getElementById(block.id + "$" + "OP2").value;
-    // console.log("op1",op1);
-    // console.log("op2",op2);
-    // console.log("op is",op);
+   
     let code1 = ``;
     if (!varname || !op1 || !op2) {
         alert("Invalid Input");
@@ -876,8 +785,7 @@ var matmath = (block) => {
     }
     if (op == "+") { code1 += ` let ${varname}= math.add(${op1},${op2});` } else if (op == "-") { code1 += `let ${varname}=math.subtract(${op1},${op2});` } else if (op == "*") { code1 += `let ${varname}=math.multiply(${op1},${op2});` } else if (op == "/") { code1 += `let ${varname}=math.divide(${op1},${op2});` } else if (op == "%") { code1 += `let ${varname}=math.mod(${op1},${op2});` }
 
-    // eval(code1);
-    // console.log()
+   
     return code1;
 
 }
@@ -889,10 +797,6 @@ var outputBlock = (block) => {
     if (!variable)
         variable = "\n";
 
-
-    // msg.innerHTML = message + `${variable}`;
-    // document.getElementById("OUTPUT-CONSOLE").appendChild(msg);
-    // return 'console.log("outputted successfully ")';
     return `
     let ${block.id}print=document.createElement("p")
     ${block.id}print.innerHTML="${message1}" +eval(${variable});
@@ -931,7 +835,7 @@ var matrixBlock = (block) => {
     const ${varname} = [];
     while(${varname}1.length) ${varname}.push(${varname}1.splice(0,${columns}));
         
-    console.log("matrix is ",${varname});\n
+    //console.log("matrix is ",${varname});\n
     `
 }
 
@@ -952,7 +856,6 @@ var identityBlock = (block) => {
     }
     let array = [];
     for (let i = 0; i < rows; i++) {
-        // const element = array[index];
         for (let j = 0; j < rows; j++) {
             i == j ? array.push(1) : array.push(0);
         }
@@ -961,7 +864,7 @@ var identityBlock = (block) => {
     let ${varname}1 = [${array}];
     let ${varname} = [];
     while(${varname}1.length) ${varname}.push(${varname}1.splice(0,${rows}));
-    console.log("Identity is",${varname});\n
+    //console.log("Identity is",${varname});\n
     `;
 }
 
@@ -976,7 +879,6 @@ var transposeBlock = (block) => {
         showprops();
         throw 0;
     }
-    console.log("transpose variable name is", matrix);
 
     return `
     if(typeof ${matrix}[0] == "object")
@@ -990,7 +892,7 @@ var transposeBlock = (block) => {
                 ${varname}[i][j] = ${matrix}[j][i];
             }
         }
-        console.log("Transpose is",${varname});}
+        //console.log("Transpose is",${varname});}
     else{
         const ${varname} = [];
         for(let i=0;i<${matrix}.length;i++){
@@ -1013,9 +915,7 @@ var forBlock = (block) => {
     initVal = document.getElementById(block.id + "$" + "START").value;
     endVal = document.getElementById(block.id + "$" + "END").value;
     step = document.getElementById(block.id + "$" + "STEP").value;
-    console.log("step is ", step);
-    // op = document.getElementById(block.id+"$" + "").value;
-
+   
     if (!initVal || !endVal) {
         alert("start or end value not given");
         block.classList.add("error_block");
@@ -1054,7 +954,6 @@ var forBlock = (block) => {
 
 var elseBlock = (block) => {
     let subroutine = subRoutine(block);
-    console.log("subroutine is", subroutine);
     return `else{
         ${subroutine}
     }\n`
@@ -1093,7 +992,7 @@ var getpath = (block) => {
         path.push(ele.firstChild.textContent.trim());
         ele = ele.parentNode;
     }
-    // console.log(path);
+    // //console.log(path);
     return path;
 }
 
@@ -1162,7 +1061,7 @@ var vectorBlock = (block) => {
         alert(`Exceeded the limit of no. of columns in matrix ${varname}, value should not be greater than 10`)
     }
     let array = [];
-    console.log()
+    //console.log()
     let vector_inputs = document.getElementById(block.id).getElementsByClassName("vecinps")[0].getElementsByTagName("input")
     for (let index = 0; index < vector_inputs.length; index++) {
         array.push(vector_inputs[index].value);
@@ -1170,7 +1069,7 @@ var vectorBlock = (block) => {
     return `
     let ${varname} =[${array}];
           
-    console.log("vector is ",${varname});\n
+    //console.log("vector is ",${varname});\n
     `
 
 }
@@ -1200,18 +1099,15 @@ var unityMatrix = (block) => {
     const ${varname} = [];
     while(${varname}1.length) ${varname}.push(${varname}1.splice(0,${columns}));
     
-    console.log("unity matrix is ",${varname});
+    //console.log("unity matrix is ",${varname});
     
     `
 }
 
 function subRoutine(mainblock) {
-    console.log("running sub")
     let maincode = "";
     let blocksofcode = mainblock.children;
-    console.log(blocksofcode);
-    // blocksofcode.splice(0,1);
-    // return blocksofcode;
+  
     for (let index = 0; index < blocksofcode.length; index++) {
 
         const element = blocksofcode[index];
@@ -1219,14 +1115,13 @@ function subRoutine(mainblock) {
             continue;
         }
         if (element.id == "drop-box") {
-            console.log("drop-box rejected")
             continue;
         }
         const path = getpath(element);
         const blockname = element.firstChild.textContent.trim();
         if (blockname == "Break" || blockname == "Continue") {
             if (path.includes("For") || path.includes("While")) {
-                console.log("yes valid")
+                //console.log("yes valid")
             } else {
                 alert("no loop found to use break or continue");
                 throw 0;
@@ -1246,7 +1141,6 @@ function subRoutine(mainblock) {
 
         switch (element.firstChild.textContent.trim()) {
             case "Constant":
-                console.log("running Constant");
                 code = constantBlock(element);
                 break;
             case "Row Combine":
@@ -1256,24 +1150,19 @@ function subRoutine(mainblock) {
                 code = col_com(element);
                 break;
             case "Boolean":
-                console.log("running boolean");
                 code = booleanBlock(element);
                 break;
 
             case "Matrix Evaluate":
-                // code = matevalBlock(element);
                 code = matmath(element);
                 break;
             case "Print Block":
-                console.log("running output block");
                 code = outputBlock(element);
                 break;
             case "Matrix":
-                console.log("running matrix");
                 code = matrixBlock(element);
                 break;
             case "Break":
-                console.log("running break");
                 code = breakBlock(element);
                 break;
             case "Identity Matrix":
@@ -1318,11 +1207,9 @@ function subRoutine(mainblock) {
             default:
                 break;
         }
-        // maincode+="console.log(2);";
         maincode += code;
 
     }
-    // console.log(maincode);
     return maincode;
 }
 
@@ -1351,7 +1238,7 @@ var zeroMatrix = (block) => {
     const ${varname} = [];
     while(${varname}1.length) ${varname}.push(${varname}1.splice(0,${columns}));
         
-    console.log("zero matrix is ",${varname});
+    //console.log("zero matrix is ",${varname});
     
     `
 }
@@ -1376,16 +1263,13 @@ function RUN(mainblock) {
 
     try {
         let maincode = compile(mainblock)
-            // console.log(compile(mainblock));
         if (maincode === "") {
             alert("No input");
             return;
         }
-        // maincode = maincode.replace(/^/g,"**")
-        console.log(maincode);
+        
 
         eval(maincode);
-        console.log("logged")
 
     } catch (error) {
         console.log("error is ", error);
@@ -1395,7 +1279,6 @@ function RUN(mainblock) {
 }
 
 function compile(mainblock) {
-    // window.maincode.concat("2");
 
     let maincode = `
     const msg = document.createElement("p")
@@ -1413,13 +1296,12 @@ function compile(mainblock) {
             continue;
         }
         if (element.id == "drop-box") {
-            // console.log("drop-box rejected")
+            // //console.log("drop-box rejected")
             continue;
         }
         const path = getpath(element);
         let blockname = element.firstChild.textContent.trim();
-        // let blockname = element.firstChild.textContent.split("@").reverse()[0].trim();
-        // console.log("blk name",blockname);
+        
 
         if (blockname == "Break" || blockname == "Continue") {
             if (path.includes("For") || path.includes("While")) {
@@ -1439,10 +1321,8 @@ function compile(mainblock) {
         }
         let code;
 
-        // console.log("blockname",blockname)
         switch (element.firstChild.textContent.trim()) {
             case "Constant":
-                console.log("running Constant");
                 code = constantBlock(element);
                 break;
             case "Row Combine":
@@ -1458,24 +1338,20 @@ function compile(mainblock) {
                 code = col_com(element);
                 break;
             case "Boolean":
-                console.log("running boolean");
+                
                 code = booleanBlock(element);
                 break;
 
             case "Matrix Evaluate":
-                // code = matevalBlock(element);
                 code = matmath(element);
                 break;
             case "Print Block":
-                console.log("running block");
                 code = outputBlock(element);
                 break;
             case "Matrix":
-                console.log("running matrix");
                 code = matrixBlock(element);
                 break;
             case "Break":
-                console.log("running break");
                 code = breakBlock(element);
                 break;
             case "Identity Matrix":
@@ -1520,13 +1396,11 @@ function compile(mainblock) {
             default:
                 break;
         }
-        // maincode+="console.log(2);";
         maincode += code;
 
     }
-    // console.log(maincode);
     maincode += `
-    console.log("lastchild of result",document.getElementById("result_modal").firstElementChild)
+    //console.log("lastchild of result",document.getElementById("result_modal").firstElementChild)
     lastoutput = document.getElementById("result_modal").firstElementChild
     if(lastoutput)
         lastoutput.style.border = "none"
@@ -1534,9 +1408,9 @@ function compile(mainblock) {
     msg.style.border = "5px solid black"
     msg.style.padding = "1rem"
     document.getElementById("result_modal").prepend(msg);
-    console.log("outputted successfully ");
+    //console.log("outputted successfully ");
     
-    // document.getElementById("OUTPUT_CONSOLE").appendChild(msg);`
+    // document.getElementById("OUTPUT_//CONSOLE").appendChild(msg);`
     return maincode;
 }
 
@@ -1562,12 +1436,10 @@ var Sum = (arr) => {
 let prebuilton = false;
 
 function prebuilt() {
-    console.log("prebuilt");
     let interface = document.getElementById("interface");
     if (!prebuilton) {
         interface.innerHTML = "";
-        interface.innerHTML = prebuilt_code[2];
-        console.log("prebuilt clicked", prebuilt_code[2])
+        interface.innerHTML = prebuilt_code;
         prebuilton = true;
         document.getElementById("prebuilt").innerHTML = " RevertBack"
     } else {
@@ -1609,7 +1481,7 @@ var row_com = (block) => {
         throw "hello";
     }
     let ${varname} = math.concat(${matrix1},${matrix2},dim=0);
-    console.log("combined matrix is",${varname});
+    //console.log("combined matrix is",${varname});
     `
 }
 var col_com = (block) => {
@@ -1643,7 +1515,7 @@ var col_com = (block) => {
         throw "hello";
     }
     let ${varname} = math.concat(${matrix1},${matrix2});
-    console.log("combined matrix is",${varname});
+    //console.log("combined matrix is",${varname});
     `
 }
 
@@ -1663,7 +1535,7 @@ var DotMultiply = (block) => {
     return `  
     
     let ${varname} = math.dotMultiply(${m1},${m2});
-    console.log(${varname});
+    //console.log(${varname});
     `
 }
 
@@ -1683,7 +1555,7 @@ var DotDivide = (block) => {
     return `  
     
     let ${varname} = math.dotDivide(${m1},${m2});
-    console.log(${varname});
+    //console.log(${varname});
 
     `
 }

@@ -62,7 +62,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- Show a second modal and hide this one with the button below. -->
+                        
 
                         <h1>Procedure</h1>
                         <h5>Your task here is to form an appropriate algorithm for understanding the experiment's workflow.</h5>
@@ -93,8 +93,6 @@
                             <li>Step 8: Click on the “Run” button.</li>
                             <li>Step 9: Verify the result against manual calculations.
                             </li>
-                            <!-- <li>Step 10: View your score.
-                            </li> -->
                         </ul>
                         <h1>Blocks</h1>
                         <h4>Variables</h4>
@@ -277,8 +275,7 @@
                             <li>Step 6: On ruunig it, “Results” section can be observed below the inputs.</li>
                             <li>Step 7: Verify the results provided by the simulator against manual calculations.
                             </li>
-                            <!-- <li>Step 8: View your score.
-                            </li> -->
+
                         </ul>
                     </div>
                     <div class="modal-footer">
@@ -323,7 +320,7 @@
             <div class="modal-content">
                 <div class="modal-header">
                     <h5 class="modal-title" id="output_modalLabel"></h5>
-                    <button  onclick="if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false}" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button  onclick="if(ask_post_quiz) {console.log('post askd');startInteraction(data[3]);ask_post_quiz=false}" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                     <h3>Result</h3>
@@ -332,14 +329,13 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button onclick="if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false}"  class="btn btn-primary" data-bs-target="#output_modal" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
+                    <button onclick="if(ask_post_quiz) {console.log('post ased');startInteraction(data[3]);ask_post_quiz=false}"  class="btn btn-primary" data-bs-target="#output_modal" data-bs-toggle="modal" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>
         </div>
     </div>
     <div class="container-fluid h-100">
         <div class="row">
-            <!-- start of accordian       -->
 
             <div id="pallete" class="col-4 col-md-2">
                 <div class="accordion pt-4 sticky-top" id="accordionExample" style="min-height:100vh;">
@@ -494,10 +490,10 @@
 
             </div>
 
-            <!-- end of accordcian-->
+            
 
             <div id="interface" class="col-8 col-md-8" ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
-                <!-- <div class="alert alert-dark" role="role" ondragover="false" ondragenter="false" ondragleave="false">                </div> -->
+                
                 <h2 class="text-center">Interface</h2>
                 <div id="drop-box">
                     <span>you can drop the blocks here</span>
@@ -506,8 +502,7 @@
             </div>
             <div id="properties" class="col-2">
                 <div class="pt-4">
-                    <!-- <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown" title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top" onclick="">View
-                        Question Statement</button> -->
+                    
                     <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="prebuilt()">PreBuilt</button>
                     <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""> <a href="./index.html"
                             style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button>
@@ -526,9 +521,8 @@
                             class="bi bi-arrow-90deg-down"></i> </button>
                     <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" title="Step Out" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepin()"><i
                             class="bi bi-arrow-return-right"></i> </button>
-                    <!-- <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="RUN(document.getElementById('interface'))"><i class="bi bi-play-fill"></i> </button> -->
-                    <!-- <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'))" data-bs-toggle="modal"><i class="bi bi-play-fill"></i> </button> -->
-                    <button type="button" id="run" class="btn btn-success" title="RUN" data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'));startInteraction(data[3]);" data-bs-toggle="modal">RUN </button>
+                    
+                    <button type="button" id="run" class="btn btn-success" title="RUN" data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'));" data-bs-toggle="modal">RUN </button>
                     <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN" data-bs-target="#output_modal" data-bs-toggle="modal">OUTPUT </button>
                 </div>
 
@@ -572,12 +566,12 @@
             document.getElementById("year").innerText = new Date().getFullYear();
         </script>
     </footer>
-    <!-- <script src="../programming-interface/main.js"></script> -->
-    <script src="./js/quiz.js"></script>
-    <script src="js/drag1.js"></script>
+    
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js" integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./js/quiz.js"></script>
+    <script src="js/drag1.js"></script>
 </body>
 <template id="boo">
     <div class="pl-3 pt-2 noselect selectable bordered-box">
@@ -626,8 +620,7 @@
             <label class="visually-hidden" for="COL">Enter the number of Column of the matrix</label>
             <input type="text" name="" onchange="matinput(prevSelection[0])" id="COL" placeholder="Number of Columns">
             <br>
-            <!-- <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate -->
-            <!-- Table</button> -->
+            
             <br>
             <div class="matinps"></div>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -698,8 +691,7 @@
             <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
             <input type="text" name="" onchange="vecinput(prevSelection[0])" id="VAL" placeholder="Number of elements">
             <br>
-            <!-- <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
-                row</button> -->
+           
             <br>
             <div class="vecinps"></div>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>

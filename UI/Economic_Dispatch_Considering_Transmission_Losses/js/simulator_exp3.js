@@ -1,9 +1,8 @@
-// const math = require('mathjs')
+
 startInteraction(data[0]);
 function Simulate() {
 
-    //Exp no.6: economic dispatch problem(without limits and with loss)
-    //pd = input ('Total Load Requirement (in MW) \n'); % Total Demand
+    
     let pd = document.getElementById("pd").value
     if(!pd || isNaN(pd)){
         alert("pd value given is incorrect. setting to 1")
@@ -13,8 +12,7 @@ function Simulate() {
     pd = eval(pd)
     console.log("pd",pd,typeof pd)
 
-    //Format for costdata Input: [ Unit_no a(i) b(i) d(i)]
-    //Data of each unit needs to be entered as a new row
+    
     let costdata1 =[]
     let costdtarr = document.getElementById("costdata").getElementsByClassName("matinps")[0].getElementsByTagName("input");
     let alrtmsggiven = false
@@ -52,7 +50,7 @@ function Simulate() {
     while (costdata1.length) costdata.push(costdata1.splice(0, columns));
     console.log("costdata",costdata,typeof costdata)
     
-    //Enter the values of B coefficient
+    
     let lossdata = []
     let lossdt = document.getElementById("lossdata").getElementsByClassName("vecinps")[0].getElementsByTagName("input")
     alrtmsggiven = false
@@ -77,7 +75,6 @@ function Simulate() {
     let l = math.zeros(ng)["_data"]
     let ifc = math.zeros(ng)["_data"]
 
-    // console.log("uno",uno)
     let pl = 0
     let sum = 0
     let delpla = 0
@@ -134,7 +131,6 @@ function Simulate() {
             delpla = delpla + (d[i] + B[i] * 0.01 * b[i]) / den
         }
         dellambda = delp / delpla
-        // data_disp = data_disp.concat(iter, lambda, p[0], p[1], pl);
         data_disp.push([iter,lambda,p[0],p[1],pl])
     }
 
@@ -195,7 +191,7 @@ function Simulate() {
     outputs.appendChild(ans2)
     outputs.appendChild(ans3)
     outputs.appendChild(ans4)
-    //End of Program
+    
 
 }
 function degrees_to_radians(degrees) {
@@ -216,13 +212,6 @@ function vecinput() {
 
     let divblock = document.getElementById("lossdata").getElementsByClassName("vecinps")[0];
     divblock.innerHTML = "";
-    // if (!columns || columns < 0) {
-    //     alert("Invalid input");
-    //     block.classList.add("error_block");
-    //     prevSelection.push(block);
-    //     showprops();
-    //     throw 0;
-    // }
 
     if (!columns || columns <= 0 || isNaN(columns)) {
         columns = 1
@@ -283,10 +272,8 @@ function matinput() {
 
     let inpcount = 1;
     for (let i = 0; i < rows; i++) {
-        // const element = array[i];
 
         for (let index = 0; index < columns; index++) {
-            // const element = array[index];
             divblock.appendChild(document.createElement("input"));
             divblock.lastElementChild.type = "text";
             divblock.lastElementChild.id = inpcount;

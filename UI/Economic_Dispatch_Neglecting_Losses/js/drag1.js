@@ -1,5 +1,3 @@
-// from Math import sin
-// const jsonexp = require("./donejson.json")
 startInteraction(data[2]);
 const node = document.createElement("div");
 node.style.height = "20px";
@@ -9,9 +7,6 @@ node.classList.add("pl-3", "py-3");
 
 const Test_Output_Block = document.createElement("div")
 
-// const msg = document.createElement("div")
-// msg.style.borderBottom = "1px solid black"
-// msg.style.height = "25px"
 
 max_level = 30;
 let count1 = 0;
@@ -26,7 +21,6 @@ let prebuilt_code = `<div id='drop-box'> <span>you can drop the blocks here</spa
 let exp_number = 5;
 let supremecode;
 
-// var maincode = "";
 if (screen.width < 1250) {
     alert("The simulator will not be displayed properly on your device, please use a wider screen.")
 }
@@ -61,27 +55,23 @@ function dragOver_handler(ev) {
 
 function dragEnter_handler(ev) {
     ev.preventDefault();
-    // console.log("drag enter",ev.target.id);
 
 
 }
 
 
 function dragLeave_handler(ev) {
-    // if (ev.target != node) {
+ 
     let parent = ev.target.children;
     parent = Array.from(parent);
     if (parent.includes(node)) {
         console.log("yes nde is ther")
         ev.target.removeChild(node);
     }
-    // node.remove();
-    // }
 }
 
 function drop_handler(ev) {
     ev.preventDefault();
-    // console.log("drop",ev);
 
     node.remove();
 
@@ -89,7 +79,6 @@ function drop_handler(ev) {
 
     if (prevSelection.length > 0) {
         prevSelection[0].draggable = false;
-        // document.getElementById("dragbut").innerHTML = "drag";
         document.getElementById("dragbut").style.backgroundColor = "transparent";
         document.getElementById("dragbut").style.color = "black";
         if (ev.target.classList.contains("highlight")) {
@@ -122,20 +111,19 @@ function drop_handler(ev) {
         const temp = document.getElementById(id);
         const clone = temp.content.cloneNode(true);
         clone.id = id + count1++;
-        ////
+        
 
-        // console.log("clone id- ", clone.id);
         if (["For", "While", "If", "Else", "Else If"].includes(ev.target.firstChild.textContent.trim())) {
             if (!ev.target.classList.contains("highlight")) {
                 ev.target.appendChild(clone);
                 ev.target.lastElementChild.id = clone.id;
-                ////
+                
                 let details = ev.target.lastElementChild.getElementsByClassName("details")[0];
                 let childs = details.getElementsByTagName("input");
                 childs = Array.from(childs);
                 childs = childs.concat(Array.from(details.getElementsByTagName("button")));
                 childs = childs.concat(Array.from(details.getElementsByTagName("select")));
-                ////
+                
                 for (let index = 0; index < childs.length; index++) {
                     // const element = array[index];
                     if (childs[index].id) {

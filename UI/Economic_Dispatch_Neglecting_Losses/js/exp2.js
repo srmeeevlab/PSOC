@@ -1,18 +1,4 @@
-//Exp no 2/5: Economic dispatch problem(without limits and loss)
 
-//Numerical problem
-//Numerical Problem
-//  Consider a system having total demand of i)320 MW ii) 200 MW,
-//  which is being supplied by three generator units having the below fuel cost
-//  characteristics. Find the economic load scheduling of the three units 
-//  with the Maximum an minimum loads available on each unit are 150 and 39
-
-//  C1 = 0.5 PG1^2 + 215 PG1 + 5000 Rs/hr
-//  C2 = 1.0 PG2^2 + 270 PG2 + 5000 Rs/hr
-//  C3 = 0.7 PG3^2 + 160 PG3 + 9000 Rs/hr
-
-//  Cost Equation
-//  Format for costdata Input: [ Unit_no a(i) b(i) c(i) ]
 
 let costdata = [
     [1, 0.5, 215, 5000],

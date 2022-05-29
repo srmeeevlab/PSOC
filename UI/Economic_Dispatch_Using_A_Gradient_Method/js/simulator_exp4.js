@@ -1,4 +1,4 @@
-// const math = require('mathjs')
+
 startInteraction(data[0]);
 function Simulate() {
 
@@ -11,10 +11,7 @@ function Simulate() {
     heading.id = "result"
     outputs.appendChild(heading)
     let alrtmsggiven = false;
-    //Exp no.6: economic dispatch problem(without limits and with loss)
-    //pd = input ('Total Load Requirement (in MW) \n'); % Total Demand
-    //Format for costdata Input: [ Unit_no a(i) b(i) d(i)]
-    //Data of each unit needs to be entered as a new row
+   
     let costdata1 = []
     let costdtarr = document.getElementById("costdata").getElementsByClassName("matinps")[0].getElementsByTagName("input");
     Array.from(costdtarr).forEach(element => {
@@ -58,7 +55,7 @@ function Simulate() {
 
 
 
-    //Enter the values of B coefficient
+    
     let P = []
     let Pdt = document.getElementById("P").getElementsByClassName("vecinps")[0].getElementsByTagName("input")
     alrtmsggiven = false
@@ -97,11 +94,10 @@ function Simulate() {
         b[i] = costdata[i][2]
         d[i] = costdata[i][3]
     }
-    // console.log("uno",uno)
+    
    
     let k=1
-    // let tol=3
-    // let itr=0;
+    
     for (k = 1; k <= 6; k++) {
         for (let i = 0; i < ng; i++) {
             lamda0[i] = 2 * d[i] * P[i] + b[i];
@@ -126,30 +122,29 @@ function Simulate() {
         let tol = 0;
         balance = pd - sum1;
         tol = balance;
-        // console.log("===========")
+
         console.log(k.toFixed(2));
-        // console.log(P[0].toFixed(2),P[1].toFixed(2),P[2].toFixed(2));
+        
         console.log(P)
         console.log(lambda.toFixed(2));
-        // console.log("===========")
+        
         for (let idx = 0; idx < P.length; idx++) {
-            // const element = P[idx];
+           
             P[idx] = P[idx].toFixed(2)
             
         }
         let ans2 = document.createElement("div")
         let ans1 = document.createElement("div")
         let ans3 = document.createElement("div")
-        // let ans4 = document.createElement("div")
+       
         ans1.innerHTML = "k - " + k.toFixed(2) + " unit"
         ans2.innerHTML = 'P- ' + P + ' unit'
         ans3.innerHTML = 'lambda - ' + lambda.toFixed(2) + ' unit'
-        // ans4.innerHTML = 'Total Generation Cost = INR  ' + totgencost.toFixed(2) + ' per hour'
+       
         ans1.style.marginBottom = "1rem"
         ans2.style.marginBottom = "1rem"
         ans3.style.marginBottom = "1rem"
-        // ans4.style.marginBottom = "1rem"
-        // ans3.style.maxWidth = "100%"
+        
         outputs.appendChild(ans1)
         outputs.appendChild(ans2)
         outputs.appendChild(ans3)
@@ -158,7 +153,7 @@ function Simulate() {
 
 
     
-    //End of Program
+ 
 
 }
 function degrees_to_radians(degrees) {
@@ -178,13 +173,7 @@ function vecinput() {
     }
     let divblock = document.getElementById("P").getElementsByClassName("vecinps")[0];
     divblock.innerHTML = "";
-    // if (!columns || columns < 0) {
-    //     alert("Invalid input");
-    //     block.classList.add("error_block");
-    //     prevSelection.push(block);
-    //     showprops();
-    //     throw 0;
-    // }
+   
     if (!columns || columns <= 0 || isNaN(columns)) {
         columns = 1
         document.getElementById("Pcols").value = 1
@@ -243,10 +232,9 @@ function matinput() {
 
     let inpcount = 1;
     for (let i = 0; i < rows; i++) {
-        // const element = array[i];
-
+        
         for (let index = 0; index < columns; index++) {
-            // const element = array[index];
+            
             divblock.appendChild(document.createElement("input"));
             divblock.lastElementChild.type = "text";
             divblock.lastElementChild.id = inpcount;

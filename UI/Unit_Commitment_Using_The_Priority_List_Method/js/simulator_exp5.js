@@ -24,9 +24,7 @@ function Simulate() {
     columns = eval(columns)
     let c1 = []
     while (c11.length) c1.push(c11.splice(0, columns));
-    console.log("c1", c1, typeof c1)
 
-    //Enter the values of B coefficient
     let Pmax = []
     let Pm = document.getElementById("Pmax").getElementsByClassName("vecinps")[0].getElementsByTagName("input")
     alrtmsggiven = false
@@ -41,7 +39,6 @@ function Simulate() {
         Pmax.push(eval(element.value))
     });
 
-    console.log(c1)
     let FLAPC = [
         [0, 0, 0],
         [0, 0, 0],
@@ -50,22 +47,19 @@ function Simulate() {
 
     let m = c1.length
     let n = c1[0].length
-    console.log(m)
-    console.log(n)
+
     for (let ii = 0; ii < m; ii++) {
         FLAPC[ii] =
             (c1[ii][0] * (Pmax[ii] * Pmax[ii]) + c1[ii][1] * Pmax[ii] + c1[ii][2]) /
             Pmax[ii]
     }
-    console.log(FLAPC)
     let PriorityOrder = [0, 0, 0]
     let IX = [0, 0, 0]
     for (let i = 0; i < 3; i++) {
         IX[i] = FLAPC.indexOf(FLAPC[i])
     }
     PriorityOrder = math.sort(FLAPC)
-    console.log(FLAPC)
-    console.log(IX)
+
 
     let PD = document.getElementById("PD").value
     if (!PD || isNaN(PD)) {
@@ -123,13 +117,7 @@ function vecinput() {
     }
     let divblock = document.getElementById("Pmax").getElementsByClassName("vecinps")[0];
     divblock.innerHTML = "";
-    // if (!columns || columns < 0) {
-    //     alert("Invalid input");
-    //     block.classList.add("error_block");
-    //     prevSelection.push(block);
-    //     showprops();
-    //     throw 0;
-    // }
+
     if (!columns || columns <= 0 || isNaN(columns)) {
         columns = 1
         document.getElementById("Pmaxcols").value = 1
@@ -187,15 +175,12 @@ function matinput() {
 
     let inpcount = 1;
     for (let i = 0; i < rows; i++) {
-        // const element = array[i];
 
         for (let index = 0; index < columns; index++) {
-            // const element = array[index];
             divblock.appendChild(document.createElement("input"));
             divblock.lastElementChild.type = "text";
             divblock.lastElementChild.id = inpcount;
             divblock.lastElementChild.classList.add('Margin_Addition');
-            console.log("ids are ", divblock.lastElementChild.classList)
             inpcount++;
 
         }

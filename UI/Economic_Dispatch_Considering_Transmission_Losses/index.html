@@ -22,7 +22,6 @@
             <a class="navbar-brand" href="#"><img src="images/srm-logo-white.png" alt="SRM Logo"></a>
             <span id="exp-title">Economic Dispatch Considering Transmission Losses</span>
             <span id="navbar-settings">
-                <!-- <span id="score-word">SCORE: </span><span id="score">100</span> -->
             <span id="nav-help" title="Help">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle btn btn-custom-outline-brown w-100 d-block" type="button"
@@ -43,13 +42,7 @@
 
             </span>
         </div>
-        <!-- <div id="INPUT-BLOCK" class="m-3">
-            <h5>INPUT</h5>
-            <span> Lorem ipsum dolor, sit amet consectetur adipisicing elit. Est, in quae animi, sed harum molestias
-                consequatur doloribus autem architecto, dolor perspiciatis vitae atque laudantium sint placeat
-                voluptatibus at ab odit.
-            </span>
-        </div> -->
+        
     </nav>
     <div id="HELP-MODAL">
         <div class="modal fade" id="modal1" aria-hidden="true" aria-labelledby="modal1Label" tabindex="-1">
@@ -60,7 +53,6 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        <!-- Show a second modal and hide this one with the button below. -->
                         <p>You are in the simulation page. To proceed to the interface page, <a href="tyr.html">Click
                                 Here</a></p>
                         <h1>Procedure</h1>
@@ -94,8 +86,7 @@
                             <li>Step 8: Click on the “Run” button.</li>
                             <li>Step 9: Verify the result against manual calculations.
                             </li>
-                            <!-- <li>Step 10: View your score.
-                            </li> -->
+                            
                         </ul>
                         <h1>Blocks</h1>
                         <h4>Variables</h4>
@@ -280,8 +271,7 @@
                             <li>Step 6: On ruunig it, “Results” section can be observed below the inputs.</li>
                             <li>Step 7: Verify the results provided by the simulator against manual calculations.
                             </li>
-                            <!-- <li>Step 8: View your score.
-                            </li> -->
+                            
                         </ul>
                     </div>
                     <div class="modal-footer">
@@ -337,56 +327,40 @@
                             <b>System Cost</b>
                             <br>
                             <br> Total Demand (pd)
-                            <!-- <span class="showvarname">@Vnom</span> -->
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input type="text" name="Variable" id="cst0$VAR" placeholder="Variable Name">
-                                <br> -->
+                                
                                 <label class="visually-hidden" for="vnom">Enter the value</label>
                                 <input value="640.82 " type="text" name="" id="pd" placeholder="Value">
                                 <br>
-                                <!-- <button id="cst0$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
                             </div>
                         </div>
 
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="lambdablock">
                             Incremental Cost (lambda)
-                            <!-- <span class="showvarname">@freq</span> -->
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input value="" type="text" name="Variable" id="cst1$VAR" placeholder="Variable Name">
-                                <br> -->
+                                
                                 <label class="visually-hidden" for="freq">Enter the value</label>
                                 <input value="12" type="text" name="" id="lambda" placeholder="Value">
                                 <br>
-                                <!-- <button id="cst1$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
                             </div>
                         </div>
 
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="delpblock" draggable="false">
                             Tolerance (delp)
-                            <!-- <span class="showvarname">@km</span> -->
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input value="" type="text" name="Variable" id="cst2$VAR" placeholder="Variable Name">
-                                <br> -->
+                                
                                 <label class="visually-hidden" for="km">Enter the value</label>
                                 <input value="0.1" type="text" name="" id="delp" placeholder="Value">
                                 <br>
-                                <!-- <button id="cst2$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
                             </div>
                         </div>
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="dellambdablock" draggable="false">
                             Tolerance (dellambda)
-                            <!-- <span class="showvarname">@l</span> -->
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input value="" type="text" name="Variable" id="cst3$VAR" placeholder="Variable Name">
-                                <br> -->
+                                
                                 <label class="visually-hidden" for="l">Enter the value</label>
                                 <input value="0" type="text" name="" id="dellambda" placeholder="Value">
                                 <br>
-                                <!-- <button id="cst3$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
                             </div>
                         </div>
 
@@ -396,18 +370,14 @@
                     <div id="right">
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="costdata">
                             <b>Cost Data</b><br><br>
-                            <!-- <span class="showvarname">@costdata</span> -->
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input type="text" name="Variable" id="mat0$VAR" placeholder="Variable Name">
-                                <br> -->
+                                
                                 <label for="ROW">Number of rows</label>
                                 <input value="2" type="text" id="costdatarow" name="" onchange="matinput()" id="mat0$ROW" placeholder="Number of Rows" class="rows_columns">
                                 <label for="COL">Number of columns</label>
                                 <input value="4" disabled type="text" id="costdatacol" name="" onchange="matinput()" id="mat0$COL" placeholder="Number of Columns" class="rows_columns">
                                 <br>
-                                <!-- <button id="" class="btn btn-custom-outline-brown" onclick="matinput(prevSelection[0])">Generate -->
-                                <!-- Table</button> -->
+                                
                                 <br>
                                 <div id="matheading" class="d-flex text-center">
                                     <p class="mx-3 bold">S.No.</p>
@@ -427,29 +397,23 @@
                                     <input value="0.0029" type="text" id="8">
                                     <br><br>
                                 </div>
-                                <!-- <button id="mat0$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
                             </div>
                         </div>
                         <br>
 
                         <div class="pl-3 pt-2 noselect selectable bordered-box" id="lossdata">
                             <b>Lossdata</b>
-                            <!-- <span class="showvarname">@lossdata</span> -->
                             <div class="details pb-2" style="display: block;">
-                                <!-- <label class="visually-hidden" for="VAR">Enter the variable name</label>
-                                <input value="" type="text" name="Variable" id="vec1$VAR" placeholder="Variable Name">
-                                <br> -->
+                             
                                 <label for="VAL">Number of elements</label><br>
                                 <input value="2" type="text" id="lossdatacols" name="" onchange="vecinput()" id="vec1$VAL" placeholder="Number of elements">
                                 <br>
-                                <!-- <button id="" class="btn btn-custom-outline-brown" onclick="vecinput(prevSelection[0])">Generate
-                            row</button> -->
+                                
                                 <br>
                                 <div class="vecinps">
                                     <input value="0.0346" type="text" id="1">
                                     <input value="0.00643" type="text" id="2">
                                 </div>
-                                <!-- <button id="vec1$OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button> -->
                             </div>
                         </div>
 
@@ -464,10 +428,6 @@
 
             <div id="properties" class="col-3">
                 <div class="pt-4">
-                    <!-- <button type="button" id="view-question" class="btn w-100 btn-custom-outline-brown"
-                        title="View the question Statement" data-bs-toggle="tooltip" data-bs-placement="top"
-                        onclick="">View
-                        Question Statement</button> -->
                     <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick=""><a href="./tyr.html"
                             style="text-decoration: none;color:black;display: block;">Go to
                             programming-interface</a></button>
@@ -475,7 +435,6 @@
                     </div>
                 </div>
 
-                <!-- <div id="OUTPUT-CONSOLE"></div> -->
             </div>
         </div>
     </div>
@@ -510,8 +469,7 @@
             document.getElementById("year").innerText = new Date().getFullYear();
         </script>
     </footer>
-    <!-- <script src="../programming-interface/main.js"></script> -->
-    <!-- <script src="drag1.js"></script> -->
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js" integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js" integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js" integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>

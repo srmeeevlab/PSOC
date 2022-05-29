@@ -1,7 +1,5 @@
-// const math = require("mathjs")
 startInteraction(data[0]);
 
-//bbus
 function busdatas(num) {
 
 
@@ -358,69 +356,41 @@ function ybusppg(num) {  //% Returns ybus
         y.push(math.inv(math.complex(r[i], x[i])))
     }
 
-    // console.log('fb',fb,Math.max(fb))
     let nbus = math.max(math.max(...fb), math.max(...tb));    //% no. of buses...
     let nbranch = fb.length;          // % no. of branches...
-    // console.log("nbus",nbus);
     let ybus = math.zeros(nbus, nbus)["_data"];       // % Initialise YBus...
 
     //  % Formation of the Off Diagonal Elements...
-    /*console.log('ybus',ybus)
-    console.log('nbus',nbus)
-    console.log('nbranch',nbranch)
-    console.log("y",y)
-    console.log("fb",fb)
-    console.log("tb",tb)
-    console.log("r",r)
-    console.log("x",x)
-    console.log("b",b)
-    console.log("a",a)
-    console.log("z",z)
-    console.log("y",y)*/
+   
     for (let k = 0; k < nbranch; k++) {
-        //  const element = array[k];
-        // ybus[fb[k]][tb[k]] -= y[k] / a[k];
-        // console.log(k+" iteration")
-        // console.log(ybus[fb[k]][tb[k]],math.divide(y[k],a[k]))
-        // console.log(math.subtract(ybus[fb[k]][tb[k]],math.divide(y[k],a[k])))
-        // console.log("types",typeof ybus[fb[k]][tb[k]],typeof math.divide(y[k],a[k]))
 
         ybus[fb[k] - 1][tb[k] - 1] = math.subtract(ybus[fb[k] - 1][tb[k] - 1], math.divide(y[k], a[k]))
 
-        // console.log(ybus,fb[k],tb[k],y[k],a[k]);
 
         ybus[tb[k] - 1][fb[k] - 1] = ybus[fb[k] - 1][tb[k] - 1];
-        // console.log("updated",ybus)
 
     }
 
     //  % Formation of Diagonal Elements....
     for (let m = 0; m < nbus; m++) {
         for (let n = 0; n < nbranch; n++) {
-            // console.log(ybus[m],y[n],a[n],b[n])
             if (fb[n] - 1 == m) {
-                // console.log("error exp",math.divide(y[n] , math.add( math.pow(a[n], 2) , b[n])))
-                // console.log("error exp type",typeof math.divide(y[n] , math.add( math.pow(a[n], 2) , b[n])))
                 ybus[m][m] = math.add(ybus[m][m], math.divide(y[n], math.add(math.pow(a[n], 2), b[n])));
             } else if (tb[n] - 1 == m) {
                 ybus[m][m] = math.add(ybus[m][m], math.add(y[n], b[n]));
             }
-            // console.log("updated ybus",ybus)
         }
     }
 
-    // console.log("final ybus==",ybus)
     return ybus
 }
 
 // % Line Data for B-Bus (Shunt Admittance)Formation.
 
 function bbusppg(num) {    //% Returns B-bus..
-    // console.log("========bbus===========")
     let linedata = linedatas(num);
     let fb = [], tb = [], b = [];
     for (let i = 0; i < linedata.length; i++) {
-        // const element = array[index];
         fb.push(linedata[i][0])
         tb.push(linedata[i][1])
         b.push(linedata[i][4])
@@ -430,19 +400,12 @@ function bbusppg(num) {    //% Returns B-bus..
     let nbranch = fb.length;          // % no. of branches...
     let bbus = math.zeros(nbus, nbus)["_data"];
 
-    /*console.log("lindata",linedata)
-    console.log("fb",fb)
-    console.log("tb",tb)
-    console.log("b",b)
-    console.log("nbus",nbus)
-    console.log("nbranch",nbranch)
-    console.log("bbus",bbus)*/
     for (let k = 0; k < nbranch; k++) {
         bbus[fb[k] - 1][tb[k] - 1] = b[k];
         bbus[tb[k] - 1][fb[k] - 1] = bbus[fb[k] - 1][tb[k] - 1];
 
     }
-    // console.log("bbus",bbus)
+    // // console.log("bbus",bbus)
     return bbus;
 }
 
@@ -456,7 +419,6 @@ function bbusppg(num) {    //% Returns B-bus..
 let datavisible=false;
 function showdata(){
     let num = Number(document.getElementById("datarow").value)
-    // console.log("num",num,typeof num)
     if(num==0){
         alert("you must select any of the given dataset")
         return
@@ -473,8 +435,6 @@ function showdata(){
     datavisible = true
 
     
-    // console.log("zdata is",zdatas(num))
-    // console.log("linedata is",linedatas(num))
 
     let zdata = zdatas(num)
     let linedata = linedatas(num)
@@ -523,10 +483,9 @@ function showdata(){
 
 
 function sim() {
-    // datavisible= false
-    // showdata()
+    
     let num = Number(document.getElementById("datarow").value)
-    // console.log("num",num,typeof num)
+    // // console.log("num",num,typeof num)
     if(num==0){
         alert("you must select any of the given dataset")
         return
@@ -536,25 +495,21 @@ function sim() {
     let ybus = ybusppg(num); // Get YBus..
     let zdata = zdatas(num); // Get Measurement data..
 
-    // console.log('ybus',ybus)
-    // console.log('zdata',zdata)
+    
 
     let bpq = bbusppg(num); // Get B data..
-    // console.log('bpq',bpq)
-    console.log(zdata)
+  
     let zdata_fromnbus = [], zdata_tonbus = [];
     zdata.forEach(element => {
         zdata_fromnbus.push(element[3])
         zdata_tonbus.push(element[4])
     });
     let nbus = math.max(math.max(...zdata_fromnbus), math.max(...zdata_tonbus)); // Get number of buses..
-    // console.log('nbus',nbus)
 
     let H = [];
 
     let type = [], z = [], fbus = [], tbus = [], Ri = math.zeros(zdata.length, zdata.length)["_data"];
     for (let i = 0; i < zdata.length; i++) {
-        // const element = array[i];
         type.push(zdata[i][1])
         z.push(zdata[i][2]) //value
         fbus.push(zdata[i][3]) //from
@@ -563,20 +518,13 @@ function sim() {
 
     }
 
-    // console.log('type',type)
-    // console.log('fbus',fbus)
-    // console.log('tbus',tbus)
-    // console.log('z',z)
-    // console.log('Ri',Ri)
+   
     var V = math.ones(nbus)["_data"]; // Initialize the bus voltages..
 
 
     let del = math.zeros(nbus)["_data"]; // Initialize the bus angles..
     let E = [[...del].slice(1), [...V]].flat();   // State Vector..
-    // console.log('V',V)
-    // console.log('del',del)
-    // console.log('E',E)
-    // ========================
+   
 
     function real(ybus) {
         let real_matrix = new Array(ybus.length);
@@ -586,11 +534,9 @@ function sim() {
         for (let i = 0; i < ybus.length; i++) {
             for (let j = 0; j < ybus[i].length; j++) {
                 real_matrix[i][j] = math.re(ybus[i][j])
-                // console.log("math.re",math.re(ybus[i][j]))
             }
 
         }
-        // console.log(real_matrix)
         return real_matrix
     }
     function imag(ybus) {
@@ -601,19 +547,15 @@ function sim() {
         for (let i = 0; i < ybus.length; i++) {
             for (let j = 0; j < ybus[i].length; j++) {
                 imag_matrix[i][j] = math.im(ybus[i][j])
-                // console.log("math.im",math.im(ybus[i][j]))
             }
 
         }
-        // console.log(imag_matrix)
         return imag_matrix
     }
 
     let G = real(ybus);
     let B = imag(ybus);
-    // console.log('G',G)
-    // console.log('B',B)
-    // ========================
+
     let vi = [], ppi = [], qi = [], pf = [], qf = [];
 
     // #NOTE  : here index values are appended ac to js but in matlab indexed are +1ed  
@@ -642,36 +584,20 @@ function sim() {
                 break;
         }
     }
-    // vi = type.indexOf(1)
-    // vi = find(type == 1); // Index of voltage magnitude measurements..
-    // ppi = type.indexOf(2); // Index of real power injection measurements..
-    // qi = type.indexOf(3); // Index of reactive power injection measurements..
-    // pf = type.indexOf(4); // Index of real powerflow measurements..
-    // qf = type.indexOf(5); // Index of reactive powerflow measurements..
+  
 
     let nvi = (vi.length); // Number of Voltage measurements..
     let npi = (ppi.length); // Number of Real Power Injection measurements..
     let nqi = (qi.length); // Number of Reactive Power Injection measurements..
     let npf = (pf.length); // Number of Real Power Flow measurements..
     let nqf = (qf.length); // Number of Reactive Power Flow measurements..
-    /*console.log("The values of vi are", vi);
-    console.log("The values of ppi are", ppi);
-    console.log("The values of qi are", qi);
-    console.log("The values of pf are", pf);
-    console.log("The values of qf are", qf);
-    console.log('nvi',nvi)
-    console.log("npi is ",npi)
-    console.log("nqi is ",nqi)
-    console.log("npf is ",npf)
-    console.log("nqf is ",nqf)*/
+   
 
     let iter = 1;
     let tol = 5;
 
-    // while(tol > Math.exp(-4)){
     while (tol > 1e-4) {
 
-        //Measurement Function, h
         let m, n;
 
         let h1 = [];
@@ -690,9 +616,7 @@ function sim() {
             m = fbus[ppi[i]] - 1
             for (let k = 0; k < nbus; k++) {
 
-                // console.log("type is",typeof (math.add(math.multiply(V[m],V[k],G[m][k],Math.cos(del[m]-del[k])),math.multiply(B[m][k],Math.sin(del[m]-del[k])))))
-                // console.log("h2[i] is",(math.add(math.multiply(V[m],V[k],G[m][k],Math.cos(del[m]-del[k])),math.multiply(B[m][k],Math.sin(del[m]-del[k])))))
-
+   
                 h2[i] = math.add(
                     h2[i],
                     math.multiply(
@@ -705,9 +629,7 @@ function sim() {
                     )
 
                 )
-                // console.log("h2[i]==",h2[i])
-                // h2[i] +=  V[m]*V[k]*(G[m][k]*Math.cos(del[m]-del[k]) + B[m][k]*Math.sin(del[m]-del[k]))
-                // console.log("h2",V[m],V[k],G[m][k],del[m],del[k],B[m][k])
+           
             }
         }
 
@@ -752,7 +674,6 @@ function sim() {
             // h5[i] = (-V[m])**2*(-B[m][n]+bpq[m][n]) - V[m]*V[n]*(-G[m][n]*Math.sin(del[m]-del[n]) + B[m][n]*Math.cos(del[m]-del[n]));
             h5[i] = math.subtract(
                 math.multiply(-1, math.pow(V[m], 2),
-                    // m=1 n=2 / m=1 n=3
                     math.add(-B[m][n], bpq[m][n])
                 ),
                 math.multiply(
@@ -767,21 +688,13 @@ function sim() {
 
         }
 
-        // console.log("h1",h1)
-        // console.log("h2",h2)
-        // console.log("h3",h3)
-        // console.log("h4",h4)
-        // console.log("h5",h5)
+     
 
         let h = [...h1, ...h2, ...h3, ...h4, ...h5];
-        // console.log('h',h)
-        // Residue..
-        // ==========
+       
 
         let r = math.subtract(z, h);
-        // console.log('z',z)
-        // console.log('r',r)
-        // ==========
+      
 
         // Jacobian..
         // H11 - Derivative of V with respect to angles.. All Zeros
@@ -808,9 +721,7 @@ function sim() {
             for (let k = 0; k < nbus - 1; k++) {
                 if (k + 1 == m) {
                     for (let n = 0; n < nbus; n++) {
-                        // H21[i][k]+= V[m]*V[n]*(
-                        // -G[m][n]*Math.sin(del[m]-del[n]) + B[m][n]*Math.cos(del[m]-del[n])
-                        // );            
+                                   
                         H21[i][k] = math.add(
                             H21[i][k],
                             math.multiply(
@@ -824,14 +735,12 @@ function sim() {
 
 
                         )
-                        // console.log("H21[i][k]",i,k,H21[i][k])
                     }
                     // H21[i][k] -= V[m]**2*B[m][m];
                     H21[i][k] = math.subtract(
                         H21[i][k],
                         math.multiply(math.pow(V[m], 2), B[m][m])
                     )
-                    // console.log("after subtraction H21[i][k]",i,k,H21[i][k])
                 } else {
                     // H21[i][k] = V[m]* V[k+1]*(G[m][k+1]*Math.sin(del[m]-del[k+1])) - B[m][k+1]*Math.cos(del[m]-del[k+1]);
                     H21[i][k] = math.multiply(
@@ -972,7 +881,6 @@ function sim() {
         // H41 - Derivative of Real Power Flows with Angles..
 
         let H41 = math.zeros(npf, nbus - 1)["_data"];
-        // console.log("with zeros H41",H41)
         for (let i = 0; i < npf; i++) {
 
             m = fbus[pf[i]] - 1;
@@ -991,7 +899,7 @@ function sim() {
                             math.multiply(B[m][n], Math.cos(del[m] - del[n]))
                         )
                     )
-                    // console.log("If H41",i,k,H41[i][k])
+                    // // console.log("If H41",i,k,H41[i][k])
                 } else if (k + 1 == n) {
                     // H41[i][k] = -V[m]* V[n]*(-G[m][n]*Math.sin(del[m]-del[n]) + B[m][n]*Math.cos(del[m]-del[n]));
                     H41[i][k] = math.multiply(
@@ -1002,13 +910,10 @@ function sim() {
                             math.multiply(B[m][n], Math.cos(del[m] - del[n]))
                         )
                     )
-                    // console.log("else If H41",i,k,H41[i][k])
                 } else {
                     // H41[i][k] = 0;
                     H41[i][k] = 0;
-                    // console.log("else H41",i,k,H41[i][k])
                 }
-                // console.log(`at iteration i ${i} k ${k} lst is`,H41) 
             }
         }
 
@@ -1135,19 +1040,10 @@ function sim() {
             ...math.concat(H41, H42),
             ...math.concat(H51, H52)
         ]
-        // console.log('H',H)
-        // Gain Matrix, Gm..
-        // let Gm = math.transpose(H)*math.inv(Ri)*H;
-
+        
 
         let Gm = math.multiply(math.transpose(H), math.inv(Ri), H)
-        // console.log('Gm',Gm)
-
-        //Objective Function..
-        /*
-        for (let idx = 0; idx < r.length; idx++) {
-            r[idx] = r[idx]**2;
-        }*/
+       
         let r_power_2 = []
         for (const i of r) {
             r_power_2.push(i ** 2)
@@ -1155,7 +1051,7 @@ function sim() {
 
 
         let J = math.sum(math.multiply(math.inv(Ri), r_power_2));
-        //    console.log('J',J)
+        
         // State Vector..
 
 
@@ -1168,54 +1064,29 @@ function sim() {
             ),
             math.transpose(r)
         )
-        // console.log('dE ',dE)
 
-        // let dE = math.inv(Gm)*(math.transpose(H)*math.inv(Ri)*r);
         E = math.add(E, dE)
-        // console.log('updated E',E)
 
         for (let i = 1; i < del.length; i++) {
             del[i] = E[i - 1]
 
         }
-        // console.log('updated del',del)
-        // V = E(nbus:end);
-        // console.log(V,E)
-        // V = [...E.slice(nbus-1)]
+       
         V = [...E].slice(nbus - 1)
-        // console.log('updated V',V)
-        // console.log("V done",V)
-        console.log("\n\n---------------------------iter ", iter, '\n\n')
+        
         iter = iter + 1;
 
         tol = math.max(math.abs(dE));
-        // console.log("tol done")
-        // console.log("dE is",dE)
-        // console.log("hence tol is ",tol)
+        
     }
-    // ==============
-    // let CvE = diag(math.inv(math.transpose(H)*math.inv(Ri)*H)); // Covariance matrix..
+    
     let CvE = math.diag(math.inv(math.multiply(math.transpose(H), math.inv(Ri), H)))
-    // console.log('Cve',CvE)
-    // ==============
-    // console.log(Math.PI,del)
-    // let Del = math.divide(180,math.multiply(Math.PI,del));
+    
     let Del = []
     del.forEach(element => {
         Del.push((180 / Math.PI) * element)
     });
-    // console.log("came out")
-    let E2 = [...V, ...Del]; // Bus Voltages and angles..
-
-    console.log('Del', Del)
-    console.log("E2", E2)
-    console.log('-------- State Estimation ------------------');
-    console.log('--------------------------');
-    console.log('| Bus |    V   |  Angle  | ');
-    console.log('| No  |   pu   |  Degree | ');
-    console.log('--------------------------');
-    console.log(V)
-    console.log(nbus)
+    let E2 = [...V, ...Del];
     let head0 = document.createElement("h2")
     let head1 = document.createElement("h4")    
     let head2 = document.createElement("h4")
@@ -1232,7 +1103,6 @@ function sim() {
     output.style.overflowY = "scroll"
     output.style.border = "7.5px solid black"
     output.innerHTML = ""
-    // output.style.textAlign = "center"
     output.appendChild(head0)
     output.appendChild(head1)
     output.appendChild(head2)
@@ -1240,13 +1110,9 @@ function sim() {
     output.appendChild(head4)
 
     for (let m = 0; m < nbus; m++) {
-        console.log("//4g", m)
-        console.log("//8.f", V[m])
-        console.log("//8.4f", Del[m])
-        console.log("\n")
+        
         let msg = document.createElement("p")
         msg.innerHTML = ` ${m} ${V[m].toFixed(4)} ${Del[m].toFixed(4)}`
         output.appendChild(msg)
     }
-    console.log('---------------------------------------------');
 }
