@@ -1,76 +1,45 @@
 const quizModal = new bootstrap.Modal(document.getElementById("quizModal"));
 const data = [
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"The system enters the extremis state if it falls below a certain limit of security level.",
         answer: {
-            option:["A","B","C","D"],
-            ans:"a"
+
+            option:["Yes", "No"],
+            ans:"b"
         }
-    },
-    {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
     }],
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"State estimation serves as a filter for noisy measurements acquired from the power system",
         answer: {
-            option:["e","g","C","D"],
+            option:["Yes", "No"],
             ans:"a"
         }
     },
     {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
+        title:"Question 2",
+        body:"Weighted least square calculation spreads the effect of the error in one measurement to all the estimates.",
+        answer: {
+            option:["Yes", "No"],
+            ans:"a"
+        }
     }],
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"The power system is considered to be in an unbalanced condition for state estimation problem",
         answer: {
-            option:["e","g","C","D"],
-            ans:"a"
+            option:["Yes", "No"],
+            ans:"b"
         }
-    },
-    {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
     }],
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 2",
+        body:"The measurements received at the energy control center from the system is accurate",
         answer: {
-            option:["e","g","C","D"],
-            ans:"a"
+            option:["Yes", "No"],
+            ans:"b"
         }
-    },
-    {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
     }]
 ]
 

@@ -28,7 +28,7 @@ const data = [
         answer: {
             option: [
                 "Vs=Vr i.e sending end voltage is equal to receiving end voltage",
-                "Is=Iri.e sending end current is equal to receiving end current"
+                "Is=Ir i.e sending end current is equal to receiving end current"
             ],
             ans:"a"
         }
@@ -57,7 +57,10 @@ const data = [
         title:"Question 2",
         body:"The reactive power transfer between two buses mainly depends on",
         answer: {
-            option:["Difference in voltage magnitude of sending end and receiving end of the bus","Difference in voltage angle of sending end and receiving end of the bus"],
+            option:[
+            "Difference in voltage magnitude of sending end and receiving end of the bus",
+            "Difference in voltage angle of sending end and receiving end of the bus"
+        ],
             ans:"a"
         }
     },],
