@@ -1,41 +1,48 @@
 const quizModal = new bootstrap.Modal(document.getElementById("quizModal"));
 const data = [
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Solar Cell I-V Characteristic Curves are graphs of output voltage versus current for different levels of insolation and temperature.",
         answer: {
-            option:["A","B","C","D"],
+            option:["Yes","No"],
             ans:"a"
         }
     },
+        
     {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
-    }],
+        title:"Question 2",
+        body:"Solar energy being weather dependent is an advantage.",
+        answer: {
+            option:["Yes","No"],
+            ans:"b"
+        }
+    }
+    ],
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Short circuit current density is the ratio of short circuit current to exposed surface area of a solar cell.",
         answer: {
-            option:["e","g","C","D"],
+            option:["Yes","No"],
             ans:"a"
         }
     },
     {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
-    }],
+        title:"Question 2",
+        body:"The solar cell efficiency is about 15%",
+        answer: {
+            option:["Yes","No"],
+            ans:"a"
+        }
+        },
+        {
+            title:"Question 3",
+            body:"A single solar cell voltage is about 0.2 V.",
+            answer: {
+                option:["Yes","No"],
+                ans:"b"
+            }
+            }
+    ],
   
 ]
 

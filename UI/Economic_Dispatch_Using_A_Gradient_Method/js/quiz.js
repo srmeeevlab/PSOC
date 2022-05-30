@@ -1,76 +1,47 @@
 const quizModal = new bootstrap.Modal(document.getElementById("quizModal"));
 const data = [
-    [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
+    [
     {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Initial Cost is considered as an operational cost for a power system.",
         answer: {
-            option:["A","B","C","D"],
+            option:["Yes","No"],
+            ans:"b"
+        }
+    }],
+    [
+    {
+        title:"Question 1",
+        body:"The ratio of sum of maximum demand of separate consumers to maximum demand of the station is given by diversity factor.",
+        answer: {
+            option:["Yes","No"],
             ans:"a"
         }
     },
     {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
+        title:"Question 2",
+        body:"Maximum demand on the power station is always less than the sum of the individual maximum demands of the customer.",
+        answer: {
+            option:["Yes","No"],
+            ans:"a"
+        }
     }],
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Load factor is defined as the ratio of maximum peak load to average load.",
         answer: {
-            option:["e","g","C","D"],
-            ans:"a"
+            option:["Yes","No"],
+            ans:"b"
         }
-    },
-    {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
     }],
-    [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
+    [
     {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Fixed costs, such as the capital cost, depreciation etc., are included in the fuel cost.",
         answer: {
-            option:["e","g","C","D"],
-            ans:"a"
+            option:["Yes","No"],
+            ans:"b"
         }
-    },
-    {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
-    }],
-    [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
-        answer: {
-            option:["e","g","C","D"],
-            ans:"a"
-        }
-    },
-    {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
     }]
 ]
 

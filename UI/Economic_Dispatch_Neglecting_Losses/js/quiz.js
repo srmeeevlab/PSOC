@@ -1,76 +1,47 @@
 const quizModal = new bootstrap.Modal(document.getElementById("quizModal"));
 const data = [
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Economic dispatch is the scheduling of generation under optimal economic condition.",
         answer: {
-            option:["A","B","C","D"],
+            option: ["Yes","No"],
             ans:"a"
         }
-    },
-    {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
     }],
-    [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
+    [
     {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Is economic dispatch and unit commitment the same?",
         answer: {
-            option:["e","g","C","D"],
-            ans:"a"
+            option:["Yes","No"],
+            ans:"b"
         }
     },
     {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
+        title:"Question 2",
+        body:"For economical division of load between units within a plant, the criterion is that all units must operate at the same incremental fuel cost.",
+        answer: {
+            option:["Yes","No"],
+            ans:"a"
+        }
     }],
-    [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
+    [
     {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"‘λ’ is the total fuel cost required for operation.",
         answer: {
-            option:["e","g","C","D"],
-            ans:"a"
+            option:["Yes","No"],
+            ans:"b"
         }
-    },
-    {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
     }],
-    [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
+    [
     {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Plant capacity factor is the ratio of actual energy produced to the maximum possible energy that could have been produced during a given period.",
         answer: {
-            option:["e","g","C","D"],
+            option:["Yes","No"],
             ans:"a"
         }
-    },
-    {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
     }]
 ]
 

@@ -1,77 +1,50 @@
 const quizModal = new bootstrap.Modal(document.getElementById("quizModal"));
 const data = [
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Unit commitment (UC) is an optimization problem used to determine the operation schedule of the generating units at every hour interval with varying loads under different constraints and environments",
         answer: {
-            option:["A","B","C","D"],
+            option:["Yes", "No"],
             ans:"a"
         }
     },
-    {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
-    }],
+    
+    ],
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Operating reserve is the amount of unused capacity in online energy assets which can compensate for power shortages or frequency drops within a given period of time",
         answer: {
-            option:["e","g","C","D"],
-            ans:"a"
+            option:["Yes", "No"],
+            ans:"b"
         }
     },
     {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
-    }],
+        title:"Question 2",
+        body:"Hot reserve is the generating capacity which is available for service but not normally ready for immediate loading.",
+        answer: {
+            option:["Yes", "No"],
+            ans:"b"
+        } 
+    },
+    ],
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Minimum up time is the minimum time for which a unit must run.",
         answer: {
-            option:["e","g","C","D"],
+            option:["Yes", "No"],
             ans:"a"
-        }
+        } 
     },
-    {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
-    }],
+    ],
     [{
-        title:"This is an title",
-        body:"This is the body",
-        answer: undefined
-    },
-    {
-        title:"This is an title 2",
-        body:"This is the body 2",
+        title:"Question 1",
+        body:"Unit commitment considers economic constraint as priority.",
         answer: {
-            option:["e","g","C","D"],
-            ans:"a"
-        }
-    },
-    {
-        title:"This is an title 3",
-        body:"This is the body 3",
-        answer: undefined
-    }]
+            option:["Yes", "No"],
+            ans:"b"
+        } 
+    }
+    ]
 ]
 
 const currentInteraction ={
