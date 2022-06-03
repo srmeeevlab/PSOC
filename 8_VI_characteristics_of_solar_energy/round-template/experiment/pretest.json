@@ -1,0 +1,90 @@
+{
+    "version": 2.0,
+    "questions": [{
+            "question": "The function of a solar collector is to convert",
+            "answers": {
+                "a": "Solar Energy into Electricity",
+                "b": "Solar Energy into radiation",
+                "c": "Solar Energy into thermal energy",
+                "d": "Solar Energy into mechanical energy"
+            },
+            "explanations": {
+                "a": "The device is called a photovoltaic cell.",
+                "b": "This process is observed in radioactive elements.",
+                "c": "Right Answer.",
+                "d": "This is used as solar sails in space expeditions."
+            },
+            "correctAnswer": "c",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "For satellite the source of energy is.......",
+            "answers": {
+                "a": "Cryogenic storage",
+                "b": "Battery",
+                "c": "Solar cell",
+                "d": "Galvanic cell"
+            },
+            "explanations": {
+                "a": "They are a heavier payload to couple with satellites.",
+                "b": "Batteries are used to store energy in case of emergencies and are not a primary source.",
+                "c": "A huge solar array can be noticed in almost all the satellites.",
+                "d": "A galvanic cell cannot provide enough electricity for the entire life of a satellite."
+            },
+            "correctAnswer": "c",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "Reflecting mirrors used for exploiting solar energy are called",
+            "answers": {
+                "a": "Mantle",
+                "b": "Ponds",
+                "c": "Diffusers",
+                "d": "Heliostats"
+            },
+            "explanations": {
+                "a": "This should not be selected.",
+                "b": "Solar ponds are large-scale energy collectors with integral heat storage for supplying thermal energy.",
+                "c": "It diffuses the solar energy and not concentrate them.",
+                "d": "It is a device that continually tilts a mirror  to track the sun's movement to reflect sunlight towards a  target."
+            },
+            "correctAnswer": "d",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "The output of solar cell is of the order of",
+            "answers": {
+                "a": "1 W",
+                "b": "5 W",
+                "c": "10 W",
+                "d": "20 W"
+            },
+            "explanations": {
+                "a": "Right Answer.",
+                "b": "The value is high for an individual solar cell to provide.",
+                "c": "The value is high for an individual solar cell to provide.",
+                "d": "The value is high for an individual solar cell to provide."
+            },
+            "correctAnswer": "a",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "Photovoltaic cell or solar cell converts.",
+            "answers": {
+                "a": "Thermal energy into electricity",
+                "b": "Electromagnetic radiation directly into electricity",
+                "c": "Solar radiation into thermal energy",
+                "d": "Solar radiation into kinetic energy"
+            },
+            "explanations": {
+                "a": "A device that converts thermal energy into electricity is thermoelectric generator",
+                "b": "The electromagnetic radiation exites the electrons in the valance bond to conduction bond generating electricity.",
+                "c": "A device that converts Solar radiation into thermal energy is solar collector.",
+                "d": "This should not be selected."
+            },
+            "correctAnswer": "b",
+            "difficulty": "intermediate"
+        }
+
+    ]
+}

@@ -1,0 +1,89 @@
+{
+    "version": 2.0,
+    "questions": [{
+            "question": "The Incremental loss (ITL) is given by -------------- (where L- loss, C – cost, i- no.of generating unit)",
+            "answers": {
+                "a": "<img src=\"./images/post_Q1_a.png\"\/>",
+                "b": "<img src=\"./images/post_Q1_b.png\"\/>",
+                "c": "<img src=\"./images/post_Q1_c.png\"\/>",
+                "d": "<img src=\"./images/post_Q1_d.png\"\/>"
+            },
+            "explanations": {
+                "a": "Incremental loss is considered to be the diffrential of cost function with respect to generating unit.",
+                "b": "The incremental loss has the units of Rs/MWh.",
+                "c": "The incremental loss has the units of Rs/MWh.",
+                "d": "The incremental loss has the units of Rs/MWh."
+            },
+            "correctAnswer": "a",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "Unit of penalty factor is",
+            "answers": {
+                "a": "Rs",
+                "b": "Rs/MWh",
+                "c": "MW",
+                "d": "No units"
+            },
+            "explanations": {
+                "a": "Penalty factor is unitless.",
+                "b": "Penalty factor is unitless.",
+                "c": "Penalty factor is unitless.",
+                "d": "Penalty factor does not have any units."
+            },
+            "correctAnswer": "d",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "For the two power plant system, the loss equation is",
+            "answers": {
+                "a": "<img src=\"./images/post_Q3_a.png\"\/>",
+                "b": "<img src=\"./images/post_Q3_b.png\"\/>",
+                "c": "<img src=\"./images/post_Q3_c.png\"\/>",
+                "d": "<img src=\"./images/post_Q3_d.png\"\/>"
+            },
+            "explanations": {
+                "a": "Refer the formulae for the loss equation in a two power plant system.",
+                "b": "This is the formulae for the loss equation.",
+                "c": "Refer the formulae for the loss equation in a two power plant system.",
+                "d": "Refer the formulae for the loss equation in a two power plant system."
+            },
+            "correctAnswer": "b",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "A power system has two generating plants and the power is being dispatched economically withP1=150 MW and P2=275 MW. The loss coefficients are B11=0.001, B12=-0.0001 and B22=0.0013. Find the penalty factor of plant 1?",
+            "answers": {
+                "a": "3245",
+                "b": "3245",
+                "c": "5545",
+                "d": "8845"
+            },
+            "explanations": {
+                "a": "Right Answer.",
+                "b": "Refer the formulae for the penalty factor and check your calculations.",
+                "c": "Refer the formulae for the penalty factor and check your calculations.",
+                "d": "Refer the formulae for the penalty factor and check your calculations."
+            },
+            "correctAnswer": "a",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "<img src=\"./images/post_Q3_a.png\"\/> is called the co-ordination equation because",
+            "answers": {
+                "a": "It co-ordinates ITL with IC.",
+                "b": "It co-ordinates ITL with penalty factor.",
+                "c": "It co-ordinates real-power generation with reactive-power generation.",
+                "d": "It co-ordinates bus voltage magnitude with IC"
+            },
+            "explanations": {
+                "a": "Co-ordination equation deals with ITL and IC.",
+                "b": "Co-ordination equation does not deal with penalty factor.",
+                "c": "Co-ordination equation does not deal with real-power and reactive power generation.",
+                "d": "Co-ordination equation does not deal with voltage magnitude."
+            },
+            "correctAnswer": "a",
+            "difficulty": "intermediate"
+        }
+    ]
+}
