@@ -1,1 +1,0 @@
-## Development of Voltage Controllers for SMIB System
