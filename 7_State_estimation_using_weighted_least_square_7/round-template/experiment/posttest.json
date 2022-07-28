@@ -1,0 +1,90 @@
+{
+  "version": 2.0,
+  "questions": [
+    {
+      "question": "Among the butane conformers, when viewed about C 2 -C 3 bond, which occur at energy minima on a graph of potential energy versus dihedral angle?",
+      "answers": {
+        "a": "Gauche only",
+        "b": "anti",
+        "c": "syn",
+        "d": "Both gauche and syn"
+      },
+      "explanations": {
+        "a": "Gauche conformers will have higher energy than anti conformer.",
+        "b": "Anti conformers have both CH3 groups farthest apart and hence has lowest energy.",
+        "c": "Syn conformers have the most close CH3 groups and this will lead to highest energy peaks.",
+        "d": "Only the anti conformer has the lowest energy."
+      },
+      "correctAnswer": "b",
+      "difficulty": "intermediate"
+    },
+    {
+      "question": "",
+      "answers": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "",
+      "difficulty": ""
+    },
+    {
+      "question": "",
+      "answers": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "",
+      "difficulty": ""
+    },
+    {
+      "question": "",
+      "answers": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "",
+      "difficulty": ""
+    },
+    {
+      "question": "",
+      "answers": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "explanations": {
+        "a": "",
+        "b": "",
+        "c": "",
+        "d": ""
+      },
+      "correctAnswer": "",
+      "difficulty": ""
+    }
+  ]
+}
