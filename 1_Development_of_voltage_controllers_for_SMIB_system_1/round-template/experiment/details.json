@@ -1,58 +1,65 @@
 {
 
-   "details": [
-       {
-			"Experiment": "",
-			"Lab": "",
-			"Discipline": "",
-			"Technology": ""
-       }
-   ],
+    "details": [{
+        "Experiment": "Development of voltage controllers for SMIB system.",
+        "Lab": "Power System Operation and Control",
+        "Discipline": "Electrical and Electronics Engineering (Power System)",
+        "Technology": "HTML,CSS,Javascript"
+    }],
 
-   "developer": [
-       {
-      "Developer": "",
-      "Institute": "",
-      "InstituteAcronym": ""
-       }
-   ],
+    "developer": [{
+            "Developer": "Praveen Kumar Chinta",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
 
-   "contributer": [
-       {
-  			"Contributer": "",
-        "Institute": "",
-  			"InstituteAcronym": ""
-       },
+        {
+            "Developer": "Raman Shekhawat",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
+        {
+            "Developer": "Appala Sai Surya Varun",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
+        {
+            "Contributer": "Rahul Raman R",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
+        {
+            "Developer": "Dr.D.Maharajan",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        }
+    ],
 
-       {
-         "Contributer": "",
-          "Institute": "",
-         "InstituteAcronym": ""
-       },
+    "contributer": [
+        {
+            "Developer": "Akhil Bonagiri",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
 
-       {
-    			"Contributer": "",
-          "Institute": "",
-    			"InstituteAcronym": ""
-       },
+        {
+            "Contributer": "Srinaath Narasimhan",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
 
-       {
-         "Contributer": "",
-          "Institute": "",
-         "InstituteAcronym": ""
-       },
+        {
+            "Contributer": "Dr.S.Usha",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
+        {
+            "Contributer": "Dr.R.Ramya",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        }
 
-       {
-         "Contributer": "",
-          "Institute": "",
-         "InstituteAcronym": ""
-       },
 
-       {
-         "Contributer": "",
-          "Institute": "",
-         "InstituteAcronym": ""
-       }
-   ]
+    ]
 
 }

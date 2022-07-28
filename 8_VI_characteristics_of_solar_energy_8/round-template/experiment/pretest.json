@@ -1,90 +1,90 @@
 {
-  "version": 2.0,
-  "questions": [
-    {
-      "question": "Among the butane conformers, when viewed about C 2 -C 3 bond, which occur at energy minima on a graph of potential energy versus dihedral angle?",
-      "answers": {
-        "a": "Gauche only",
-        "b": "anti",
-        "c": "syn",
-        "d": "Both gauche and syn"
-      },
-      "explanations": {
-        "a": "Gauche conformers will have higher energy than anti conformer.",
-        "b": "Anti conformers have both CH3 groups farthest apart and hence has lowest energy.",
-        "c": "Syn conformers have the most close CH3 groups and this will lead to highest energy peaks.",
-        "d": "Only the anti conformer has the lowest energy."
-      },
-      "correctAnswer": "b",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    }
-  ]
+    "version": 2.0,
+    "questions": [{
+            "question": "A solar collector is functioned to convert",
+            "answers": {
+                "a": "Solar Energy to Mechanical energy",
+                "b": "Solar Energy to Thermal Energy",
+                "c": "Solar Energy to Radiation",
+                "d": "Solar Energy to Electricity"
+            },
+            "explanations": {
+                "a": " This is used as solar sails in space expeditions.",
+                "b": "Right Answer.",
+                "c": "This process is observed in radioactive elements.",
+                "d": "The device is called a photovoltaic cell."
+            },
+            "correctAnswer": "b",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "The energy source for a satellite is:",
+            "answers": {
+                "a": "The Cryogenic Storage",
+                "b": "The Battery",
+                "c": "A Solar cell",
+                "d": "A Galvanic cell"
+            },
+            "explanations": {
+                "a": "They are a heavier payload to couple with satellites.",
+                "b": "Batteries are used to store energy in case of emergencies and are not a primary source.",
+                "c": "A huge solar array can be noticed in almost all the satellites.",
+                "d": "A galvanic cell cannot provide enough electricity for the entire life of a satellite."
+            },
+            "correctAnswer": "c",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "While exploiting solar energy, the term used for referring to reflecting mirrors is:",
+            "answers": {
+                "a": "Heliostats",
+                "b": "Diffusers",
+                "c": "Ponds",
+                "d": "Mantle"
+            },
+            "explanations": {
+                "a": "It is a device that continually tilts a mirror  to track the sun's movement to reflect sunlight towards a target.",
+                "b": "It diffuses the solar energy and not concentrate them.",
+                "c": "Solar ponds are large-scale energy collectors with integral heat storage for supplying thermal energy.",
+                "d": "This should not be selected."
+            },
+            "correctAnswer": "a",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "Choose the correct order in which the output of a solar cell is obtained:",
+            "answers": {
+                "a": "5 W",
+                "b": "10 W",
+                "c": "1 W",
+                "d": "20 W"
+            },
+            "explanations": {
+                "a": "The value is high for an individual solar cell to provide.",
+                "b": "The value is high for an individual solar cell to provide.",
+                "c": "Right Answer.",
+                "d": "The value is high for an individual solar cell to provide."
+            },
+            "correctAnswer": "c",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "The conversion of a Photovoltaic/Solar cell is defined as:",
+            "answers": {
+                "a": "The conversion of Thermal Energy into Electricity",
+                "b": "The direct conversion of Electromagnetic Radiation into Electricity",
+                "c": "The conversion of Solar Radiation into Thermal Energy",
+                "d": "The conversion of Radiation into Kinetic Energy"
+            },
+            "explanations": {
+                "a": "A device that converts thermal energy into electricity is thermoelectric generator",
+                "b": "The electromagnetic radiation exites the electrons in the valance bond to conduction bond generating electricity.",
+                "c": "A device that converts Solar radiation into thermal energy is solar collector.",
+                "d": "This should not be selected."
+            },
+            "correctAnswer": "b",
+            "difficulty": "intermediate"
+        }
+
+    ]
 }

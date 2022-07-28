@@ -1,90 +1,89 @@
 {
-  "version": 2.0,
-  "questions": [
-    {
-      "question": "Among the butane conformers, when viewed about C 2 -C 3 bond, which occur at energy minima on a graph of potential energy versus dihedral angle?",
-      "answers": {
-        "a": "Gauche only",
-        "b": "anti",
-        "c": "syn",
-        "d": "Both gauche and syn"
-      },
-      "explanations": {
-        "a": "Gauche conformers will have higher energy than anti conformer.",
-        "b": "Anti conformers have both CH3 groups farthest apart and hence has lowest energy.",
-        "c": "Syn conformers have the most close CH3 groups and this will lead to highest energy peaks.",
-        "d": "Only the anti conformer has the lowest energy."
-      },
-      "correctAnswer": "b",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    }
-  ]
+    "version": 2.0,
+    "questions": [{
+            "question": "The Bmn matrix is called as",
+            "answers": {
+                "a": "Real power matrix",
+                "b": "Reactive power matrix",
+                "c": "Apparent power matrix",
+                "d": "Loss coefficient matrix"
+            },
+            "explanations": {
+                "a": "The coffiecients in Bmn are related to loss calculations.",
+                "b": "The coffiecients in Bmn are related to loss calculations.",
+                "c": "The coffiecients in Bmn are related to loss calculations.",
+                "d": "Bmn matrix is termed as the loss coefficient matrix."
+            },
+            "correctAnswer": "d",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "Which of the following factor is used to move one optimal schedule to another when load changes are small?",
+            "answers": {
+                "a": "Base point factor",
+                "b": "Maximum point factor",
+                "c": "Penalty factor",
+                "d": "Participation factor"
+            },
+            "explanations": {
+                "a": "Base point factor is not used in the case of small load changes.",
+                "b": "Maximum point factor is not used in the case of small load changes.",
+                "c": "Penalty factor is not used in the case of small load changes.",
+                "d": "For small changes in load optimal schedule is achived by using participation factor."
+            },
+            "correctAnswer": "d",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "The term 'transmission loss' refers to the loss of ",
+            "answers": {
+                "a": "Equal value of inductive reactance and capacitance reactance of the transmission line, only resistance exists",
+                "b": "Different value of inductive reactance and capacitance reactance of the transmission line, only resistance exists",
+                "c": "Square root of ratio of the inductive reactance to capacitance reactance of the transmission line",
+                "d": "Square root of ratio of the capacitive reactance to inductive reactance of the transmission line"
+            },
+            "explanations": {
+                "a": "Only real power loss is considered in the case of transmission lines. The reactive components cancel each other out.",
+                "b": "The reactive component must cancel each other out incase of transmission losses.",
+                "c": "The reactive component must cancel each other out incase of transmission losses.",
+                "d": "The reactive component must cancel each other out incase of transmission losses."
+            },
+            "correctAnswer": "a",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "The loss coefficient B12 is given by",
+            "answers": {
+                "a": "<img src=\"./images/pre_Q4_a.png\"\/>",
+                "b": "<img src=\"./images/pre_Q4_b.png\"\/>",
+                "c": "<img src=\"./images/pre_Q4_c.png\"\/>",
+                "d": "<img src=\"./images/pre_Q4_d.png\"\/>"
+            },
+            "explanations": {
+                "a": "Refer and Revise the formulae for the loss coffecients.",
+                "b": "This is the right formula for loss coefficient B12.",
+                "c": "Refer and Revise the formulae for the loss coffecients.",
+                "d": "Refer and Revise the formulae for the loss coffecients."
+            },
+            "correctAnswer": "b",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "The derivation of transmission line loss is not based on which assumption?",
+            "answers": {
+                "a": "All the load currents maintain a constant ratio.",
+                "b": "All the lines in the system have different X/R ratios.",
+                "c": "All the load currents have same phase angle.",
+                "d": "The power factor at each station remains constant."
+            },
+            "explanations": {
+                "a": "The constant ratio maintained by all the load currents is required in the derivation of transmission line loss.",
+                "b": "The X/R ratios is required in the derivation of transmission line loss.",
+                "c": "The phase angle of the load currents does not affect the derivation of transmission line loss.",
+                "d": "Constant power factor is a must in derivation of of transmission line loss."
+            },
+            "correctAnswer": "c",
+            "difficulty": "intermediate"
+        }
+    ]
 }

@@ -1,1 +1,1 @@
-#### Institute name (Don't modify the number of hash(####))
+#### Sri Ramaswamy Memorial Institute of Science and Technology

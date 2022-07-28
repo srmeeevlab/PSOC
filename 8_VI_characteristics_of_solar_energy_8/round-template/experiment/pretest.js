@@ -1,141 +1,139 @@
-
 // Don't touch the below code
 
 (function() {
-  function buildQuiz() {
-    // we'll need a place to store the HTML output
-    const output = [];
+    function buildQuiz() {
+        // we'll need a place to store the HTML output
+        const output = [];
 
-    // for each question...
-    myQuestions.forEach((currentQuestion, questionNumber) => {
-      // we'll want to store the list of answer choices
-      const answers = [];
+        // for each question...
+        myQuestions.forEach((currentQuestion, questionNumber) => {
+            // we'll want to store the list of answer choices
+            const answers = [];
 
-      // and for each available answer...
-      for (letter in currentQuestion.answers) {
-        // ...add an HTML radio button
-        answers.push(
-          `<label>
+            // and for each available answer...
+            for (letter in currentQuestion.answers) {
+                // ...add an HTML radio button
+                answers.push(
+                    `<label>
             <input type="radio" name="question${questionNumber}" value="${letter}">
             ${letter} :
             ${currentQuestion.answers[letter]}
           </label>`
-        );
-      }
+                );
+            }
 
-      // add this question and its answers to the output
-      output.push(
-        `<div class="question"> ${currentQuestion.question} </div>
+            // add this question and its answers to the output
+            output.push(
+                `<div class="question"> ${currentQuestion.question} </div>
         <div class="answers"> ${answers.join("")} </div>`
-      );
-    });
+            );
+        });
 
-    // finally combine our output list into one string of HTML and put it on the page
-    quizContainer.innerHTML = output.join("");
-  }
+        // finally combine our output list into one string of HTML and put it on the page
+        quizContainer.innerHTML = output.join("");
+    }
 
-  function showResults() {
-    // gather answer containers from our quiz
-    const answerContainers = quizContainer.querySelectorAll(".answers");
+    function showResults() {
+        // gather answer containers from our quiz
+        const answerContainers = quizContainer.querySelectorAll(".answers");
 
-    // keep track of user's answers
-    let numCorrect = 0;
+        // keep track of user's answers
+        let numCorrect = 0;
 
-    // for each question...
-    myQuestions.forEach((currentQuestion, questionNumber) => {
-      // find selected answer
-      const answerContainer = answerContainers[questionNumber];
-      const selector = `input[name=question${questionNumber}]:checked`;
-      const userAnswer = (answerContainer.querySelector(selector) || {}).value;
+        // for each question...
+        myQuestions.forEach((currentQuestion, questionNumber) => {
+            // find selected answer
+            const answerContainer = answerContainers[questionNumber];
+            const selector = `input[name=question${questionNumber}]:checked`;
+            const userAnswer = (answerContainer.querySelector(selector) || {}).value;
 
-      // if answer is correct
-      if (userAnswer === currentQuestion.correctAnswer) {
-        // add to the number of correct answers
-        numCorrect++;
+            // if answer is correct
+            if (userAnswer === currentQuestion.correctAnswer) {
+                // add to the number of correct answers
+                numCorrect++;
 
-        // color the answers green
-        //answerContainers[questionNumber].style.color = "lightgreen";
-      } else {
-        // if answer is wrong or blank
-        // color the answers red
-        answerContainers[questionNumber].style.color = "red";
-      }
-    });
+                // color the answers green
+                //answerContainers[questionNumber].style.color = "lightgreen";
+            } else {
+                // if answer is wrong or blank
+                // color the answers red
+                answerContainers[questionNumber].style.color = "red";
+            }
+        });
 
-    // show number of correct answers out of total
-    resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
-  }
+        // show number of correct answers out of total
+        resultsContainer.innerHTML = `${numCorrect} out of ${myQuestions.length}`;
+    }
 
-  const quizContainer = document.getElementById("quiz");
-  const resultsContainer = document.getElementById("results");
-  const submitButton = document.getElementById("submit");
-
-
-// Don't touch the above code
+    const quizContainer = document.getElementById("quiz");
+    const resultsContainer = document.getElementById("results");
+    const submitButton = document.getElementById("submit");
 
 
+    // Don't touch the above code
 
 
-// Write your MCQs here --- Start --- --------------------
 
-  const myQuestions = [
-    {
-      question: "Question here",
-      answers: {
-        a: "Option 1",
-        b: "Option 2",
-        c: "Option 3",
-        d: "Option 4"
-      },
-      correctAnswer: "Correct option (If option a is correct then specify a)"
-    },
-    {
-      question: "Question here",
-      answers: {
-        a: "Option 1",
-        b: "Option 2",
-        c: "Option 3",
-        d: "Option 4"
-      },
-      correctAnswer: "b (If option b is correct then specify b)"
-    },
-    {
-      question: "Question here",
-      answers: {
-        a: "Option 1",
-        b: "Option 2",
-        c: "Option 3",
-        d: "Option 4"
-      },
-      correctAnswer: "Correct option (If option a is correct then specify a)"
-    },
-    {
-      question: "Question here",
-      answers: {
-        a: "Option 1",
-        b: "Option 2",
-        c: "Option 3",
-        d: "Option 4"
-      },
-      correctAnswer: "b (If option b is correct then specify b)"
-    },
-    {
-      question: "Question here",
-      answers: {
-        a: "Option 1",
-        b: "Option 2",
-        c: "Option 3",
-        d: "Option 4"
-      },
-      correctAnswer: "b (If option b is correct then specify b)"
-    } //Dont add comma here
-  ];
 
-// ---------------------------- End -------------------------------
+    // Write your MCQs here --- Start --- --------------------
 
-  // display quiz right away
-  buildQuiz();
+    const myQuestions = [{
+            question: "A solar collector is functioned to convert",
+            answers: {
+                a: "Solar Energy to Mechanical energy",
+                b: "Solar Energy to Thermal Energy",
+                c: "Solar Energy to Radiation",
+                d: "Solar Energy to Electricity"
+            },
+            correctAnswer: "b"
+        },
+        {
+            question: "The energy source for a satellite is:",
+            answers: {
+                a: "The Cryogenic Storage",
+                b: "The Battery",
+                c: "A Solar cell",
+                d: "A Galvanic cell"
+            },
+            correctAnswer: "c"
+        },
+        {
+            question: "While exploiting solar energy, the term used for referring to reflecting mirrors is:",
+            answers: {
+                a: "Heliostats",
+                b: "Diffusers",
+                c: "Ponds",
+                d: "Mantle"
+            },
+            correctAnswer: "a"
+        },
+        {
+            question: "Choose the correct order in which the output of a solar cell is obtained:",
+            answers: {
+                a: "5 W",
+                b: "10 W",
+                c: "1 W",
+                d: "20 W"
+            },
+            correctAnswer: "c"
+        },
+        {
+            question: "The conversion of a Photovoltaic/Solar cell is defined as:",
+            answers: {
+                a: "The conversion of Thermal Energy into Electricity",
+                b: "The direct conversion of Electromagnetic Radiation into Electricity",
+                c: "The conversion of Solar Radiation into Thermal Energy",
+                d: "The conversion of Radiation into Kinetic Energy"
+            },
+            correctAnswer: "b"
+        } //Dont add comma here
+    ];
 
-  // on submit, show results
-  submitButton.addEventListener("click", showResults);
+    // ---------------------------- End -------------------------------
+
+    // display quiz right away
+    buildQuiz();
+
+    // on submit, show results
+    submitButton.addEventListener("click", showResults);
 })();

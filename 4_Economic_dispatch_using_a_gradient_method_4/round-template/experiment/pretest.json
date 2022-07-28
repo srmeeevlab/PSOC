@@ -1,90 +1,90 @@
 {
-  "version": 2.0,
-  "questions": [
-    {
-      "question": "Among the butane conformers, when viewed about C 2 -C 3 bond, which occur at energy minima on a graph of potential energy versus dihedral angle?",
-      "answers": {
-        "a": "Gauche only",
-        "b": "anti",
-        "c": "syn",
-        "d": "Both gauche and syn"
-      },
-      "explanations": {
-        "a": "Gauche conformers will have higher energy than anti conformer.",
-        "b": "Anti conformers have both CH3 groups farthest apart and hence has lowest energy.",
-        "c": "Syn conformers have the most close CH3 groups and this will lead to highest energy peaks.",
-        "d": "Only the anti conformer has the lowest energy."
-      },
-      "correctAnswer": "b",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    }
-  ]
+    "version": 2.0,
+    "questions": [{
+            "question": "Economic dispatch by gradient method is not recommended for",
+            "answers": {
+                "a": "Cubic Input-output characteristics of a plant",
+                "b": "More complex Input-output characteristics function of a plant",
+                "c": "Non-linear Input-output characteristics of a plant",
+                "d": "Piece wise linear Input-output characteristics of a plant"
+            },
+            "explanations": {
+                "a": "Gradient method can be used in any non-linear and complex charecteristics.",
+                "b": "Gradient method can be used in any non-linear and complex charecteristics.",
+                "c": "Gradient method can be used in any non-linear and complex charecteristics.",
+                "d": "Linear charecteristics is generally not used along with gradient method. "
+            },
+            "correctAnswer": "d",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "The gradient method is based on the idea that a set of steps can be used to find the minimum of a function f(x).",
+            "answers": {
+                "a": "Upward direction",
+                "b": "Downward direction",
+                "c": "Clockwise direction",
+                "d": "Anticlockwise direction"
+            },
+            "explanations": {
+                "a": "Gradient decent looks for a minima in a function.",
+                "b": "Gradient decent looks for a minima in a function.",
+                "c": "Gradient decent cannot be defined as clockwise or anti clockwise.",
+                "d": "Gradient decent cannot be defined as clockwise or anti clockwise."
+            },
+            "correctAnswer": "b",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "Which one is used to convergence of gradients method to speed up?",
+            "answers": {
+                "a": "<img src=\"./images/pretest_question3_option_a.png\"\/>",
+                "b": "<img src=\"./images/pretest_question3_option_b.png\"\/>",
+                "c": "<img src=\"./images/pretest_question3_option_c.png\"\/>",
+                "d": "<img src=\"./images/pretest_question3_option_d.png\"\/>"
+            },
+            "explanations": {
+                "a": "L is not used in speeding up the convergence.",
+                "b": "Lambda is the factor used to speed up the convergence.",
+                "c": "ε is not a factor used in speeding up the convergence.",
+                "d": "The frequency difference cannot be used in the convergence."
+            },
+            "correctAnswer": "c",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "In gradient method, there are six power plants are used for economic dispatch problem for the given power demand. What is the size of the gradient matrix for the gradient method-1?",
+            "answers": {
+                "a": "7x1",
+                "b": "1x6",
+                "c": "1x7",
+                "d": "6x1"
+            },
+            "explanations": {
+                "a": "The gradient method-1 has a matrix of size (nx1) where n is the number of power plants.",
+                "b": "The gradient method-1 has a matrix of size (nx1) where n is the number of power plants.",
+                "c": "The gradient method-1 has a matrix of size (nx1) where n is the number of power plants.",
+                "d": "The gradient method-1 has a matrix of size (nx1) where n is the number of power plants."
+            },
+            "correctAnswer": "d",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "The drawback of general gradient method for solving the economic dispatch problem is",
+            "answers": {
+                "a": "Violating the equality criteria",
+                "b": "Violating the inequality criteria",
+                "c": "Inaccurate solution and lambda updated each iteration",
+                "d": "Incompatible gradient vector for the linear input-output cost characteristics of the power plant"
+            },
+            "explanations": {
+                "a": "The equality constraint is used in finding the optimal solution in general gradient method.",
+                "b": "The inequality criteria is not used in the general gradient method.",
+                "c": "Inaccurate solutions does not realate to the general gradient method.",
+                "d": "Incompatible gradient vector is not used in the general gradient method."
+            },
+            "correctAnswer": "a",
+            "difficulty": "intermediate"
+        }
+
+    ]
 }

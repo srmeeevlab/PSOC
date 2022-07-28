@@ -1,58 +1,64 @@
 {
 
-   "details": [
-       {
-			"Experiment": "",
-			"Lab": "",
-			"Discipline": "",
-			"Technology": ""
-       }
-   ],
+    "details": [{
+        "Experiment": "Economic dispatch using a gradient method",
+        "Lab": "Power System Operation and Control",
+        "Discipline": "Electrical and Electronics Engineering (Power System)",
+        "Technology": "HTML,CSS,Javascript"
+    }],
 
-   "developer": [
-       {
-      "Developer": "",
-      "Institute": "",
-      "InstituteAcronym": ""
-       }
-   ],
+    "developer": [{
+            "Developer": "Appala Sai Surya Varun",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
 
-   "contributer": [
-       {
-  			"Contributer": "",
-        "Institute": "",
-  			"InstituteAcronym": ""
-       },
+        {
+            "Developer": "Praveen Kumar Chinta ",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
+        {
+            "Developer": " Akhil Bonagiri",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
+        {
+            "Developer": "Rahul Raman R",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
+        {
+            "Developer": "Dr.S.Usha",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        }
+    ],
 
-       {
-         "Contributer": "",
-          "Institute": "",
-         "InstituteAcronym": ""
-       },
+    "contributer": [{
+            "Contributer": "Raman Shekhawat",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
 
-       {
-    			"Contributer": "",
-          "Institute": "",
-    			"InstituteAcronym": ""
-       },
+        {
+            "Contributer": "Srinaath Narasimhan",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
 
-       {
-         "Contributer": "",
-          "Institute": "",
-         "InstituteAcronym": ""
-       },
+        {
+            "Contributer": "Dr.D.Maharajan",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        },
+        {
+            "Contributer": "Dr.R.Ramya",
+            "Institute": "Sri Ramaswamy Memorial Institute of Science and Technology",
+            "InstituteAcronym": "SRM IST"
+        }
 
-       {
-         "Contributer": "",
-          "Institute": "",
-         "InstituteAcronym": ""
-       },
 
-       {
-         "Contributer": "",
-          "Institute": "",
-         "InstituteAcronym": ""
-       }
-   ]
+    ]
 
 }

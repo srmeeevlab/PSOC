@@ -1,1 +1,5 @@
-Provide detailed theory about the experimental concepts also include equations/formulas, algorithms, flowchart and images if required
+INTRODUCTION
+
+To acquire a solid, qualitative understanding of reactive-power regulation in a long transmission assuming lossless from (V to ZL) source and load. In a power system with a long transmission line, of power transfer is depends on midpoint voltage of magnitude. The voltage of the transmission line influences the line insulation and therefore the significance of mid-point voltage regulation needs to be studied for the long transmission line. For the symmetrical lossless line where the end voltages are held at nominal values, the midpoint magnitude voltage shows the highest magnitude variation for the line loading of full load to no-load, also the midpoint voltage is breached from the nominal level and there must be a technique to control and regulate the voltage at the midpoint.
+
+Hence this experiment attempts the design of midpoint var compensator for the SMIB system in order to control the voltage and maintain the reactive power for the long transmission line.

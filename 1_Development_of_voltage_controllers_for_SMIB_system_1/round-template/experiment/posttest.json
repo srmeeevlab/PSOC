@@ -1,90 +1,106 @@
 {
-  "version": 2.0,
-  "questions": [
-    {
-      "question": "Among the butane conformers, when viewed about C 2 -C 3 bond, which occur at energy minima on a graph of potential energy versus dihedral angle?",
-      "answers": {
-        "a": "Gauche only",
-        "b": "anti",
-        "c": "syn",
-        "d": "Both gauche and syn"
-      },
-      "explanations": {
-        "a": "Gauche conformers will have higher energy than anti conformer.",
-        "b": "Anti conformers have both CH3 groups farthest apart and hence has lowest energy.",
-        "c": "Syn conformers have the most close CH3 groups and this will lead to highest energy peaks.",
-        "d": "Only the anti conformer has the lowest energy."
-      },
-      "correctAnswer": "b",
-      "difficulty": "intermediate"
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    },
-    {
-      "question": "",
-      "answers": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "explanations": {
-        "a": "",
-        "b": "",
-        "c": "",
-        "d": ""
-      },
-      "correctAnswer": "",
-      "difficulty": ""
-    }
-  ]
+    "version": 2.0,
+    "questions": [{
+            "question": "The midpoint voltage of the symmetrical lossless long transmission line is mainly depending on",
+            "answers": {
+                "a": "Current flow",
+                "b": "Real power flow",
+                "c": "Reactive power flow",
+                "d": "Difference between sending end angle and receiving end angle"
+            },
+            "explanations": {
+                "a": "Current flow does not affect the formula for calculating the midpoint voltage of a long transmission line.",
+                "b": "According to the reference [11], the formula for calculating the midpoint voltage of the long transmission line is mainly depends on real power flow.",
+                "c": "Reactive power flow does not affect the formula for calculating the midpoint voltage of a long transmission line.",
+                "d": "Difference between sending end angle and receiving end angle does not affect the formula for calculating the midpoint voltage of a long transmission line."
+            },
+            "correctAnswer": "b",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "The surge impedance loading of the transmission line is defined as is",
+            "answers": {
+                "a": "Different value of inductive reactance and capacitance reactance of the transmission line, only resistance exists",
+                "b": "Square root of ratio of inductive reactance to capacitance reactance of the transmission line",
+                "c": "Equal value of inductive reactance and capacitance reactance of the transmission line, only resistance exists",
+                "d": "Square root of ratio of capacitive reactance to inductive reactance of the transmission line"
+            },
+            "explanations": {
+                "a": "Surge impedence needs inductive and capacitive reactance cancel each other out.",
+                "b": "Surge impedence needs inductive and capacitive reactance cancel each other out.",
+                "c": "Equal value of inductive reactance and capacitance reactance of the transmission line, only resistance exists.",
+                "d": "Surge impedence needs inductive and capacitive reactance cancel each other out."
+            },
+            "correctAnswer": "c",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "The surge impedance of the symmetrical lossless transmission line is",
+            "answers": {
+                "a": "Only resistance arises when the inductive and capacitance reactance of the transmission line have equal values.",
+                "b": "Only resistance arises when the inductive and capacitance reactance of the transmission line have different values.",
+                "c": "Square root of ratio of the inductive reactance to capacitance reactance of the transmission line",
+                "d": "Square root of ratio of the capacitive reactance to inductive reactance of the transmission line"
+            },
+            "explanations": {
+                "a": "The condition is not called surge impedance loading condition if the reactive power generation is not equal to the reactive power absorption.",
+                "b": "The condition is not called surge impedance loading condition if the reactive power generation is not equal to the reactive power absorption.",
+                "c": "According to the reference [4], In a long transmission line, if the reactive power generation is equal to the reactive power absorption, that condition is called surge impedance loading condition.",
+                "d": "The condition is not called surge impedance loading condition if the reactive power generation is not equal to the reactive power absorption."
+            },
+            "correctAnswer": "c",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "The formula for calculating the midpoint voltage of the symmetrical lossless long transmission line",
+            "answers": {
+                "a": "<img src=\"./images/post_Q4_a.png\"\/>",
+                "b": "<img src=\"./images/post_Q4_b.png\"\/>",
+                "c": "<img src=\"./images/post_Q4_c.png\"\/>",
+                "d": "<img src=\"./images/post_Q4_d.png\"\/>"
+            },
+            "explanations": {
+                "a": "This is the right formula for the calculation of the midpoint voltage.",
+                "b": "Refer the formula for calculating the midpoint voltage in symmetrical lossless long transmission line (Reference 11).",
+                "c": "Refer the formula for calculating the midpoint voltage in symmetrical lossless long transmission line (Reference 11).",
+                "d": "Refer the formula for calculating the midpoint voltage in symmetrical lossless long transmission line (Reference 11)."
+            },
+            "correctAnswer": "a",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "The transmission line with the symmetrical lossless 735 Kilovolt inductance of 0.932 millihenry / kilometres, capacitance and line length 12.2 nano-farad / kilometres and 800 kilometres. The surge impedance of the transmission line is",
+            "answers": {
+                "a": "246.394 Ohm",
+                "b": "276.394 Ohm",
+                "c": "225 Ohm",
+                "d": "285 Ohm"
+            },
+            "explanations": {
+                "a": "The formula for surge impedence of transmission is given by Zc=√(L/C).",
+                "b": "The formula for surge impedence of transmission is given by Zc=√(L/C).",
+                "c": "The formula for surge impedence of transmission is given by Zc=√(L/C).",
+                "d": "The formula for surge impedence of transmission is given by Zc=√(L/C)."
+            },
+            "correctAnswer": "b",
+            "difficulty": "intermediate"
+        },
+        {
+            "question": "The transmission line with the symmetrical lossless 735 Kilovolt inductance of 0.932 millihenry / kilometres, capacitance and line length 12.2 nano-farad / kilometres and 800 kilometres. The surge impedance loading of the transmission line is",
+            "answers": {
+                "a": "2954.5 MW",
+                "b": "3954.5 MW",
+                "c": "4954.5 MW",
+                "d": "1954.5 MW"
+            },
+            "explanations": {
+                "a": "The formula for surge impedence of transmission is given by SIL=(V^2)/Z.",
+                "b": "The formula for surge impedence of transmission is given by SIL=(V^2)/Z.",
+                "c": "The formula for surge impedence of transmission is given by SIL=(V^2)/Z.",
+                "d": "The formula for surge impedence of transmission is given by SIL=(V^2)/Z."
+            },
+            "correctAnswer": "d",
+            "difficulty": "intermediate"
+        }
+    ]
 }
