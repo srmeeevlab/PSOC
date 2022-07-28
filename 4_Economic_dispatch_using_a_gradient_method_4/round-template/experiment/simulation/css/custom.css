@@ -12,7 +12,7 @@ body {
     margin-left: 12.5px;
     margin-top: 12.5px;
 }
-table,th,td{
+table,th,td,tr{
     border: 1px solid black;
     padding: 0 10px ;
 }

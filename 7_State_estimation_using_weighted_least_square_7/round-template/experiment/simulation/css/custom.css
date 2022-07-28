@@ -11,6 +11,12 @@ body {
     padding: 10px 50px;
     margin-bottom: -16px;
 }
+#md > h1{
+
+    text-align: center;
+    font-size: 30px;
+    font-weight: bold;
+}
 
 .Run_Button {
 
@@ -236,11 +242,6 @@ footer {
 
 }
 
-#md > h1{
 
-    text-align: center;
-    font-size: 30px;
-    font-weight: bold;
-}
 
 

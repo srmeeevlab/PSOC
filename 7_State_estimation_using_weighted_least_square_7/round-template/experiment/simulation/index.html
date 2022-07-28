@@ -22,7 +22,7 @@
             <a class="navbar-brand" href="#"><img src="images/srm-logo-white.png" alt="SRM Logo"></a>
             <span id="exp-title">State Estimation Using Weighted Least Square Method</span>
             <span id="navbar-settings">
-                
+
                 <span id="nav-help" title="Help">
                     <div class="dropdown">
                         <button class="btn dropdown-toggle btn btn-custom-outline-brown w-100 d-block" type="button"
@@ -42,7 +42,7 @@
             </span>
         </div>
 
-        
+
     </nav>
     <div id="HELP-MODAL">
         <div class="modal fade" id="modal1" aria-hidden="true" aria-labelledby="modal1Label" tabindex="-1">
@@ -53,7 +53,7 @@
                         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
-                        
+
 
                         <h2>Procedure:</h2>
                         <h5>Your task here is to form an appropriate algorithm for understanding the experiment's
@@ -350,13 +350,13 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="output_modalLabel"></h5>
-                        <button onclick="if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false}" type="button"
-                            class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                        <button onclick="if(ask_post_quiz) {startInteraction(data[3]);ask_post_quiz=false}"
+                            type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                     </div>
                     <div class="modal-body">
                         <h3>Result</h3>
                         <div id="result_modal">
-    
+
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -382,8 +382,8 @@
         </div>
         <div class="container-fluid h-100">
             <div class="row">
-                
-    
+
+
                 <div id="pallete" class="col-4 col-md-2">
                     <div class="accordion pt-4 sticky-top" id="accordionExample" style="min-height:100vh;">
                         <div class="accordion-item">
@@ -406,7 +406,7 @@
                                             ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                             Constant
                                         </li>
-    
+
                                         <li id="var-matrix" class="list-group-item noselect" draggable="true"
                                             ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                             Matrix
@@ -434,8 +434,8 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingTwo">
                                 <button class="accordion-button collapsed noselect" aria-controls="con-loop"
-                                    href="#con-loop" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo"
-                                    aria-expanded="false">
+                                    href="#con-loop" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseTwo" aria-expanded="false">
                                     Conditionals and Loops
                                 </button>
                             </h2>
@@ -472,14 +472,15 @@
                                             Continue
                                         </li>
                                     </ul>
-    
+
                                 </div>
                             </div>
                         </div>
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingThree">
-                                <button class="accordion-button collapsed noselect" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                <button class="accordion-button collapsed noselect" type="button"
+                                    data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false"
+                                    aria-controls="collapseThree">
                                     Math
                                 </button>
                             </h2>
@@ -503,17 +504,17 @@
                                             ondrag="drag_handler(event);" ondragstart="drag_start_handler(event)">
                                             ABS
                                         </li>
-    
+
                                     </ul>
                                 </div>
                             </div>
                         </div>
-    
+
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingFour">
-                                <button class="accordion-button collapsed noselect" href="#MAT-OP" aria-controls="con-loop"
-                                    type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour"
-                                    aria-expanded="false" aria-controls="MAT-OP">
+                                <button class="accordion-button collapsed noselect" href="#MAT-OP"
+                                    aria-controls="con-loop" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#collapseFour" aria-expanded="false">
                                     Matrix Operations
                                 </button>
                             </h2>
@@ -541,12 +542,12 @@
                                 </div>
                             </div>
                         </div>
-    
+
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="headingFive">
                                 <button class="accordion-button collapsed noselect" href="#io" aria-controls="con-loop"
                                     type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive"
-                                    aria-expanded="false" aria-controls="io">
+                                    aria-expanded="false">
                                     input/output
                                 </button>
                             </h2>
@@ -570,56 +571,58 @@
                                 </div>
                             </div>
                         </div>
-    
-    
+
+
                     </div>
-    
+
                 </div>
-    
+
                 <!-- end of accordcian-->
-    
+
                 <div id="interface" class="col-8 col-md-8" ondragenter="dragEnter_handler(event)"
                     ondragover="dragOver_handler(event)" ondrop="drop_handler(event)"
                     ondragleave="dragLeave_handler(event)">
                     <h2 class="text-center">Interface</h2>
-    
+
                     <div id="drop-box">
                         <span>you can drop the blocks here</span>
                     </div>
-    
+
                 </div>
                 <div id="properties" class="col-2">
                     <div class="pt-4">
-                        <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="showsim()"> <a href="#"
-                            style="text-decoration: none; color:black; display: block;">Go to Simulation</a> </button>
-                    
-                        <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" title="move up"
-                            data-bs-toggle="tooltip" data-bs-placement="top" onclick="up()"><i
+                        <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block"
+                            title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="showsim()"> <a href="#"
+                                style="text-decoration: none; color:black; display: block;">Go to Simulation</a>
+                        </button>
+
+                        <button type="button" id="upbut" disabled="" class="btn btn-custom-outline-brown"
+                            title="move up" data-bs-toggle="tooltip" data-bs-placement="top" onclick="up()"><i
                                 class="bi bi-caret-up-fill"></i> </button>
-                        <button type="button" id="downbut" disabled class="btn btn-custom-outline-brown" title="move down"
-                            data-bs-toggle="tooltip" data-bs-placement="top" onclick="down()"><i
+                        <button type="button" id="downbut" disabled="" class="btn btn-custom-outline-brown"
+                            title="move down" data-bs-toggle="tooltip" data-bs-placement="top" onclick="down()"><i
                                 class="bi bi-caret-down-fill"></i> </button>
-                        <button type="button" id="setbut" disabled class="btn btn-custom-outline-brown"
+                        <button type="button" id="setbut" disabled="" class="btn btn-custom-outline-brown"
                             title="Show Properties" data-bs-toggle="tooltip" data-bs-placement="top"
                             onclick="showprops()"><i class="bi bi-pencil-fill"></i> </button>
-                        <button type="button" id="delbut" disabled class="btn btn-custom-outline-brown" title="Delete"
-                            data-bs-toggle="tooltip" data-bs-placement="top" onclick="delel()"><i
+                        <button type="button" id="delbut" disabled="" class="btn btn-custom-outline-brown"
+                            title="Delete" data-bs-toggle="tooltip" data-bs-placement="top" onclick="delel()"><i
                                 class="bi bi-trash-fill"></i> </button>
-                        <button type="button" id="delallbut" disabled class="btn btn-custom-outline-brown"
-                            title="Delete All" data-bs-toggle="tooltip" data-bs-placement="top" onclick="delallel()">
+                        <button type="button" id="delallbut" class="btn btn-custom-outline-brown" title="Delete All"
+                            data-bs-toggle="tooltip" data-bs-placement="top" onclick="delallel()">
                             <i class="bi bi-recycle"></i> </button>
-                        <button type="button" id="dragbut" disabled class="btn btn-custom-outline-brown" title="DRAG"
+                        <button type="button" id="dragbut" disabled="" class="btn btn-custom-outline-brown" title="DRAG"
                             data-bs-toggle="tooltip" data-bs-placement="top" onclick="dragbu()"><i
                                 class="bi bi-arrows-move"></i></button>
-                        <button type="button" id="stepo" disabled class="btn btn-custom-outline-brown" title="Step IN"
-                            data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepout()"><i
+                        <button type="button" id="stepo" disabled="" class="btn btn-custom-outline-brown"
+                            title="Step IN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepout()"><i
                                 class="bi bi-arrow-90deg-down"></i> </button>
-                        <button type="button" id="stepi" disabled class="btn btn-custom-outline-brown" title="Step Out"
-                            data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepin()"><i
+                        <button type="button" id="stepi" disabled="" class="btn btn-custom-outline-brown"
+                            title="Step Out" data-bs-toggle="tooltip" data-bs-placement="top" onclick="stepin()"><i
                                 class="bi bi-arrow-return-right"></i> </button>
-                        
-                        <button type="button" id="run" class="btn btn-success" title="RUN" data-bs-target="#output_modal"
-                            onclick="RUN(document.getElementById('interface'));"
+
+                        <button type="button" id="run" class="btn btn-success" title="RUN"
+                            data-bs-target="#output_modal" onclick="RUN(document.getElementById('interface'));"
                             data-bs-toggle="modal">RUN </button>
                         <button type="button" id="run" class="btn btn-custom-outline-brown" title="RUN"
                             data-bs-target="#output_modal" data-bs-toggle="modal">OUTPUT </button>
@@ -645,22 +648,26 @@
     <div id="indexs">
         <div class="container-fluid h-100">
             <div class="row">
-    
-    
-                <div id="interface-sim" class="col-9 col-md-9 " ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
-    
+
+
+                <div id="interface-sim" class="col-9 col-md-9 " ondragenter="dragEnter_handler(event)"
+                    ondragover="dragOver_handler(event)" ondrop="drop_handler(event)"
+                    ondragleave="dragLeave_handler(event)">
+
                     <h2 class="text-center">Simulator</h2>
                     <div id="INPUT" class="mt-5">
                         <div>
-                            <div >
+                            <div>
                                 <label for="nbus">Total number of bus</label>
-                                <input id="nbus" name="Total number of bus" type="number" min="-Infinity" max="Infinity">
+                                <input id="nbus" value="3" name="Total number of bus" type="number" min="-Infinity"
+                                    max="Infinity">
                             </div>
                         </div>
                         <div class="mt-5">
                             BUS DATA
-                            <button class="btn btn-outline-success" onClick="addRowBusData();">+ Add row</button>
-                            <button class="btn btn-outline-danger" onClick="deleteRowBusData();">- Delete last row</button>
+                            <button class="btn btn-outline-success" onclick="addRowBusData();">+ Add row</button>
+                            <button class="btn btn-outline-danger" onclick="deleteRowBusData();">- Delete last
+                                row</button>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -685,17 +692,202 @@
                                     </tr>
                                 </thead>
                                 <tbody id="busDataTable">
-                                
+
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="sno-1">value for row 1 column
+                                                    1</label>
+                                                <input class="col-6" disabled="" name="Bus Data: row 1 column 1"
+                                                    id="sno-1" type="number" min="-Infinity" max="Infinity" value="1">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="fb-1">value for row 1 column
+                                                    2</label>
+                                                <input class="col-6 bus" value="1" id="fb-1"
+                                                    name="Bus Data: row 1 column 2" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="tb-1">value for row 1 column
+                                                    3</label>
+                                                <input class="col-6 bus" value="2" id="tb-1"
+                                                    name="Bus Data: row 1 column 3" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="r-1">value for row 1 column 4 Real
+                                                    part</label>
+                                                <input class="col-4" id="r-1" value="0.01"
+                                                    name="Bus Data: row 1 column 4 Real part" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                                +
+                                                <label class="visually-hidden" for="x-1">value for row 1 column 4
+                                                    Imaginary Part</label>
+                                                <input class="col-4" id="x-1" value="0.03"
+                                                    name="Bus Data: row 1 column 4 Imaginary part" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                                i
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="lca-1">value for row 1 column
+                                                    5</label>
+                                                <input class="col-6" id="lca-1" value="0"
+                                                    name="Bus Data: row 1 column 5" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="tr-1">value for row 1 column
+                                                    6</label>
+                                                <input class="col-6" id="tr-1" value="1" name="Bus Data: row 1 column 6"
+                                                    type="number" min="0" max="1">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="sno-2">value for row 2 column
+                                                    1</label>
+                                                <input class="col-6" disabled="" name="Bus Data: row 2 column 1"
+                                                    id="sno-2" type="number" min="-Infinity" max="Infinity" value="2">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="fb-2">value for row 2 column
+                                                    2</label>
+                                                <input class="col-6 bus" value="1" id="fb-2"
+                                                    name="Bus Data: row 2 column 2" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="tb-2">value for row 2 column
+                                                    3</label>
+                                                <input class="col-6 bus" value="3" id="tb-2"
+                                                    name="Bus Data: row 2 column 3" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="r-2">value for row 2 column 4 Real
+                                                    part</label>
+                                                <input class="col-4" id="r-2" value="0.02"
+                                                    name="Bus Data: row 2 column 4 Real part" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                                +
+                                                <label class="visually-hidden" for="x-2">value for row 2 column 4
+                                                    Imaginary Part</label>
+                                                <input class="col-4" id="x-2" value="0.05"
+                                                    name="Bus Data: row 2 column 4 Imaginary part" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                                i
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="lca-2">value for row 2 column
+                                                    5</label>
+                                                <input class="col-6" id="lca-2" value="0"
+                                                    name="Bus Data: row 2 column 5" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="tr-2">value for row 2 column
+                                                    6</label>
+                                                <input class="col-6" id="tr-2" value="1" name="Bus Data: row 2 column 6"
+                                                    type="number" min="0" max="1">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="sno-3">value for row 3 column
+                                                    1</label>
+                                                <input class="col-6" disabled="" name="Bus Data: row 3 column 1"
+                                                    id="sno-3" type="number" min="-Infinity" max="Infinity" value="3">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="fb-3">value for row 3 column
+                                                    2</label>
+                                                <input class="col-6 bus" value="2" id="fb-3"
+                                                    name="Bus Data: row 3 column 2" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="tb-3">value for row 3 column
+                                                    3</label>
+                                                <input class="col-6 bus" value="3" id="tb-3"
+                                                    name="Bus Data: row 3 column 3" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="r-3">value for row 3 column 4 Real
+                                                    part</label>
+                                                <input class="col-4" id="r-3" value="0.03"
+                                                    name="Bus Data: row 3 column 4 Real part" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                                +
+                                                <label class="visually-hidden" for="x-3">value for row 3 column 4
+                                                    Imaginary Part</label>
+                                                <input class="col-4" id="x-3" value="0.08"
+                                                    name="Bus Data: row 3 column 4 Imaginary part" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                                i
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="lca-3">value for row 3 column
+                                                    5</label>
+                                                <input class="col-6" id="lca-3" value="0"
+                                                    name="Bus Data: row 3 column 5" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="tr-3">value for row 3 column
+                                                    6</label>
+                                                <input class="col-6" id="tr-3" value="1" name="Bus Data: row 3 column 6"
+                                                    type="number" min="0" max="1">
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
-                                
+
                             </table>
                         </div>
+                        <div id="md">
+                            <h1>Measurement Data</h1>
+                        </div>
+                        <br>
                         <div class="mt-5">
-                            <div id = "md"><h1>Measurement Data</h1></div>
-                            <br>
                             Active power flow data in a line
-                            <button class="btn btn-outline-success" onClick="addRowAP();">+ Add row</button>
-                            <button class="btn btn-outline-danger" onClick="deleteRowAP();">- Delete last row</button>
+                            <button class="btn btn-outline-success" onclick="addRowAP();">+ Add row</button>
+                            <button class="btn btn-outline-danger" onclick="deleteRowAP();">- Delete last row</button>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -706,7 +898,7 @@
                                             Receiving end Bus
                                         </th>
                                         <th>
-                                            P value (p.u)
+                                            P value
                                         </th>
                                         <th>
                                             R value
@@ -714,15 +906,91 @@
                                     </tr>
                                 </thead>
                                 <tbody id="apDataTable">
-                                
+
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="ap-sb-1">value for row 1 column
+                                                    1</label>
+                                                <input class="col-6 bus" value="1" id="ap-sb-1"
+                                                    name="Active power flow: row 1 column 1" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="ap-rb-1">value for row 1 column
+                                                    2</label>
+                                                <input class="col-6 bus" value="2" id="ap-rb-1"
+                                                    name="Active power flow: row 1 column 2" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="ap-p-1">value for row 1 column
+                                                    3</label>
+                                                <input class="col-6" value="0.888" id="ap-p-1"
+                                                    name="Active power flow: row 1 column 3" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="ap-r-1">value for row 1 column 4
+                                                    Real part</label>
+                                                <input class="col-4" value="0.008" id="ap-r-1"
+                                                    name="Active power flow: row 1 column 4" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="ap-sb-2">value for row 2 column
+                                                    1</label>
+                                                <input class="col-6 bus" value="1" id="ap-sb-2"
+                                                    name="Active power flow: row 2 column 1" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="ap-rb-2">value for row 2 column
+                                                    2</label>
+                                                <input class="col-6 bus" value="3" id="ap-rb-2"
+                                                    name="Active power flow: row 2 column 2" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="ap-p-2">value for row 2 column
+                                                    3</label>
+                                                <input class="col-6" value="1.173" id="ap-p-2"
+                                                    name="Active power flow: row 2 column 3" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="ap-r-2">value for row 2 column 4
+                                                    Real part</label>
+                                                <input class="col-4" value="0.008" id="ap-r-2"
+                                                    name="Active power flow: row 2 column 4" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
-                                
+
                             </table>
                         </div>
                         <div class="mt-5">
                             Active power injections at a bus
-                            <button class="btn btn-outline-success" onClick="addRowAPI();">+ Add row</button>
-                            <button class="btn btn-outline-danger" onClick="deleteRowAPI();">- Delete last row</button>
+                            <button class="btn btn-outline-success" onclick="addRowAPI();">+ Add row</button>
+                            <button class="btn btn-outline-danger" onclick="deleteRowAPI();">- Delete last row</button>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -738,15 +1006,44 @@
                                     </tr>
                                 </thead>
                                 <tbody id="apiDataTable">
-                                
+
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="api-b-1">value for row 1 column
+                                                    1</label>
+                                                <input class="col-6 bus" value="2" id="api-b-1"
+                                                    name="Active power injection: row 1 column 1" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="api-p-1">value for row 1 column
+                                                    2</label>
+                                                <input class="col-6" id="api-p-1" value="-0.501"
+                                                    name="Active power injection: row 1 column 2" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="api-r-1">value for row 1 column
+                                                    3t</label>
+                                                <input class="col-4" id="api-r-1" value="0.010"
+                                                    name="Active power injection: row 1 column 3" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
-                                
+
                             </table>
                         </div>
                         <div class="mt-5">
                             Reactive power flow data in a line
-                            <button class="btn btn-outline-success" onClick="addRowRP();">+ Add row</button>
-                            <button class="btn btn-outline-danger" onClick="deleteRowRP();">- Delete last row</button>
+                            <button class="btn btn-outline-success" onclick="addRowRP();">+ Add row</button>
+                            <button class="btn btn-outline-danger" onclick="deleteRowRP();">- Delete last row</button>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -765,15 +1062,91 @@
                                     </tr>
                                 </thead>
                                 <tbody id="rpDataTable">
-                                
+
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="rp-sb-1">value for row 1 column
+                                                    1</label>
+                                                <input class="col-6 bus" value="1"
+                                                    name="Rective power injection: row 1 column 1" id="rp-sb-1"
+                                                    type="number" min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="rp-rb-1">value for row 1 column
+                                                    2</label>
+                                                <input class="col-6 bus" value="2"
+                                                    name="Rective power injection: row 1 column 2" id="rp-rb-1"
+                                                    type="number" min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="rp-q-1">value for row 1 column
+                                                    3</label>
+                                                <input class="col-6" value="0.568"
+                                                    name="Rective power injection: row 1 column 3" id="rp-q-1"
+                                                    type="number" min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="rp-r-1">value for row 1 column
+                                                    4</label>
+                                                <input class="col-4" value="0.008"
+                                                    name="Rective power injection: row 1 column 4" id="rp-r-1"
+                                                    type="number" min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="rp-sb-2">value for row 2 column
+                                                    1</label>
+                                                <input class="col-6 bus" value="1"
+                                                    name="Rective power injection: row 2 column 1" id="rp-sb-2"
+                                                    type="number" min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="rp-rb-2">value for row 2 column
+                                                    2</label>
+                                                <input class="col-6 bus" value="3"
+                                                    name="Rective power injection: row 2 column 2" id="rp-rb-2"
+                                                    type="number" min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="rp-q-2">value for row 2 column
+                                                    3</label>
+                                                <input class="col-6" value="0.663"
+                                                    name="Rective power injection: row 2 column 3" id="rp-q-2"
+                                                    type="number" min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="rp-r-2">value for row 2 column
+                                                    4</label>
+                                                <input class="col-4" value="0.008"
+                                                    name="Rective power injection: row 2 column 4" id="rp-r-2"
+                                                    type="number" min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
-                                
+
                             </table>
                         </div>
                         <div class="mt-5">
                             Reactive power injections at a bus
-                            <button class="btn btn-outline-success" onClick="addRowRPI();">+ Add row</button>
-                            <button class="btn btn-outline-danger" onClick="deleteRowRPI();">- Delete last row</button>
+                            <button class="btn btn-outline-success" onclick="addRowRPI();">+ Add row</button>
+                            <button class="btn btn-outline-danger" onclick="deleteRowRPI();">- Delete last row</button>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -789,15 +1162,44 @@
                                     </tr>
                                 </thead>
                                 <tbody id="rpiDataTable">
-                                
+
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="rpi-b-1">value for row 1 column
+                                                    1</label>
+                                                <input class="col-6 bus" value="2" id="rpi-b-1"
+                                                    name="Reactive power injection: row 1 column 1" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="rpi-q-1">value for row 1 column
+                                                    2</label>
+                                                <input class="col-6" value="-0.286" id="rpi-q-1"
+                                                    name="Reactive power injection: row 1 column 2" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="rpi-r-1">value for row 1 column
+                                                    3</label>
+                                                <input class="col-4" value="0.010" id="rpi-r-1"
+                                                    name="Reactive power injection: row 1 column 3" type="number"
+                                                    min="-Infinity" max="Infinity">
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
-                                
+
                             </table>
                         </div>
                         <div class="mt-5">
                             Voltage at bus
-                            <button class="btn btn-outline-success" onClick="addRowV();">+ Add row</button>
-                            <button class="btn btn-outline-danger" onClick="deleteRowV();">- Delete last row</button>
+                            <button class="btn btn-outline-success" onclick="addRowV();">+ Add row</button>
+                            <button class="btn btn-outline-danger" onclick="deleteRowV();">- Delete last row</button>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -813,15 +1215,74 @@
                                     </tr>
                                 </thead>
                                 <tbody id="VDataTable">
-                                
+
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="v-b-1">value for row 1 column
+                                                    1</label>
+                                                <input class="col-6 bus" value="1" id="v-b-1"
+                                                    name="Voltage at Bus: row 1 column 1" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="v-vmag-1">value for row 1 column
+                                                    2</label>
+                                                <input class="col-6" value="1.006" id="v-vmag-1"
+                                                    name="Voltage at Bus: row 1 column 2" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="v-r-1">value for row 1 column 3 Real
+                                                    part</label>
+                                                <input class="col-4" value="0.004" id="v-r-1"
+                                                    name="Voltage at Bus: row 1 column 3" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="v-b-2">value for row 2 column
+                                                    1</label>
+                                                <input class="col-6 bus" value="2" id="v-b-2"
+                                                    name="Voltage at Bus: row 2 column 1" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="v-vmag-2">value for row 2 column
+                                                    2</label>
+                                                <input class="col-6" value="0.968" id="v-vmag-2"
+                                                    name="Voltage at Bus: row 2 column 2" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <label class="visually-hidden" for="v-r-2">value for row 2 column 3 Real
+                                                    part</label>
+                                                <input class="col-4" value="0.004" id="v-r-2"
+                                                    name="Voltage at Bus: row 2 column 3" type="number" min="-Infinity"
+                                                    max="Infinity">
+                                            </div>
+                                        </td>
+                                    </tr>
                                 </tbody>
-                                
+
                             </table>
                         </div>
                         <div class="mt-5">
                             Shunt Data
-                            <button class="btn btn-outline-success" onClick="addRowShunt();">+ Add row</button>
-                            <button class="btn btn-outline-danger" onClick="deleteRowShunt();">- Delete last row</button>
+                            <button class="btn btn-outline-success" onclick="addRowShunt();">+ Add row</button>
+                            <button class="btn btn-outline-danger" onclick="deleteRowShunt();">- Delete last
+                                row</button>
                             <table class="table table-striped">
                                 <thead>
                                     <tr>
@@ -837,36 +1298,359 @@
                                     </tr>
                                 </thead>
                                 <tbody id="shuntDataTable">
-                                
+
                                 </tbody>
-                                
+
                             </table>
                         </div>
                         <div>
-                            <h3> Covariance Matrix (R)</h3>
+                            <h3> Resistance Matrix</h3>
                             <div id="resistance-matrix">
-                                
+                                <label class="visually-hidden" id="rm-0-0-label" for="rm-0-0"> resistance value for row
+                                    1 and column 1 </label>
+                                <input title="row 1 and column 1" class="col-1" id="rm-0-0"
+                                    name="resistance value for row 0 and column 0" type="number" max="Infinity"
+                                    value="64e-6" min="-Infinity">
+                                <label class="visually-hidden" id="rm-0-1-label" for="rm-0-1"> resistance value for row
+                                    1 and column 2 </label>
+                                <input title="row 1 and column 2" class="col-1" id="rm-0-1" disabled="" value="0"
+                                    name="resistance value for row 0 and column 1" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-0-2-label" for="rm-0-2"> resistance value for row
+                                    1 and column 3 </label>
+                                <input title="row 1 and column 3" class="col-1" id="rm-0-2" disabled="" value="0"
+                                    name="resistance value for row 0 and column 2" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-0-3-label" for="rm-0-3"> resistance value for row
+                                    1 and column 4 </label>
+                                <input title="row 1 and column 4" class="col-1" id="rm-0-3" disabled="" value="0"
+                                    name="resistance value for row 0 and column 3" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-0-4-label" for="rm-0-4"> resistance value for row
+                                    1 and column 5 </label>
+                                <input title="row 1 and column 5" class="col-1" id="rm-0-4" disabled="" value="0"
+                                    name="resistance value for row 0 and column 4" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-0-5-label" for="rm-0-5"> resistance value for row
+                                    1 and column 6 </label>
+                                <input title="row 1 and column 6" class="col-1" id="rm-0-5" disabled="" value="0"
+                                    name="resistance value for row 0 and column 5" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-0-6-label" for="rm-0-6"> resistance value for row
+                                    1 and column 7 </label>
+                                <input title="row 1 and column 7" class="col-1" id="rm-0-6" disabled="" value="0"
+                                    name="resistance value for row 0 and column 6" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-0-7-label" for="rm-0-7"> resistance value for row
+                                    1 and column 8 </label>
+                                <input title="row 1 and column 8" class="col-1" id="rm-0-7" disabled="" value="0"
+                                    name="resistance value for row 0 and column 7" type="number" max="Infinity"
+                                    min="-Infinity"><br>
+                                <label class="visually-hidden" id="rm-1-0-label" for="rm-1-0"> resistance value for row
+                                    2 and column 1 </label>
+                                <input title="row 2 and column 1" class="col-1" id="rm-1-0" disabled="" value="0"
+                                    name="resistance value for row 1 and column 0" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-1-1-label" for="rm-1-1"> resistance value for row
+                                    2 and column 2 </label>
+                                <input title="row 2 and column 2" class="col-1" id="rm-1-1"
+                                    name="resistance value for row 1 and column 1" type="number" max="Infinity"
+                                    min="-Infinity" value="64e-6">
+                                <label class="visually-hidden" id="rm-1-2-label" for="rm-1-2"> resistance value for row
+                                    2 and column 3 </label>
+                                <input title="row 2 and column 3" class="col-1" id="rm-1-2" disabled="" value="0"
+                                    name="resistance value for row 1 and column 2" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-1-3-label" for="rm-1-3"> resistance value for row
+                                    2 and column 4 </label>
+                                <input title="row 2 and column 4" class="col-1" id="rm-1-3" disabled="" value="0"
+                                    name="resistance value for row 1 and column 3" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-1-4-label" for="rm-1-4"> resistance value for row
+                                    2 and column 5 </label>
+                                <input title="row 2 and column 5" class="col-1" id="rm-1-4" disabled="" value="0"
+                                    name="resistance value for row 1 and column 4" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-1-5-label" for="rm-1-5"> resistance value for row
+                                    2 and column 6 </label>
+                                <input title="row 2 and column 6" class="col-1" id="rm-1-5" disabled="" value="0"
+                                    name="resistance value for row 1 and column 5" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-1-6-label" for="rm-1-6"> resistance value for row
+                                    2 and column 7 </label>
+                                <input title="row 2 and column 7" class="col-1" id="rm-1-6" disabled="" value="0"
+                                    name="resistance value for row 1 and column 6" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-1-7-label" for="rm-1-7"> resistance value for row
+                                    2 and column 8 </label>
+                                <input title="row 2 and column 8" class="col-1" id="rm-1-7" disabled="" value="0"
+                                    name="resistance value for row 1 and column 7" type="number" max="Infinity"
+                                    min="-Infinity"><br>
+                                <label class="visually-hidden" id="rm-2-0-label" for="rm-2-0"> resistance value for row
+                                    3 and column 1 </label>
+                                <input title="row 3 and column 1" class="col-1" id="rm-2-0" disabled="" value="0"
+                                    name="resistance value for row 2 and column 0" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-2-1-label" for="rm-2-1"> resistance value for row
+                                    3 and column 2 </label>
+                                <input title="row 3 and column 2" class="col-1" id="rm-2-1" disabled="" value="0"
+                                    name="resistance value for row 2 and column 1" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-2-2-label" for="rm-2-2"> resistance value for row
+                                    3 and column 3 </label>
+                                <input title="row 3 and column 3" class="col-1" id="rm-2-2"
+                                    name="resistance value for row 2 and column 2" type="number" max="Infinity"
+                                    min="-Infinity" value="1e-4">
+                                <label class="visually-hidden" id="rm-2-3-label" for="rm-2-3"> resistance value for row
+                                    3 and column 4 </label>
+                                <input title="row 3 and column 4" class="col-1" id="rm-2-3" disabled="" value="0"
+                                    name="resistance value for row 2 and column 3" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-2-4-label" for="rm-2-4"> resistance value for row
+                                    3 and column 5 </label>
+                                <input title="row 3 and column 5" class="col-1" id="rm-2-4" disabled="" value="0"
+                                    name="resistance value for row 2 and column 4" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-2-5-label" for="rm-2-5"> resistance value for row
+                                    3 and column 6 </label>
+                                <input title="row 3 and column 6" class="col-1" id="rm-2-5" disabled="" value="0"
+                                    name="resistance value for row 2 and column 5" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-2-6-label" for="rm-2-6"> resistance value for row
+                                    3 and column 7 </label>
+                                <input title="row 3 and column 7" class="col-1" id="rm-2-6" disabled="" value="0"
+                                    name="resistance value for row 2 and column 6" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-2-7-label" for="rm-2-7"> resistance value for row
+                                    3 and column 8 </label>
+                                <input title="row 3 and column 8" class="col-1" id="rm-2-7" disabled="" value="0"
+                                    name="resistance value for row 2 and column 7" type="number" max="Infinity"
+                                    min="-Infinity"><br>
+                                <label class="visually-hidden" id="rm-3-0-label" for="rm-3-0"> resistance value for row
+                                    4 and column 1 </label>
+                                <input title="row 4 and column 1" class="col-1" id="rm-3-0" disabled="" value="0"
+                                    name="resistance value for row 3 and column 0" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-3-1-label" for="rm-3-1"> resistance value for row
+                                    4 and column 2 </label>
+                                <input title="row 4 and column 2" class="col-1" id="rm-3-1" disabled="" value="0"
+                                    name="resistance value for row 3 and column 1" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-3-2-label" for="rm-3-2"> resistance value for row
+                                    4 and column 3 </label>
+                                <input title="row 4 and column 3" class="col-1" id="rm-3-2" disabled="" value="0"
+                                    name="resistance value for row 3 and column 2" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-3-3-label" for="rm-3-3"> resistance value for row
+                                    4 and column 4 </label>
+                                <input title="row 4 and column 4" class="col-1" id="rm-3-3"
+                                    name="resistance value for row 3 and column 3" type="number" max="Infinity"
+                                    min="-Infinity" value="64e-6">
+                                <label class="visually-hidden" id="rm-3-4-label" for="rm-3-4"> resistance value for row
+                                    4 and column 5 </label>
+                                <input title="row 4 and column 5" class="col-1" id="rm-3-4" disabled="" value="0"
+                                    name="resistance value for row 3 and column 4" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-3-5-label" for="rm-3-5"> resistance value for row
+                                    4 and column 6 </label>
+                                <input title="row 4 and column 6" class="col-1" id="rm-3-5" disabled="" value="0"
+                                    name="resistance value for row 3 and column 5" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-3-6-label" for="rm-3-6"> resistance value for row
+                                    4 and column 7 </label>
+                                <input title="row 4 and column 7" class="col-1" id="rm-3-6" disabled="" value="0"
+                                    name="resistance value for row 3 and column 6" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-3-7-label" for="rm-3-7"> resistance value for row
+                                    4 and column 8 </label>
+                                <input title="row 4 and column 8" class="col-1" id="rm-3-7" disabled="" value="0"
+                                    name="resistance value for row 3 and column 7" type="number" max="Infinity"
+                                    min="-Infinity"><br>
+                                <label class="visually-hidden" id="rm-4-0-label" for="rm-4-0"> resistance value for row
+                                    5 and column 1 </label>
+                                <input title="row 5 and column 1" class="col-1" id="rm-4-0" disabled="" value="0"
+                                    name="resistance value for row 4 and column 0" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-4-1-label" for="rm-4-1"> resistance value for row
+                                    5 and column 2 </label>
+                                <input title="row 5 and column 2" class="col-1" id="rm-4-1" disabled="" value="0"
+                                    name="resistance value for row 4 and column 1" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-4-2-label" for="rm-4-2"> resistance value for row
+                                    5 and column 3 </label>
+                                <input title="row 5 and column 3" class="col-1" id="rm-4-2" disabled="" value="0"
+                                    name="resistance value for row 4 and column 2" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-4-3-label" for="rm-4-3"> resistance value for row
+                                    5 and column 4 </label>
+                                <input title="row 5 and column 4" class="col-1" id="rm-4-3" disabled="" value="0"
+                                    name="resistance value for row 4 and column 3" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-4-4-label" for="rm-4-4"> resistance value for row
+                                    5 and column 5 </label>
+                                <input title="row 5 and column 5" class="col-1" id="rm-4-4"
+                                    name="resistance value for row 4 and column 4" type="number" max="Infinity"
+                                    min="-Infinity" value="64e-6">
+                                <label class="visually-hidden" id="rm-4-5-label" for="rm-4-5"> resistance value for row
+                                    5 and column 6 </label>
+                                <input title="row 5 and column 6" class="col-1" id="rm-4-5" disabled="" value="0"
+                                    name="resistance value for row 4 and column 5" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-4-6-label" for="rm-4-6"> resistance value for row
+                                    5 and column 7 </label>
+                                <input title="row 5 and column 7" class="col-1" id="rm-4-6" disabled="" value="0"
+                                    name="resistance value for row 4 and column 6" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-4-7-label" for="rm-4-7"> resistance value for row
+                                    5 and column 8 </label>
+                                <input title="row 5 and column 8" class="col-1" id="rm-4-7" disabled="" value="0"
+                                    name="resistance value for row 4 and column 7" type="number" max="Infinity"
+                                    min="-Infinity"><br>
+                                <label class="visually-hidden" id="rm-5-0-label" for="rm-5-0"> resistance value for row
+                                    6 and column 1 </label>
+                                <input title="row 6 and column 1" class="col-1" id="rm-5-0" disabled="" value="0"
+                                    name="resistance value for row 5 and column 0" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-5-1-label" for="rm-5-1"> resistance value for row
+                                    6 and column 2 </label>
+                                <input title="row 6 and column 2" class="col-1" id="rm-5-1" disabled="" value="0"
+                                    name="resistance value for row 5 and column 1" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-5-2-label" for="rm-5-2"> resistance value for row
+                                    6 and column 3 </label>
+                                <input title="row 6 and column 3" class="col-1" id="rm-5-2" disabled="" value="0"
+                                    name="resistance value for row 5 and column 2" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-5-3-label" for="rm-5-3"> resistance value for row
+                                    6 and column 4 </label>
+                                <input title="row 6 and column 4" class="col-1" id="rm-5-3" disabled="" value="0"
+                                    name="resistance value for row 5 and column 3" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-5-4-label" for="rm-5-4"> resistance value for row
+                                    6 and column 5 </label>
+                                <input title="row 6 and column 5" class="col-1" id="rm-5-4" disabled="" value="0"
+                                    name="resistance value for row 5 and column 4" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-5-5-label" for="rm-5-5"> resistance value for row
+                                    6 and column 6 </label>
+                                <input title="row 6 and column 6" class="col-1" id="rm-5-5"
+                                    name="resistance value for row 5 and column 5" type="number" max="Infinity"
+                                    min="-Infinity" value="1e-4">
+                                <label class="visually-hidden" id="rm-5-6-label" for="rm-5-6"> resistance value for row
+                                    6 and column 7 </label>
+                                <input title="row 6 and column 7" class="col-1" id="rm-5-6" disabled="" value="0"
+                                    name="resistance value for row 5 and column 6" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-5-7-label" for="rm-5-7"> resistance value for row
+                                    6 and column 8 </label>
+                                <input title="row 6 and column 8" class="col-1" id="rm-5-7" disabled="" value="0"
+                                    name="resistance value for row 5 and column 7" type="number" max="Infinity"
+                                    min="-Infinity"><br>
+                                <label class="visually-hidden" id="rm-6-0-label" for="rm-6-0"> resistance value for row
+                                    7 and column 1 </label>
+                                <input title="row 7 and column 1" class="col-1" id="rm-6-0" disabled="" value="0"
+                                    name="resistance value for row 6 and column 0" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-6-1-label" for="rm-6-1"> resistance value for row
+                                    7 and column 2 </label>
+                                <input title="row 7 and column 2" class="col-1" id="rm-6-1" disabled="" value="0"
+                                    name="resistance value for row 6 and column 1" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-6-2-label" for="rm-6-2"> resistance value for row
+                                    7 and column 3 </label>
+                                <input title="row 7 and column 3" class="col-1" id="rm-6-2" disabled="" value="0"
+                                    name="resistance value for row 6 and column 2" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-6-3-label" for="rm-6-3"> resistance value for row
+                                    7 and column 4 </label>
+                                <input title="row 7 and column 4" class="col-1" id="rm-6-3" disabled="" value="0"
+                                    name="resistance value for row 6 and column 3" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-6-4-label" for="rm-6-4"> resistance value for row
+                                    7 and column 5 </label>
+                                <input title="row 7 and column 5" class="col-1" id="rm-6-4" disabled="" value="0"
+                                    name="resistance value for row 6 and column 4" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-6-5-label" for="rm-6-5"> resistance value for row
+                                    7 and column 6 </label>
+                                <input title="row 7 and column 6" class="col-1" id="rm-6-5" disabled="" value="0"
+                                    name="resistance value for row 6 and column 5" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-6-6-label" for="rm-6-6"> resistance value for row
+                                    7 and column 7 </label>
+                                <input title="row 7 and column 7" class="col-1" id="rm-6-6"
+                                    name="resistance value for row 6 and column 6" type="number" max="Infinity"
+                                    min="-Infinity" value="16e-6">
+                                <label class="visually-hidden" id="rm-6-7-label" for="rm-6-7"> resistance value for row
+                                    7 and column 8 </label>
+                                <input title="row 7 and column 8" class="col-1" id="rm-6-7" disabled="" value="0"
+                                    name="resistance value for row 6 and column 7" type="number" max="Infinity"
+                                    min="-Infinity"><br>
+                                <label class="visually-hidden" id="rm-7-0-label" for="rm-7-0"> resistance value for row
+                                    8 and column 1 </label>
+                                <input title="row 8 and column 1" class="col-1" id="rm-7-0" disabled="" value="0"
+                                    name="resistance value for row 7 and column 0" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-7-1-label" for="rm-7-1"> resistance value for row
+                                    8 and column 2 </label>
+                                <input title="row 8 and column 2" class="col-1" id="rm-7-1" disabled="" value="0"
+                                    name="resistance value for row 7 and column 1" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-7-2-label" for="rm-7-2"> resistance value for row
+                                    8 and column 3 </label>
+                                <input title="row 8 and column 3" class="col-1" id="rm-7-2" disabled="" value="0"
+                                    name="resistance value for row 7 and column 2" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-7-3-label" for="rm-7-3"> resistance value for row
+                                    8 and column 4 </label>
+                                <input title="row 8 and column 4" class="col-1" id="rm-7-3" disabled="" value="0"
+                                    name="resistance value for row 7 and column 3" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-7-4-label" for="rm-7-4"> resistance value for row
+                                    8 and column 5 </label>
+                                <input title="row 8 and column 5" class="col-1" id="rm-7-4" disabled="" value="0"
+                                    name="resistance value for row 7 and column 4" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-7-5-label" for="rm-7-5"> resistance value for row
+                                    8 and column 6 </label>
+                                <input title="row 8 and column 6" class="col-1" id="rm-7-5" disabled="" value="0"
+                                    name="resistance value for row 7 and column 5" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-7-6-label" for="rm-7-6"> resistance value for row
+                                    8 and column 7 </label>
+                                <input title="row 8 and column 7" class="col-1" id="rm-7-6" disabled="" value="0"
+                                    name="resistance value for row 7 and column 6" type="number" max="Infinity"
+                                    min="-Infinity">
+                                <label class="visually-hidden" id="rm-7-7-label" for="rm-7-7"> resistance value for row
+                                    8 and column 8 </label>
+                                <input title="row 8 and column 8" class="col-1" id="rm-7-7"
+                                    name="resistance value for row 7 and column 7" type="number" max="Infinity"
+                                    min="-Infinity" value="16e-6"><br>
                             </div>
                         </div>
                     </div>
                     <div class="d-flex justify-content-evenly mt-5">
-    
+
                         <div id="OUTPUT" class="my-5  px-5">
                         </div>
                     </div>
                 </div>
-    
-    
+
+
                 <div id="properties" class="col-3">
                     <div class="pt-4">
-    
-                        <button type="button" id="program" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="showpro()"><a href="#"
+
+                        <button type="button" id="program" class="btn btn-custom-outline-brown w-100 d-block" title="  "
+                            data-bs-toggle="tooltip" data-bs-placement="top" onclick="showpro()"><a href="#"
                                 style="text-decoration: none;color:black;display: block;">Go to
                                 programming-interface</a></button>
-                        <div style="width: 100%; text-align:center;"><button id="run" type="button" class="btn btn-success w-50" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="runSIM();startInteraction(data[1]);" style="display: inline-block;">Run</button>
+                        <div style="width: 100%; text-align:center;"><button id="run" type="button"
+                                class="btn btn-success w-50" title="RUN" data-bs-toggle="tooltip"
+                                data-bs-placement="top" onclick="runSIM();startInteraction(data[1]);"
+                                style="display: inline-block;">Run</button>
                         </div>
                     </div>
-    
+
                 </div>
             </div>
         </div>
@@ -876,24 +1660,27 @@
         <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 id="quiz-title" class="modal-title"></h5>
+                    <h5 id="quiz-title" class="modal-title">Question 1</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
-                    <p id="quiz-body"></p>
+                    <p id="quiz-body">The system enters the extremis state if it falls below a certain limit of security
+                        level.</p>
                     <div id="quiz-select">
-
+                        <div class="form-check"><input class="form-check-input" type="radio" id="quiz-ans-a"
+                                name="quiz-ans"><label class="form-check-label" for="quiz-ans-a">a: Yes</label></div>
+                        <div class="form-check"><input class="form-check-input" type="radio" id="quiz-ans-b"
+                                name="quiz-ans" data-ans="true"><label class="form-check-label" for="quiz-ans-b">b:
+                                No</label></div>
                     </div>
-                    <div id="quiz-result">
-
-                    </div>
+                    <div id="quiz-result"></div>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                    <button id="quiz-previous" type="button" class="btn btn-primary"
-                        onclick="previousInteraction();">Previous</button>
-                    <button id="quiz-next" type="button" class="btn btn-primary"
-                        onclick="nextInteraction();">Next</button>
+                    <button id="quiz-previous" type="button" class="btn btn-primary" onclick="previousInteraction();"
+                        hidden="">Previous</button>
+                    <button id="quiz-next" type="button" class="btn btn-primary" onclick="nextInteraction();"
+                        hidden="">Next</button>
                     <button id="quiz-submit" type="button" class="btn btn-success" onclick="checkAns();">Check
                         Answer</button>
                 </div>
@@ -901,7 +1688,8 @@
         </div>
     </div>
     <footer class="p-3">
-        Copyright © 2022 - <span id="year"></span> Department of Electrical and Electronics Engineering, SRM Institute
+        Copyright © 2022 - <span id="year">2022</span> Department of Electrical and Electronics Engineering, SRM
+        Institute
         of Science and Technology, Kattankulathur<br> PALS-VLAB initiative, in collaboration with NITK as Technology
         Partner
         <script>
@@ -909,31 +1697,31 @@
             document.getElementById("year").innerText = new Date().getFullYear();
         </script>
     </footer>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-    crossorigin="anonymous"></script>
+        integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
+        crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.min.js"
-    integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
-    crossorigin="anonymous"></script>
+        integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
+        crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/10.4.0/math.js"
-    integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg=="
-    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        integrity="sha512-sUg3/7DzyxwAwb2W5qbB9gWu/gsrJle/GN+AF4RJlQh38CT3xhL4jsW4iiCVRIErDWm0oz6mF9LCcehU1mwxcg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./js/quiz.js"></script>
     <script src="js/drag1.js"></script>
     <script src="js/wls.js"></script>
     <script src="js/main.js"></script>
     <script>
         startInteraction(data[0])
-        function showsim(){
+        function showsim() {
             let output = document.getElementById("OUTPUT")
-            output.innerHTML=""
-            output.style.border="none"
+            output.innerHTML = ""
+            output.style.border = "none"
             startInteraction(data[0])
             document.getElementById("tyrs").classList.add("d-none")
             document.getElementById("indexs").classList.remove("d-none")
         }
-        function showpro(){
+        function showpro() {
             let interface = document.getElementById("interface");
             interface.innerHTML = `
                 <h2 class='text-center'>Interface</h2>
@@ -942,7 +1730,7 @@
                 </div>
                 `;
             document.getElementById("result_modal").innerHTML = ""
-            if(document.getElementById("prebuilt")){
+            if (document.getElementById("prebuilt")) {
                 document.getElementById("prebuilt").innerHTML = " PreBuilt"
                 prebuilton = false;
 
@@ -951,7 +1739,7 @@
             document.getElementById("tyrs").classList.remove("d-none")
             document.getElementById("indexs").classList.add("d-none")
         }
-        
+
     </script>
 </body>
 <template id="boo">
@@ -1001,7 +1789,7 @@
             <label class="visually-hidden" for="COL">Enter the number of Column of the matrix</label>
             <input type="text" name="" onchange="matinput(prevSelection[0])" id="COL" placeholder="Number of Columns">
             <br>
-            
+
             <br>
             <div class="matinps"></div>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>
@@ -1072,7 +1860,7 @@
             <label class="visually-hidden" for="VAL">Enter the Number of elements</label>
             <input type="text" name="" onchange="vecinput(prevSelection[0])" id="VAL" placeholder="Number of elements">
             <br>
-            
+
             <br>
             <div class="vecinps"></div>
             <button id="OK" class="btn btn-custom-outline-brown" onclick="ok(event)"> Ok </button>

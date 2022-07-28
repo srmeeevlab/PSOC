@@ -10,6 +10,9 @@ body {
     width: 100vw;
     font-family: "JetBrains Mono", monospace;
 }
+table,tr,th,td {
+    border: 1px solid black ;
+}
 
 .container {
     background-color: #61A4BC;

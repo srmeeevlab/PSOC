@@ -36,6 +36,8 @@
                                     data-bs-target="#modal2">Simulation</a></li>
                             <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
                                     data-bs-target="#modal3">Theory</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal4">Input
+                                    Variables</a></li>
                         </ul>
                     </div>
                 </span>
@@ -330,13 +332,87 @@
                     <div class="modal-footer">
                         <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal"
                             data-bs-dismiss="modal">Previous</button>
+                        <button class="btn btn-primary" data-bs-target="#modal4" data-bs-toggle="modal"
+                            data-bs-dismiss="modal">Next</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal4" aria-hidden="true" aria-labelledby="modal4Label" tabindex="-1">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal4Label">Theory</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+
+                        <div id="formulae">
+                            <img src="images/exp1_form1.PNG" alt="img1">
+                            <img src="images/exp1_form2.PNG" alt="img2">
+                            <img src="images/exp1_form3.PNG" alt="img3">
+                        </div>
+                        <table>
+                            <tr>
+                                <th>Field</th>
+                                <th>Explanation</th>
+                                <th>General Range</th>
+                            </tr>
+                            <tr>
+                                <td>Nominal Voltage (kV)</td>
+                                <td>It is operating voltage of the transmission system. Normal very long transmission
+                                    line is utilized this study</td>
+                                <td>230 kV to 1100 kV (But not restricted)</td>
+                            </tr>
+                            <tr>
+                                <td>Inductance (mH)
+                                </td>
+                                <td>The inductance offered per km of the long transmission line.
+                                </td>
+                                <td>1 to 1000 m H (But not restricted)</td>
+                            </tr>
+                            <tr>
+                                <td>Frequency (Hz) </td>
+                                <td>The operating frequency of the power system in Hz or cycles per seconds </td>
+                                <td>50 or 60 Hz (other values may not be suitable for practical operating of the power
+                                    system)</td>
+                            </tr>
+                            <tr>
+                                <td>Capacitance (nF)
+
+                                </td>
+                                <td>The inductance offered per km of the long transmission line.</td>
+                                <td>1 to 1000 m H (But not restricted)</td>
+                            </tr>
+                            <tr>
+                                <td>Transmission line length (km)</td>
+                                <td>Total transmission line length of the power system in km</td>
+                                <td>>250 km</td>
+                            </tr>
+
+                            <tr>
+                                <td>
+                                    Delta (deg)
+                                </td>
+                                <td>Delta represents the loading of the transmission line, i.e. the MW (Mega Watt)
+                                    carrying capacity of the transmission line. </td>
+                                <td>>0 Degree</td>
+                            </tr>
+                        </table>
+
+
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#modal3" data-bs-toggle="modal"
+                            data-bs-dismiss="modal">Previous</button>
                         <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    
+
     <div id="tyrs" class="d-none">
         <div class="modal fade" id="output_modal" aria-hidden="true" aria-labelledby="output_modalLabel" tabindex="-1">
             <div class="modal-dialog modal-dialog-scrollable">
@@ -579,11 +655,11 @@
                         <button type="button" id="prebuilt" class="btn btn-custom-outline-brown w-100 d-block"
                             title="  " data-bs-toggle="tooltip" data-bs-placement="top"
                             onclick="prebuilt()">PreBuilt</button>
-                            <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block"
-                            title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="showsim()"> <a
-                                href="#" style="text-decoration: none; color:black; display: block;">Go to
+                        <button type="button" id="simulation" class="btn btn-custom-outline-brown w-100 d-block"
+                            title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="showsim()"> <a href="#"
+                                style="text-decoration: none; color:black; display: block;">Go to
                                 Simulation</a> </button>
-                        
+
                         <button type="button" id="upbut" disabled class="btn btn-custom-outline-brown" title="move up"
                             data-bs-toggle="tooltip" data-bs-placement="top" onclick="up()"><i
                                 class="bi bi-caret-up-fill"></i> </button>
@@ -631,71 +707,73 @@
     <div id="indexs" class="noselect">
         <div class="noselect container-fluid h-100">
             <div class="row">
-    
-    
-                <div id="interface-sim" class="col-9 col-md-9 noselect " ondragenter="dragEnter_handler(event)" ondragover="dragOver_handler(event)" ondrop="drop_handler(event)" ondragleave="dragLeave_handler(event)">
+
+
+                <div id="interface-sim" class="col-9 col-md-9 noselect " ondragenter="dragEnter_handler(event)"
+                    ondragover="dragOver_handler(event)" ondrop="drop_handler(event)"
+                    ondragleave="dragLeave_handler(event)">
                     <h2 class="text-center">Simulator</h2>
-    
+
                     <div id="INPUT" class="d-flex noselect justify-content-around mt-5">
                         <div id="left">
                             <div class="pl-3 pt-2   " id="cst0" draggable="false">
                                 Nominal Voltage (kV)
-    
+
                                 <div class=" pb-2" style="display: block;">
-    
+
                                     <label class="visually-hidden" for="vnom">Enter the value</label>
                                     <input value="735 " type="text" name="" id="vnom" placeholder="Value">
                                     <br>
-    
+
                                 </div>
                             </div>
-    
+
                             <div class="pl-3 pt-2   " id="cst1">
                                 Frequency (Hz)
-    
+
                                 <div class=" pb-2" style="display: block;">
-    
+
                                     <label class="visually-hidden" for="freq">Enter the value</label>
                                     <input value="60" type="text" name="" id="freq" placeholder="Value">
                                     <br>
-    
+
                                 </div>
                             </div>
-    
+
                             <div class="pl-3 pt-2   " id="cst2" draggable="false">
                                 Transmission line length (Km)
-    
+
                                 <div class=" pb-2" style="display: block;">
-    
+
                                     <label class="visually-hidden" for="km">Enter the value</label>
                                     <input value="800" type="text" name="" id="km" placeholder="Value">
                                     <br>
-    
+
                                 </div>
                             </div>
                         </div>
-    
+
                         <div id="right">
                             <div class="pl-3 pt-2   " id="cst3" draggable="false">
                                 Inductance (mH)
                                 <div class=" pb-2" style="display: block;">
-    
+
                                     <label class="visually-hidden" for="l">Enter the value</label>
                                     <input value="0.9323" type="text" name="" id="l" placeholder="Value">
                                     <br>
                                 </div>
                             </div>
-    
+
                             <div class="pl-3 pt-2   " id="cst4">
                                 Capacitance (nF)
                                 <div class=" pb-2" style="display: block;">
-    
+
                                     <label class="visually-hidden" for="c">Enter the value</label>
                                     <input value="12.2 " type="text" name="" id="c" placeholder="Value">
                                     <br>
                                 </div>
                             </div>
-    
+
                             <div class="pl-3 pt-2   " title="Voltage angle of sending end bus" id="cst5">
                                 Delta (deg)
                                 <div class=" pb-2" style="display: block;">
@@ -707,21 +785,25 @@
                             </div>
                         </div>
                     </div>
-    
+
                     <div id="OUTPUT" class="m-5 p-2">
-    
+
                     </div>
                 </div>
-    
-    
+
+
                 <div id="properties" class="col-3" id="right-buttons">
                     <div class="pt-4">
-    
-                        <button type="button" id="program" class="btn btn-custom-outline-brown w-100 d-block" title="  " data-bs-toggle="tooltip" data-bs-placement="top" onclick="showpro()"><a href="#"
+
+                        <button type="button" id="program" class="btn btn-custom-outline-brown w-100 d-block" title="  "
+                            data-bs-toggle="tooltip" data-bs-placement="top" onclick="showpro()"><a href="#"
                                 style="text-decoration: none;color:black;display: block;">Go to
                                 programming-interface</a></button>
                         <div style="width: 100%; text-align:center;">
-                            <button id="run" type="button" class="btn btn-success w-50" title="RUN" data-bs-toggle="tooltip" data-bs-placement="top" onclick="Simulate();startInteraction(data[1])" style="display: inline-block;">Run</button>
+                            <button id="run" type="button" class="btn btn-success w-50" title="RUN"
+                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                onclick="Simulate();startInteraction(data[1])"
+                                style="display: inline-block;">Run</button>
                         </div>
                     </div>
                 </div>
@@ -781,15 +863,15 @@
     <script src="js/simulator-exp1.js"></script>
     <script>
         startInteraction(data[0])
-        function showsim(){
+        function showsim() {
             let output = document.getElementById("OUTPUT")
-            output.innerHTML=""
-            output.style.border="none"
+            output.innerHTML = ""
+            output.style.border = "none"
             startInteraction(data[0])
             document.getElementById("tyrs").classList.add("d-none")
             document.getElementById("indexs").classList.remove("d-none")
         }
-        function showpro(){
+        function showpro() {
             let interface = document.getElementById("interface");
             interface.innerHTML = `
                 <h2 class='text-center'>Interface</h2>
@@ -804,7 +886,7 @@
             document.getElementById("tyrs").classList.remove("d-none")
             document.getElementById("indexs").classList.add("d-none")
         }
-        
+
     </script>
 </body>
 <template id="boo">

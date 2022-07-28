@@ -58,7 +58,7 @@
         <div class="modal-dialog modal-dialog-scrollable">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="modal3Label">Theory</h5>
+                    <h5 class="modal-title" id="modal2Label">Theory</h5>
                     <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
@@ -76,6 +76,115 @@
                 </div>
                 <div class="modal-footer">
                     <button class="btn btn-primary" data-bs-target="#modal1" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
+                    <button class="btn btn-primary" data-bs-target="#modal3" data-bs-toggle="modal" data-bs-dismiss="modal">Next</button>
+                    <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="modal3" aria-hidden="true" aria-labelledby="modal3Label" tabindex="-1">
+        <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="modal3Label">Theory</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <div id="formulae">
+                        <img src="images/exp5_form1.PNG" alt="img1">
+                        <img src="images/exp5_form2.PNG" alt="img2">
+                    </div>
+                    <table>
+                        <tr>
+                            <th>Field</th>
+                            <th>Explanation</th>
+                            <th>General Range</th>
+                        </tr>
+                        <tr>
+                            <td>Bandgap energy </td>
+                            <td>The energy band gaps of silicon and germanium material.  It is denoted as Eg</td>
+                            <td>1.1 eV and 0.7 eV</td>
+                        </tr>
+                        <tr>
+                            <td>Number of Series cell :</td>
+                            <td>Number of pv cells that are connected in series to the solar panel</td>
+                            <td>1-100 
+                                (But not restricted)
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>Number of parallel cells</td>
+                            <td>Number of pv cells that are connected in parallel to the solar panel</td>
+                            <td>1-100 
+                                (But not restricted)
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>Series resistance rs :</td>
+                            <td>Value of series resistance used in the PV cell (refer data sheet of the Solar panel Manufacturer)</td>
+                            <td>0.1-1
+                                (But not restricted)
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>shunt resistance rsh:</td>
+                            <td>Value of parallel resistance used in the PV cell (refer data sheet provided by the Solar panel Manufacturer)</td>
+                            <td>0.1-1
+                                (But not restricted)
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>Open circuit voltage:</td>
+                            <td>Open circuit voltage of the solar panel (refer data sheet provided by the Solar panel Manufacturer)</td>
+                            <td>0.1	mV- 50 V
+                                (But not restricted)
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>Short circuit current:</td>
+                            <td>Short circuit currrent of the solar panel (refer data sheet provided by the Solar panel Manufacturer)</td>
+                            <td>0.2	mA- 15 A
+                                (But not restricted)
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>Diode saturation current:</td>
+                            <td>Diode saturation current value</td>
+                            <td>0.00006-0.001 A
+                                (But not restricted)
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>Current Coefficient:</td>
+                            <td>Short circuit current of the solar panel (refer data sheet provided by the Solar panel Manufacturer)</td>
+                            <td>0.01	– 0.4
+                                (But not restricted)
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>ambient temperature :</td>
+                            <td>Ambient temperature or cell reference temperature </td>
+                            <td>25 0C
+                                (But not restricted)
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>nominal operating cell temperature:</td>
+                            <td>Operating cell temperature of the PV panel</td>
+                            <td>25 0C to 80 0C
+                                (But not restricted)
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>Irradiance:</td>
+                            <td>Insolation or irradiation of  the PV panel (W/m2`)</td>
+                            <td>0 W/m 2  to 2000  W/m 2</td>
+                        </tr>
+                        
+                    </table>
+                </div>
+                <div class="modal-footer">
+                    <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
                     <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                 </div>
             </div>

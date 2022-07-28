@@ -30,6 +30,7 @@
                           <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal1">Interface</a></li>
                           <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal2">Simulation</a></li>
                           <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal3">Theory</a></li>
+                          <li><a class="dropdown-item" href="#"data-bs-toggle="modal" data-bs-target="#modal4">input Variables</a></li>
                         </ul>
                       </div>
                 </span>
@@ -290,6 +291,127 @@
                     </div>
                     <div class="modal-footer">
                         <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
+                        <button class="btn btn-primary" data-bs-target="#modal4" data-bs-toggle="modal" data-bs-dismiss="modal">Next</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal4" aria-hidden="true" aria-labelledby="modal4Label" tabindex="-1">
+            <div class="modal-dialog modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal4Label">Theory</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div id="formulae">
+                            <img src="images/exp2_form1.PNG" alt="img1">
+                            <img src="images/exp2_form2.PNG" alt="img2">
+                            <img src="images/exp2_form3.PNG" alt="img2">
+                            
+                        </div>
+                        <table>
+                            <tr>
+                                <th>Field</th>
+                                <th>Explanation</th>
+                                <th>General Range</th>
+                            </tr>
+                            <tr>
+                                <td>Total Demand (Pd)</td>
+                                <td>Total power system load/demand in MW </td>
+                                <td>0 – 10000 MW 
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Incremental Cost (Lamda)</td>
+                                <td>Cost spent for generating the power in Rs/hr</td>
+                                <td>0 – 100 
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Tolerance (delp)</td>
+                                <td>The mismatch between the power generation and demand/load in MW</td>
+                                <td>0 – 0.5 MW 
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Tolerance (dellamda)</td>
+                                <td>The mismatch between the initial cost taken and solution arrived at the end in Rs/hr</td>
+                                <td>0 – 0.2 Rs/hr 
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Number of Rows</td>
+                                <td>It denotes number of generating units used for economic dispatch problem</td>
+                                <td>2- 5 
+                                    (More than two mandatory) 
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>S.No</td>
+                                <td>Generating Unit number</td>
+                                <td>1 - 5</td>
+                            </tr>
+                            <tr>
+                                <td>Cost coefficient
+                                    a (Rs/hr)
+                                    </td>
+                                <td>It is a cost coefficient value for the respective generating unit which is arrived for the power plant generating unit from the fuel cost curve</td>
+                                <td>
+                                    0-1000
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Cost coefficient
+                                    b (Rs/MW)
+                                    </td>
+                                <td>It is a cost coefficient value for the respective generating unit which is arrived for the power plant generating unit from the fuel cost curve</td>
+                                <td>0-5
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Cost coefficient
+                                    c (Rs/MW2)
+                                    </td>
+                                <td>It is a cost coefficient value for the respective generating unit which is arrived for the power plant generating unit from the fuel cost curve</td>
+                                <td>0-0.1
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Loss data: 
+                                    Number of elements
+                                </td>
+                                <td>It denotes how many transmission loss coefficients value user going to enter</td>
+                                <td>2</td>
+                            </tr>
+                            <tr>
+                                <td>First row</td>
+                                <td>Loss coefficient matrix first value -B11</td>
+                                <td>0 -0.5 
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Second row</td>
+                                <td>Loss coefficient matrix first value- B22</td>
+                                <td>0 -0.5
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            
+                            
+                        </table>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#modal3" data-bs-toggle="modal" data-bs-dismiss="modal">Previous</button>
                         <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>
