@@ -1,1 +1,0 @@
-## Economic Dispatch Considering Transmission Losses
