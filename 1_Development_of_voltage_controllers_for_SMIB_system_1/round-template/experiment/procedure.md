@@ -88,3 +88,5 @@
 ![procedure for experiment 1 step 2.8 ](./images/Capture_Exp.1_Programming_Interface_8.PNG)
 
 #### Step 9: Verify the result against manual calculations.
+
+![procedure for experiment 1 step 2.8 ](./images/Capture_Exp.1_Programming_Interface_d.PNG)
