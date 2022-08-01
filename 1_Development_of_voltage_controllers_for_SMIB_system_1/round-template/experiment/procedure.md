@@ -1,6 +1,6 @@
 ### Basic Simulator:
 
-#### The user has to provide the input values to run the simulator. The following steps help the user to explore the platform.
+#### The user has to provide the input values to run the simulator. The following steps help the user to explore the platform. Tried uploading the images!
 
 #### Step 1: Navigate to the “Help” button and click on it.	
 
