@@ -34,7 +34,7 @@
 
 #### For forming the algorithm yourself, follow steps 1-10:
 
-#### ●	Step 1: Navigate to the “Help” button and click on
+#### ●	Step 1: Navigate to the “Help” button and click on it.
 
 ![procedure for experiment 7 step 1 ](./images/Capture_Exp.7_Programming_Interface_1.PNG)
 
