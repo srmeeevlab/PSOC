@@ -1,6 +1,6 @@
 ### Basic Simulator:
 
-#### The user has to provide the input values to run the simulator. The following steps help the user to explore the platform. Tried uploading the images, yet again!
+#### The user has to provide the input values to run the simulator. The following steps help the user to explore the platform.
 
 #### Step 1: Navigate to the “Help” button and click on it.	
 
@@ -73,7 +73,7 @@
 
 #### Step 5: Upon selecting the element/block, drag it to the specified area.
 
-![procedure for experiment 1 step 2.5 ](./images/Capture_Exp.1_Programming_Interface_5.PNG)
+![procedure for experiment 1 step 2.5 ](./images/Capture_Exp.1_Programming_Interface_5.png)
 
 #### Step 6: Name the elements/blocks appropriately.
 
