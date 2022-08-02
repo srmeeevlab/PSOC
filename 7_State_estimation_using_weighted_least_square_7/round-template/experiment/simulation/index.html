@@ -36,6 +36,8 @@
                                     data-bs-target="#modal2">Simulation</a></li>
                             <li><a class="dropdown-item" href="#" data-bs-toggle="modal"
                                     data-bs-target="#modal3">Theory</a></li>
+                            <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#modal4">Input
+                                    Variable </a></li>
                         </ul>
                     </div>
                 </span>
@@ -46,7 +48,7 @@
     </nav>
     <div id="HELP-MODAL">
         <div class="modal fade" id="modal1" aria-hidden="true" aria-labelledby="modal1Label" tabindex="-1">
-            <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modal1Label">Interface</h5>
@@ -275,7 +277,7 @@
             </div>
         </div>
         <div class="modal fade" id="modal2" aria-hidden="true" aria-labelledby="modal2Label" tabindex="-1">
-            <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modal2Label">Simulation</h5>
@@ -311,7 +313,7 @@
             </div>
         </div>
         <div class="modal fade" id="modal3" aria-hidden="true" aria-labelledby="modal3Label" tabindex="-1">
-            <div class="modal-dialog modal-dialog-scrollable">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
                 <div class="modal-content">
                     <div class="modal-header">
                         <h5 class="modal-title" id="modal3Label">Theory</h5>
@@ -337,6 +339,266 @@
                     <div class="modal-footer">
                         <button class="btn btn-primary" data-bs-target="#modal2" data-bs-toggle="modal"
                             data-bs-dismiss="modal">Previous</button>
+                        <button class="btn btn-primary" data-bs-target="#modal4" data-bs-toggle="modal"
+                            data-bs-dismiss="modal">Next</button>
+                        <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="modal4" aria-hidden="true" aria-labelledby="modal4Label" tabindex="-1">
+            <div class="modal-dialog modal-xl modal-dialog-scrollable">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="modal4Label">Input Variables</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        
+                        <table>
+                            <tr>
+                                <th>Field</th>
+                                <th>Explanation</th>
+                                <th>General Range</th>
+                            </tr>
+                            <tr>
+                                <td>Total number of bus
+                                </td>
+                                <td>Number of the buses or junctions in a power system </td>
+                                <td>1 to 100
+                                    (But not restricted)
+                                </td>
+                            </tr>
+                            <tr>
+                                <th colspan="3">BUS DATA</th>
+                            </tr>
+                            <tr>
+                                <td>
+                                    Serial number
+                                </td>
+                                <td>Serial number of the bus </td>
+                                <td>1 to 100
+                                    (But not restricted)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>From bus
+                                </td>
+                                <td>Starting/Sending bus number </td>
+                                <td>1 to 100
+                                    (But not restricted)
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>To bus</td>
+                                <td>Ending/receiving bus number</td>
+                                <td>1 to 100
+                                    (But not restricted)
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>R+Xi</td>
+                                <td>Resistance, Reactance value of the transmission line</td>
+                                <td>0.0 to 2 p.u for resistance
+                                    0.001 to 2 p.u for reactance
+                                    (But not restricted)
+
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Line Charging Admittance
+                                </td>
+                                <td>Susceptance offered by the line/ half line charging of the transmission line </td>
+                                <td>0.0 to 0.05
+                                    (But not restricted)</td>
+                            </tr>
+                            <tr>
+                                <td>Tap ratio
+                                </td>
+                                <td>If it is a transformer, enter the tap ratio value.
+                                    If it is a transmission line, use tap ratio 1.
+                                </td>
+                                <td>
+                                    0.9 to 1.01
+                                    (But not restricted)
+
+                                </td>
+                            </tr>
+
+                            <tr>
+                                <th colspan="3">Measurement Data</th>
+                            </tr>
+                            <tr>
+                                <th colspan="3">Active power flow data in a line</th>
+                            </tr>
+                            <tr>
+                                <td>Sending end Bus</td>
+                                <td>Starting/Sending bus number at which the measurement taken</td>
+                                <td>1 to 100
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Receiving end Bus</td>
+                                <td>Ending/receiving bus number
+                                    at which the measurement taken
+                                    </td>
+                                <td>1 to 100
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>P value (p.u)</td>
+                                <td>Real power flow through the line</td>
+                                <td>0 to 1.05 p.u
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>R value</td>
+                                <td>Accuracy of the meter value </td>
+                                <td>0 to 0.05p.u
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            
+                            <tr>
+                                <th colspan="3">Active power injections at a bus  </th>
+                                                          
+                            </tr>
+                            <tr>
+                                <td>Bus Number:	
+                                    </td>
+                                <td>Serial number of the bus at which the measurement taken	</td>
+                                <td>1 to 100
+                                    (But not restricted)</td>
+                            </tr>
+                            <tr>
+                                <td>P value (p.u)</td>
+                                <td>Real power injection at the line</td>
+                                <td>0 to 1.05 p.u
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    R value
+                                </td>
+                                <td>Accuracy of the meter value </td>
+                                <td>0 to 0.05p.u
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td colspan="3">Reactive power injections at a bus</td>
+                            </tr>
+                            <tr>
+                                <td>Bus Number:</td>
+                                <td>Serial number of the bus at which the measurement taken</td>
+                                <td>1 to 100
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Q value (p.u)	
+                                    </td>
+                                <td>Reactive power injection at the bus</td>
+                                <td>	0 to 1.05 p.u
+                                    (But not restricted)</td>
+                            </tr>
+                            <tr>
+                                <td>R value	
+                                    </td>
+                                <td>Accuracy of the meter value 	</td>
+                                <td>0 to 0.05p.u
+                                    (But not restricted)</td>
+                            </tr>
+
+                            <tr><td colspan="3">Voltage at bus</td></tr>
+                            <tr>
+                                <td>Bus Number:	
+                                    </td>
+                                <td>Serial number of the bus at which the measurement taken	</td>
+                                <td>1 to 100
+                                    (But not restricted)</td>
+                            </tr>
+                            <tr>
+                                <td>Voltage Magnitude	
+                                    </td>
+                                <td>Measured voltage Magnitude at the bus by Potential transformer	</td>
+                                <td>0.1 to 1.05 p.u
+                                    (But not restricted)</td>
+                            </tr>
+                            <tr>
+                                <td>R value	
+                                    </td>
+                                <td>Accuracy of the meter value 	</td>
+                                <td>0 to 0.05p.u
+                                    (But not restricted)</td>
+                            </tr>
+
+
+
+                            <tr>
+                                <td colspan="3">Shunt data</td>
+                            </tr>
+                            <tr>
+                                <td>Shunt Number:</td>
+                                <td>Serial number of the bus </td>
+                                <td>1 to 100
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Connected Bus</td>
+                                <td>bus number at which the measurement taken</td>
+                                <td>1 to 100
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                            <tr>
+                                <td>Admittance value</td>
+                                <td>Measured shunt admittance value at the bus</td>
+                                <td>0 to 0.0005p.u
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+
+
+                            <tr><th colspan="3">Covariance Matrix (R) – size of the Covariance matrix is depends on measurement data </th></tr>
+                            <tr>
+                                <td>Diagonal value 1 of the Covariance Matrix (R)
+                                    </td>
+                                <td>	First Measurement data covariance value enter at first diagonal</td>
+                                <td>	0 to 0.05p.u
+                                    (But not restricted)</td>
+                            </tr>
+                            <tr>
+                                <td>Diagonal value 2 of the Covariance Matrix (R)
+                                    </td>
+                                <td>second Measurement data covariance value enter at second diagonal</td>
+                                <td>0 to 0.05p.u
+                                    (But not restricted)</td>
+                            </tr>
+                            <tr>
+                                <td>Diagonal value 3 of the Covariance Matrix (R)</td>
+                                <td>third Measurement data covariance value enter at third diagonal</td>
+                                <td>0 to 0.05p.u
+                                    (But not restricted)
+                                    </td>
+                            </tr>
+                        </table>
+                        <div id="formulae">
+                            <img src="images/exp4_form1.PNG" alt="img1">
+                            <img src="images/exp4_form2.PNG" alt="img2">
+
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary" data-bs-target="#modal3" data-bs-toggle="modal"
+                            data-bs-dismiss="modal">Previous</button>
+
                         <button class="btn btn-primary" data-bs-dismiss="modal">Close</button>
                     </div>
                 </div>

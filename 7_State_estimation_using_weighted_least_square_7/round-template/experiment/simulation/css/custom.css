@@ -10,6 +10,10 @@ body {
     background-color: #ad8b73;
     padding: 10px 50px;
     margin-bottom: -16px;
+
+}
+table,td,tr,th{
+    border: 1px solid black;
 }
 #md > h1{
 

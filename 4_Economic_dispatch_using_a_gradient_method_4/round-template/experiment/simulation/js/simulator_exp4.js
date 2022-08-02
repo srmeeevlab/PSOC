@@ -154,8 +154,8 @@ function Simulate() {
         <table>
             <thead>
                 <th>Iteration No</th>
-                <th>Lambda</th>
-                <th>P</th>
+                <th>Lambda (Rs/hr)</th>
+                <th>P (MW)</th>
             <thead>
             ${rows}
         </table>

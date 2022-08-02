@@ -809,12 +809,12 @@ const runSIM = ()=>{
     // ans3.innerHTML = 'Reactive power is required to maintain the mid-point voltage at 1 per unit ' +Qr.toFixed(2)+ ' var.'
     
 //    //console.log(typeof v[0])
-    ans3.innerHTML = `V1 = ${v[0].re.toFixed(4)}`
-    ans4.innerHTML = `V2 = ${v[1].re.toFixed(4)}`
-    ans5.innerHTML = `V3 = ${v[2].re.toFixed(4)}`
-    ans6.innerHTML = `del1 = ${del[0].toFixed(4)}`
-    ans7.innerHTML = `del2 = ${del[1].re.toFixed(4)}`
-    ans8.innerHTML = `del3 = ${del[2].re.toFixed(4)}`
+    ans3.innerHTML = `V1 = ${v[0].re.toFixed(4)} p.u.`
+    ans4.innerHTML = `V2 = ${v[1].re.toFixed(4)} p.u`
+    ans5.innerHTML = `V3 = ${v[2].re.toFixed(4)} p.u`
+    ans6.innerHTML = `del1 = ${del[0].toFixed(4)} rad`
+    ans7.innerHTML = `del2 = ${del[1].re.toFixed(4)} rad`
+    ans8.innerHTML = `del3 = ${del[2].re.toFixed(4)} rad`
 
     ans3.style.marginBottom = "2rem"
     ans4.style.marginBottom = "2rem"

@@ -90,6 +90,9 @@ nav {
     border: none;
 }
 
+table,th,tr,td{
+    border: 1px solid black !important;
+}
 .highlight {
     background-color: #e3caa5;
 }

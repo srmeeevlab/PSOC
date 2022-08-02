@@ -186,7 +186,7 @@ function Simulate() {
     `
     
     
-    ans1.innerHTML = "Output of Economic Dispatch Problem Lambda = " + lambda.toFixed(4) + " unit"
+    ans1.innerHTML = "Output of Economic Dispatch Problem Lambda = " + lambda.toFixed(4) + " Rs./hr"
     ans2.innerHTML = '**Optimal Generation** ' + tab1
     ans3.innerHTML = 'Incremental Fuel Cost and Penalty factors are: ' +tab2
     ans4.innerHTML = 'Total Generation Cost = INR  ' +totgencost.toFixed(4)+ ' per hour'
