@@ -34,7 +34,7 @@
 }
 
 .vlabs-page-content {
-    border-left: 2px dotted #89a7c4;
+    /* border-left: 2px dotted #89a7c4; */
     overflow-y: hidden;
     font-family: 'Raleway', sans-serif;
 }
