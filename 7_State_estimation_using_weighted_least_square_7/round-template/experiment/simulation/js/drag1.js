@@ -1445,6 +1445,7 @@ function prebuilt() {
 
         document.getElementById("prebuilt").innerHTML = " PreBuilt"
         interface.innerHTML = `
+        <h2 class="text-center">Interface</h2>
         <div id="drop-box">
             <span>you can drop the blocks here</span>
         </div>
