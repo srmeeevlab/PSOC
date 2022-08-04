@@ -1,3 +1,4 @@
-Economic dispatch considering transmission losses.
 
-Economic dispatch considering transmission losses. Deduce the incremental cost equation for the given thermal power plants.calculation of the real power output of each thermal power plant. Take transmission loss into account when figuring out the best way to schedule power plants to meet a given load demand.
+To estimate the economic schedule among the power plants for a given loading demand including the transmission loss.
+
+&emsp; &emsp; Given a power system of thermal power generating units, determining how much power each unit should generate for a given demand including the network power loss while minimizing the total operational costs, which are generally expressed in nonlinear form.

@@ -1,3 +1,4 @@
-VI Characteristics of Solar Energy
 
-VI Characteristics of Solar Energy design of open circuit voltage and short-circuit current. calculation of maximum power point data, fill factors, and efficiency. Obtain the relationship between the output current and voltage for various temperatures and solar irradiation.
+To study the characteristics of solar energy for various temperature and solar irradiation.
+
+&emsp; &emsp; In this experiment, the user simulates characteristics of a given solar panel rating through which the following Voltage Vs current and Power Vs Voltage plots are obtained. In addition to that, the user can know the maximum power generation, voltage, current of a solar panel for the input of the different temperatures and irradiance levels.

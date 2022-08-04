@@ -1,3 +1,4 @@
-Development of voltage controllers for the SMIB system.
 
-The development of voltage controllers for SMIB systems Create a mathematical model of the SMIB system. Analyze the real and reactive power flows for different loading conditions. design of a reactive power compensator at the receiving end.
+To design the reactive power compensator by analysing the real and reactive power flow for different loading conditions of SMIB system.
+
+&emsp; &emsp; In a power system with a long transmission line, the magnitude of the midpoint voltage depends on the power transfer. The voltage of the transmission line influences the line insulation and therefore the significance of mid-point voltage regulation needs to be studied for the long transmission line. For the symmetrical lossless line where the end voltages are held at nominal values, the midpoint magnitude voltage shows the highest magnitude variation for the line loading of full load to no-load, also the midpoint voltage is breached from the nominal level and there must be a technique to control and regulate the voltage at the midpoint. Hence the virtual laboratory attempts the design of midpoint var compensator for the SMIB system in order to control the voltage and maintain the expected voltage profile along the line.
