@@ -550,3 +550,15 @@ function SCORE() {
     }
 
 }
+
+function modalbackdrophandler(){
+    setTimeout(()=>{
+        console.log("backdrop hnadleer")
+    let backdrops = document.getElementsByClassName("modal-backdrop")
+    console.log(backdrops)
+    Array.from(backdrops).forEach(element => {
+        element.remove()
+    });
+    },1500)
+    
+}
