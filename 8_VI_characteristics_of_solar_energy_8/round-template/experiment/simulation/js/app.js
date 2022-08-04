@@ -475,7 +475,7 @@ function PLOT() {
 
 function HOLD() {
     holdpressed = true
-    document.getElementById('holdbut').innerHTML = 'hold pressed';
+    document.getElementById('holdbut').innerHTML = 'Held';
 }
 
 function HIDE() {
