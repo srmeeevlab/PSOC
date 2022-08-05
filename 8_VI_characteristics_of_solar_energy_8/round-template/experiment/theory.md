@@ -4,7 +4,8 @@ The mathematical model of the Photovoltaic cell is presented in Figure 1. In whi
 
 Apply KCL at point A in Figure 1, in order to write the equation that follows.
 
-![ ](.\images\theory_formulae_1.png)
+<!-- ![ ](.\images\theory_formulae_1.png) -->
+![ ](./images/theory_formulae_1.png)
 
 An ideal current source equation is given the ideal current equation the diode saturated current expression yields. The equations expressed below, comprise of the voltage and the current of the PV cell considering series resistances.
 
