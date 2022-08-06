@@ -2,7 +2,6 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    text-align: center;
 }
 
 .btn:active {
@@ -81,8 +80,7 @@ nav {
     flex-direction: column;
     justify-content: space-evenly;
     align-items: center;
-    text-align: center;
-    max-width: fit-content;
+    max-width:max-content;
     background-color: #e3caa5;
     padding: 3.15rem;
     margin: auto;
@@ -176,4 +174,10 @@ footer {
     background-color: #ad8b73;
     color: white;
     text-align: center;
+}
+
+.buttons{
+
+    text-align: center;
+    
 }
